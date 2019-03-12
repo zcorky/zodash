@@ -2,6 +2,8 @@
   "name": "root",
   "private": true,
   "scripts": {
+    "bootstrap": "lerna bootstrap --hoist",
+    "test": "lerna run test",
     "publish": "lerna run tsc && lerna publish"
   },
   "devDependencies": {

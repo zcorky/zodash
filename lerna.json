@@ -6,7 +6,9 @@
   "npmClient": "cnpm",
   "command": {
     "publish": {
-      "ignoreChanges": ["*.lock"]
+      "ignoreChanges": ["*.lock"],
+      "allowBranch": "master",
+      "message": "chore(release): publish %s"
     },
     "bootstrap": {
       "npmClientArgs": ["--no-package-lock"]
