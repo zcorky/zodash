@@ -3,3 +3,6 @@ lerna-debug.log
 npm-debug.log
 packages/*/lib
 .idea
+*.lock
+package-lock.json
+coverage/
