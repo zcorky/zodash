@@ -18,11 +18,46 @@
   "files": [
     "lib"
   ],
+  "jest": {
+    "roots": [
+      "__tests__"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": ".*\\.(spec|test)\\.(ts|tsx)$",
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx"
+    ],
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/**/*.{ts,tsx}"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 90,
+        "lines": 90,
+        "statements": -10
+      }
+    }
+  },
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
     "tsc": "tsc",
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "test": "jest -w 1"
+  },
+  "devDependencies": {
+    "@zcorky/deep-equal": "^0.0.1"
   }
 }
