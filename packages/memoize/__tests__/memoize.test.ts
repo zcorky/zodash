@@ -17,7 +17,7 @@ describe("@zodash/memoize", () => {
 
       return `${a} + ${b} = ${a + b}`;
     };
-    const memoizedAdd = memoize(add, (a, b) => a + b);
+    const memoizedAdd = memoize(add, (a, b) => `${a + b}`);
     
     const end = time();
     for (let i = 0; i < 100; i++) {
