@@ -3,14 +3,16 @@
     "packages/*"
   ],
   "version": "independent",
-  "npmClient": "cnpm",
   "command": {
     "publish": {
+      "npmClient": "npm",
+      "registry": "https://registry.npmjs.org/",
       "ignoreChanges": ["*.lock"],
       "allowBranch": "master",
       "message": "chore(release): publish %s"
     },
     "bootstrap": {
+      "npmClient": "cnpm",
       "npmClientArgs": ["--no-package-lock"]
     }
   }
