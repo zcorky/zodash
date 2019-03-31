@@ -8,7 +8,7 @@
  * @example
  *  format('Author: {author}, From: {from}', { author: 'Zero', from: 'China' });
  */
-export const format = (pattern: string, map: Record<string, any>) => {
+export function format(pattern: string, map: Record<string, any>) {
   return pattern.replace(/{([^}]+)}/g, (_, key) => {
     return typeof map[key] !== 'undefined' ? map[key] : '';
   });
