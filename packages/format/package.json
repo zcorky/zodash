@@ -19,7 +19,7 @@
     "lib"
   ],
   "publishConfig": {
-    "registry": "https://registry.npm.taobao.org"
+    "access": "public"
   },
   "repository": {
     "type": "git",
@@ -64,5 +64,5 @@
   "bugs": {
     "url": "https://github.com/zcorky/zodash/issues"
   },
-  "gitHead": "c64b6723860752b8dbc3c9a32e6ae04729a62902"
+  "gitHead": "ef2443b120c1e4ebb64bbfec77d7437310bae623"
 }
