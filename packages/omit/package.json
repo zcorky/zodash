@@ -1,6 +1,6 @@
 {
   "name": "@zodash/omit",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0-beta.2",
   "description": "A copy of the object, filtered not in an array of whitelisted keys",
   "keywords": [
     "zodash",
