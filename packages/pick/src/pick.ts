@@ -14,6 +14,7 @@ export function pick<T extends object>(value: T, keys: string[]): PartialDeep<T>
     if (k in value) {
       p[k] = value[k];
     }
+  
     return p;
   }, {});
 }

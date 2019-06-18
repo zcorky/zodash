@@ -68,6 +68,9 @@
   },
   "devDependencies": {
     "@types/lodash": "^4.14.123",
+    "@zcorky/deep-equal": "^0.0.1"
+  },
+  "dependencies": {
     "@zodash/pick": "^1.0.0-beta.2"
   }
 }

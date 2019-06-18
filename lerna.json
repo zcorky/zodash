@@ -15,5 +15,15 @@
       "npmClient": "cnpm",
       "npmClientArgs": ["--no-package-lock"]
     }
+  },
+  "changelog": {
+    "repo": "zcokry/zodash",
+    "labels": {
+      "enchancement": ":rocket:(Enhancement)",
+      "bug": ":bug:(Bug Fix)",
+      "doc": ":doc:(Refine Doc)",
+      "feat": ":sparkles:(Feature)"
+    },
+    "cacheDir": ".changelog"
   }
 }
