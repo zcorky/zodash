@@ -6,11 +6,11 @@
  * @param path The path of the property to get.
  * @param defaultValue The value returned for undefined resolved values.
  */
-export function get<T extends object, D>(value: T, path: string, defaultValue: D = null): D {
+export function get<T extends object, D>(value: T, path: string, defaultValue: D = undefined): D {
   return path
     .split('.')
     .reduce((p, k) => {
-      if (p && p[k]) {
+      if (p && typeof p[k] !== 'undefined') {
         return p[k];
       }
 
