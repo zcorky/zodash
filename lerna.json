@@ -12,8 +12,7 @@
       "message": "chore(release): publish"
     },
     "bootstrap": {
-      "npmClient": "cnpm",
-      "npmClientArgs": ["--no-package-lock"]
+      "npmClient": "npm"
     }
   },
   "changelog": {

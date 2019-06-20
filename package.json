@@ -3,9 +3,11 @@
   "private": true,
   "scripts": {
     "bootstrap": "lerna bootstrap --hoist",
+    "build": "lerna run tsc",
     "test": "lerna run test",
     "clean": "lerna clean",
-    "publish": "lerna run tsc && lerna publish"
+    "publish": "lerna run tsc && lerna publish",
+    "publish:ci": "lerna run tsc && lerna publish -y from-git"
   },
   "devDependencies": {
     "@types/jest": "^24.0.15",

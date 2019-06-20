@@ -1,0 +1,29 @@
+language: node_js
+
+node_js:
+  - "10"
+  - "11"
+
+install:
+  - npm i
+  - npm run bootstrap
+  - npm run build # @TODO lerna bug will use symlink when depending on internal packages, but package is typescript, no lib before build
+
+script:
+  - npm run test
+
+# after_success:
+#   - npm run coverage
+
+before_deploy:
+  - cp .npmrc.template ~/.npmrc
+
+deploy:
+  provider: script
+  email: uniquecolesmith@gmail.com
+  api_key: $NPM_AUTH_TOKEN
+  skip_cleanup: true
+  script: npm run publish:ci
+  on:
+    tags: true
+    branch: master
