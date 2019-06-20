@@ -14,7 +14,7 @@ script:
 
 after_success:
   - npm run coverage
-
+  - git remote set-url origin git@${GH_TOKEN}@github.com:${TRAVIS_REPO_SLUG}.git
 
 git:
   depth: 5
@@ -31,6 +31,7 @@ deploy:
   email: uniquecolesmith@gmail.com
   api_key: $NPM_AUTH_TOKEN
   skip_cleanup: true
-  script: npm run publish:ci
+  script: npx lerna publish --yes
   on:
+    tags: true
     branch: master
