@@ -7,6 +7,7 @@ node_js:
 install:
   - npm i
   - npm run bootstrap
+  - npm run build # @TODO lerna bug will use symlink when depending on internal packages, but package is typescript, no lib before build
 
 script:
   - npm run test
