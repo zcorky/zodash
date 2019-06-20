@@ -64,6 +64,31 @@ describe("@zodash/alias", () => {
     expect(alias(response, mappings)).toEqual(expected);
   });
 
+  it('simple ugly object', () => {
+    const response = {
+      code: 200,
+      message: null,
+      data: {
+        name: 'zero',
+        attributes: [18, true]
+      },
+    };
+
+    const mappings = {
+      name: 'data.name',
+      age: 'data.attributes.0',
+      alive: 'data.attributes.1',
+    };
+
+    const expected = {
+      name: 'zero',
+      age: 18,
+      alive: true,
+    };
+
+    expect(alias(response, mappings)).toEqual(expected);
+  });
+
   it("string & object & array", () => {
     const mappings = {
       total: 'data.total',
