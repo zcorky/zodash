@@ -33,5 +33,4 @@ deploy:
   skip_cleanup: true
   script: npx lerna publish --yes
   on:
-    tags: true
     branch: master
