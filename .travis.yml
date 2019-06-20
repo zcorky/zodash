@@ -26,4 +26,6 @@ deploy:
   script: npm run publish:ci
   on:
     tags: true
-    branch: master
+    branches:
+      only:
+        - master
