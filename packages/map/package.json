@@ -55,7 +55,8 @@
   },
   "scripts": {
     "tsc": "tsc",
-    "test": "jest -w 1"
+    "test": "jest -w 1",
+    "coverage": "codecov"
   },
   "devDependencies": {
     "@zcorky/deep-equal": "^0.0.1"
