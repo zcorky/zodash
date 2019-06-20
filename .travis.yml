@@ -32,6 +32,7 @@ deploy:
   email: uniquecolesmith@gmail.com
   api_key: $NPM_AUTH_TOKEN
   skip_cleanup: true
+  keep_history: true
   script: npx lerna publish --yes
   on:
     branch: master
