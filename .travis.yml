@@ -15,6 +15,7 @@ script:
 after_success:
   - npm run coverage
   - git remote set-url origin git@${GH_TOKEN}@github.com:${TRAVIS_REPO_SLUG}.git
+  - git checkout master
 
 git:
   depth: 5
