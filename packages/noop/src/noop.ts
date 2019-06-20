@@ -1,1 +1,1 @@
-export const noop = (...args: any[]) => null;
+export const noop = <T extends any[]>(...args: T) => null;

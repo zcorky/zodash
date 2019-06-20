@@ -4,4 +4,12 @@ describe("@zodash/noop", () => {
   it("needs tests", () => {
     expect(noop()).toBeNull();
   });
+
+  it("typescript generic", () => {
+    type Fn = (x: number, y: number, name: string) => [number, number];
+    function go(fn: Fn = noop) {
+
+    }
+    // type Params = Parameters<Fn>;
+  });
 });
