@@ -1,4 +1,3 @@
-import { Mappings } from './alias';
 import { get } from '@zodash/get';
 import { reduce } from '@zodash/reduce';
 import { map } from '@zodash/map';
