@@ -1,6 +1,6 @@
 {
   "name": "@zodash/zip-object",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Zip two array as object, first as keys, second as values.",
   "keywords": [
     "entries",
