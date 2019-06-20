@@ -5,7 +5,7 @@
     "bootstrap": "lerna bootstrap --hoist",
     "build": "lerna run tsc",
     "test": "lerna run test",
-    "coverage": "lerna run coverage",
+    "coverage": "codecov",
     "clean": "lerna clean",
     "publish": "lerna run tsc && lerna publish",
     "publish:ci": "lerna run tsc && lerna publish -y from-git"
