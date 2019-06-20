@@ -12,8 +12,8 @@ install:
 script:
   - npm run test
 
-# after_success:
-#   - npm run coverage
+after_success:
+  - npm run coverage
 
 before_deploy:
   - cp .npmrc.template ~/.npmrc

@@ -5,6 +5,7 @@
     "bootstrap": "lerna bootstrap --hoist",
     "build": "lerna run tsc",
     "test": "lerna run test",
+    "coverage": "lerna run coverage",
     "clean": "lerna clean",
     "publish": "lerna run tsc && lerna publish",
     "publish:ci": "lerna run tsc && lerna publish -y from-git"
@@ -20,5 +21,8 @@
     "lodash": "^4.17.11",
     "ts-jest": "^24.0.2",
     "typescript": "^3.5.2"
+  },
+  "dependencies": {
+    "codecov": "^3.5.0"
   }
 }
