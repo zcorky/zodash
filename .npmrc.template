@@ -1,0 +1,4 @@
+//registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}
+//registry.npmjs.org/:username=uniquecolesmith
+//registry.npmjs.org/:email=uniquecolesmith@gmail.com
+//registry.npmjs.org/:always-auth=true
