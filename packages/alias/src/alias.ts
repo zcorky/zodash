@@ -18,7 +18,7 @@ export type Mappings = Arrayable<Path>
   }>
 
 function isStatic(v: any) {
-  const key = (d: any) => {
+  const keyGen = (d: any) => {
     if (isNumber(d)) {
       return 'number';
     } else if (isBoolean(d)) {
@@ -34,25 +34,38 @@ function isStatic(v: any) {
     'default': () => false,
   };
 
-  return match(v, handlers, key);
+  return match(v, handlers, keyGen);
 }
 
 export function alias<T extends object, R>(data: T, mappings: Mappings): R {
-  
-  if (isStatic(mappings)) {
-    // 0 static data
-    return mappings as any as R;
-  } else if (isString(mappings)) {
-    // 1 string
-    return get(data, mappings);
-  } else if (isArray(mappings)) {
-    // 2 array
-    return map(mappings as any, (one: any) => alias(data, one)) as any;
-  } 
+  const keyGen = (m: Mappings) => {
+    if (isStatic(mappings)) {
+      return 'static';
+    } else if (isString(mappings)) {
+     return 'string';
+    } else if (isArray(mappings)) {
+      return 'array';
+    } else {
+      return 'object';
+    }
+  };
 
-  // 3 object
-  return reduce(Object.keys(mappings), (all, key) => {
-    all[key] = alias(data, mappings[key] as Mappings);
-    return all;
-  }, {}) as R;
+  const handlers = {
+    // 0 static data
+    'static': (m: Mappings) => m,
+    
+    // 1 string
+    'string': (m: string) => get(data, m),
+    
+    // 2 array
+    'array': (m: Mappings) => map(mappings as any, (one: any) => alias(data, one)) as any,
+    
+    // 3 object
+    'object': (m: Mappings) => reduce(Object.keys(mappings), (all, key) => {
+      all[key] = alias(data, mappings[key] as Mappings);
+      return all;
+    }, {}),
+  };
+  
+  return match(mappings, handlers, keyGen) as R;
 }
