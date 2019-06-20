@@ -1,6 +1,6 @@
 {
   "name": "@zodash/get",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Get the value at path of object.",
   "keywords": [
     "get",
