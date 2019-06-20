@@ -72,6 +72,7 @@
     "@zcorky/is": "^1.0.6",
     "@zodash/get": "^1.0.2",
     "@zodash/map": "^1.0.2-beta.1",
+    "@zodash/match": "^0.0.1",
     "@zodash/reduce": "^1.0.1"
   }
 }

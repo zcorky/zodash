@@ -2,6 +2,7 @@ import { Mappings } from './alias';
 import { get } from '@zodash/get';
 import { reduce } from '@zodash/reduce';
 import { map } from '@zodash/map';
+import { match } from '@zodash/match';
 import { string as isString, number as isNumber, boolean as isBoolean, array as isArray } from '@zcorky/is';
 
 export type Path = string;
@@ -17,13 +18,23 @@ export type Mappings = Arrayable<Path>
   }>
 
 function isStatic(v: any) {
-  if (isNumber(v)) {
-    return true;
-  } else if (isBoolean(v)) {
-    return true;
-  }
+  const key = (d: any) => {
+    if (isNumber(d)) {
+      return 'number';
+    } else if (isBoolean(d)) {
+      return 'boolean';
+    } else {
+      return 'default';
+    }
+  };
 
-  return false;
+  const handlers = {
+    'number': () => true,
+    'boolean': () => true,
+    'default': () => false,
+  };
+
+  return match(v, handlers, key);
 }
 
 export function alias<T extends object, R>(data: T, mappings: Mappings): R {
