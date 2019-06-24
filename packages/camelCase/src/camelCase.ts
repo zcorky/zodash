@@ -1,6 +1,9 @@
 import { capitalize } from '@zodash/capitalize';
 
-const pattern = /([a-zA-Z]+)/g;
+const camelCasePatten = '([A-Z]?[a-z]+)';
+const lowerCasePattern = '([a-zA-Z]+)';
+
+const pattern = new RegExp(`${camelCasePatten}|${lowerCasePattern}`, 'g');
 
 function words(value: string) {
   return value.match(pattern);
