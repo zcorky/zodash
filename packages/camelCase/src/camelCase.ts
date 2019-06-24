@@ -1,4 +1,4 @@
-import { capitalize } from "../../capitalize/src/capitalize";
+import { capitalize } from '@zodash/capitalize';
 
 const pattern = /([a-zA-Z]+)/g;
 
