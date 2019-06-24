@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.0.1 (2019-06-24)
+
+**Note:** Version bump only for package @zodash/capitalize
+
+
+
+
+
 ## 1.0.5 (2019-06-20)
 
 **Note:** Version bump only for package @zodash/pick
