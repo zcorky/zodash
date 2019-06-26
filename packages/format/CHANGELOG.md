@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.1-alpha.7](https://github.com/zcorky/zodash/compare/@zodash/format@1.0.1-alpha.6...@zodash/format@1.0.1-alpha.7) (2019-06-26)
+
+**Note:** Version bump only for package @zodash/format
+
+
+
+
+
 ## 1.0.1-alpha.6 (2019-06-26)
 
 **Note:** Version bump only for package @zodash/format

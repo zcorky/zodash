@@ -1,6 +1,6 @@
 {
   "name": "@zodash/random",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Produces a random number between the inclusive lower and upper bounds.",
   "keywords": [
     "random",
