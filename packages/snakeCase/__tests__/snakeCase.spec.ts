@@ -4,19 +4,19 @@ import { camelCase } from '@zodash/camel-case';
 import { snakeCase } from '../src/snakeCase';
 
 describe("@zodash/snakeCase", () => {
-  it("foo-bar => foo-bar", () => {
-    expect(snakeCase('foo-bar')).toBe('foo-bar');
+  it("foo_bar => foo_bar", () => {
+    expect(snakeCase('foo_bar')).toBe('foo_bar');
   });
 
-  it("foo-bar-baz => foo-bar-baz", () => {
-    expect(snakeCase('foo-bar-baz')).toBe('foo-bar-baz');
+  it("foo_bar_baz => foo_bar_baz", () => {
+    expect(snakeCase('foo_bar_baz')).toBe('foo_bar_baz');
   });
 
-  it("fooBarBaz => foo-bar-baz", () => {
-    expect(snakeCase('fooBarBaz')).toBe('foo-bar-baz');
+  it("fooBarBaz => foo_bar_baz", () => {
+    expect(snakeCase('fooBarBaz')).toBe('foo_bar_baz');
   });
 
-  it("fooBar => foo-bar", () => {
-    expect(snakeCase('fooBar')).toBe('foo-bar');
+  it("fooBar => foo_bar", () => {
+    expect(snakeCase('fooBar')).toBe('foo_bar');
   });
 });
