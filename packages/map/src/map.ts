@@ -5,6 +5,6 @@
  * @param fn - Transformation function
  * @returns A new array of transformed value
  */
-export function map<T, R = any>(value: T[], fn: (v: T) => R) {
+export function map<T, R = any>(value: T[], fn: (value: T, index: number, array: T[]) => R) {
   return value.map(fn);
 }
