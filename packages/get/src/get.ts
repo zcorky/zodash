@@ -8,6 +8,7 @@
  */
 export function get<T extends object, D>(value: T, path: string, defaultValue: D = undefined): D {
   return path
+    .replace(/\[(\w+)\]/g, '.$1')
     .split('.')
     .reduce((p, k) => {
       if (p && typeof p[k] !== 'undefined') {
