@@ -1,22 +1,22 @@
-export interface IMicrohub<S> {
-  register(name: string, service: S): void;
-  discover(name: string): S | undefined;
+export interface IMicrohub {
+  register<E>(name: string, entity: E): void;
+  discover<E>(name: string): E;
   // on(event: 'register' | 'discover'): void;
   // of(event: 'register' | 'discover'): void;
 }
 
-export class Microhub<S> implements IMicrohub<S> {
-  private store: Map<string, S> = new Map<string, S>();
+export class Microhub implements IMicrohub {
+  private store: Map<string, any> = new Map<string, any>();
 
-  public register(name: string, service: S) {
-    this.store.set(name, service);
+  static create<T extends IMicrohub>() {
+    return new Microhub() as any as T;
   }
 
-  public discover(name: string): S {
+  public register<N extends string, E>(name: N, entity: E) {
+    this.store.set(name, entity);
+  }
+
+  public discover(name: string): any {
     return this.store.get(name);
   }
-}
-
-export function createMicrohub<S>() {
-  return new Microhub<S>();
 }
