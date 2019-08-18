@@ -67,6 +67,9 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "devDependencies": {
+    "@types/benchmark": "^1.0.31",
+    "@types/node-uuid": "^0.0.28",
+    "benchmark": "^2.1.4",
     "node-uuid": "^1.4.8"
   }
 }
