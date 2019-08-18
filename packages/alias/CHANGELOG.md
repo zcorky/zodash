@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.17](https://github.com/zcorky/zodash/compare/@zodash/alias@0.0.16...@zodash/alias@0.0.17) (2019-08-18)
+
+**Note:** Version bump only for package @zodash/alias
+
+
+
+
+
 ## [0.0.16](https://github.com/zcorky/zodash/compare/@zodash/alias@0.0.15...@zodash/alias@0.0.16) (2019-08-18)
 
 **Note:** Version bump only for package @zodash/alias
