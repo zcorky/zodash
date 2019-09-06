@@ -13,7 +13,7 @@ export type ITask<R> = (cb: Callback<R>) => void;
 //   isEmpty(): boolean;
 // }
 
-// const nextTick = (callback: (...args: any) => void, ...args: any) => setImmediate ? setImmediate(callback, ...args) : setTimeout(callback, 0, ...args);
+const nextTick = (callback: (...args: any) => void, ...args: any) => typeof setImmediate !== 'undefined' ? setImmediate(callback, ...args) : setTimeout(callback, 0, ...args);
 
 // const poll = (queue: Queue<ITask<any>>) => {
 //   if (queue.isEmpty()) {
@@ -54,16 +54,16 @@ export function parallelLimit<R>(tasks: ITask<R>[], limit: number, cb?: Done<R>)
     results[index] = err || result;
     
     if (--pending === 0) {
-      done();
-      // nextTick(done);
+      // done();
+      nextTick(done);
     } else if (next < len) {
       const key = next;
       const task = tasks[key];
       next += 1;
       task(function (err, result) {
         // give err and result to next
-        each(key, err, result);
-        // nextTick(each, key, err, result);
+        // each(key, err, result);
+        nextTick(each, key, err, result);
       });
     }
   }
@@ -74,8 +74,8 @@ export function parallelLimit<R>(tasks: ITask<R>[], limit: number, cb?: Done<R>)
   } else {
     tasks.some((task, i) => {
       task((err, result) => {
-        each(i, err, result)
-        // nextTick(each, i, err, result);
+        // each(i, err, result)
+        nextTick(each, i, err, result);
       });
 
       // early return
