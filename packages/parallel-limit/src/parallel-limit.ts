@@ -50,7 +50,7 @@ export function parallelLimit<R>(tasks: ITask<R>[], limit: number, cb?: Done<R>)
     }
   }
 
-  function each(index: number, err: Error | null, result: Result<R>) {
+  function poll(index: number, err: Error | null, result: Result<R>) {
     results[index] = err || result;
     
     if (--pending === 0) {
@@ -62,8 +62,8 @@ export function parallelLimit<R>(tasks: ITask<R>[], limit: number, cb?: Done<R>)
       next += 1;
       task(function (err, result) {
         // give err and result to next
-        // each(key, err, result);
-        nextTick(each, key, err, result);
+        // poll(key, err, result);
+        nextTick(poll, key, err, result);
       });
     }
   }
@@ -74,8 +74,8 @@ export function parallelLimit<R>(tasks: ITask<R>[], limit: number, cb?: Done<R>)
   } else {
     tasks.some((task, i) => {
       task((err, result) => {
-        // each(i, err, result)
-        nextTick(each, i, err, result);
+        // poll(i, err, result)
+        nextTick(poll, i, err, result);
       });
 
       // early return
