@@ -1,6 +1,10 @@
 import { TaskManager } from '../src/task-manager';
 import { delay } from '@zcorky/delay';
 
+// @TODO when using setImmediate in nextTick
+//  will error: This usually means that there are asynchronous operations that weren't stopped in your tests. Consider running Jest with `--detectOpenHandles` to troubleshoot this issue.
+global.setImmediate = undefined;
+
 describe("@zodash/task-queue", () => {
   it('works', (done) => {
     const results = [];

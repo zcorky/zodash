@@ -67,8 +67,8 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "@zcorky/delay": "^1.0.1",
     "@zcorky/moment": "^1.0.11",
+    "@zodash/next-tick": "^0.0.0",
     "@zodash/queue": "^0.0.1"
   }
 }

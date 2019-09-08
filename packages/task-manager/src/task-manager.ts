@@ -79,6 +79,7 @@ export class TaskManager implements ITaskManager {
 
 // var exampleTask = async () => {
 //   await delay(10000);
+//   console.log('done);
 // }
 
 // var t1 = Task.create('task1', null, exampleTask);
