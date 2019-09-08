@@ -72,7 +72,7 @@ export class TaskManager implements ITaskManager {
 }
 
 // var delay = require('@zcorky/delay').delay;
-// var TaskManager = require('./src/task-queue').TaskManager;
+// var TaskManager = require('./src/task-manager').TaskManager;
 // var Task = require('./src/task').Task
 
 // var queue = new TaskManager(2);
