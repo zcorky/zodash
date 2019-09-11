@@ -1,4 +1,4 @@
-export type Middleware = <C>(context: C, next: Next) => any | Promise<any>;
+export type Middleware<C> = (context: C, next?: Next) => any | Promise<any>;
 
 export type Next = () => Promise<void>;
 
@@ -7,8 +7,8 @@ export type Next = () => Promise<void>;
  * 
  * @param middlewares componse functions
  */
-export function compose<C>(...middlewares: Middleware[]) {
-  return (context: C, next: Next) => {
+export function compose<C>(...middlewares: Middleware<C>[]) {
+  return (context: C, next?: Next) => {
     let index = -1;
 
     function dispatch(i: number) {

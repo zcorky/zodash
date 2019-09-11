@@ -1,43 +1,66 @@
-import { compose } from '../src/compose';
+import { compose, Middleware } from '../src/compose';
 
 // compose vs pipe
 
 describe("@zodash/compose", () => {
-  it('calculate', () => {
-    // const context = {};
-    const sum = (data: { left: number, right: number }, next) => data.left + data.right;
-    const pow = (x: number) => Math.pow(x, 2);
-    const sub = (x: number) => x - 6;
-
-    expect(compose(sum, pow, sub)({ left: 1, right: 2 })).toEqual(3);
-  });
-
-  it('actions', () => {
-    interface Action {
-      type: string;
-      payload: string;
-    }
-    const result = [];
-    const doTask1 = (action: Action) => {
-      // do something
-      result.push(1);
-      return action;
+  it('middleware', () => {
+    interface Context {
+      state: any[];
     }
 
-    const doTask2 = (action: Action) => {
-      // do something
-      result.push(2);
-      return action;
-    }
+    class App {
+      private middlewares: Middleware<Context>[] = [];
+      private _context: Context = {
+        state: [],
+      } as Context;
+      private _handler: Middleware<Context>;
 
-    const doTask3 = (action: Action) => {
-      // do something
-      result.push(3);
-      return action;
-    }
+      public use(middleware: Middleware<Context>) {
+        this.middlewares.push(middleware);
+      }
 
-    const action = { type: 'setup', payload: { name: 'Zero' } };
-    expect(compose(doTask1, doTask2, doTask3)(action)).toEqual(action);
-    expect(result).toEqual([1, 2, 3]);
+      public start() {
+        const fn = compose(...this.middlewares);
+        this._handler = fn;
+      }
+
+      public async emit() {
+        await this._handler(this._context);
+      }
+
+      public get context() {
+        return this._context;
+      }
+    }
+    
+    const app = new App();
+
+    const m1 = async (context: Context, next: Function) => {
+      context.state.push(1);
+      await next();
+      context.state.push(6);
+    };
+
+    const m2 = async (context: Context, next: Function) => {
+      context.state.push(2);
+      await next();
+      context.state.push(5);
+    };
+
+    const m3 = async (context: Context, next: Function) => {
+      context.state.push(3);
+      await next();
+      context.state.push(4);
+    };
+
+    app.use(m1);
+    app.use(m2);
+    app.use(m3);
+
+    app.start();
+
+    app.emit().then(() => {
+      expect(app.context.state).toEqual([1, 2, 3, 4, 5, 6]);
+    });
   });
 });
