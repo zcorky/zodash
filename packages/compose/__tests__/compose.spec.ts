@@ -1,8 +1,11 @@
 import { compose } from '../src/compose';
 
-describe("@zodash/wait-until", () => {
+// compose vs pipe
+
+describe("@zodash/compose", () => {
   it('calculate', () => {
-    const sum = (data: { left: number, right: number }) => data.left + data.right;
+    // const context = {};
+    const sum = (data: { left: number, right: number }, next) => data.left + data.right;
     const pow = (x: number) => Math.pow(x, 2);
     const sub = (x: number) => x - 6;
 
