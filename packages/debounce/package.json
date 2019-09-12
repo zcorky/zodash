@@ -1,6 +1,6 @@
 {
   "name": "@zodash/debounce",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "Debounce functions",
   "keywords": [
     "throttle",

@@ -1,6 +1,6 @@
 {
   "name": "@zodash/generatee",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Create a generator for data (array or object)",
   "keywords": [
     "generatee",

@@ -1,6 +1,6 @@
 {
   "name": "@zodash/format",
-  "version": "1.0.1-alpha.9",
+  "version": "1.0.1-alpha.10",
   "description": "format string with object values",
   "keywords": [
     "format",
