@@ -1,9 +1,8 @@
 /**
  * Creates an array of unique values, in order, from all given arrays.
  * 
- * @param main main array
- * @param compare compared array
- * @param by key by
+ * @param by (optional) by function
+ * @param arrays array of array
  */
 export function union<T>(by: (value: T) => string, ...arrays: T[][]): T[]
 export function union<T>(...arrays: T[][]): T[]
