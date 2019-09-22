@@ -1,6 +1,6 @@
 {
   "name": "@zodash/filter",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "filter an list of values to into a single value",
   "keywords": [
     "map",

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.7](https://github.com/zcorky/zodash/compare/@zodash/snake-case@0.0.6...@zodash/snake-case@0.0.7) (2019-09-22)
+
+**Note:** Version bump only for package @zodash/snake-case
+
+
+
+
+
 ## 0.0.6 (2019-09-21)
 
 **Note:** Version bump only for package @zodash/snake-case

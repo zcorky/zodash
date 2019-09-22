@@ -1,6 +1,6 @@
 {
   "name": "@zodash/reduce",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "Reduce an list of values to into a single value",
   "keywords": [
     "map",
