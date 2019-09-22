@@ -1,7 +1,7 @@
 {
   "name": "@zodash/to-path",
   "version": "0.0.0",
-  "description": "Creates a unique id",
+  "description": "Transform path string to path array",
   "keywords": [
     "lodash",
     "zodash",

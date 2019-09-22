@@ -68,5 +68,8 @@
   },
   "devDependencies": {
     "@zcorky/deep-equal": "^0.0.1"
+  },
+  "dependencies": {
+    "@zodash/to-path": "^0.0.0"
   }
 }
