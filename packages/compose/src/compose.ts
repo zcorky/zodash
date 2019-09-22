@@ -1,4 +1,4 @@
-export type Middleware<C> = (context: C, next?: Next) => any | Promise<any>;
+export type Middleware<C> = (context: C, next?: Next) => Promise<any>;
 
 export type Next = () => Promise<void>;
 
