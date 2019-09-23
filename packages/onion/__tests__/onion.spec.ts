@@ -10,9 +10,9 @@ declare module '../src/onion' {
     state: number[];
   }
 
-  interface Context {
-    state: number[];
-  }
+  // interface Context {
+  //   state: number[];
+  // }
 }
 
 describe("@zodash/onion", () => {
@@ -24,26 +24,26 @@ describe("@zodash/onion", () => {
     const app = new Onion();
 
     const m = async (ctx: Context, next: Function) => {
-      ctx.state = ctx.output.state = ctx.input.state;
+      ctx.output.state = ctx.input.state;
       await next();
     }
 
     const m1 = async (ctx: Context, next: Function) => {
-      ctx.state.push(1);
+      ctx.output.state.push(1);
       await next();
-      ctx.state.push(6);
+      ctx.output.state.push(6);
     };
 
     const m2 = async (ctx: Context, next: Function) => {
-      ctx.state.push(2);
+      ctx.output.state.push(2);
       await next();
-      ctx.state.push(5);
+      ctx.output.state.push(5);
     };
 
     const m3 = async (ctx: Context, next: Function) => {
-      ctx.state.push(3);
+      ctx.output.state.push(3);
       await next();
-      ctx.state.push(4);
+      ctx.output.state.push(4);
     };
 
     app.use(m)
