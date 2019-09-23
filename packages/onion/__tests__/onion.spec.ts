@@ -3,10 +3,10 @@ import { Onion, Context } from '../src/onion';
 // compose vs pipe
 
 declare module '../src/onion' {
-  interface Request {
+  interface Input {
     state: number[];
   }
-  interface Response {
+  interface Output {
     state: number[];
   }
 
@@ -24,7 +24,7 @@ describe("@zodash/onion", () => {
     const app = new Onion();
 
     const m = async (ctx: Context, next: Function) => {
-      ctx.state = ctx.response.state = ctx.request.state;
+      ctx.state = ctx.output.state = ctx.input.state;
       await next();
     }
 
@@ -53,12 +53,12 @@ describe("@zodash/onion", () => {
 
     // app.start();
 
-    app.request({ state: [] }).then((response) => {
-      expect(response.state).toEqual([1, 2, 3, 4, 5, 6]);
+    app.execute({ state: [] }).then((output) => {
+      expect(output.state).toEqual([1, 2, 3, 4, 5, 6]);
     });
 
-    app.request({ state: [] }).then((response) => {
-      expect(response.state).toEqual([1, 2, 3, 4, 5, 6]);
+    app.execute({ state: [] }).then((output) => {
+      expect(output.state).toEqual([1, 2, 3, 4, 5, 6]);
     });
   });
 });
