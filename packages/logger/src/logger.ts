@@ -1,5 +1,4 @@
-import { Middleware } from '@zodash/compose';
-import { Onion, IOnion, Context } from '@zodash/onion';
+import { Onion, IOnion, Context, Middleware } from '@zodash/onion';
 import { moment, Moment } from '@zcorky/moment';
 import { format } from '@zodash/format';
 

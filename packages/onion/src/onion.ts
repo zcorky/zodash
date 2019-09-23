@@ -6,6 +6,10 @@ export interface IOnion {
   execute(input: Input): Promise<Output>;
 }
 
+export {
+  Middleware,
+}
+
 export interface Context {
   input: Input;
   output: Output;
