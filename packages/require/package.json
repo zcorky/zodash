@@ -1,6 +1,6 @@
 {
   "name": "@zodash/require",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Dynamic Require In Browser",
   "keywords": [
     "lodash",
