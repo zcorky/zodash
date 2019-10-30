@@ -2,7 +2,7 @@ import { getLogger } from '../src/logger';
 
 describe("@zodash/logger", () => {
   it('works', (done) => {
-    const logger = getLogger('test');
+    const logger = getLogger('module');
     const levels = [];
     logger.use(async (ctx, next) => {
       // @TODO log to backend
@@ -16,6 +16,28 @@ describe("@zodash/logger", () => {
     logger.warn(`logger.warn call`);
     logger.debug(`logger.debug call`);
     logger.error(`logger.error call`);
+
+    setTimeout(() => {
+      expect(levels).toEqual(['log', 'info', 'warn', 'debug', 'error']);
+      done();
+    }, 0);
+  });
+
+  it('format', (done) => {
+    const logger = getLogger('module');
+    const levels = [];
+    logger.use(async (ctx, next) => {
+      // @TODO log to backend
+      // console.log();
+      levels.push(ctx.input.level);
+      await next();
+    });
+    
+    logger.log(`%s format call`, 'logger.log');
+    logger.info(`%s format call`, 'logger.info');
+    logger.warn(`%s format call`, 'logger.warn');
+    logger.debug(`%s format call`, 'logger.debug');
+    logger.error(`%s format call`, 'logger.error');
 
     setTimeout(() => {
       expect(levels).toEqual(['log', 'info', 'warn', 'debug', 'error']);

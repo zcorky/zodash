@@ -22,13 +22,25 @@ export interface Options {
   console?: boolean;
 }
 
-type LogLevel = 'log' | 'info' | 'error' | 'warn' | 'debug';
+export enum LogLevel {
+  log = 'log',
+  info = 'info',
+  error = 'error',
+  warn = 'warn',
+  debug = 'debug',
+}
 
 function formatMessage(name: string, date: Moment, message: string, level?: LogLevel) {
   return format(
-    '[{name}] {datetime} - {message}',
-    { name, datetime: date.format('YYYY-MM-DD HH:mm:ss'), message },
+    '{datetime} - {name} - {level} - {message}',
+    { name, datetime: date.format('YYYY-MM-DD HH:mm:ss'), level: level.toUpperCase() || 'LOG', message },
   );
+}
+
+function formatPatternMessage(pattern: string, dataMap: any[]) {
+  return pattern.replace(/%s/g, (_, index) => {
+    return dataMap[index];
+  });
 }
 
 export class Logger implements ILogger {
@@ -83,24 +95,44 @@ export class Logger implements ILogger {
     return this;
   }
 
-  public log(message: string) {
-    this.core.execute({ level: 'log', message });
+  public log(message: string, ...args: any[]) {
+    if (args.length > 0) {
+      message = formatPatternMessage(message, args);
+    }
+
+    this.core.execute({ level: LogLevel.log, message });
   }
 
-  public info(message: string) {
-    this.core.execute({ level: 'info', message });
+  public info(message: string, ...args: any[]) {
+    if (args.length > 0) {
+      message = formatPatternMessage(message, args);
+    }
+
+    this.core.execute({ level: LogLevel.info, message });
   }
 
-  public error(message: string) {
-    this.core.execute({ level: 'error', message });
+  public error(message: string, ...args: any[]) {
+    if (args.length > 0) {
+      message = formatPatternMessage(message, args);
+    }
+
+    this.core.execute({ level: LogLevel.error, message });
   }
 
-  public warn(message: string) {
-    this.core.execute({ level: 'warn', message });
+  public warn(message: string, ...args: any[]) {
+    if (args.length > 0) {
+      message = formatPatternMessage(message, args);
+    }
+
+    this.core.execute({ level: LogLevel.warn, message });
   }
 
-  public debug(message: string) {
-    this.core.execute({ level: 'debug', message });
+  public debug(message: string, ...args: any[]) {
+    if (args.length > 0) {
+      message = formatPatternMessage(message, args);
+    }
+    
+    this.core.execute({ level: LogLevel.debug, message });
   }
 }
 
