@@ -356,3 +356,31 @@ describe('sha512', () => {
     aes256ofb();
   });
 })
+
+describe('aes => crypto-js.aes', () => {
+  const data = JSON.stringify({ id: 'c01', username: 'zero' });
+  const key = '1234123412ABCDEF';
+  const iv = 'ABCDEF1234123412';
+
+  it('encrypt', () => {
+    const a = encrypt('aes-128-cbc', key, iv, data);
+    const c = CryptoJS.AES.encrypt(data, CryptoJS.enc.Utf8.parse(key), {
+      mode: CryptoJS.mode.CBC,
+      padding: CryptoJS.pad.Pkcs7,
+      iv: CryptoJS.enc.Utf8.parse(iv),
+    }).toString();
+
+    expect(a).toEqual(c);
+  });
+
+  it('encrypt', () => {
+    const a = encrypt('aes-128-cbc', key, iv, data);
+    const c = CryptoJS.AES.decrypt(a, CryptoJS.enc.Utf8.parse(key), {
+      mode: CryptoJS.mode.CBC,
+      padding: CryptoJS.pad.Pkcs7,
+      iv: CryptoJS.enc.Utf8.parse(iv),
+    }).toString(CryptoJS.enc.Utf8);
+
+    expect(c).toEqual(data);
+  });
+});
