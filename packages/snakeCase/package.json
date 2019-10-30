@@ -1,6 +1,6 @@
 {
   "name": "@zodash/snake-case",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Convert (camelCase) string to snakeCase.",
   "keywords": [
     "snakeCase",

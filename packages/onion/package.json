@@ -1,6 +1,6 @@
 {
   "name": "@zodash/onion",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "simple onion model",
   "keywords": [
     "cache",
@@ -66,6 +66,6 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "@zodash/compose": "^0.0.5"
+    "@zodash/compose": "^0.0.6"
   }
 }
