@@ -38,6 +38,10 @@ function formatMessage(name: string, date: Moment, message: string, level?: LogL
 }
 
 function formatPatternMessage(pattern: string, dataMap: any[]) {
+  if (pattern.indexOf('%s') === -1) {
+    return [pattern, ...dataMap].join(' ');
+  }
+
   return pattern.replace(/%s/g, (_, index) => {
     return dataMap[index];
   });
