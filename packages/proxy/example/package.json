@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    "dev:server": "ts-node server.ts",
+    "dev:client": "ts-node client.ts"
+  },
+  "devDependencies": {
+    "ts-node": "^8.5.2",
+    "typescript": "^3.7.2"
+  },
+  "dependencies": {
+    "@koex/body": "^0.0.8",
+    "@koex/core": "^0.0.20"
+  }
+}
