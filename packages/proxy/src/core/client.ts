@@ -55,9 +55,9 @@ export class ProxyClient {
         'Content-Type': 'application/json',
       };
 
+      clientRequestBody.method = clientRequestBody.method || 'GET';
+
       clientRequestBody.headers = {
-        // request body
-        method: 'GET',
         ...clientRequestBody.headers,
         ...dataProxyHeaders,
       };
@@ -73,6 +73,8 @@ export class ProxyClient {
         values: clientRequestBody,
         timestamps: +new Date(),
       };
+
+      debug(clientRequestBody.body);
 
       const body = JSON.stringify(clientRequestBodyObject);
       
