@@ -1,7 +1,7 @@
 import App from '@koex/core';
 import body from '@koex/body';
 // import { ProxyServer } from '../src/core/server';
-import { createProxyServer } from '../src/middlewares/koa/server';
+import { createProxyServer } from '../../src/middlewares/koa/server';
 
 const app = new App();
 // const proxy = new ProxyServer({
@@ -25,6 +25,7 @@ app.use(createProxyServer({
   endpoint: '/proxy',
   target: 'https://httpbin.zcorky.com',
   enableCache: false,
+  usingClientTargetIfExist: true,
   handShakeMethod: async (handshake) => {
     console.log('handshake: ', handshake);
     const validated = handshake.appId === 'app-id' && handshake.appToken === 'app-token';

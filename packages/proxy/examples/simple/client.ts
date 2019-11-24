@@ -1,7 +1,7 @@
 import App from '@koex/core';
 import body from '@koex/body';
 // import { ProxyClient } from '../src/core/client';
-import { createProxyClient } from '../src/middlewares/koa/client';
+import { createProxyClient } from '../../src/middlewares/koa/client';
 
 const app = new App();
 // const proxy = new ProxyClient({
@@ -31,6 +31,45 @@ app.use(createProxyClient({
     'Authorization': `Bearer ${ctx.cookies.get('xxx') || 'No-Token'}`, // ctx.service.authorization.token
   }),
 }));
+
+app.get('/github/:username', async (ctx) => {
+  const response = await ctx.proxyClient.request({
+    method: ctx.method,
+    path: `/users/${ctx.params.username}`,
+    headers: ctx.headers,
+    body: ctx.request.body,
+  }, {
+    target: 'https://api.github.com',
+    handshake: {
+      appId: 'app-id',
+      appToken: 'app-token',
+      timestamps: +new Date(),
+    },
+  });
+
+  ctx.set(response.headers.raw() as any);
+  ctx.body = response.body;
+});
+
+app.get('/md5/:value', async (ctx) => {
+  const response = await ctx.proxyClient.request({
+    method: ctx.method,
+    path: `/md5/${ctx.params.value}`,
+    headers: ctx.headers,
+    body: ctx.request.body,
+  }, {
+    target: 'https://httpbin.zcorky.com',
+    handshake: {
+      appId: 'app-id',
+      appToken: 'app-token',
+      timestamps: +new Date(),
+    },
+  });
+
+  ctx.set(response.headers.raw() as any);
+  ctx.body = response.body;
+});
+
 
 // app.use(async (ctx, next) => {
 //   if (!ctx.path.startsWith('/api')) {
