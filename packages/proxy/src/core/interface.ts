@@ -13,29 +13,41 @@ export type Headers = Record<string, string>;
  *  and handshake + target is the property @TODO should have better positions or
  *  using better request body structure.
  */
-export interface RequestBody {
+export interface ClientRequestBody {
+  /**
+   * Proxy Attributes
+   */
+  attributes: ClientProxyAttributes;
+
+  /**
+   * Proxy Request Value
+   */
+  values: ClientProxyRequest;
+
+  timestamps: number;
+}
+
+/**
+ * Client Request Proxy Body
+ */
+export interface ClientProxyRequest {
   method: string;
   path: string;
   headers: Headers;
   body: any;
-  handshake?: any;
-  target?: string;
 }
 
-// export interface RequestProxyBody {
-//   method: string;
-//   path: string;
-//   headers: Headers;
-//   body: any;
-// }
+/**
+ * Client Request Proxy Attributes
+ *  which usual Static
+ */
+export interface ClientProxyAttributes {
+  // safe
+  handshake?: HandShake;
 
-// /**
-//  * Client Request Attributes
-//  */
-// export interface RequestProxyAttributes {
-//   handshake?: any;
-//   target?: string;
-// }
+  // dynamic target, this only works when server enable using client target
+  target?: string;
+}
 
 /**
  * Hand Shake Data
@@ -72,9 +84,6 @@ export interface ProxyServerConfig {
  * ProxyServer Request Options
  */
 export interface ProxyServerRequestOptions {
-  // safe
-  handshake: HandShake;
-
   // extends headers between proxy-server <-> real data server
   headers?: Headers;
 }
@@ -89,7 +98,7 @@ export interface ProxyServerRequestOptions {
  *  how to:
  *    if not validate, throw error with status and message
  */
-export type HandShakeMethd = (handshake: HandShake) => Promise<void>;
+export type HandShakeMethd = (handshake?: HandShake) => Promise<void>;
 
 // Proxy Server - END
 
@@ -108,13 +117,7 @@ export interface ProxyClientConfig {
 /**
  * ProxyClient Request Options
  */
-export interface ProxyClientRequestOptions {
-  // safe
-  handshake: HandShake;
-
-  // dynamic target, this only works when server enable using client target
-  target?: string;
-
+export interface ProxyClientRequestOptions extends ClientProxyAttributes {
   // extends headers between proxy-client <-> proxy-server
   connectProxyHeaders?: Headers;
   // extends headers between proxy-client <-> real data server

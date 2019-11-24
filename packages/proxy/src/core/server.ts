@@ -7,7 +7,7 @@ import { omit } from '@zodash/omit';
 import { request } from '../utils/request';
 
 import {
-  RequestBody, ResponseBody,
+  ClientRequestBody, ResponseBody,
   ProxyServerConfig, ProxyServerRequestOptions,
   HandShakeMethd,
 } from './interface';
@@ -20,7 +20,7 @@ const debug = require('debug')('datahub.server');
 
 declare module '@zodash/onion' {
   export interface Input {
-    requestBody: RequestBody;
+    requestBody: ClientRequestBody;
     requestOptions?: ProxyServerRequestOptions;
   }
 
@@ -59,15 +59,11 @@ export class ProxyServer {
     return async (ctx, next) => {
       const { target, usingClientTargetIfExist } = this.config!;
       const { requestBody, requestOptions } = ctx.input;
-      const {
-        method, path,
-        headers: _headers,
-        body: _body,
-        //
-        // handlshake,
-        //
-        target: _clientTarget,
-      } = requestBody;
+      const { attributes, values, timestamps } = requestBody;
+
+      const { target: _clientTarget } = attributes;
+      const { method, path, headers: _headers, body: _body } = values;
+
       const { headers: extendsHeaders } = requestOptions! || {};
 
       const url = getUrl(usingClientTargetIfExist!, path, target, _clientTarget);
@@ -93,7 +89,7 @@ export class ProxyServer {
     };
   }
 
-  public async request<I extends object>(requestBody: RequestBody, requestOptions?: ProxyServerRequestOptions) {
+  public async request<I extends object>(requestBody: ClientRequestBody, requestOptions?: ProxyServerRequestOptions) {
     if (!this.setupDone) {
       this.setup();
     }
@@ -135,7 +131,7 @@ export class ProxyServer {
 
       await next!();
 
-      const { method, path } = ctx.input.requestBody;
+      const { method, path } = ctx.input.requestBody.values;
       const { status } = ctx.output.response;
       const requestTime = +new Date() - ctx.state.requestStartTime;
       ctx.state.requestTime = requestTime;
@@ -163,7 +159,7 @@ export class ProxyServer {
   private useCache(): Middleware<Context> {
     return async (ctx, next) => {
       const { enableCache } = this.config;
-      const { method, path } = ctx.input.requestBody;
+      const { method, path } = ctx.input.requestBody.values;
       const { requestStartTime } = ctx.state;
 
       const md5Key = md5(JSON.stringify(ctx.input.requestBody));
@@ -212,7 +208,7 @@ export class ProxyServer {
         error.status = error.status || 500;
         error.message = error.message || `Gateway Error: ${error.message} +${requestTime}`;
         
-        const { method, path } = ctx.input.requestBody;
+        const { method, path } = ctx.input.requestBody.values;
         this.logger.log(`${method} ${path} ${error.status} (Gateway Error)`);
         this.logger.error(error);
 
@@ -247,9 +243,9 @@ export class ProxyServer {
 
   private useChangeRequestHeaders(): Middleware<Context> {
     return async (ctx, next) => {
-      const originHeaders = ctx.input.requestBody.headers;
+      const originHeaders = ctx.input.requestBody.values.headers;
 
-      ctx.input.requestBody.headers = omit(originHeaders, [
+      ctx.input.requestBody.values.headers = omit(originHeaders, [
         'host', 'origin', 'referer', 'accept-encoding',
       ]);
 
@@ -272,8 +268,7 @@ export class ProxyServer {
 
   private useHandShake(): Middleware<Context> {
     return async (ctx, next) => {
-      const { requestOptions } = ctx.input;
-      const { handshake } = requestOptions! || {};
+      const { handshake } = ctx.input.requestBody.attributes;
 
       // waitingHandleShake
       await this.handShakeMethod(handshake)

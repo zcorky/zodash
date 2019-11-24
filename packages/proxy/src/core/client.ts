@@ -2,7 +2,8 @@ import { Onion, Middleware, Context } from '@zodash/onion';
 import { getLogger } from '@zodash/logger';
 
 import {
-  RequestBody, ResponseBody,
+  ClientRequestBody, ClientProxyRequest,
+  ResponseBody,
   ProxyClientConfig, ProxyClientRequestOptions,
 } from './interface';
 import { request } from '../utils/request';
@@ -11,8 +12,8 @@ const debug = require('debug')('datahub.client');
 
 declare module '@zodash/onion' {
   export interface Input {
-    requestBody: RequestBody;
-    requestClientOptions?: ProxyClientRequestOptions;
+    clientRequestBody: ClientProxyRequest;
+    clientRequestOptions?: ProxyClientRequestOptions;
   }
 
   export interface Output {
@@ -43,8 +44,8 @@ export class ProxyClient {
   private core(): Middleware<Context> {
     return async (ctx, next) => {
       const { server, endpoint, method, headers: _headers } = this.config;
-      const { requestBody, requestClientOptions } = ctx.input;
-      const { connectProxyHeaders, dataProxyHeaders, handshake, target } = requestClientOptions || {};
+      const { clientRequestBody, clientRequestOptions } = ctx.input;
+      const { connectProxyHeaders, dataProxyHeaders, handshake, target } = clientRequestOptions || {};
 
       const url = `${server}${endpoint}`;
       const headers = {
@@ -54,22 +55,26 @@ export class ProxyClient {
         'Content-Type': 'application/json',
       };
 
-      requestBody.headers = {
-        ...requestBody.headers,
+      clientRequestBody.headers = {
+        // request body
+        method: 'GET',
+        ...clientRequestBody.headers,
         ...dataProxyHeaders,
       };
 
-      const body = JSON.stringify({
-        // request body
-        method: 'GET',
-        ...requestBody,
+      const clientRequestBodyObject: ClientRequestBody = {
+        attributes: {
+          // handshake info
+          handshake,
 
-        // handshake info
-        handshake,
+          // dynamic target, see ProxyClientRequestOptions['target']
+          target,
+        },
+        values: clientRequestBody,
+        timestamps: +new Date(),
+      };
 
-        // dynamic target, see ProxyClientRequestOptions['target']
-        target,
-      });
+      const body = JSON.stringify(clientRequestBodyObject);
       
       debug('=>', method, url, headers, body);
 
@@ -88,13 +93,13 @@ export class ProxyClient {
     };
   }
 
-  public async request<I extends object>(requestBody: RequestBody, requestClientOptions?: ProxyClientRequestOptions) {
+  public async request<I extends object>(clientRequestBody: ClientProxyRequest, clientRequestOptions?: ProxyClientRequestOptions) {
     if (!this.setupDone) {
       this.setup();
     }
 
     return this.app
-      .execute({ requestBody, requestClientOptions } as any)
+      .execute({ clientRequestBody, clientRequestOptions } as any)
       .then(({ response }) => response);
   }
 
@@ -117,7 +122,7 @@ export class ProxyClient {
 
       await next!();
 
-      const { method, path } = ctx.input.requestBody;
+      const { method, path } = ctx.input.clientRequestBody;
       const { status } = ctx.output.response;
       const requestTime = +new Date() - ctx.state.requestStartTime;
       ctx.state.requestTime = requestTime;

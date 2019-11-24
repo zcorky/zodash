@@ -34,11 +34,8 @@ export function createProxyServer(options: Options): Middleware<Context> {
     assert((ctx.request as any).body, 'ctx.request.body is undefined, make sure you have using body parser middleware.');
   
     const proxyBody = (ctx.request as any).body;
-    const { handshake, ...requestBody } = proxyBody;
     
-    const response = await proxy.request(requestBody, {
-      handshake,
-    });
+    const response = await proxy.request(proxyBody);
   
     const headers = response.headers.raw() as any;
     ctx.set(headers);
