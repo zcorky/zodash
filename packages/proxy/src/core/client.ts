@@ -122,12 +122,13 @@ export class ProxyClient {
 
       await next!();
 
+      const { server } = this.config;
       const { method, path } = ctx.input.clientRequestBody;
       const { status } = ctx.output.response;
       const requestTime = +new Date() - ctx.state.requestStartTime;
       ctx.state.requestTime = requestTime;
 
-      this.logger.log(`${method} ${path} ${status} +${requestTime}`);
+      this.logger.log(`${method} ${path} ${status} +${requestTime} (server: ${server})`);
     };
   }
 }

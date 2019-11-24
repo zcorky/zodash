@@ -15,6 +15,7 @@ import {
 import { getUrl } from '../utils/get-url';
 import { getHeaders } from '../utils/get-headers';
 import { getBody } from '../utils/get-body';
+import { getTarget } from '../utils/get-target';
 
 const debug = require('debug')('datahub.server');
 
@@ -57,7 +58,7 @@ export class ProxyServer {
 
   private core(): Middleware<Context> {
     return async (ctx, next) => {
-      const { target, usingClientTargetIfExist } = this.config!;
+      const { target: _target, usingClientTargetIfExist } = this.config!;
       const { requestBody, requestOptions } = ctx.input;
       const { attributes, values, timestamps } = requestBody;
 
@@ -66,7 +67,8 @@ export class ProxyServer {
 
       const { headers: extendsHeaders } = requestOptions! || {};
 
-      const url = getUrl(usingClientTargetIfExist!, path, target, _clientTarget);
+      const target = getTarget(usingClientTargetIfExist!, _target, _clientTarget);
+      const url = getUrl(path, target);
       const headers = getHeaders(_headers, extendsHeaders);
       const body = getBody(_body, method, headers);
 
@@ -131,12 +133,16 @@ export class ProxyServer {
 
       await next!();
 
+      const { target: _target, usingClientTargetIfExist } = this.config;
+
       const { method, path } = ctx.input.requestBody.values;
+      const { target: _clientTarget } = ctx.input.requestBody.attributes;
       const { status } = ctx.output.response;
       const requestTime = +new Date() - ctx.state.requestStartTime;
       ctx.state.requestTime = requestTime;
 
-      this.logger.log(`${method} ${path} ${status} +${requestTime}`);
+      const target = getTarget(usingClientTargetIfExist!, _target, _clientTarget);
+      this.logger.log(`${method} ${path} ${status} +${requestTime} (target: ${target})`);
     };
   }
 

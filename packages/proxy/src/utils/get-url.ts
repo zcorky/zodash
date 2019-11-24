@@ -1,7 +1,3 @@
-export function getUrl(usingClientTargetIfExist: boolean, path: string, target: string, clientTarget?: string): string {
-  if (usingClientTargetIfExist && clientTarget) {
-    return `${clientTarget}${path}`;
-  }
-
+export function getUrl(path: string, target: string): string {
   return `${target}${path}`;
 }
