@@ -28,7 +28,7 @@ app.use(createProxyServer({
   usingClientTargetIfExist: true,
   handShakeMethod: async (handshake) => {
     console.log('handshake: ', handshake);
-    const validated = handshake.appId === 'app-id' && handshake.appToken === 'app-token';
+    const validated = handshake && handshake.appId === 'app-id' && handshake.appToken === 'app-token';
 
     if (!validated) {
         const error = new Error('Forbidden') as any;
