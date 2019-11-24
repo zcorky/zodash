@@ -1,8 +1,9 @@
-const version = '1.0.1';
+// const version = '1.0.1';
+import * as pkg from '../../package.json';
 
 export function getUserAgent() {
   const appName = 'Ghost Proxy Hub';
-  const appVersion = version;
+  const appVersion = pkg.version;
 
   return `${appName}/${appVersion}`;
 }

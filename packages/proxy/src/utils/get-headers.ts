@@ -1,4 +1,4 @@
-import { Headers } from './interface';
+import { Headers } from '../core/interface';
 
 export function getHeaders(headers: Headers, extendsHeaders?: Headers) {
   return {

@@ -1,22 +1,22 @@
-import { Response } from 'node-fetch';
 import { Onion, Middleware, Context } from '@zodash/onion';
 import { getLogger } from '@zodash/logger';
 
 import {
-  ProxyInput, ProxyClientOptions, ProxyClientRequestOptions,
-} from '../utils/interface';
+  RequestBody, ResponseBody,
+  ProxyClientConfig, ProxyClientRequestOptions,
+} from './interface';
 import { request } from '../utils/request';
 
 const debug = require('debug')('datahub.client');
 
 declare module '@zodash/onion' {
   export interface Input {
-    requestBody: ProxyInput<any>;
+    requestBody: RequestBody;
     requestClientOptions?: ProxyClientRequestOptions;
   }
 
   export interface Output {
-    response: Response;
+    response: ResponseBody;
   }
 
   export interface Context {
@@ -33,7 +33,7 @@ export class ProxyClient {
   private logger = getLogger('datahub.client');
   private setupDone = false;
 
-  constructor(private readonly options: ProxyClientOptions = {} as ProxyClientOptions) {}
+  constructor(private readonly config: ProxyClientConfig = {} as ProxyClientConfig) {}
 
   public use(middleware: Middleware<Context>) {
     this.app.use(middleware);
@@ -42,9 +42,9 @@ export class ProxyClient {
 
   private core(): Middleware<Context> {
     return async (ctx, next) => {
-      const { server, endpoint, method, headers: _headers } = this.options;
+      const { server, endpoint, method, headers: _headers } = this.config;
       const { requestBody, requestClientOptions } = ctx.input;
-      const { connectProxyHeaders, dataProxyHeaders, handshake } = requestClientOptions || {};
+      const { connectProxyHeaders, dataProxyHeaders, handshake, target } = requestClientOptions || {};
 
       const url = `${server}${endpoint}`;
       const headers = {
@@ -66,6 +66,9 @@ export class ProxyClient {
 
         // handshake info
         handshake,
+
+        // dynamic target, see ProxyClientRequestOptions['target']
+        target,
       });
       
       debug('=>', method, url, headers, body);
@@ -85,7 +88,7 @@ export class ProxyClient {
     };
   }
 
-  public async request<I extends object>(requestBody: ProxyInput<I>, requestClientOptions?: ProxyClientRequestOptions) {
+  public async request<I extends object>(requestBody: RequestBody, requestClientOptions?: ProxyClientRequestOptions) {
     if (!this.setupDone) {
       this.setup();
     }

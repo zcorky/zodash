@@ -1,4 +1,3 @@
-import { Response } from 'node-fetch';
 import { Onion, Middleware, Context } from '@zodash/onion';
 import { getLogger } from '@zodash/logger';
 import LRU from '@zcorky/lru';
@@ -8,8 +7,10 @@ import { omit } from '@zodash/omit';
 import { request } from '../utils/request';
 
 import {
-  ProxyInput, ProxyServerOptions, ProxyServerRequestOptions, HandShakeMethd,
-} from '../utils/interface';
+  RequestBody, ResponseBody,
+  ProxyServerConfig, ProxyServerRequestOptions,
+  HandShakeMethd,
+} from './interface';
 
 import { getUrl } from '../utils/get-url';
 import { getHeaders } from '../utils/get-headers';
@@ -19,12 +20,12 @@ const debug = require('debug')('datahub.server');
 
 declare module '@zodash/onion' {
   export interface Input {
-    requestBody: ProxyInput<any>;
-    requestServerOptions?: ProxyServerRequestOptions;
+    requestBody: RequestBody;
+    requestOptions?: ProxyServerRequestOptions;
   }
 
   export interface Output {
-    response: Response;
+    response: ResponseBody;
   }
 
   export interface Context {
@@ -47,7 +48,7 @@ export class ProxyServer {
 
   private setupDone = false;
 
-  constructor(public readonly config: ProxyServerOptions = {} as ProxyServerOptions) {}
+  constructor(public readonly config: ProxyServerConfig = {} as ProxyServerConfig) {}
 
   public use(middleware: Middleware<Context>) {
     this.app.use(middleware);
@@ -56,12 +57,20 @@ export class ProxyServer {
 
   private core(): Middleware<Context> {
     return async (ctx, next) => {
-      const { target } = this.config!;
-      const { requestBody, requestServerOptions } = ctx.input;
-      const { method, path, headers: _headers, body: _body } = requestBody;
-      const { headers: extendsHeaders } = requestServerOptions! || {};
+      const { target, usingClientTargetIfExist } = this.config!;
+      const { requestBody, requestOptions } = ctx.input;
+      const {
+        method, path,
+        headers: _headers,
+        body: _body,
+        //
+        // handlshake,
+        //
+        target: _clientTarget,
+      } = requestBody;
+      const { headers: extendsHeaders } = requestOptions! || {};
 
-      const url = getUrl(path, target);
+      const url = getUrl(usingClientTargetIfExist!, path, target, _clientTarget);
       const headers = getHeaders(_headers, extendsHeaders);
       const body = getBody(_body, method, headers);
 
@@ -84,13 +93,13 @@ export class ProxyServer {
     };
   }
 
-  public async request<I extends object>(requestBody: ProxyInput<I>, requestServerOptions?: ProxyServerRequestOptions) {
+  public async request<I extends object>(requestBody: RequestBody, requestOptions?: ProxyServerRequestOptions) {
     if (!this.setupDone) {
       this.setup();
     }
 
     return this.app
-      .execute({ requestBody, requestServerOptions } as any)
+      .execute({ requestBody, requestOptions } as any)
       .then(({ response }) => response);
   }
 
@@ -263,8 +272,8 @@ export class ProxyServer {
 
   private useHandShake(): Middleware<Context> {
     return async (ctx, next) => {
-      const { requestServerOptions } = ctx.input;
-      const { handshake } = requestServerOptions! || {};
+      const { requestOptions } = ctx.input;
+      const { handshake } = requestOptions! || {};
 
       // waitingHandleShake
       await this.handShakeMethod(handshake)

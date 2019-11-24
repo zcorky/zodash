@@ -1,4 +1,4 @@
-import fetch, { Response, RequestInfo, RequestInit } from 'node-fetch';
+import fetch, { RequestInfo, RequestInit } from 'node-fetch';
 import { getUserAgent } from './get-user-agent';
 
 export async function request(input: RequestInfo, options: RequestInit) {

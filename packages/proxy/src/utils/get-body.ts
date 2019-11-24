@@ -1,5 +1,5 @@
-import { Headers } from './interface';
 import { stringify } from '@zcorky/query-string';
+import { Headers } from '../core/interface';
 
 export const getBody = (body: object, method: string, headers: Headers) => {
   if (['GET', 'HEAD'].indexOf(method) !== -1) {

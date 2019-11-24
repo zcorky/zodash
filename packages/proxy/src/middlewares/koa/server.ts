@@ -1,10 +1,16 @@
 import { Middleware, Context } from '@koex/core';
 import { ProxyServer } from '../../core/server';
-import { ProxyServerOptions, HandShakeMethd } from '../../utils/interface';
+import { ProxyServerConfig, HandShakeMethd } from '../../core/interface';
 
 const assert = require('assert');
 
-export interface Options extends ProxyServerOptions {
+declare module '@koex/core' {
+  export interface Context {
+    proxyServer: ProxyServer;
+  }
+}
+
+export interface Options extends ProxyServerConfig {
   handShakeMethod?: HandShakeMethd;
 }
 
@@ -16,6 +22,11 @@ export function createProxyServer(options: Options): Middleware<Context> {
   }
 
   return async (ctx, next) => {
+    /**
+     * assign proxy
+     */
+    ctx.proxyServer = proxy;
+
     if (ctx.method != proxy.config.method || ctx.path !== proxy.config.endpoint) {
       return next();
     }

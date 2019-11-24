@@ -1,10 +1,16 @@
 import { Middleware, Context } from '@koex/core';
 import { ProxyClient } from '../../core/client';
-import { ProxyClientOptions, HandShake, ProxyClientRequestOptions } from '../../utils/interface';
+import { ProxyClientConfig, HandShake, ProxyClientRequestOptions } from '../../core/interface';
 
 const assert = require('assert');
 
-export interface Options extends ProxyClientOptions {
+declare module '@koex/core' {
+  export interface Context {
+    proxyClient: ProxyClient;
+  }
+}
+
+export interface Options extends ProxyClientConfig {
   handshake: HandShake;
   clientEndpoint: string;
   
@@ -16,6 +22,11 @@ export function createProxyClient(options: Options): Middleware<Context> {
   const proxy = new ProxyClient(options);
 
   return async (ctx, next) => {
+    /**
+     * assign proxy
+     */
+    ctx.proxyClient = proxy;
+
     if (!ctx.path.startsWith(options.clientEndpoint)) {
       return await next();
     }
