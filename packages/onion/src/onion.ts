@@ -23,7 +23,7 @@ export interface Output {
 
 }
 
-export class Onion implements IOnion {
+export abstract class Onion implements IOnion {
   private middlewares: Middleware<Context>[] = [];
   private handler: Middleware<Context>;
   private _callback: (input: Input, output: Output) => Promise<any>;
@@ -33,8 +33,14 @@ export class Onion implements IOnion {
     return this;
   }
 
+  public abstract handle(): Middleware<Context>;
+
   public callback() {
     if (!this.handler) {
+      // the core handler
+      this.use(this.handle());
+
+      //
       const fn = compose(...this.middlewares);
       this.handler = fn;
     }
