@@ -2,7 +2,7 @@ import { compose, Middleware } from '@zodash/compose';
 
 export interface IOnion {
   use(middleware: Middleware<Context>): ThisType<any>;
-  callback(): (req: Input, res: Output) => Promise<void>;
+  callback(): (req: Input, res: Output) => Promise<Context>;
   execute(input: Input): Promise<Output>;
 }
 
@@ -45,9 +45,10 @@ export abstract class Onion implements IOnion {
       this.handler = fn;
     }
 
-    return (input: Input, output: Output) => {
+    return async (input: Input, output: Output) => {
       const context = this.createContext(input, output);
-      return this.handler(context);
+      await this.handler(context);
+      return context;
     };
   }
 
@@ -58,15 +59,9 @@ export abstract class Onion implements IOnion {
 
     const output = {} as Output;
 
-    // init
-    const data = {
-      input,
-      output,
-    };
+    const context = await this._callback(input, output);
 
-    await this._callback(data.input, data.output);
-
-    return data.output;
+    return context.output;
   }
 
   private createContext(input: Input, output: Output): Context {

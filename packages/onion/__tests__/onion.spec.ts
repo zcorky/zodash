@@ -69,4 +69,22 @@ describe("@zodash/onion", () => {
       expect(output.state).toEqual([1, 2, 3, 4, 3, 2, 1]);
     });
   });
+
+  it('can overrite ouput', (done) => {
+    class App extends Onion {
+      public handle(): Middleware<Context> {
+        return async (ctx, next) => {
+          ctx.output = { message: 'ouput overrite' } as any;
+        };
+      }
+    }
+    
+    const app = new App();
+
+    app.execute({ state: [] }).then((output) => {
+      expect(output).toEqual({ message: 'ouput overrite' });
+
+      done();
+    });
+  });
 });
