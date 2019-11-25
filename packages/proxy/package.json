@@ -1,6 +1,6 @@
 {
   "name": "@ghost/proxy",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "a simple proxy",
   "main": "lib/index.js",
   "module": "src/index.ts",
@@ -97,9 +97,9 @@
     "@zcorky/query-string": "^1.0.2",
     "@zodash/crypto": "^0.0.7",
     "@zodash/format": "^1.0.1-alpha.0",
-    "@zodash/logger": "^0.0.5",
+    "@zodash/logger": "^0.0.6",
     "@zodash/omit": "^1.0.16",
-    "@zodash/onion": "^0.0.9",
+    "@zodash/onion": "^0.0.10",
     "debug": "^4.1.1",
     "node-fetch": "^2.6.0",
     "type-is": "^1.6.18"
