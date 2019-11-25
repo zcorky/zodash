@@ -40,8 +40,7 @@ declare module '@zodash/onion' {
 
 const DEFAULT_HAND_SHAKE_METHOD = async (...args: any) => {};
 
-export class ProxyServer {
-  private app = new Onion();
+export class ProxyServer extends Onion {
   private logger = getLogger('datahub.server');;
   private requestCounts = { all: 0, failure: 0 };
   private requestCache = new LRU<string, any>();
@@ -49,14 +48,13 @@ export class ProxyServer {
 
   private setupDone = false;
 
-  constructor(public readonly config: ProxyServerConfig = {} as ProxyServerConfig) {}
+  constructor(public readonly config: ProxyServerConfig = {} as ProxyServerConfig) {
+    super();
 
-  public use(middleware: Middleware<Context>) {
-    this.app.use(middleware);
-    return this;
+    this.setup();
   }
 
-  private core(): Middleware<Context> {
+  public handle(): Middleware<Context> {
     return async (ctx, next) => {
       const { target: _target, usingClientTargetIfExist } = this.config!;
       const { requestBody, requestOptions } = ctx.input;
@@ -91,12 +89,8 @@ export class ProxyServer {
     };
   }
 
-  public async request<I extends object>(requestBody: ClientRequestBody, requestOptions?: ProxyServerRequestOptions) {
-    if (!this.setupDone) {
-      this.setup();
-    }
-
-    return this.app
+  public async request(requestBody: ClientRequestBody, requestOptions?: ProxyServerRequestOptions) {
+    return this
       .execute({ requestBody, requestOptions } as any)
       .then(({ response }) => response);
   }

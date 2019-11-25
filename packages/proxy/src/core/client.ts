@@ -29,19 +29,17 @@ declare module '@zodash/onion' {
   }
 }
 
-export class ProxyClient {
-  private app = new Onion();
+export class ProxyClient extends Onion {
   private logger = getLogger('datahub.client');
   private setupDone = false;
 
-  constructor(private readonly config: ProxyClientConfig = {} as ProxyClientConfig) {}
+  constructor(private readonly config: ProxyClientConfig = {} as ProxyClientConfig) {
+    super();
 
-  public use(middleware: Middleware<Context>) {
-    this.app.use(middleware);
-    return this;
+    this.setup();
   }
 
-  private core(): Middleware<Context> {
+  public handle(): Middleware<Context> {
     return async (ctx, next) => {
       const { server, endpoint, method, headers: _headers } = this.config;
       const { clientRequestBody, clientRequestOptions } = ctx.input;
@@ -96,11 +94,7 @@ export class ProxyClient {
   }
 
   public async request<I extends object>(clientRequestBody: ClientProxyRequest, clientRequestOptions?: ProxyClientRequestOptions) {
-    if (!this.setupDone) {
-      this.setup();
-    }
-
-    return this.app
+    return this
       .execute({ clientRequestBody, clientRequestOptions } as any)
       .then(({ response }) => response);
   }
@@ -110,7 +104,6 @@ export class ProxyClient {
 
     //
     this.use(this.useRequestTime());
-    this.use(this.core());
   }
 
   //
