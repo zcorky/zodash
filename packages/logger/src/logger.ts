@@ -1,4 +1,4 @@
-import { Onion, IOnion, Context, Middleware } from '@zodash/onion';
+import { Onion, Context, Middleware } from '@zodash/onion';
 import { moment, Moment } from '@zcorky/moment';
 import { format } from '@zodash/format';
 
@@ -47,14 +47,12 @@ function formatPatternMessage(pattern: string, dataMap: any[]) {
   });
 }
 
-export class Logger implements ILogger {
-  private core: IOnion;
-
+export class Logger extends Onion implements ILogger {
   constructor(private readonly name: string, private readonly options?: Options) {
+    super();
+    
     this.options = options || {};
-    this.core = new Onion();
-    this.core.use(this.useDateTime());
-    this.core.use(this.useConsole());
+    this.use(this.useDateTime());
   }
 
   private useDateTime() {
@@ -64,10 +62,9 @@ export class Logger implements ILogger {
     };
   }
 
-  private useConsole() {
-    return async (ctx: Context, next: Function) => {
+  public handle() {
+    return async (ctx: Context) => {
       const input = ctx.input;
-      await next();
   
       if (this.options.console === false) {
         return ;
@@ -94,17 +91,12 @@ export class Logger implements ILogger {
     };
   }
 
-  public use(middleware: Middleware<Context>) {
-    this.core.use(middleware);
-    return this;
-  }
-
   public log(message: string, ...args: any[]) {
     if (args.length > 0) {
       message = formatPatternMessage(message, args);
     }
 
-    this.core.execute({ level: LogLevel.log, message });
+    this.execute({ level: LogLevel.log, message });
   }
 
   public info(message: string, ...args: any[]) {
@@ -112,7 +104,7 @@ export class Logger implements ILogger {
       message = formatPatternMessage(message, args);
     }
 
-    this.core.execute({ level: LogLevel.info, message });
+    this.execute({ level: LogLevel.info, message });
   }
 
   public error(message: string, ...args: any[]) {
@@ -120,7 +112,7 @@ export class Logger implements ILogger {
       message = formatPatternMessage(message, args);
     }
 
-    this.core.execute({ level: LogLevel.error, message });
+    this.execute({ level: LogLevel.error, message });
   }
 
   public warn(message: string, ...args: any[]) {
@@ -128,7 +120,7 @@ export class Logger implements ILogger {
       message = formatPatternMessage(message, args);
     }
 
-    this.core.execute({ level: LogLevel.warn, message });
+    this.execute({ level: LogLevel.warn, message });
   }
 
   public debug(message: string, ...args: any[]) {
@@ -136,7 +128,7 @@ export class Logger implements ILogger {
       message = formatPatternMessage(message, args);
     }
     
-    this.core.execute({ level: LogLevel.debug, message });
+    this.execute({ level: LogLevel.debug, message });
   }
 }
 
