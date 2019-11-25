@@ -1,6 +1,6 @@
 {
   "name": "@ghost/proxy",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "a simple proxy",
   "main": "lib/index.js",
   "module": "src/index.ts",
