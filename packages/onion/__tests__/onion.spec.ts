@@ -39,7 +39,7 @@ describe("@zodash/onion", () => {
     const m1 = async (ctx: Context, next: Function) => {
       ctx.output.state.push(1);
       await next();
-      ctx.output.state.push(61);
+      ctx.output.state.push(1);
     };
 
     const m2 = async (ctx: Context, next: Function) => {

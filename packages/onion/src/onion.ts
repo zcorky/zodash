@@ -57,8 +57,16 @@ export abstract class Onion implements IOnion {
     }
 
     const output = {} as Output;
-    await this._callback(input, output);
-    return output;
+
+    // init
+    const data = {
+      input,
+      output,
+    };
+
+    await this._callback(data.input, data.output);
+
+    return data.output;
   }
 
   private createContext(input: Input, output: Output): Context {
