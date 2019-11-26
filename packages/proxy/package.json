@@ -1,6 +1,6 @@
 {
-  "name": "@ghost/proxy",
-  "version": "0.0.8",
+  "name": "@zodash/proxy",
+  "version": "0.0.0",
   "description": "a simple proxy",
   "main": "lib/index.js",
   "module": "src/index.ts",
