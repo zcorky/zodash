@@ -97,7 +97,7 @@
     "@zcorky/query-string": "^1.0.2",
     "@zodash/crypto": "^0.0.7",
     "@zodash/format": "^1.0.1-alpha.0",
-    "@zodash/logger": "^0.0.8",
+    "@zodash/logger": "^0.0.5",
     "@zodash/omit": "^1.0.16",
     "@zodash/onion": "^0.0.12",
     "debug": "^4.1.1",

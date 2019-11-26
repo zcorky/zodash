@@ -31,7 +31,6 @@ declare module '@zodash/onion' {
 
 export class ProxyClient extends Onion {
   private logger = getLogger('datahub.client');
-  private setupDone = false;
 
   constructor(private readonly config: ProxyClientConfig = {} as ProxyClientConfig) {
     super();
@@ -100,9 +99,6 @@ export class ProxyClient extends Onion {
   }
 
   private setup() {
-    this.setupDone = true;
-
-    //
     this.use(this.useRequestTime());
   }
 

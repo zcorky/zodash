@@ -113,8 +113,8 @@ export class ProxyServer extends Onion {
     this.use(this.useChangeRequestHeaders());
     //
     this.use(this.useChangeResponseHeaders());
-    // core
-    this.use(this.core());
+    // // core
+    // this.use(this.core());
   }
 
   private useRequestTime(): Middleware<Context> {
