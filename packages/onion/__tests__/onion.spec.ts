@@ -2,17 +2,11 @@ import { Onion, Context, Middleware } from '../src/onion';
 
 // compose vs pipe
 
-declare module '../src/onion' {
-  interface Input {
-    state: number[];
-  }
-  interface Output {
-    state: number[];
-  }
-
-  // interface Context {
-  //   state: number[];
-  // }
+interface Input {
+  state: number[];
+}
+interface Output {
+  state: number[];
 }
 
 describe("@zodash/onion", () => {
@@ -21,8 +15,8 @@ describe("@zodash/onion", () => {
     //   state: any[];
     // }
     
-    class App extends Onion {
-      public handle(): Middleware<Context> {
+    class App extends Onion<Input, Output, any> {
+      public handle(): Middleware<Context<Input, Output, any>> {
         return async (ctx, next) => {
           ctx.output.state.push(4);
         };
@@ -31,24 +25,24 @@ describe("@zodash/onion", () => {
     
     const app = new App();
 
-    const m = async (ctx: Context, next: Function) => {
+    const m = async (ctx: Context<Input, Output, any>, next: Function) => {
       ctx.output.state = ctx.input.state;
       await next();
     }
 
-    const m1 = async (ctx: Context, next: Function) => {
+    const m1 = async (ctx: Context<Input, Output, any>, next: Function) => {
       ctx.output.state.push(1);
       await next();
       ctx.output.state.push(1);
     };
 
-    const m2 = async (ctx: Context, next: Function) => {
+    const m2 = async (ctx: Context<Input, Output, any>, next: Function) => {
       ctx.output.state.push(2);
       await next();
       ctx.output.state.push(2);
     };
 
-    const m3 = async (ctx: Context, next: Function) => {
+    const m3 = async (ctx: Context<Input, Output, any>, next: Function) => {
       ctx.output.state.push(3);
       await next();
       ctx.output.state.push(3);
@@ -71,8 +65,8 @@ describe("@zodash/onion", () => {
   });
 
   it('can overrite ouput', (done) => {
-    class App extends Onion {
-      public handle(): Middleware<Context> {
+    class App extends Onion<Input, Output, any> {
+      public handle(): Middleware<Context<Input, Output, any>> {
         return async (ctx, next) => {
           ctx.output = { message: 'ouput overrite' } as any;
         };
