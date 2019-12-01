@@ -23,17 +23,17 @@ export interface Output {
 
 }
 
-export abstract class Onion implements IOnion {
-  private middlewares: Middleware<Context>[] = [];
-  private handler: Middleware<Context>;
-  private _callback: (input: Input, output: Output) => Promise<any>;
+export abstract class Onion<T extends Context = Context> implements IOnion {
+  private middlewares: Middleware<T>[] = [];
+  private handler: Middleware<T>;
+  private _callback: (input: Input, output: Output) => Promise<T>;
 
-  public use(middleware: Middleware<Context>) {
+  public use(middleware: Middleware<T>) {
     this.middlewares.push(middleware);
     return this;
   }
 
-  public abstract handle(): Middleware<Context>;
+  public abstract handle(): Middleware<T>;
 
   public callback() {
     if (!this.handler) {
@@ -64,10 +64,10 @@ export abstract class Onion implements IOnion {
     return context.output;
   }
 
-  private createContext(input: Input, output: Output): Context {
+  private createContext(input: Input, output: Output): T {
     return {
       input,
       output,
-    };
+    } as T;
   }
 }
