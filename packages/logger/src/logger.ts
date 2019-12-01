@@ -2,12 +2,10 @@ import { Onion, Context, Middleware } from '@zodash/onion';
 import { moment, Moment } from '@zcorky/moment';
 import { format } from '@zodash/format';
 
-declare module '@zodash/onion' {
-  interface Input {
-    datetime?: Moment;
-    level: LogLevel;
-    message: string;
-  }
+interface Input {
+  datetime?: Moment;
+  level: LogLevel;
+  message: string;
 }
 
 export interface ILogger {
@@ -47,7 +45,7 @@ function formatPatternMessage(pattern: string, dataMap: any[]) {
   });
 }
 
-export class Logger extends Onion implements ILogger {
+export class Logger extends Onion<Input, any, any> implements ILogger {
   constructor(private readonly name: string, private readonly options?: Options) {
     super();
     
@@ -55,15 +53,15 @@ export class Logger extends Onion implements ILogger {
     this.use(this.useDateTime());
   }
 
-  private useDateTime() {
-    return async (ctx: Context, next: Function) => {
+  private useDateTime(): Middleware<Context<Input, any, any>> {
+    return async (ctx, next) => {
       ctx.input.datetime = moment();
       await next();
     };
   }
 
-  public handle() {
-    return async (ctx: Context) => {
+  public handle(): Middleware<Context<Input, any, any>> {
+    return async (ctx) => {
       const input = ctx.input;
   
       if (this.options.console === false) {
