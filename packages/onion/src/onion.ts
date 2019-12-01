@@ -1,8 +1,8 @@
 import { compose, Middleware } from '@zodash/compose';
 
-export interface IOnion {
-  use(middleware: Middleware<Context>): ThisType<any>;
-  callback(): (req: Input, res: Output) => Promise<Context>;
+export interface IOnion<Input, Output, State> {
+  use(middleware: Middleware<Context<Input, Output, State>>): ThisType<any>;
+  callback(): (req: Input, res: Output) => Promise<Context<Input, Output, State>>;
   execute(input: Input): Promise<Output>;
 }
 
@@ -10,30 +10,23 @@ export {
   Middleware,
 }
 
-export interface Context {
+export interface Context<Input, Output, State = any> {
   input: Input;
+  state: State;
   output: Output;
 }
 
-export interface Input {
+export abstract class Onion<Input, Output, State> implements IOnion<Input, Output, State> {
+  private middlewares: Middleware<Context<Input, Output, State>>[] = [];
+  private handler: Middleware<Context<Input, Output, State>>;
+  private _callback: (input: Input, output: Output) => Promise<Context<Input, Output, State>>;
 
-}
-
-export interface Output {
-
-}
-
-export abstract class Onion<T extends Context = Context> implements IOnion {
-  private middlewares: Middleware<T>[] = [];
-  private handler: Middleware<T>;
-  private _callback: (input: Input, output: Output) => Promise<T>;
-
-  public use(middleware: Middleware<T>) {
+  public use(middleware: Middleware<Context<Input, Output, State>>) {
     this.middlewares.push(middleware);
     return this;
   }
 
-  public abstract handle(): Middleware<T>;
+  public abstract handle(): Middleware<Context<Input, Output, State>>;
 
   public callback() {
     if (!this.handler) {
@@ -64,10 +57,11 @@ export abstract class Onion<T extends Context = Context> implements IOnion {
     return context.output;
   }
 
-  private createContext(input: Input, output: Output): T {
+  private createContext(input: Input, output: Output): Context<Input, Output, State> {
     return {
       input,
       output,
-    } as T;
+      state: {},
+    } as Context<Input, Output, State>;
   }
 }
