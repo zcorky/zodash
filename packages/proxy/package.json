@@ -1,6 +1,6 @@
 {
   "name": "@zodash/proxy",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "a simple proxy",
   "main": "lib/index.js",
   "module": "src/index.ts",
@@ -99,7 +99,7 @@
     "@zodash/format": "^1.0.1-alpha.0",
     "@zodash/logger": "^0.0.5",
     "@zodash/omit": "^1.0.16",
-    "@zodash/onion": "^0.0.12",
+    "@zodash/onion": "^0.0.13",
     "debug": "^4.1.1",
     "node-fetch": "^2.6.0",
     "type-is": "^1.6.18"
