@@ -1,6 +1,6 @@
 {
   "name": "@zodash/onion",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "description": "simple onion model",
   "keywords": [
     "cache",
