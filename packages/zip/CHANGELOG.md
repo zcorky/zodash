@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.0.16 (2019-12-08)
+
+**Note:** Version bump only for package @zodash/zip
+
+
+
+
+
 ## [0.0.15](https://github.com/zcorky/zodash/compare/@zodash/zip@0.0.14...@zodash/zip@0.0.15) (2019-10-30)
 
 **Note:** Version bump only for package @zodash/zip

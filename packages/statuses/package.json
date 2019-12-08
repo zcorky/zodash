@@ -1,6 +1,6 @@
 {
   "name": "@zodash/statuses",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "description": "Common HTTP status utility for node.",
   "keywords": [
     "http",

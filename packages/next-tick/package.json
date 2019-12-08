@@ -1,6 +1,6 @@
 {
   "name": "@zodash/next-tick",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "browser process.nextTick",
   "keywords": [
     "next-tick",

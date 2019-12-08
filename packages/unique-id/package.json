@@ -1,6 +1,6 @@
 {
   "name": "@zodash/unique-id",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Creates a unique id",
   "keywords": [
     "lodash",
