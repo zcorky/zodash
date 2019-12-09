@@ -31,6 +31,10 @@ export class Queue<T> implements IQueue<T> {
   }
 
   public dequeue() {
+    if (this.isEmpty()) {
+      throw new Error('Queue is already empty.');
+    }
+
     const value = this.storage[this.head];
     delete this.storage[this.head];
     if (this.head < this.tail) {
@@ -66,5 +70,17 @@ export class Queue<T> implements IQueue<T> {
     }
 
     return false;
+  }
+
+  public getCapacity() {
+    return this.capacity;
+  }
+
+  public setCompacity(capacity: number) {
+    if (capacity < 0) {
+      throw new Error('Queue capacity should be >= 0');
+    }
+
+    this.capacity = capacity;
   }
 }

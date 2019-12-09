@@ -27,7 +27,7 @@ describe('queue', () => {
     expect(queue.size()).toBe(0);
     expect(queue.peek()).toBe(undefined);
 
-    expect(queue.dequeue()).toBe(undefined);
+    expect(() => queue.dequeue()).toThrow();
     expect(queue.size()).toBe(0);
     expect(queue.peek()).toBe(undefined);
   });
@@ -65,5 +65,39 @@ describe('queue', () => {
     expect(queue1.contains(2)).toBeTruthy();
     expect(queue1.contains(6)).toBeTruthy();
     expect(queue1.contains(3)).toBeFalsy();
+
+    expect(queue1.contains(null)).toBeFalsy();
+    expect(queue1.contains(undefined)).toBeFalsy();
+    expect((queue1 as any).contains()).toBeFalsy();
   });
+
+  it('support set/get capacity', () => {
+    const queue1 = new Queue<number>(10);
+
+    expect(queue1.getCapacity()).toEqual(10);
+    queue1.setCompacity(6);
+    expect(queue1.getCapacity()).toEqual(6);
+
+    queue1.setCompacity(1);
+    expect(queue1.getCapacity()).toEqual(1);
+
+    expect(() => queue1.enqueue(1)).not.toThrow();
+    expect(queue1.getCapacity()).toEqual(1);
+    expect(() => queue1.enqueue(2)).toThrow();
+    expect(queue1.getCapacity()).toEqual(1);
+    expect(() => queue1.enqueue(6)).toThrow();
+    expect(queue1.getCapacity()).toEqual(1);
+
+    expect(queue1.contains(1)).toBeTruthy();
+    expect(queue1.contains(2)).toBeFalsy();
+    expect(queue1.contains(6)).toBeFalsy();
+    expect(queue1.contains(3)).toBeFalsy();
+    expect(queue1.getCapacity()).toEqual(1);
+
+    expect(() => queue1.setCompacity(0)).not.toThrow();
+    expect(queue1.getCapacity()).toEqual(0);
+
+    expect(() => queue1.setCompacity(-1)).toThrow();
+    expect(queue1.getCapacity()).toEqual(0);
+  })
 });
