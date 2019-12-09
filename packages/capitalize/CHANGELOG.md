@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.0.11 (2019-12-08)
+
+**Note:** Version bump only for package @zodash/capitalize
+
+
+
+
+
 ## [0.0.10](https://github.com/zcorky/zodash/compare/@zodash/capitalize@0.0.9...@zodash/capitalize@0.0.10) (2019-10-30)
 
 **Note:** Version bump only for package @zodash/capitalize

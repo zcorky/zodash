@@ -1,6 +1,6 @@
 {
   "name": "@zodash/get",
-  "version": "1.0.17",
+  "version": "1.0.18",
   "description": "Get the value at path of object.",
   "keywords": [
     "get",
@@ -70,6 +70,6 @@
     "@zcorky/deep-equal": "^0.0.1"
   },
   "dependencies": {
-    "@zodash/to-path": "^0.0.3"
+    "@zodash/to-path": "^0.0.4"
   }
 }
