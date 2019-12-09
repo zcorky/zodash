@@ -1,6 +1,6 @@
 {
   "name": "@zodash/unique",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Creates a duplicate-free version of an array.",
   "keywords": [
     "lodash",
@@ -66,6 +66,6 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "@zodash/compose": "^0.0.8"
+    "@zodash/compose": "^0.0.9"
   }
 }

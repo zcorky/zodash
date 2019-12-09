@@ -1,6 +1,6 @@
 {
   "name": "@zodash/union",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Creates an array of unique values, in order, from all given arrays.",
   "keywords": [
     "lodash",
@@ -68,6 +68,6 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "@zodash/compose": "^0.0.8"
+    "@zodash/compose": "^0.0.9"
   }
 }
