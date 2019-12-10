@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.19](https://github.com/zcorky/zodash/compare/@zodash/omit@1.0.18...@zodash/omit@1.0.19) (2019-12-10)
+
+**Note:** Version bump only for package @zodash/omit
+
+
+
+
+
 ## [1.0.18](https://github.com/zcorky/zodash/compare/@zodash/omit@1.0.17...@zodash/omit@1.0.18) (2019-12-09)
 
 **Note:** Version bump only for package @zodash/omit

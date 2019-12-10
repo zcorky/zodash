@@ -1,6 +1,6 @@
 {
   "name": "@zodash/omit",
-  "version": "1.0.18",
+  "version": "1.0.19",
   "description": "A copy of the object, filtered not in an array of whitelisted keys",
   "keywords": [
     "zodash",
@@ -72,6 +72,6 @@
     "@zcorky/deep-equal": "^0.0.1"
   },
   "dependencies": {
-    "@zodash/pick": "^1.0.18"
+    "@zodash/pick": "^1.0.19"
   }
 }

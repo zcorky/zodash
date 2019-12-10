@@ -1,6 +1,6 @@
 {
   "name": "@zodash/ms",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "humanable time formats to millisenconds",
   "keywords": [
     "mapTo",
@@ -68,10 +68,10 @@
   },
   "devDependencies": {
     "@zcorky/deep-equal": "^0.0.1",
-    "@zodash/map": "^1.0.18"
+    "@zodash/map": "^1.0.19"
   },
   "dependencies": {
     "@zcorky/is": "^1.0.6",
-    "@zodash/match": "^0.0.17"
+    "@zodash/match": "^0.0.18"
   }
 }
