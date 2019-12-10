@@ -1,6 +1,6 @@
 {
   "name": "@zodash/memoize",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "description": "Create a function that memoizes the result of `func` according to the `resolver` function.",
   "keywords": [
     "memoize",

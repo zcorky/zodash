@@ -1,6 +1,6 @@
 {
   "name": "@zodash/event",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "event emitter",
   "keywords": [
     "event",
@@ -66,6 +66,6 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "@zodash/once": "^0.0.7"
+    "@zodash/once": "^0.0.8"
   }
 }

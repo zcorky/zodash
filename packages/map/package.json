@@ -1,6 +1,6 @@
 {
   "name": "@zodash/map",
-  "version": "1.0.17",
+  "version": "1.0.18",
   "description": "Produces a new array of values by mapping each value in list through a transformation function.",
   "keywords": [
     "map",
