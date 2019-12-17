@@ -1,6 +1,6 @@
 import { deepCopy } from '@zcorky/deep-copy';
-import { NestRoutes, FlatRoutes, IndexRoutes } from './interface';
-import { toNest } from './to-nest';
+import { NestRoutes, FlatRoutes, IndexRoutes, Route } from './types';
+import { toNest, traverseNest } from './to-nest';
 import { toIndex } from './to-index';
 import { toFlat } from './to-flat';
 
@@ -55,5 +55,24 @@ export class RoutesBuilder {
 
   index() {
     return this.cache.index;
+  }
+
+  traverse(cb: (route: Route) => void) {
+    return new Promise((resolve, reject) => {
+      const nest = this.nest();
+      const length = this.flat().length;
+      let step = 0;
+
+      traverseNest(nest, (route) => {
+        cb(route);
+
+        step += 1;
+        if (step >= length) {
+          return resolve(nest);
+        }
+      });
+
+      return reject(new Error('Unexpect Traverse Error'));
+    });
   }
 }

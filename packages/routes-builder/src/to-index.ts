@@ -1,4 +1,4 @@
-import { FlatRoutes, IndexRoutes } from './interface';
+import { FlatRoutes, IndexRoutes } from './types';
 
 /**
  * route nest

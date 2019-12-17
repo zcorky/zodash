@@ -1,4 +1,4 @@
-export * from './interface';
+export * from './types';
 export * from './to-nest';
 export * from './to-index';
 export * from './to-flat';

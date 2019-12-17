@@ -1,4 +1,4 @@
-import { NestRoutes, FlatRoutes } from './interface';
+import { NestRoutes, FlatRoutes } from './types';
 
 /**
  * route flat
