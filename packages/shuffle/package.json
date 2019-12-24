@@ -1,6 +1,6 @@
 {
   "name": "@zodash/shuffle",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "Creates an array of shuffled values.",
   "keywords": [
     "lodash",
@@ -66,6 +66,6 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "@zodash/compose": "^0.0.11"
+    "@zodash/compose": "^0.0.12"
   }
 }

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.11](https://github.com/zcorky/zodash/compare/@zodash/shuffle@0.0.10...@zodash/shuffle@0.0.11) (2019-12-24)
+
+**Note:** Version bump only for package @zodash/shuffle
+
+
+
+
+
 ## 0.0.10 (2019-12-24)
 
 **Note:** Version bump only for package @zodash/shuffle

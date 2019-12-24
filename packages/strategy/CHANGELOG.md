@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.10](https://github.com/zcorky/zodash/compare/@zodash/strategy@0.0.9...@zodash/strategy@0.0.10) (2019-12-24)
+
+**Note:** Version bump only for package @zodash/strategy
+
+
+
+
+
 ## 0.0.9 (2019-12-24)
 
 **Note:** Version bump only for package @zodash/strategy

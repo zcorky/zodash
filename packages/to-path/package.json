@@ -1,6 +1,6 @@
 {
   "name": "@zodash/to-path",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Transform path string to path array",
   "keywords": [
     "lodash",
