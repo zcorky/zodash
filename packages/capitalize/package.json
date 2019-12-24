@@ -1,6 +1,6 @@
 {
   "name": "@zodash/capitalize",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "Converts the first character of `string` to upper case and the remaining to lower xwcase",
   "keywords": [
     "capitalize",
