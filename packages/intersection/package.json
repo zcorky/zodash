@@ -1,6 +1,6 @@
 {
   "name": "@zodash/intersection",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Creates an array of unique values that are included in all given arrays.",
   "keywords": [
     "lodash",
@@ -68,6 +68,6 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "@zodash/compose": "^0.0.10"
+    "@zodash/compose": "^0.0.11"
   }
 }
