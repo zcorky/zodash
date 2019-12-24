@@ -38,4 +38,51 @@ describe('@zodash/get', () => {
 
         expect(deepEqual(v1, v2 as any)).toBeTruthy();
     });
+
+    it('array a.b[].d', () => {
+        const object = {
+            a: {
+                b: [
+                    { c: { d: 1, e: false } },
+                    { c: { d: 3, e: true } },
+                    { c: { d: 'm', e: true } },
+                ],
+                c: [
+                    [
+                        [{ x: 1 }],
+                        [{ x: 3 }],
+                    ],
+                ],
+                d: [
+                    { x: { y: [{ z: 1 }, { z: 2 }] } },
+                    { x: { y: [{ z: 3 }, { z: 4 }] } },
+                ],
+            },
+        };
+
+        const v1 = get(object, 'a.b[].c.d') as any;
+        const v2 = [1, 3, 'm'];
+
+        const v3 = get(object, 'a.b[]');
+        const v4 = [
+            { c: { d: 1, e: false } },
+            { c: { d: 3, e: true } },
+            { c: { d: 'm', e: true } },
+        ];
+
+        const v5 = get(object, 'a.b[][][]');
+        const v6 = [ undefined, undefined, undefined ];
+
+        const v7 = get(object, 'a.c[][][].x');
+        const v8 = [[[1], [3]]];
+
+        const v9 = get(object, 'a.d[].x.y[].z');
+        const v10 = [[1, 2], [3, 4]];
+
+        expect(deepEqual(v1, v2 as any)).toBeTruthy();
+        expect(deepEqual(v3, v4 as any)).toBeTruthy();
+        expect(deepEqual(v5, v6 as any)).toBeTruthy();
+        expect(deepEqual(v7, v8 as any)).toBeTruthy();
+        expect(deepEqual(v9, v10 as any)).toBeTruthy();
+    });
 });
