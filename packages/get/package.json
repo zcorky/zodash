@@ -44,9 +44,9 @@
     ],
     "coverageThreshold": {
       "global": {
-        "branches": 80,
-        "functions": 90,
-        "lines": 90,
+        "branches": 60,
+        "functions": 60,
+        "lines": 60,
         "statements": -10
       }
     }
@@ -70,6 +70,7 @@
     "@zcorky/deep-equal": "^0.0.1"
   },
   "dependencies": {
+    "@zcorky/is": "^1.0.6",
     "@zodash/to-path": "^0.0.7"
   }
 }

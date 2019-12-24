@@ -1,4 +1,5 @@
 import { toPath } from '@zodash/to-path';
+import { undefined as isUndef, array as isArray } from '@zcorky/is';
 
 /**
  * Get the value at path of object.
@@ -17,24 +18,20 @@ export function get<T extends object, D = any>(value: T, path: string, defaultVa
 
   //     return defaultValue;
   //   }, value);
-  return getValue(value, toPath(path)) || defaultValue;
+  const _v = getValue(value, toPath(path));
+  
+  return !isUndef(_v) ? _v : defaultValue; 
 }
 
 export function getValue(parent: object | object[], paths: string[], currentIndex: number = 0) {
-  if (typeof parent === 'undefined') return undefined;
+  if (isUndef(parent)) return undefined;
 
   const token = paths[currentIndex];
-  const prevToken = paths[currentIndex - 1];
   const nextToken = paths[currentIndex + 1];
 
   // object
-  // console.log(prevToken, token, nextToken);
-  // console.log(parent);
-  // console.log(paths);
-  // console.log('####');
-  // console.log(parent, typeof parent);
   if (token !== '[]') {
-    if (typeof nextToken === 'undefined') {
+    if (isUndef(nextToken)) {
       return parent[token];
     }
 
@@ -42,11 +39,11 @@ export function getValue(parent: object | object[], paths: string[], currentInde
   }
   
   // array
-  if (!Array.isArray(parent)) {
+  if (!isArray(parent)) {
     return undefined;
   }
 
-  if (typeof nextToken === 'undefined') {
+  if (isUndef(nextToken)) {
     return parent;
   }
 

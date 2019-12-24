@@ -85,4 +85,41 @@ describe('@zodash/get', () => {
         expect(deepEqual(v7, v8 as any)).toBeTruthy();
         expect(deepEqual(v9, v10 as any)).toBeTruthy();
     });
+
+    it('nest boolean', () => {
+        const res = {
+            code: 200,
+            message: null,
+            data: {
+              total: 100,
+              data: [{
+                x: 1,
+                y: 2,
+                z: {
+                  m: 'm',
+                  n: false,
+                  l: [
+                    { name: 'z', age: 190 },
+                    { name: 'v', age: 300 },
+                  ],
+                  o: [1, 2, 3],
+                },
+              }, {
+                x: 1,
+                y: 2,
+                z: {
+                  m: 'm',
+                  n: false,
+                  l: [
+                    { name: 'z', age: 190 },
+                    { name: 'v', age: 300 },
+                  ],
+                  o: [1, 2, 3],
+                },
+              }],
+            },
+          };
+
+        expect(get(res, 'data.data.0.z.n')).toEqual(false);
+    });
 });
