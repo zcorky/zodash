@@ -16,4 +16,8 @@ describe("@zodash/unique", () => {
   it('dynamic data empty string', () => {
     expect(toPath(null)).toEqual([]);
   });
+
+  it('a[].b.c => [a, "[]", b, c]', () => {
+    expect(toPath('a[].b.c')).toEqual(['a', '[]', 'b', 'c']);
+  });
 });
