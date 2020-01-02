@@ -9,11 +9,11 @@ interface Input {
 }
 
 export interface ILogger {
-  log(message: string): void;
-  info(message: string): void;
-  error(message: string): void;
-  warn(message: string): void;
-  debug(message: string): void;
+  log(message: string, ...args: any[]): void;
+  info(message: string, ...args: any[]): void;
+  error(message: string, ...args: any[]): void;
+  warn(message: string, ...args: any[]): void;
+  debug(message: string, ...args: any[]): void;
 }
 
 export interface Options {
