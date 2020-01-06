@@ -10,7 +10,7 @@ describe("@zodash/throw", () => {
     } catch (error) {
       expect(error.status).toEqual(400);
       expect(error.message).toEqual('business message');
-      expect(error.response).toEqual({ code: '400123', message: 'business message' });
+      expect(error.body).toEqual({ code: '400123', message: 'business message' });
     }
   });
 });
