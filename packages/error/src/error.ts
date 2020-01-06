@@ -1,5 +1,14 @@
 import { pick } from '@zodash/pick';
 
+export interface ICommonError extends Error {
+  readonly code: string | number; // business code
+  readonly message: string;
+  readonly status?: number; // system code
+  readonly body?: Pick<Options, 'code' | 'message'>;
+  readonly response?: any;
+  readonly originalError?: Error;
+}
+
 export interface Options {
   status?: number;
   code?: string | number;
@@ -8,7 +17,7 @@ export interface Options {
   [key: string]: any;
 }
 
-export class CommonError extends Error {
+export class CommonError extends Error implements ICommonError {
   public code: string | number; // business code
   public status: number; // system code
   public body: Pick<Options, 'code' | 'message'>;
