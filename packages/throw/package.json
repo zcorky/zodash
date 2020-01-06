@@ -1,6 +1,6 @@
 {
   "name": "@zodash/throw",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "simple throw error",
   "keywords": [
     "zodash",
@@ -65,6 +65,6 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "@zodash/error": "^0.0.2"
+    "@zodash/error": "^0.0.3"
   }
 }
