@@ -1,6 +1,10 @@
 import { TreeRoute, FlatRoutes, NestRoutes, Route } from './types';
 import { toTree } from './to-tree';
 
+export interface NestOptions {
+  basePath?: string;
+}
+
 function flatChildren(treeNode: TreeRoute): FlatRoutes | undefined {
   if (!treeNode.children) return [];
 
@@ -48,10 +52,30 @@ function flatChildren(treeNode: TreeRoute): FlatRoutes | undefined {
  *      ],
  *    }]
  */
-export function toNest(routes: FlatRoutes): NestRoutes {
+export function toNest(routes: FlatRoutes, options?: NestOptions): NestRoutes {
   const treeRoute = toTree(routes);
 
-  return flatChildren(treeRoute)!;
+  const basePath = options && options.basePath || '/';
+
+  const basePaths = basePath.split('/').slice(1);
+
+  if (basePaths[0] === '') {
+    return flatChildren(treeRoute)!;
+  }
+
+  // let _treeRoute = treeRoute;
+  // for (const bp of basePaths) {
+  //   _treeRoute = _treeRoute.children[bp];
+
+  //   if (!_treeRoute) return [];
+  // }
+
+  const _treeRoute = basePaths.reduce((rest, childKey) => {
+    if (!rest.children[childKey]) return null;
+    return rest.children[childKey];
+  }, treeRoute);
+
+  return flatChildren(_treeRoute);
 }
 
 export function traverseNest(routes: NestRoutes = [], callback: (route: Route) => void) {

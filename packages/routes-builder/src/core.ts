@@ -1,6 +1,6 @@
 import { deepCopy } from '@zcorky/deep-copy';
 import { NestRoutes, FlatRoutes, IndexRoutes, Route } from './types';
-import { toNest, traverseNest } from './to-nest';
+import { toNest, traverseNest, NestOptions as Options } from './to-nest';
 import { toIndex } from './to-index';
 import { toFlat } from './to-flat';
 
@@ -15,13 +15,13 @@ export interface RoutesCache {
 export type RouteType = 'flat' | 'nest' | 'index';
 export type Routes = FlatRoutes | NestRoutes | IndexRoutes;
 
-export function create(type: RouteType, routes: Routes) {
+export function create(type: RouteType, routes: Routes, options?: Options) {
   const cache = {} as RoutesCache;
   const _routes = deepCopy(routes);
 
   if (type === 'flat') {
     cache.flat = _routes as FlatRoutes;
-    cache.nest = toNest(cache.flat);
+    cache.nest = toNest(cache.flat, options);
     cache.index = toIndex(cache.flat);
   } else if (type === 'nest') {
     cache.nest = _routes as NestRoutes;
@@ -30,7 +30,7 @@ export function create(type: RouteType, routes: Routes) {
   } else if (type === 'index') {
     cache.index = _routes as IndexRoutes;
     cache.flat = Object.values(cache.index);
-    cache.nest = toNest(cache.flat);
+    cache.nest = toNest(cache.flat, options);
   } else {
     throw new Error(`Invalid Type (${type}), must be flat, nest, or index`);
   }
@@ -41,8 +41,8 @@ export function create(type: RouteType, routes: Routes) {
 export class RoutesBuilder {
   private cache: RoutesCache;
 
-  constructor(public readonly type: RouteType, public readonly routes: Routes) {
-    this.cache = create(type, routes);
+  constructor(public readonly type: RouteType, public readonly routes: Routes, public readonly options?: Options) {
+    this.cache = create(type, routes, options);
   }
 
   flat() {
