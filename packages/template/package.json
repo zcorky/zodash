@@ -1,0 +1,77 @@
+{
+  "name": "@zodash/template",
+  "version": "0.0.0",
+  "description": "render template string",
+  "keywords": [
+    "lodash",
+    "zodash",
+    "format",
+    "string",
+    "template"
+  ],
+  "author": "whatwewant <tobewhatwewant@gmail.com>",
+  "homepage": "https://github.com/zcorky/zodash",
+  "license": "MIT",
+  "main": "lib/template.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zcorky/zodash.git"
+  },
+  "jest": {
+    "roots": [
+      "__tests__"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": ".*\\.(spec|test)\\.(ts|tsx)$",
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx"
+    ],
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/**/*.{ts,tsx}"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 90,
+        "lines": 90,
+        "statements": -10
+      }
+    }
+  },
+  "scripts": {
+    "tsc": "tsc",
+    "test": "jest -w 1",
+    "coverage": "codecov"
+  },
+  "bugs": {
+    "url": "https://github.com/zcorky/zodash/issues"
+  },
+  "gitHead": "ef2443b120c1e4ebb64bbfec77d7437310bae623",
+  "devDependencies": {
+    "@zodash/get": "^1.0.22"
+  },
+  "dependencies": {
+    "@zodash/format": "^1.1.1"
+  }
+}
