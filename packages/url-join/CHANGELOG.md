@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.0.8 (2020-07-31)
+
+
+### Bug Fixes
+
+* **@zodash/url-join:** fix url-join main entry ([ae7baf9](https://github.com/zcorky/zodash/commit/ae7baf9f85909005ac335303b491f9aae3606182))
+
+
+
+
+
 ## [0.0.7](https://github.com/zcorky/zodash/compare/@zodash/url-join@0.0.6...@zodash/url-join@0.0.7) (2019-12-24)
 
 **Note:** Version bump only for package @zodash/url-join
