@@ -10,7 +10,7 @@
   "author": "zero <tobewhatwewant@gmail.com>",
   "homepage": "https://github.com/zcorky/zodash#readme",
   "license": "MIT",
-  "main": "lib/unfetch.js",
+  "main": "lib/url-join.js",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
