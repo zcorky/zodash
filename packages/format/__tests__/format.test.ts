@@ -1,3 +1,4 @@
+import { get } from '@zodash/get';
 import { format } from './../src/format';
 
 describe("@zodash/format", () => {
@@ -23,5 +24,13 @@ describe("@zodash/format", () => {
     const pattern = 'Author: #author#, From: #from#, #NOTEXIST#';
     const map = { author: 'Zero', from: 'China' };
     expect(format(pattern, map, { start: '#', end: '#'})).toBe('Author: Zero, From: China, ');
+  });
+
+  it("map function", () => {
+    const pattern = 'Author: {author}, From: {from}, GirlFriend: {girl.name}';
+    const map = { author: 'Zero', from: 'China', girl: { name: 'any' } };
+    expect(format(pattern, (key) => {
+      return get(map, key) // map[key];
+    })).toBe('Author: Zero, From: China, GirlFriend: any');
   });
 });

@@ -65,5 +65,8 @@
   "bugs": {
     "url": "https://github.com/zcorky/zodash/issues"
   },
-  "gitHead": "ef2443b120c1e4ebb64bbfec77d7437310bae623"
+  "gitHead": "ef2443b120c1e4ebb64bbfec77d7437310bae623",
+  "devDependencies": {
+    "@zodash/get": "^1.0.22"
+  }
 }

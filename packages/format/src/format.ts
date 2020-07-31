@@ -19,12 +19,18 @@ const DEFAULT_SEPERATOR: Seperator = {
  * @example
  *  format('Author: {author}, From: {from}', { author: 'Zero', from: 'China' });
  */
-export function format(text: string, map: Record<string, any>, seperator: Seperator = DEFAULT_SEPERATOR) {
+export function format(text: string, mapOrFn: Record<string, any> | ((key: string, text: string) => any), seperator: Seperator = DEFAULT_SEPERATOR) {
   const seperatorStart = seperator.start;
   const SeperatorEnd = seperator.end;
   const pattern = new RegExp(`${seperatorStart}([^${SeperatorEnd}]+)${SeperatorEnd}`, 'g');
 
+  if (typeof mapOrFn === 'function') {
+    return text.replace(pattern, (_, key) => {
+      return mapOrFn(key, text);
+    });
+  }
+
   return text.replace(pattern, (_, key) => {
-    return typeof map[key] !== 'undefined' ? map[key] : '';
+    return typeof mapOrFn[key] !== 'undefined' ? mapOrFn[key] : '';
   });
 }
