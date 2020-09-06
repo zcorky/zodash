@@ -7,10 +7,12 @@
     "noLib": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "target": "es6",
+    "target": "ES6",
     "sourceMap": true,
     "lib": [
-      "es6"
+      "es2015",
+      "ES2016",
+      "DOM"
     ]
   },
   "exclude": [
