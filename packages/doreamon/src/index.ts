@@ -11,6 +11,9 @@ import uuid from './uuid';
 import random from './random';
 import is from './is';
 
+import debounce from './debounce';
+import throttle from './throttle';
+
 import object from './object';
 import array from './array';
 import string from './string';
@@ -26,6 +29,9 @@ export default {
   uuid,
   random,
   is,
+
+  debounce,
+  throttle,
 
   object,
   array,
