@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.0.18 (2020-09-18)
+
+**Note:** Version bump only for package @zodash/camel-case
+
+
+
+
+
 ## [0.0.17](https://github.com/zcorky/zodash/compare/@zodash/camel-case@0.0.16...@zodash/camel-case@0.0.17) (2019-12-24)
 
 **Note:** Version bump only for package @zodash/camel-case

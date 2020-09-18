@@ -1,6 +1,6 @@
 {
   "name": "@zodash/group-by",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "description": "Creates an object composed of keys generated from the results of running each of collection thru iteratee",
   "keywords": [
     "groupBy",
