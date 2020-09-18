@@ -13,12 +13,10 @@ import is from './is';
 
 import ms from './ms';
 
-import debounce from './debounce';
-import throttle from './throttle';
-
 import object from './object';
 import array from './array';
 import string from './string';
+import func from './func';
 
 export default {
   request,
@@ -34,10 +32,8 @@ export default {
 
   ms,
 
-  debounce,
-  throttle,
-
   object,
   array,
   string,
+  func,
 };
