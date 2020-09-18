@@ -1,3 +1,3 @@
-import random from '@zodash/random';
+import { random } from '@zodash/random';
 
 export default random;
