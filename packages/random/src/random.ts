@@ -1,10 +1,10 @@
-/**
- * Produces a random number between the inclusive 0 and max bounds.
- * 
- * @param max the max bound. defaul min bound is 0.
- * @returns the random number between 0 and max
- */
-export function random(max: number): number
+import { nanoid, customAlphabet } from 'nanoid';
+
+const BASESTR = 'abcdef0123456789';
+
+export function feed(length: number) {
+  return customAlphabet(BASESTR, length)();
+}
 
 /**
  * Produces a random number between the inclusive min and max bounds.
@@ -13,12 +13,44 @@ export function random(max: number): number
  * @param max the max bound
  * @returns the random number between min and max
  */
-export function random(min: number, max: number): number
-export function random(min?: number, max?: number) {
-  if (typeof max === 'undefined') {
-    max = min;
-    min = 0;
-  }
-
+export function number(min?: number, max?: number) {
   return ~~(Math.random() * (max - min)) + min;
 }
+
+export function string(length: number) {
+  return feed(length);
+}
+
+export function token() {
+  return feed(32);
+}
+
+export function code() {
+  return feed(24);
+}
+
+export function password() {
+  return nanoid(16);
+}
+
+export function key() {
+  return token();
+}
+
+export function secret() {
+  return token();
+}
+
+
+export function captcha() {
+  return customAlphabet('0123456789', 6)();
+}
+
+export default {
+  number,
+  string,
+  token,
+  key,
+  secret,
+  captcha,
+};
