@@ -1,0 +1,86 @@
+{
+  "name": "@zodash/doreamon",
+  "version": "0.0.0",
+  "description": "utils like a doreamon",
+  "keywords": [
+    "zodash",
+    "compress",
+    "image"
+  ],
+  "author": "zero <tobewhatwewant@gmail.com>",
+  "homepage": "https://github.com/zcorky/zodash#readme",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "jest": {
+    "roots": [
+      "__tests__"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": ".*\\.(spec|test)\\.(ts|tsx)$",
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx"
+    ],
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/**/*.{ts,tsx}"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 50,
+        "functions": 50,
+        "lines": 50,
+        "statements": -10
+      }
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zcorky/zodash.git"
+  },
+  "scripts": {
+    "tsc": "tsc",
+    "test": "jest -w 1",
+    "coverage": "codecov"
+  },
+  "bugs": {
+    "url": "https://github.com/zcorky/zodash/issues"
+  },
+  "dependencies": {
+    "@zcorky/fz": "^1.2.1",
+    "@zcorky/moment": "^1.1.0",
+    "@zcorky/query-string": "^1.0.2",
+    "@zcorky/storage": "^0.0.2",
+    "@zodash/error": "^0.0.3",
+    "@zodash/event": "^0.0.12",
+    "@zodash/find": "^0.0.20",
+    "@zodash/format": "^1.1.1",
+    "@zodash/get": "^1.0.22",
+    "@zodash/load-js": "^0.1.0",
+    "@zodash/logger": "^0.1.1",
+    "@zodash/omit": "^1.0.21",
+    "@zodash/pick": "^1.0.21",
+    "@zodash/random": "^1.0.19",
+    "@zodash/unique": "^0.0.11",
+    "@zodash/uuid": "^0.0.12"
+  }
+}
