@@ -81,6 +81,7 @@
     "@zodash/get": "^1.0.22",
     "@zodash/load-js": "^0.1.0",
     "@zodash/logger": "^0.1.1",
+    "@zodash/memoize": "^1.0.20",
     "@zodash/ms": "^0.0.13",
     "@zodash/omit": "^1.0.21",
     "@zodash/pick": "^1.0.21",
