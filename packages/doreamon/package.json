@@ -68,6 +68,7 @@
   "dependencies": {
     "@zcorky/deep-copy": "^0.0.2",
     "@zcorky/deep-equal": "^0.0.1",
+    "@zcorky/device": "^0.0.1",
     "@zcorky/fz": "^1.2.1",
     "@zcorky/is": "^1.0.7",
     "@zcorky/moment": "^1.1.0",

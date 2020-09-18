@@ -6,6 +6,7 @@ import cookie from './cookie';
 
 // browser
 import storage from './storage';
+import device from './device';
 
 import uuid from './uuid';
 import random from './random';
@@ -24,6 +25,7 @@ export default {
   qs,
   event,
   storage,
+  device,
   cookie,
 
   uuid,
