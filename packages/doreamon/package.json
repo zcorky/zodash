@@ -73,6 +73,7 @@
     "@zcorky/moment": "^1.1.0",
     "@zcorky/query-string": "^1.0.2",
     "@zcorky/storage": "^0.0.2",
+    "@zodash/debounce": "^0.0.20",
     "@zodash/error": "^0.0.3",
     "@zodash/event": "^0.0.12",
     "@zodash/find": "^0.0.20",
@@ -83,6 +84,7 @@
     "@zodash/omit": "^1.0.21",
     "@zodash/pick": "^1.0.21",
     "@zodash/random": "^1.0.19",
+    "@zodash/throttle": "^0.0.20",
     "@zodash/unique": "^0.0.11",
     "@zodash/uuid": "^0.0.12"
   }
