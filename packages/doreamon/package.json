@@ -66,6 +66,8 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
+    "@zcorky/deep-copy": "^0.0.2",
+    "@zcorky/deep-equal": "^0.0.1",
     "@zcorky/fz": "^1.2.1",
     "@zcorky/is": "^1.0.6",
     "@zcorky/moment": "^1.1.0",
