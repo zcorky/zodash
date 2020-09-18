@@ -67,6 +67,7 @@
   },
   "dependencies": {
     "@zcorky/fz": "^1.2.1",
+    "@zcorky/is": "^1.0.6",
     "@zcorky/moment": "^1.1.0",
     "@zcorky/query-string": "^1.0.2",
     "@zcorky/storage": "^0.0.2",
