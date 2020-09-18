@@ -1,4 +1,4 @@
-import { loadScript } from 'load-script';
+import { loadScript } from '@zodash/load-script';
 
 export async function loadJs(url: string) {
   return loadScript(url);
