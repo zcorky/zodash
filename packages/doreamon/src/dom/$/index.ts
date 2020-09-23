@@ -20,7 +20,10 @@ export interface DOMUtils extends $S {
   scrollToTop($el: El, animated?: boolean): void;
   scrollToBottom($el: El, animated?: boolean): void;
   //
-  clipToClipboard(text: string): Promise<void>,
+  clipToClipboard(text: string): Promise<void>;
+  //
+  onPageHide(cb: Function): Unsubscibe;
+  onPageShow(cb: Function): Unsubscibe;
 }
 
 const $: DOMUtils = (selector) => {
@@ -141,6 +144,34 @@ async function fallbackCopyTextToClipboard(text: string) {
   } finally {
     document.body.removeChild(textArea);
   }
+}
+
+$.onPageHide = (cb: Function) => {
+  const handler = () => {
+    if (document.visibilityState === 'hidden') {
+      return cb && cb();
+    }
+  };
+
+  document.addEventListener('visibilitychange', handler);
+
+  return () => {
+    document.removeEventListener('visibilitychange', handler);
+  };
+}
+
+$.onPageShow = (cb: Function) => {
+  const handler = () => {
+    if (document.visibilityState === 'visible') {
+      return cb && cb();
+    }
+  };
+  
+  document.addEventListener('visibilitychange', handler);
+
+  return () => {
+    document.removeEventListener('visibilitychange', handler);
+  };
 }
 
 export default $;
