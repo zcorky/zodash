@@ -81,6 +81,7 @@
     "@zodash/find": "^0.0.21",
     "@zodash/format": "^1.1.2",
     "@zodash/get": "^1.0.23",
+    "@zodash/group-by": "^1.0.20",
     "@zodash/load-js": "^0.1.1",
     "@zodash/logger": "^0.1.2",
     "@zodash/memoize": "^1.0.21",
