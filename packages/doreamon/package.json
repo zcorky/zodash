@@ -1,6 +1,6 @@
 {
   "name": "@zodash/doreamon",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "utils like a doreamon",
   "keywords": [
     "zodash",
@@ -88,7 +88,7 @@
     "@zodash/ms": "^0.0.14",
     "@zodash/omit": "^1.0.22",
     "@zodash/pick": "^1.0.22",
-    "@zodash/random": "^1.0.22",
+    "@zodash/random": "^1.1.0",
     "@zodash/snake-case": "^0.0.15",
     "@zodash/throttle": "^0.0.21",
     "@zodash/unique": "^0.0.12",

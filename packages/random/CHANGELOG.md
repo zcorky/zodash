@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.1.0 (2020-09-27)
+
+
+### Features
+
+* **random:** add shortid instead of node-shortid with nanoid ([c7e2de2](https://github.com/zcorky/zodash/commit/c7e2de2f5be9e63a01e99d97fb12dc139932ba1e))
+
+
+
+
+
 ## [1.0.22](https://github.com/zcorky/zodash/compare/@zodash/random@1.0.21...@zodash/random@1.0.22) (2020-09-18)
 
 **Note:** Version bump only for package @zodash/random
