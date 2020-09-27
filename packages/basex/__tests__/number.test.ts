@@ -1,5 +1,4 @@
 import * as base62 from 'base62';
-import * as base64 from '@zodash/crypto/lib/base64';
 import num from '../src';
 
 describe('@zodash/convert.number', () => {
