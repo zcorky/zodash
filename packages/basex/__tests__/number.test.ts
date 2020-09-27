@@ -1,7 +1,7 @@
 import * as base62 from 'base62';
 import num from '../src';
 
-describe('@zodash/convert.number', () => {
+describe('@zodash/basex', () => {
   it('binary', () => {
     expect(num.binary(10)).toBe(parseInt('' + 10, 10).toString(2));
     expect(num.binary(13)).toBe(parseInt('' + 13, 10).toString(2));
