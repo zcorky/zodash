@@ -41,9 +41,13 @@ export function secret() {
   return token();
 }
 
-
 export function captcha() {
   return customAlphabet('0123456789', 6)();
+}
+
+export function shortid() {
+  // return customAlphabet('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$@', 8);
+  return nanoid(8);
 }
 
 export default {
@@ -53,4 +57,5 @@ export default {
   key,
   secret,
   captcha,
+  shortid,
 };
