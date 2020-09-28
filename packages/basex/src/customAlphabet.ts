@@ -4,15 +4,23 @@ export default function customAlphabet(alphabet: string | string[]) {
 
   return (num: number) => {
     const arr: string[] = [];
-    let mod: number;
     let value = num;
 
     do {
-      mod = value % radix;
-      value = (value - mod) / radix;
+      const { mod, divisor } = divide(value, radix);
+      value = divisor;
       arr.unshift(chars[mod]);
     } while (value);
 
     return arr.join('');
+  };
+}
+
+export function divide(divisor: number, radix: number) {
+  const mod = divisor % radix;
+  const _divisor = (divisor - mod) / radix;
+  return {
+    mod,
+    divisor: _divisor,
   };
 }
