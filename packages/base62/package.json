@@ -1,6 +1,6 @@
 {
   "name": "@zodash/base62",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Simple base62 converter",
   "keywords": [
     "zodash",
@@ -71,6 +71,6 @@
     "base62": "^2.0.1"
   },
   "dependencies": {
-    "@zodash/basex": "^0.1.0"
+    "@zodash/basex": "^0.1.1"
   }
 }
