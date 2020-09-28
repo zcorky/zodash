@@ -1,5 +1,11 @@
 import * as base62 from 'base62';
 import num from '../src';
+// import base62 from 'base62';
+
+// const base62 = require('base62');
+// const base62 = require('base62');
+
+// console.log('xxx:', base62);
 
 describe('@zodash/basex', () => {
   it('binary', () => {

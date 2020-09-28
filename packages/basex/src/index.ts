@@ -1,6 +1,6 @@
 import binary from './binary';
 import hex from './hex';
-import base62 from './base62';
+import base62 from './b62';
 import base36 from './base36';
 
 import basex from './basex';
