@@ -67,7 +67,7 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "base62": "^2.0.1",
+    "@zodash/base62": "^0.1.0",
     "murmurhash": "^1.0.0"
   },
   "devDependencies": {
