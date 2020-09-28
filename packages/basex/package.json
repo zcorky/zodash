@@ -1,6 +1,6 @@
 {
   "name": "@zodash/basex",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Simple Covert value to binary | hex | base62 | base36 | basex | customAlphabet",
   "keywords": [
     "zodash",

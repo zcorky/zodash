@@ -1,6 +1,6 @@
 {
   "name": "@zodash/shorturl",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Create short url from long url by Node Murmurhash",
   "keywords": [
     "zodash",

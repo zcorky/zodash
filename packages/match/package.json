@@ -1,6 +1,6 @@
 {
   "name": "@zodash/match",
-  "version": "0.0.21",
+  "version": "0.1.0",
   "description": "match data, handlers with match key function",
   "keywords": [
     "match",
