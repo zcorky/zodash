@@ -19,7 +19,32 @@ import array from './array';
 import string from './string';
 import func from './func';
 
-export default {
+export interface ICollections {
+  request: typeof request;
+  date: typeof date;
+  qs: typeof qs;
+  event: typeof event;
+  storage: typeof storage;
+  device: typeof device;
+  cookie: typeof cookie;
+
+  uuid: typeof uuid;
+  random: typeof random;
+  is: typeof is;
+
+  ms: typeof ms;
+
+  object: typeof object;
+  array: typeof array;
+  string: typeof string;
+  func: typeof func;
+
+  use<T = any>(key: string, value: T): void;
+
+  [key: string]: any;
+}
+
+export const collections: ICollections = {
   request,
   date,
   qs,
@@ -38,4 +63,15 @@ export default {
   array,
   string,
   func,
+
+  //
+  use: <T = any>(key: string, value: T) => {
+    if (collections[key]) {
+      throw new Error(`Doreamon cannot override ${key}`);
+    }
+
+    collections[key] = value;
+  },
 };
+
+export default collections;
