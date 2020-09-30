@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.3.0 (2020-09-30)
+
+
+### Features
+
+* **doreamon:** add simple plugin mode for doreamon ([f5836ad](https://github.com/zcorky/zodash/commit/f5836ad029d8448f31fb7e858ea25a7330902d80))
+
+
+
+
+
 # 0.2.0 (2020-09-28)
 
 
