@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.1](https://github.com/zcorky/zodash/compare/@zodash/doreamon@0.3.0...@zodash/doreamon@0.3.1) (2020-09-30)
+
+
+### Bug Fixes
+
+* **doremaon:** dom.$.clipToClipboard => copyToClipboard ([2c66bab](https://github.com/zcorky/zodash/commit/2c66bab5423d3c03d862fd404922045968b1e04a))
+
+
+
+
+
 # 0.3.0 (2020-09-30)
 
 
