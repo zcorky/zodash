@@ -4,6 +4,8 @@ import qs from './qs';
 import event from './event';
 import cookie from './cookie';
 
+import dom from './dom';
+
 // browser
 import storage from './storage';
 import device from './device';
@@ -39,6 +41,8 @@ export interface ICollections {
   string: typeof string;
   func: typeof func;
 
+  dom: typeof dom;
+
   use<T = any>(key: string, value: T): void;
 
   [key: string]: any;
@@ -63,6 +67,8 @@ export const collections: ICollections = {
   array,
   string,
   func,
+
+  dom,
 
   //
   use: <T = any>(key: string, value: T) => {
