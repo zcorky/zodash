@@ -20,7 +20,7 @@ export interface DOMUtils extends $S {
   scrollToTop($el: El, animated?: boolean): void;
   scrollToBottom($el: El, animated?: boolean): void;
   //
-  clipToClipboard(text: string): Promise<void>;
+  copyToClipboard(text: string): Promise<void>;
   //
   onPageHide(cb: Function): Unsubscibe;
   onPageShow(cb: Function): Unsubscibe;
@@ -107,7 +107,7 @@ $.scrollToBottom = ($element, animated) => {
 }
 
 // reference: https://stackoverflow.com/questions/400212/how-do-i-copy-to-the-clipboard-in-javascript
-$.clipToClipboard = async function copyToClipboard(text: string) {
+$.copyToClipboard = async function copyToClipboard(text: string) {
   if (!navigator.clipboard) {
     return await fallbackCopyTextToClipboard(text);
   }
