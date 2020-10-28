@@ -1,3 +1,5 @@
+import logger from './logger';
+
 import request from './request';
 import date from './date';
 import qs from './qs';
@@ -22,6 +24,8 @@ import string from './string';
 import func from './func';
 
 export interface ICollections {
+  logger: typeof logger;
+
   request: typeof request;
   date: typeof date;
   qs: typeof qs;
@@ -49,6 +53,8 @@ export interface ICollections {
 }
 
 export const collections: ICollections = {
+  logger,
+  
   request,
   date,
   qs,
