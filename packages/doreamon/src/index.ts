@@ -56,6 +56,7 @@ export interface ICollections {
 
 export const collections: ICollections = {
   logger,
+  debug,
 
   request,
   date,
