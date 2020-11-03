@@ -1,6 +1,6 @@
 {
   "name": "@zodash/doreamon",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "utils like a doreamon",
   "keywords": [
     "zodash",
@@ -69,7 +69,7 @@
     "@zcorky/deep-copy": "^0.0.2",
     "@zcorky/deep-equal": "^0.0.1",
     "@zcorky/device": "^0.0.3",
-    "@zcorky/fz": "^1.2.1",
+    "@zcorky/fz": "^1.2.5",
     "@zcorky/is": "^1.0.7",
     "@zcorky/moment": "^1.1.0",
     "@zcorky/query-string": "^1.0.2",
