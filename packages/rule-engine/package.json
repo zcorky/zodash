@@ -1,6 +1,6 @@
 {
   "name": "@zodash/rule-engine",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Simple Rule Engine / Runner",
   "keywords": [
     "zodash",
