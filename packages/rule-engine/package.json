@@ -63,11 +63,5 @@
   },
   "bugs": {
     "url": "https://github.com/zcorky/zodash/issues"
-  },
-  "devDependencies": {
-    "base62": "^2.0.1"
-  },
-  "dependencies": {
-    "@zodash/basex": "^0.1.1"
   }
 }
