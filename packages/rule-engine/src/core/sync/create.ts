@@ -84,7 +84,3 @@ export function create<DataSource>(rules: IRuleNode<DataSource>[], options?: Opt
     run,
   };
 }
-
-export default {
-  create,
-};

@@ -1,4 +1,4 @@
-import engine, { IRuleNode } from '../src';
+import engine, { IRuleNode } from '../src/core/sync';
 
 describe('@zodash/rule-engine', () => {
   it('run', () => {
