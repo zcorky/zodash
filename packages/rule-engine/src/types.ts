@@ -21,11 +21,13 @@ export interface IRuleAttrNode<DataSource> {
    * Caculate Current Attribute Value
    *  used to compare his children options
    *  which mean strategies pattern
-   * 
-   * @param dataSource dataSource
-   * @param attributeName attribute name
    */
   onScaleTo?: IOnScaleTo<DataSource>;
+
+  /**
+   * Interface to emit a message when hit attr, maybe show your field
+   */
+  onHitAttr?: IOnHitAttr<DataSource>;
 }
 
 /**
@@ -72,11 +74,28 @@ export type IShowData<DataSource extends Record<string, any>> = {
   [K in keyof DataSource]: boolean;
 }
 
+/**
+ * Caculate Current Attribute Value
+ *  used to compare his children options
+ *  which mean strategies pattern
+ * 
+ * @param dataSource dataSource
+ * @param attributeName attribute name
+ */
 export type IOnScaleTo<DataSource> = (dataSource: Partial<DataSource>, attributeName: string) => string;
+
+/**
+ * Interface to emit a message when hit attr, maybe show your field
+ * 
+ * @param attributeName attribute name
+ * @param dataSource dataSource
+ */
+export type IOnHitAttr<DataSource> = (attributeName: string, dataSource: DataSource) => void;
 
 /**
  * Create Options
  */
 export interface Options<DataSource> {
   defaultOnScaleTo?: IOnScaleTo<DataSource>;
+  defaultOnHitAttr?: IOnHitAttr<DataSource>;
 }

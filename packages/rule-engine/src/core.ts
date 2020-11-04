@@ -3,6 +3,7 @@ import {
   IRuleAttrNode,
   IShowData,
   IOnScaleTo,
+  IOnHitAttr,
   Options,
 } from './types';
 
@@ -10,8 +11,11 @@ const DEFAULT_ON_SCALE_TO: IOnScaleTo<any> = (dataSource, name) => {
   return dataSource[name];
 };
 
+const DEFAULT_ON_HIT_ATTR: IOnHitAttr<any> = () => null;
+
 export function create<DataSource>(rules: IRuleNode<DataSource>[], options?: Options<DataSource>) {
   const defaultOnScaleTo = options?.defaultOnScaleTo || DEFAULT_ON_SCALE_TO;
+  const defaultOnHitAttr = options?.defaultOnHitAttr || DEFAULT_ON_HIT_ATTR;
 
   // real runner
   function run(dataSource: Partial<DataSource>) {
@@ -27,6 +31,12 @@ export function create<DataSource>(rules: IRuleNode<DataSource>[], options?: Opt
         if (rule.type === 'Attr') {
           // @1.1 set value
           if (!shows[rule.value]) {
+            // hit attr first time
+            const onHitAttr = getOnHitAttr(rule);
+            if (onHitAttr) {
+              onHitAttr(rule.value, dataSource);
+            }
+
             shows[rule.value] = true;
           }
   
@@ -40,7 +50,7 @@ export function create<DataSource>(rules: IRuleNode<DataSource>[], options?: Opt
           continue;
         } else if (rule.type === 'Value') {
           // @2 value compare
-          const sacleTo: IOnScaleTo<DataSource> = attrNodeOfValue.onScaleTo || defaultOnScaleTo;
+          const sacleTo: IOnScaleTo<DataSource> = getOnScaleTo();
           
           const scaledValue = sacleTo(dataSource, attrNodeOfValue.value);
   
@@ -55,6 +65,14 @@ export function create<DataSource>(rules: IRuleNode<DataSource>[], options?: Opt
           throw new Error(`Invalid Rule Type(${(rule as any).type})`);
         }
       }
+    }
+
+    function getOnScaleTo() {
+      return attrNodeOfValue.onScaleTo || defaultOnScaleTo;
+    }
+
+    function getOnHitAttr(node: IRuleAttrNode<DataSource>) {
+      return node.onHitAttr || defaultOnHitAttr;
     }
   
     go(rules);
