@@ -3,13 +3,15 @@ import {
   IRuleAttrNode,
   IShowData,
   IOnScaleTo,
+  Options,
 } from './types';
 
 const DEFAULT_ON_SCALE_TO: IOnScaleTo<any> = (dataSource, name) => {
   return dataSource[name];
 };
 
-export function create<DataSource>(rules: IRuleNode<DataSource>[]) {
+export function create<DataSource>(rules: IRuleNode<DataSource>[], options?: Options<DataSource>) {
+  const defaultOnScaleTo = options?.defaultOnScaleTo || DEFAULT_ON_SCALE_TO;
 
   // real runner
   function run(dataSource: Partial<DataSource>) {
@@ -38,7 +40,7 @@ export function create<DataSource>(rules: IRuleNode<DataSource>[]) {
           continue;
         } else if (rule.type === 'Value') {
           // @2 value compare
-          const sacleTo: IOnScaleTo<DataSource> = attrNodeOfValue.onScaleTo || DEFAULT_ON_SCALE_TO;
+          const sacleTo: IOnScaleTo<DataSource> = attrNodeOfValue.onScaleTo || defaultOnScaleTo;
           
           const scaledValue = sacleTo(dataSource, attrNodeOfValue.value);
   

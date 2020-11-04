@@ -73,3 +73,10 @@ export type IShowData<DataSource extends Record<string, any>> = {
 }
 
 export type IOnScaleTo<DataSource> = (dataSource: Partial<DataSource>, attributeName: string) => string;
+
+/**
+ * Create Options
+ */
+export interface Options<DataSource> {
+  defaultOnScaleTo?: IOnScaleTo<DataSource>;
+}
