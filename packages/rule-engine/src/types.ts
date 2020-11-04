@@ -72,4 +72,4 @@ export type IShowData<DataSource extends Record<string, any>> = {
   [K in keyof DataSource]: boolean;
 }
 
-export type IOnScaleTo<DataSource> = (dataSource: DataSource, attributeName: string) => string;
+export type IOnScaleTo<DataSource> = (dataSource: Partial<DataSource>, attributeName: string) => string;

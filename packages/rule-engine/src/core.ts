@@ -12,7 +12,7 @@ const DEFAULT_ON_SCALE_TO: IOnScaleTo<any> = (dataSource, name) => {
 export function create<DataSource>(rules: IRuleNode<DataSource>[]) {
 
   // real runner
-  function run(dataSource: DataSource) {
+  function run(dataSource: Partial<DataSource>) {
     const shows: IShowData<DataSource> = Object
       .keys(dataSource)
       .reduce((all, key) => (all[key] = false, all), {} as any);
