@@ -7,6 +7,8 @@ import {
   Options,
 } from './types';
 
+import { create as createSync } from './sync';
+
 const DEFAULT_ON_SCALE_TO: IOnScaleTo<any> = (dataSource, name) => {
   return dataSource[name];
 };
@@ -85,3 +87,6 @@ export function create<DataSource>(rules: IRuleNode<DataSource>[], options?: Opt
     run,
   };
 }
+
+// mount sync to create for better user experience
+create.sync = createSync;

@@ -1,4 +1,5 @@
-import engine, { IRuleNode } from '../src/core/sync';
+import engine from '../src';
+import { IRuleNode } from '../src/core/sync';
 
 describe('@zodash/rule-engine', () => {
   it('run', () => {
@@ -91,7 +92,7 @@ describe('@zodash/rule-engine', () => {
       },
     ];
 
-    const runner = engine.create(rules);
+    const runner = engine.create.sync(rules);
 
     expect(runner.run({
       createdBy: 'manual',
