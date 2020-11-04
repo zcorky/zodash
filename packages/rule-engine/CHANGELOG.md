@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/zcorky/zodash/compare/@zodash/rule-engine@0.2.0...@zodash/rule-engine@0.3.0) (2020-11-04)
+
+
+### Features
+
+* **rule-engine:** @zodash/rule-engine support onHitAttr, which is used to emit a message when rule satisfy the attribute (or form field show) ([aeed835](https://github.com/zcorky/zodash/commit/aeed8351e03794fc2916396233698fe9b45cacf9))
+
+
+
+
+
 # [0.2.0](https://github.com/zcorky/zodash/compare/@zodash/rule-engine@0.1.1...@zodash/rule-engine@0.2.0) (2020-11-04)
 
 
