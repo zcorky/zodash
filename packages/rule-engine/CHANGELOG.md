@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/zcorky/zodash/compare/@zodash/rule-engine@0.3.0...@zodash/rule-engine@0.4.0) (2020-11-04)
+
+
+### Features
+
+* **rule-engine:** refactor rule-engine using asyncify, which is better for more situations ([df65da2](https://github.com/zcorky/zodash/commit/df65da21edd1c9b51bf767929f9f59d798e78863))
+
+
+
+
+
 # [0.3.0](https://github.com/zcorky/zodash/compare/@zodash/rule-engine@0.2.0...@zodash/rule-engine@0.3.0) (2020-11-04)
 
 
