@@ -2,7 +2,7 @@ import engine, { IRuleNode } from '../src';
 
 describe('@zodash/rule-engine', () => {
   it('run', () => {
-    const rules: IRuleNode[] = [
+    const rules: IRuleNode<any>[] = [
       {
         type: 'Attr',
         value: 'createdBy',

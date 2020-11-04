@@ -55,7 +55,7 @@ export interface IRuleValueNode<DataSource> {
  * Rule Node
  *  = Attribute Node + Value Node
  */
-export type IRuleNode<DataSource> = IRuleAttrNode<DataSource> | IRuleValueNode<DataSource>;
+export type IRuleNode<DataSource = any> = IRuleAttrNode<DataSource> | IRuleValueNode<DataSource>;
 
 
 // /**
