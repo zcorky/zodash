@@ -1,7 +1,7 @@
 /**
  * Attribute Node
  */
-export interface IRuleAttrNode {
+export interface IRuleAttrNode<DataSource> {
   /**
    * Type: Attr
    */
@@ -15,13 +15,23 @@ export interface IRuleAttrNode {
   /**
    * Attribute Children must be Value Node, such as select.options
    */
-  children?: IRuleValueNode[];
+  children?: IRuleValueNode<DataSource>[];
+
+  /**
+   * Caculate Current Attribute Value
+   *  used to compare his children options
+   *  which mean strategies pattern
+   * 
+   * @param dataSource dataSource
+   * @param attributeName attribute name
+   */
+  onScaleTo?: IOnScaleTo<DataSource>;
 }
 
 /**
  * Value Node
  */
-export interface IRuleValueNode {
+export interface IRuleValueNode<DataSource> {
   /**
    * Type: Value
    */
@@ -38,14 +48,14 @@ export interface IRuleValueNode {
   /**
    * Value Children must be Attribute Node, means the next attributes
    */
-  children: IRuleAttrNode[];
+  children: IRuleAttrNode<DataSource>[];
 }
 
 /**
  * Rule Node
  *  = Attribute Node + Value Node
  */
-export type IRuleNode = IRuleAttrNode | IRuleValueNode;
+export type IRuleNode<DataSource> = IRuleAttrNode<DataSource> | IRuleValueNode<DataSource>;
 
 
 // /**
@@ -58,6 +68,8 @@ export type IRuleNode = IRuleAttrNode | IRuleValueNode;
 /**
  * Return Show Data
  */
-export type ShowData<DataSource extends Record<string, any>> = {
+export type IShowData<DataSource extends Record<string, any>> = {
   [K in keyof DataSource]: boolean;
 }
+
+export type IOnScaleTo<DataSource> = (dataSource: DataSource, attributeName: string) => string;

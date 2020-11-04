@@ -1,16 +1,25 @@
-import { IRuleNode, ShowData } from './types';
+import {
+  IRuleNode,
+  IRuleAttrNode,
+  IShowData,
+  IOnScaleTo,
+} from './types';
 
-export function create(rules: IRuleNode[]) {
+const DEFAULT_ON_SCALE_TO: IOnScaleTo<any> = (dataSource, name) => {
+  return dataSource[name];
+};
+
+export function create<DataSource>(rules: IRuleNode<DataSource>[]) {
 
   // real runner
-  function run<D>(dataSource: D) {
-    const shows: ShowData<D> = Object
+  function run(dataSource: DataSource) {
+    const shows: IShowData<DataSource> = Object
       .keys(dataSource)
       .reduce((all, key) => (all[key] = false, all), {} as any);
   
-    let attrOfValue = '';
+    let attrNodeOfValue: IRuleAttrNode<DataSource> = null;
     
-    function go(_rules: IRuleNode[]) {
+    function go(_rules: IRuleNode<DataSource>[]) {
       for (const rule of _rules) {
         // @1 attr show
         if (rule.type === 'Attr') {
@@ -21,20 +30,23 @@ export function create(rules: IRuleNode[]) {
   
           // @1.2 map deep children
           if (rule.children && !!rule.children.length) {
-            attrOfValue = rule.value;
+            attrNodeOfValue = rule;
+
             go(rule.children);
           }
   
           continue;
         } else if (rule.type === 'Value') {
           // @2 value compare
-          const currentValue = dataSource[attrOfValue];
+          const sacleTo: IOnScaleTo<DataSource> = attrNodeOfValue.onScaleTo || DEFAULT_ON_SCALE_TO;
+          
+          const scaledValue = sacleTo(dataSource, attrNodeOfValue.value);
   
           // radio, must be equal
-          if (typeof rule.value === 'string' && currentValue === rule.value) {
+          if (typeof rule.value === 'string' && scaledValue === rule.value) {
             go(rule.children);
             // checkbox, may be oneof
-          } else if (Array.isArray(rule.value) && rule.value.includes(currentValue)) {
+          } else if (Array.isArray(rule.value) && rule.value.includes(scaledValue)) {
             go(rule.children)
           }
         } else {
