@@ -1,4 +1,4 @@
-import engine from '../src';
+import * as keycodes from '../src';
 
 describe('@zodash/keycode', () => {
   it('run', async () => {
