@@ -205,7 +205,7 @@ $.getScrollPosition = ($el: Element | Window = window) => {
   };
 }
 
-$.isVisibleInViewport = ($el: Element, fullVisible: boolean = false) {
+$.isVisibleInViewport = ($el: Element, fullVisible: boolean = false) => {
   const { top, right, bottom, left } = $el.getBoundingClientRect();
   const { innerHeight, innerWidth } = window;
 
