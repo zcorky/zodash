@@ -1,4 +1,5 @@
 import { debounce } from '@zodash/debounce';
+import { parse } from '@zcorky/query-string';
 
 export type Selector = string;
 
@@ -34,7 +35,8 @@ export interface DOMUtils extends $S {
   getScrollPosition($el?: El | Window): Position;
   isVisibleInViewport($el: El, fullVisible?: boolean): boolean;
   //
-  currentURL(): string;
+  getURL(): string;
+  getQuery(): Record<string, string>;
 }
 
 const $: DOMUtils = (selector) => {
@@ -216,6 +218,10 @@ $.isVisibleInViewport = ($el: Element, fullVisible: boolean = false) {
   return isVerticalMatch && isHorizontalMatch;
 }
 
-$.currentURL = () => window.location.href;
+$.getURL = () => window.location.href;
+
+$.getQuery = () => {
+  return parse(window.location.search);
+}
 
 export default $;
