@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.4.3 (2020-11-05)
+
+
+### Bug Fixes
+
+* **doreamon:** fix stupid syntax error ([49216b5](https://github.com/zcorky/zodash/commit/49216b5f2a796e4f99229b136bb4eb242524a6e7))
+
+
+
+
+
 ## [0.4.2](https://github.com/zcorky/zodash/compare/@zodash/doreamon@0.4.1...@zodash/doreamon@0.4.2) (2020-11-03)
 
 **Note:** Version bump only for package @zodash/doreamon
