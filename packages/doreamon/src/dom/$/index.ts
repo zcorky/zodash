@@ -33,6 +33,8 @@ export interface DOMUtils extends $S {
   //
   getScrollPosition($el?: El | Window): Position;
   isVisibleInViewport($el: El, fullVisible?: boolean): boolean;
+  //
+  currentURL(): string;
 }
 
 const $: DOMUtils = (selector) => {
@@ -214,5 +216,6 @@ $.isVisibleInViewport = ($el: Element, fullVisible: boolean = false) {
   return isVerticalMatch && isHorizontalMatch;
 }
 
+$.currentURL = () => window.location.href;
 
 export default $;
