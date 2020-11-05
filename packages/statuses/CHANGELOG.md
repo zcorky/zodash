@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.2.0 (2020-11-05)
+
+
+### Features
+
+* **statuses:** add full human http statuses ([81a456e](https://github.com/zcorky/zodash/commit/81a456e2b34743a3e4b9ec3e4beee11ecb289d22))
+
+
+
+
+
 # 1.1.0 (2020-09-28)
 
 
