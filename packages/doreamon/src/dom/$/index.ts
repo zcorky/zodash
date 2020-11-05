@@ -10,6 +10,11 @@ export type Unsubscibe = () => void;
 
 export type $S = (selector: Selector | Element) => Element;
 
+export type Position = {
+  x: number;
+  y: number;
+}
+
 export interface DOMUtils extends $S {
   on($el: El, eventName: string, listener: Listener): void;
   off($el: El, eventName: string, listener: Listener): void;
@@ -24,6 +29,10 @@ export interface DOMUtils extends $S {
   //
   onPageHide(cb: Function): Unsubscibe;
   onPageShow(cb: Function): Unsubscibe;
+  isPageVisible(): boolean;
+  //
+  getScrollPosition($el?: El | Window): Position;
+  isVisibleInViewport($el: El, fullVisible?: boolean): boolean;
 }
 
 const $: DOMUtils = (selector) => {
@@ -173,5 +182,37 @@ $.onPageShow = (cb: Function) => {
     document.removeEventListener('visibilitychange', handler);
   };
 }
+
+$.isPageVisible = () => {
+  return document.visibilityState === 'visible' || !document.hidden;
+}
+
+$.getScrollPosition = ($el: Element | Window = window) => {
+  if (typeof ($el as Window).pageXOffset !== undefined) {
+    return {
+      x: ($el as Window).pageXOffset,
+      y: ($el as Window).pageYOffset,
+    };
+  }
+
+  return {
+    x: ($el as Element).scrollLeft,
+    y: ($el as Element).scrollTop,
+  };
+}
+
+$.isVisibleInViewport = ($el: Element, fullVisible: boolean = false) {
+  const { top, right, bottom, left } = $el.getBoundingClientRect();
+  const { innerHeight, innerWidth } = window;
+
+  if (fullVisible) {
+    return top >= 0 && left >=0 && bottom <= innerHeight && right <= innerWidth;
+  }
+
+  const isVerticalMatch = (top > 0 && top < innerHeight) || (bottom > 0 && bottom < innerHeight);
+  const isHorizontalMatch = (left > 0 && left < innerWidth) || (right > 0 && right < innerWidth);
+  return isVerticalMatch && isHorizontalMatch;
+}
+
 
 export default $;
