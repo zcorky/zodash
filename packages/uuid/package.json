@@ -1,6 +1,6 @@
 {
   "name": "@zodash/uuid",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Generate RFC-compliant UUIDs v4 in JavaScript",
   "keywords": [
     "mapTo",

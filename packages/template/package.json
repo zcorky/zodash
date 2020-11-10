@@ -1,6 +1,6 @@
 {
   "name": "@zodash/template",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "render template string",
   "keywords": [
     "lodash",
@@ -69,9 +69,9 @@
   },
   "gitHead": "ef2443b120c1e4ebb64bbfec77d7437310bae623",
   "devDependencies": {
-    "@zodash/get": "^1.1.1"
+    "@zodash/get": "^1.1.2"
   },
   "dependencies": {
-    "@zodash/format": "^1.2.1"
+    "@zodash/format": "^1.2.2"
   }
 }

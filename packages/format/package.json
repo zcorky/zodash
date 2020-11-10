@@ -1,6 +1,6 @@
 {
   "name": "@zodash/format",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "format string with object values",
   "keywords": [
     "format",
@@ -67,6 +67,6 @@
   },
   "gitHead": "ef2443b120c1e4ebb64bbfec77d7437310bae623",
   "devDependencies": {
-    "@zodash/get": "^1.1.1"
+    "@zodash/get": "^1.1.2"
   }
 }
