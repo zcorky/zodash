@@ -1,6 +1,6 @@
 {
   "name": "@zodash/find",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "find an object from a list",
   "keywords": [
     "findOne",

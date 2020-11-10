@@ -1,6 +1,6 @@
 {
   "name": "@zodash/state",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "State Manager Based On Redux, Inspired By Dva, Mirror, Kea, Rematch",
   "keywords": [
     "zodash",
