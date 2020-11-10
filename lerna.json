@@ -7,7 +7,7 @@
     "publish": {
       "npmClient": "npm",
       "registry": "https://registry.npmjs.org/",
-      "ignoreChanges": ["*.lock", "CHANGELOG.md"],
+      "ignoreChanges": ["package-lock.json", "*.lock", "CHANGELOG.md"],
       "allowBranch": ["master"],
       "commitHooks": false,
       "message": "chore(release): publish",
