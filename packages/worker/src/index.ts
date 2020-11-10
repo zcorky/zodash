@@ -132,7 +132,7 @@ function createWorker(url: string) {
 }
 
 function createIdGenerator() {
-  let id = 0;
+  let id = 1;
   const MAX_SAFE_INTEGER = Number.MAX_SAFE_INTEGER || 4294967296;
 
   return () => {
