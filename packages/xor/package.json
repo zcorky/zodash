@@ -1,6 +1,6 @@
 {
   "name": "@zodash/xor",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Creates an array of unique values that are included in all given arrays.",
   "keywords": [
     "lodash",
@@ -69,6 +69,6 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "@zodash/compose": "^0.1.2"
+    "@zodash/compose": "^0.1.3"
   }
 }

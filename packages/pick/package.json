@@ -1,6 +1,6 @@
 {
   "name": "@zodash/pick",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "A copy of the object, filtered to only have an array of whitelisted keys",
   "keywords": [
     "pick",
