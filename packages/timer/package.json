@@ -1,6 +1,6 @@
 {
   "name": "@zodash/timer",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A Timer, support count up and count down",
   "keywords": [
     "zodash",
