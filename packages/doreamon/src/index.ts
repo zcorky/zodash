@@ -14,6 +14,7 @@ import dom from './dom';
 import storage from './storage';
 import device from './device';
 
+import delay from './delay';
 import uuid from './uuid';
 import random from './random';
 import is from './is';
