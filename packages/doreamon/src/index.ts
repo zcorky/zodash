@@ -39,6 +39,7 @@ export interface ICollections {
   cookie: typeof cookie;
   fs: typeof fs;
 
+  delay: typeof delay;
   uuid: typeof uuid;
   random: typeof random;
   is: typeof is;
@@ -70,6 +71,7 @@ export const collections: ICollections = {
   cookie,
   fs,
 
+  delay,
   uuid,
   random,
   is,
