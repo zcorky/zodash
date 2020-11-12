@@ -26,7 +26,7 @@ export class Timer extends Emitter {
     this.it = setTimeout(() => {
       const time = moment();
       if (this.options?.deadlineAt) {
-        const diffTime = time.diff(this.options.deadlineAt);
+        const diffTime = moment(this.options.deadlineAt).diff(time);
 
         this.emit('update', diffTime);
       } else {
