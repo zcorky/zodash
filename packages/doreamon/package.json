@@ -78,6 +78,7 @@
     "@zodash/cookie": "^0.0.1",
     "@zodash/debounce": "^0.1.3",
     "@zodash/debug": "^0.0.1",
+    "@zodash/dom": "^0.0.1",
     "@zodash/error": "^0.1.3",
     "@zodash/event": "^0.1.3",
     "@zodash/find": "^0.1.3",

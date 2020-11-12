@@ -1,9 +1,3 @@
-import $ from './$';
-import loadJs from './load-js';
-import loadCss from './load-css';
+import dom from '@zodash/dom';
 
-export default {
-  $,
-  loadJs,
-  loadCss,
-};
+export default dom;
