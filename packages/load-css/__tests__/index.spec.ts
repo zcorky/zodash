@@ -1,4 +1,4 @@
-import { loadScript } from '../src/load-script';
+import { loadCss } from '../src';
 
 describe("@zodash/unique", () => {
   it('works', () => {
