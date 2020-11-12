@@ -6,6 +6,7 @@ import date from './date';
 import qs from './qs';
 import event from './event';
 import cookie from './cookie';
+import fs from './fs';
 
 import dom from './dom';
 
@@ -35,6 +36,7 @@ export interface ICollections {
   storage: typeof storage;
   device: typeof device;
   cookie: typeof cookie;
+  fs: typeof fs;
 
   uuid: typeof uuid;
   random: typeof random;
@@ -65,6 +67,7 @@ export const collections: ICollections = {
   storage,
   device,
   cookie,
+  fs,
 
   uuid,
   random,

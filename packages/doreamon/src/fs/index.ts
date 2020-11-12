@@ -1,9 +1,3 @@
-import loadJs from './load-js';
-import loadCss from './load-css';
-import download from './download';
+import fs from '@zodash/fs';
 
-export default {
-  loadJs,
-  loadCss,
-  download,
-};
+export default fs;
