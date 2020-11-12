@@ -1,12 +1,11 @@
 {
-  "name": "@zodash/observerable",
-  "version": "0.1.0",
-  "description": "Make everything observerable",
+  "name": "@zodash/cookie",
+  "version": "0.0.0",
+  "description": "cookie utils",
   "keywords": [
     "zodash",
-    "observerable",
-    "observer",
-    "observe"
+    "cookie",
+    "js-cookie"
   ],
   "author": "zero <tobewhatwewant@gmail.com>",
   "homepage": "https://github.com/zcorky/zodash#readme",
