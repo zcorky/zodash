@@ -1,3 +1,3 @@
-import { pick } from '@zodash/pick';
+import { get } from '@zodash/get';
 
-export default pick;
+export default get;
