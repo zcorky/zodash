@@ -1,6 +1,6 @@
 {
   "name": "@zodash/load-css",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Dynamic load css file",
   "keywords": [
     "lodash",
