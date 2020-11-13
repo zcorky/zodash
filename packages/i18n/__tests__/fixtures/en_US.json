@@ -1,0 +1,7 @@
+{
+  "hello": "hello",
+  "feedback": {
+    "error": "connection failed",
+    "success": "connection succeeded"
+  }
+}
