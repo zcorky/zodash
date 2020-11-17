@@ -15,6 +15,10 @@ describe('base64', () => {
       .toBe('github.com/freefq - 美国 193');
   });
 
+  it('decode:invalid', () => {
+    expect(() => decode('无效 base64')).toThrow();
+  });
+
   // it('encode', () => {
   //   expect(encode('zero')).toEqual(Base64.parse('zero'));
   // });
