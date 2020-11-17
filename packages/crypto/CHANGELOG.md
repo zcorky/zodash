@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.4](https://github.com/zcorky/zodash/compare/@zodash/crypto@0.1.3...@zodash/crypto@0.1.4) (2020-11-17)
+
+
+### Bug Fixes
+
+* **crypto:** fix base64 decode utf8 ([419c32e](https://github.com/zcorky/zodash/commit/419c32e1f4cc7822d2b080afbbda45a4c2504aec))
+
+
+
+
+
 ## 0.1.3 (2020-11-11)
 
 **Note:** Version bump only for package @zodash/crypto

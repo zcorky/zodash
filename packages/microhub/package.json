@@ -1,6 +1,6 @@
 {
   "name": "@zodash/microhub",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "micro service hub for service registry and discovery",
   "keywords": [
     "cache",
