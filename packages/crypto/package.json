@@ -83,5 +83,15 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "@zodash/aes": "^0.0.1",
+    "@zodash/base64": "^0.0.1",
+    "@zodash/hmac": "^0.0.1",
+    "@zodash/md5": "^0.0.1",
+    "@zodash/rsa": "^0.0.1",
+    "@zodash/sha1": "^0.0.1",
+    "@zodash/sha256": "^0.0.1",
+    "@zodash/sha512": "^0.0.1"
   }
 }
