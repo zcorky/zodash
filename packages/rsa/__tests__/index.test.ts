@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import NodeRSA from 'node-rsa';
+import * as NodeRSA from 'node-rsa';
 
 import { encrypt, decrypt } from '../src';
 
