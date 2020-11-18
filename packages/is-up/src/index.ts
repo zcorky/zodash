@@ -1,13 +1,39 @@
-import axios from 'axios';
+import http from './http';
+import tcp from './tcp';
 
-export async function isUp(url: string) {
-  const { status } = await axios.get(url, {
-    headers: {
-      'user-agent': 'is-up/1.0 (whatwewant; @zodash/is-up)',
-    },
-  });
+export type IHTTPOptions = {
+  type: 'http';
+  url: string;
+}
 
-  return status === 200;
+export type ITCPOptions = {
+  type: 'tcp';
+  host: string;
+  port: number;
+}
+
+export type IOptions =  {
+  timeout?: number;
+} & (IHTTPOptions | ITCPOptions);
+
+export async function isUp(options: string | IOptions) {
+  // http
+  if (typeof options === 'string') {
+    return http(options)
+  }
+
+  // http
+  if (options?.type === 'http') {
+    return http(options.url, options.timeout);
+  }
+
+  // tcp
+  if (options?.type === 'tcp') {
+    return tcp(options.host, options.port, options.timeout);
+  }
+
+  //
+  throw new Error(`unknown options: ${JSON.stringify(options)}`);
 }
 
 export default isUp;
