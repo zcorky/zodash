@@ -5,4 +5,12 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## 0.0.1 (2020-11-18)
 
+**Note:** Version bump only for package @zodash/is-up
+
+
+
+
+
+## 0.0.1 (2020-11-18)
+
 **Note:** Version bump only for package @zodash/sha1
