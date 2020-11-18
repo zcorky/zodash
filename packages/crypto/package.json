@@ -74,7 +74,7 @@
     ],
     "coverageThreshold": {
       "global": {
-        "branches": 80,
+        "branches": 70,
         "functions": 90,
         "lines": 90,
         "statements": -10
@@ -92,6 +92,7 @@
     "@zodash/rsa": "^0.0.1",
     "@zodash/sha1": "^0.0.1",
     "@zodash/sha256": "^0.0.1",
-    "@zodash/sha512": "^0.0.1"
+    "@zodash/sha512": "^0.0.1",
+    "@zodash/signature": "^0.0.1"
   }
 }
