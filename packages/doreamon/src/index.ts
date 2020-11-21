@@ -9,6 +9,7 @@ import cookie from './cookie';
 import fs from './fs';
 
 import dom from './dom';
+import url from './url';
 
 // browser
 import storage from './storage';
@@ -52,6 +53,7 @@ export interface ICollections {
   func: typeof func;
 
   dom: typeof dom;
+  url: typeof url;
 
   use<T = any>(key: string, value: T): void;
 
@@ -84,6 +86,7 @@ export const collections: ICollections = {
   func,
 
   dom,
+  url,
 
   //
   use: <T = any>(key: string, value: T) => {
