@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.4](https://github.com/zcorky/zodash/compare/@zodash/logger@0.2.3...@zodash/logger@0.2.4) (2020-11-26)
+
+
+### Bug Fixes
+
+* **logger:** support use console.log object data, fix [object object] ([b62f76c](https://github.com/zcorky/zodash/commit/b62f76cec72322824601ca38f8afc83e0336b1f6))
+
+
+
+
+
 ## 0.2.3 (2020-11-11)
 
 **Note:** Version bump only for package @zodash/logger
