@@ -3,8 +3,8 @@ import container, { Provider, Inject } from '../src';
 describe('@zodash/inversify', () => {
   it('works', async () => {
     
-    @Provider('component', ['zero'])
-    class Component {
+    @Provider('componentA', ['zero'])
+    class ComponentA {
       constructor(private readonly name: string) {}
 
       public status() {
@@ -12,25 +12,43 @@ describe('@zodash/inversify', () => {
       }
     }
 
-    @Provider('app')
-    class App {
+    @Provider('componentB')
+    class ComponentB {
 
-      @Inject()
-      private component: Component;
+      @Inject('componentA')
+      private component: ComponentA;
 
       public run() {
         return this.component.status();
       }
     }
 
+    @Provider('app')
+    class App {
+      @Inject()
+      componentA: ComponentA;
+
+      @Inject()
+      componentB: ComponentB;
+
+      run() {
+        return this.componentB.run();
+      }
+    }
+
     container.load([
       App,
-      Component,
+      ComponentA,
+      ComponentB,
     ]);
 
-    const app = container.get('app') as any;
+    function bootstrap() {
+      const app = container.get('app') as any;
 
-    expect(app.run()).toBe('zero is ready.');
+      expect(app.run()).toBe('zero is ready.');
+    }
+
+    bootstrap();
   });
 
 });

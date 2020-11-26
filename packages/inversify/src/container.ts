@@ -20,18 +20,19 @@ export class Container {
     });
   }
 
-  get<T>(identifier: string): T {
-    const target = this.store.get(identifier);
+  get<T>(serviceName: string): T {
+    const target = this.store.get(serviceName);
+    // console.log('target:', serviceName, target);
     const { clazz, constructorArgs } = target;
 
     const props = Reflect.getMetadata(PROPS_KEY, clazz);
     const instance = Reflect.construct(clazz, constructorArgs);
 
     for (let prop in props) {
-      const identifier = props[prop].value;
+      const serviceName = props[prop].value;
 
       // inject instance
-      instance[prop] = this.get(identifier);
+      instance[prop] = this.get(serviceName);
     }
 
     return instance;

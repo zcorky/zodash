@@ -2,7 +2,7 @@ import 'reflect-metadata';
 
 export const PROPS_KEY = 'ioc:inject_props';
 
-export function Inject() {
+export function Inject(serviceName?: string) {
   return function(target: any, targetKey: string) {
     const annotationTarget = target.constructor;
     
@@ -14,7 +14,7 @@ export function Inject() {
     }
 
     props[targetKey] = {
-      value: targetKey,
+      value: serviceName || targetKey,
     };
 
     // define metadat to class
