@@ -1,3 +1,5 @@
+const cache = new Map();
+
 /**
  * dynamic load script
  * 
@@ -5,13 +7,19 @@
  */
 export function loadScript(path: string) {
   return new Promise((resolve, reject) => {
+    if (cache.get(path)) {
+      return resolve();
+    }
+
     const script = document.createElement('script');
     script.src = path;
     script.async = true;
     script.onerror = reject;
     script.onload = () => {
       // script.parentNode.removeChild(script);
-      resolve();
+      cache.set(path, true);
+
+      return resolve();
     };
     document.head.appendChild(script);
   });
@@ -24,6 +32,10 @@ export function loadScript(path: string) {
  */
 export function usingAjax(path: string) {
   return new Promise((resolve, reject) => {
+    if (cache.get(path)) {
+      return resolve();
+    }
+
     const xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
       if (xhr.readyState === 4){
@@ -35,7 +47,11 @@ export function usingAjax(path: string) {
         //   resolve();
         // };
         document.head.appendChild(script);
-        setTimeout(resolve, 0);
+        setTimeout(() => {
+          cache.set(path, true);
+
+          return resolve();
+        }, 0);
       }
     };
     xhr.onerror = reject;
@@ -51,6 +67,10 @@ export function usingAjax(path: string) {
  */
 export function usingFetch(path: string) {
   return new Promise((resolve, reject) => {
+    if (cache.get(path)) {
+      return resolve();
+    }
+
     return fetch(path)
       .then(res => res.text())
       .then(scriptText => {
@@ -62,7 +82,11 @@ export function usingFetch(path: string) {
         //   resolve();
         // };
         document.head.appendChild(script);
-        setTimeout(resolve, 0);
+        setTimeout(() => {
+          cache.set(path, true);
+
+          return resolve();
+        }, 0);
       });
   });
 }
