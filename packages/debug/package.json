@@ -1,6 +1,6 @@
 {
   "name": "@zodash/debug",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "debug utils",
   "keywords": [
     "zodash",
@@ -66,6 +66,6 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "@zodash/logger": "^0.2.5"
+    "@zodash/logger": "^0.2.6"
   }
 }
