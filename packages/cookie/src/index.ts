@@ -1,5 +1,3 @@
-import { isNull } from "lodash";
-
 export interface ISetOptions {
   /**
    * Milli Seconds
@@ -89,6 +87,10 @@ export function clear() {
 
 function getItems(cookie: string = document.cookie) {
   return cookie.replace(/\s/g, '').split(';');
+}
+
+function isNull(value: any) {
+  return value === null;
 }
 
 export default {
