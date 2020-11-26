@@ -3,6 +3,7 @@ import { moment, Moment } from '@zcorky/moment';
 import { format } from '@zodash/format';
 
 interface Input {
+  engine?: IEngine;
   datetime?: Moment;
   level: LogLevel;
   message: string[] | any[];
@@ -14,6 +15,14 @@ export interface ILogger {
   error(message: string, ...args: any[]): void;
   warn(message: string, ...args: any[]): void;
   debug(message: string, ...args: any[]): void;
+}
+
+export interface IEngine {
+  log(...args: any[]): void;
+  info(...args: any[]): void;
+  error(...args: any[]): void;
+  warn(...args: any[]): void;
+  debug(...args: any[]): void;
 }
 
 export interface Options {
@@ -73,12 +82,22 @@ export class Logger extends Onion<Input, any, any> implements ILogger {
     super();
     
     this.options = options || {};
+
+    this.use(this.useDefaulEngine());
     this.use(this.useDateTime());
   }
 
   private useDateTime(): Middleware<Context<Input, any, any>> {
     return async (ctx, next) => {
       ctx.input.datetime = moment();
+      await next();
+    };
+  }
+
+  private useDefaulEngine(): Middleware<Context<Input, any, any>> {
+    return async (ctx, next) => {
+      ctx.input.engine = console;
+      
       await next();
     };
   }
@@ -91,43 +110,44 @@ export class Logger extends Onion<Input, any, any> implements ILogger {
         return ;
       }
   
+      const engine = input.engine;
       const message = formatMessage(this.name, input.datetime, input.message, input.level);
       const isUseDevConsole = Array.isArray(message);
 
       if (!isUseDevConsole) {
         switch (input.level) {
           case 'log':
-            console.log(message);
+            engine?.log(message);
             break;
           case 'info':
-            console.info(message);
+            engine?.info(message);
             break;
           case 'warn':
-            console.warn(message);
+            engine?.warn(message);
             break;
           case 'error':
-            console.error(message);
+            engine?.error(message);
             break;
           case 'debug':
-            console.debug(message);
+            engine?.debug(message);
             break;
         }
       } else {
         switch (input.level) {
           case 'log':
-            console.log(...message);
+            engine?.log(...message);
             break;
           case 'info':
-            console.info(...message);
+            engine?.info(...message);
             break;
           case 'warn':
-            console.warn(...message);
+            engine?.warn(...message);
             break;
           case 'error':
-            console.error(...message);
+            engine?.error(...message);
             break;
           case 'debug':
-            console.debug(...message);
+            engine?.debug(...message);
             break;
         }
       }
