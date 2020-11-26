@@ -5,7 +5,7 @@ import { format } from '@zodash/format';
 interface Input {
   datetime?: Moment;
   level: LogLevel;
-  message: string;
+  message: string[] | any[];
 }
 
 export interface ILogger {
@@ -28,21 +28,44 @@ export enum LogLevel {
   debug = 'debug',
 }
 
-function formatMessage(name: string, date: Moment, message: string, level?: LogLevel) {
-  return format(
-    '{datetime} - {name} - {level} - {message}',
-    { name, datetime: date.format('YYYY-MM-DD HH:mm:ss'), level: level.toUpperCase() || 'LOG', message },
+// we support pattern
+//  %s
+//  {VAR}
+//  {0} {1}
+function isPattern(value: string) {
+  if (!value) return false;
+
+  return /(%s|\{[^\s].*\})/.test(value)
+}
+
+function formatMessage(name: string, date: Moment, message: any[], level?: LogLevel) {
+  const prefix = format(
+    '[{datetime} - {name}] - [{level}] -',
+    {
+      name,
+      datetime: date.format('YYYY-MM-DD HH:mm:ss'),
+      level: level.toUpperCase() || 'LOG',
+    },
   );
+
+  if (message?.length === 1) {
+    return `${prefix} ${message[0]}`;
+  }
+
+  return [prefix, ...message];
 }
 
 function formatPatternMessage(pattern: string, dataMap: any[]) {
-  if (pattern.indexOf('%s') === -1) {
-    return [pattern, ...dataMap].join(' ');
+  // not pattern
+  if (!isPattern(pattern)) {
+    return [pattern, ...dataMap];
   }
 
-  return pattern.replace(/%s/g, (_, index) => {
+  const message = pattern.replace(/%s/g, (_, index) => {
     return dataMap[index];
   });
+
+  return [message];
 }
 
 export class Logger extends Onion<Input, any, any> implements ILogger {
@@ -69,64 +92,76 @@ export class Logger extends Onion<Input, any, any> implements ILogger {
       }
   
       const message = formatMessage(this.name, input.datetime, input.message, input.level);
-      switch (input.level) {
-        case 'log':
-          console.log(message);
-          break;
-        case 'info':
-          console.info(message);
-          break;
-        case 'warn':
-          console.warn(message);
-          break;
-        case 'error':
-          console.error(message);
-          break;
-        case 'debug':
-          console.debug(message);
-          break;
+      const isUseDevConsole = Array.isArray(message);
+
+      if (!isUseDevConsole) {
+        switch (input.level) {
+          case 'log':
+            console.log(message);
+            break;
+          case 'info':
+            console.info(message);
+            break;
+          case 'warn':
+            console.warn(message);
+            break;
+          case 'error':
+            console.error(message);
+            break;
+          case 'debug':
+            console.debug(message);
+            break;
+        }
+      } else {
+        switch (input.level) {
+          case 'log':
+            console.log(...message);
+            break;
+          case 'info':
+            console.info(...message);
+            break;
+          case 'warn':
+            console.warn(...message);
+            break;
+          case 'error':
+            console.error(...message);
+            break;
+          case 'debug':
+            console.debug(...message);
+            break;
+        }
       }
     };
   }
 
   public log(message: string, ...args: any[]) {
-    if (args.length > 0) {
-      message = formatPatternMessage(message, args);
-    }
+    const _message = formatPatternMessage(message, args);
 
-    this.execute({ level: LogLevel.log, message });
+    this.execute({ level: LogLevel.log, message: _message });
   }
 
   public info(message: string, ...args: any[]) {
-    if (args.length > 0) {
-      message = formatPatternMessage(message, args);
-    }
+    const _message = formatPatternMessage(message, args);
 
-    this.execute({ level: LogLevel.info, message });
+    this.execute({ level: LogLevel.info, message: _message });
   }
 
   public error(message: string, ...args: any[]) {
-    if (args.length > 0) {
-      message = formatPatternMessage(message, args);
-    }
+    const _message = formatPatternMessage(message, args);
 
-    this.execute({ level: LogLevel.error, message });
+    this.execute({ level: LogLevel.error, message: _message });
   }
 
   public warn(message: string, ...args: any[]) {
-    if (args.length > 0) {
-      message = formatPatternMessage(message, args);
-    }
+    const _message = formatPatternMessage(message, args);
 
-    this.execute({ level: LogLevel.warn, message });
+    this.execute({ level: LogLevel.warn, message: _message });
   }
 
   public debug(message: string, ...args: any[]) {
-    if (args.length > 0) {
-      message = formatPatternMessage(message, args);
-    }
-    
-    this.execute({ level: LogLevel.debug, message });
+    const _message = formatPatternMessage(message, args);
+
+    this.execute({ level: LogLevel.debug, message: _message });
   }
 }
 

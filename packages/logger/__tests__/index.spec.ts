@@ -66,4 +66,26 @@ describe("@zodash/logger", () => {
       done();
     }, 0);
   });
+
+  it('support object in dev', done => {
+    const logger = getLogger('module');
+    const levels = [];
+    logger.use(async (ctx, next) => {
+      // @TODO log to backend
+      // console.log();
+      levels.push(ctx.input.level);
+      await next();
+    });
+    
+    logger.log('logger.log', [{ x: 1, y() {}, }], );
+    logger.info('logger.info', [{ x: 1, y() {}, }]);
+    logger.warn('logger.warn', [{ x: 1, y() {}, }]);
+    logger.debug('logger.debug', [{ x: 1, y() {}, }]);
+    logger.error('logger.error', [{ x: 1, y() {}, }], );
+
+    setTimeout(() => {
+      expect(levels).toEqual(['log', 'info', 'warn', 'debug', 'error']);
+      done();
+    }, 0);
+  });
 });
