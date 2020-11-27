@@ -1,9 +1,9 @@
-import * as fs from 'fs';
+import * as globby from 'globby';
 
 import { CLASS_KEY } from '../decorators/provider';
 
-export async function load() {
-  const files = await fs.promises.readdir('./');
+export async function load(dirPath: string) {
+  const files = await globby('**/*.ts');
   const modules = [];
 
   for (const file of files) {
