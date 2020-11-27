@@ -78,6 +78,10 @@ function formatPatternMessage(pattern: string, dataMap: any[]) {
 }
 
 export class Logger extends Onion<Input, any, any> implements ILogger {
+  static create(name: string, options?: Options) {
+    return new Logger(name, options);
+  }
+
   constructor(private readonly name: string, private readonly options?: Options) {
     super();
     
@@ -186,5 +190,5 @@ export class Logger extends Onion<Input, any, any> implements ILogger {
 }
 
 export function getLogger(name: string, options?: Options) {
-  return new Logger(name, options);
+  return Logger.create(name, options);
 }
