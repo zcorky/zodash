@@ -116,7 +116,7 @@ export class Logger extends Onion<Input, any, any> implements ILogger {
 
   private useDisable(): Middleware<Context<Input, any, any>> {
     return async (ctx, next) => {
-      const enable = !Logger._disableFn ? true : Logger._disableFn();
+      const enable = !Logger._disableFn ? true : !Logger._disableFn();
 
       if (!enable) {
         return ;
