@@ -3,6 +3,7 @@ import { moment, Moment } from '@zcorky/moment';
 import { format } from '@zodash/format';
 
 interface Input {
+  // enable?: boolean;
   engine?: IEngine;
   datetime?: Moment;
   level: LogLevel;
@@ -49,9 +50,9 @@ function isPattern(value: string) {
 
 function formatMessage(name: string, date: Moment, message: any[], level?: LogLevel) {
   const prefix = format(
-    '[{datetime} - {name}] - [{level}] -',
+    '[{name}] {datetime} - {level} -',
     {
-      name,
+      name: name || 'COMMON',
       datetime: date.format('YYYY-MM-DD HH:mm:ss'),
       level: level.toUpperCase() || 'LOG',
     },
@@ -78,8 +79,14 @@ function formatPatternMessage(pattern: string, dataMap: any[]) {
 }
 
 export class Logger extends Onion<Input, any, any> implements ILogger {
+  static _disableFn = null;
+
   static create(name: string, options?: Options) {
     return new Logger(name, options);
+  }
+
+  static setDisable(fn: () => boolean) {
+    Logger._disableFn = fn;
   }
 
   constructor(private readonly name: string, private readonly options?: Options) {
@@ -87,8 +94,17 @@ export class Logger extends Onion<Input, any, any> implements ILogger {
     
     this.options = options || {};
 
+    this.use(this.useDisable());
     this.use(this.useDefaulEngine());
     this.use(this.useDateTime());
+  }
+
+  private useDefaulEngine(): Middleware<Context<Input, any, any>> {
+    return async (ctx, next) => {
+      ctx.input.engine = console;
+      
+      await next();
+    };
   }
 
   private useDateTime(): Middleware<Context<Input, any, any>> {
@@ -98,10 +114,14 @@ export class Logger extends Onion<Input, any, any> implements ILogger {
     };
   }
 
-  private useDefaulEngine(): Middleware<Context<Input, any, any>> {
+  private useDisable(): Middleware<Context<Input, any, any>> {
     return async (ctx, next) => {
-      ctx.input.engine = console;
-      
+      const enable = !Logger._disableFn ? true : Logger._disableFn();
+
+      if (!enable) {
+        return ;
+      }
+
       await next();
     };
   }
