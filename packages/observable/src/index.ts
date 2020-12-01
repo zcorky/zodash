@@ -8,10 +8,10 @@ let currentObserver: Function;
  * 
  * @param object orignal data
  */
-export function observerable<T extends object>(object: T) {
+export function observerable<T extends object>(object: T): T {
   observers.set(object, new Map());
 
-  return new Proxy(object, {
+  return new Proxy<T>(object, {
     get(target, key, receiver) {
       const result = Reflect.get(target, key, receiver);
       if (currentObserver) {
