@@ -55,10 +55,66 @@ export interface ICollections {
   dom: typeof dom;
   url: typeof url;
 
-  use<T = any>(key: string, value: T): void;
+  register: typeof register;
+  get: typeof get;
+
+  /** Depreciated */
+  use: typeof register;
 
   [key: string]: any;
 }
+
+function register<T = any>(key: string, value: T) {
+  if (collections[key]) {
+    throw new Error(`Doreamon cannot override ${key}`);
+  }
+
+  collections[key] = value;
+}
+
+function get<T = any>(key: string): T {
+  if (!collections[key]) {
+    throw new Error(`Doreamon cannot found ${key}`);
+  }
+
+  return collections[key];
+}
+
+const use = register;
+
+export {
+  logger,
+  debug,
+
+  request,
+  date,
+  qs,
+  event,
+  storage,
+  device,
+  cookie,
+  fs,
+
+  delay,
+  uuid,
+  random,
+  is,
+
+  ms,
+
+  object,
+  array,
+  string,
+  func,
+
+  dom,
+  url,
+
+  //
+  register,
+  get,
+  use,
+};
 
 export const collections: ICollections = {
   logger,
@@ -89,13 +145,10 @@ export const collections: ICollections = {
   url,
 
   //
-  use: <T = any>(key: string, value: T) => {
-    if (collections[key]) {
-      throw new Error(`Doreamon cannot override ${key}`);
-    }
-
-    collections[key] = value;
-  },
+  register,
+  get,
+  //
+  use,
 };
 
 export default collections;
