@@ -24,7 +24,7 @@ export interface Require {
   modules: Record<string, Mod>;
   resolve(path: string): string;
   register(path: string, fn: ModFn): void;
-  relative(parent: string): RequireFn;
+  relative(path: string, parent: string): string;
   filename(parent: string): string;
   dirname(parent: string): string;
   _makeRequire(parent: string): RequireFn;
@@ -83,28 +83,30 @@ requirejs.register = (path: string, fn: ModFn) => {
   requirejs.modules[path].fn = fn;
 }
 
-requirejs.relative = (parent: string) => {
-  return (path: string) => {
-    if ('.' != path.charAt(0)) return requirejs(path);
+requirejs.relative = (path: string, parent: string) => {
+  if ('.' != path.charAt(0)) return path;
 
-    const paths = parent.split('/');
-    const segs = path.split('/');
-    paths.pop();
+  const paths = parent.split('/');
+  const segs = path.split('/');
+  paths.pop();
 
-    for (const seg of segs) {
-      if ('..' === seg) {
-        paths.pop();
-      } else if ('.' != seg) {
-        paths.push(seg);
-      }
+  for (const seg of segs) {
+    if ('..' === seg) {
+      paths.pop();
+    } else if ('.' != seg) {
+      paths.push(seg);
     }
+  }
 
-    return requirejs(paths.join('/'));
-  };
+  return paths.join('/');
 };
 
 requirejs._makeRequire = (parent: string) => {
-  return requirejs.relative(parent);
+  return function require(path: string) {
+    const relativePath = requirejs.relative(path, parent);
+    
+    return requirejs(relativePath);
+  };
 };
 
 requirejs.filename = (path: string) => {
