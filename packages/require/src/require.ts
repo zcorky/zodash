@@ -22,7 +22,7 @@ export type RequireFn = (path: string) => any;
 export interface Require {
   (path: string): any;
   modules: Record<string, Mod>;
-  resolve(path: string): string;
+  resolve(name: string): string;
   register(path: string, fn: ModFn): void;
   relative(path: string, parent: string): string;
   filename(parent: string): string;
@@ -62,10 +62,10 @@ export const requirejs: Require = (path: string) => {
 
 requirejs.modules = {};
 
-requirejs.resolve = (path: string) => {
-  const base = path;
-  const base_js = path + '.js';
-  const index_js = path + '/index.js';
+requirejs.resolve = (name: string) => {
+  const base = name;
+  const base_js = name + '.js';
+  const index_js = name + '/index.js';
   
   return requirejs.modules[base_js] && base_js
     || requirejs.modules[index_js] && index_js
