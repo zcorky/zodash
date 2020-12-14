@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.12](https://github.com/zcorky/zodash/compare/@zodash/logger@0.2.11...@zodash/logger@0.2.12) (2020-12-14)
+
+**Note:** Version bump only for package @zodash/logger
+
+
+
+
+
 ## [0.2.11](https://github.com/zcorky/zodash/compare/@zodash/logger@0.2.10...@zodash/logger@0.2.11) (2020-11-30)
 
 **Note:** Version bump only for package @zodash/logger
