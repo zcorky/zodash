@@ -155,4 +155,102 @@ describe('@zodash/rule-engine', () => {
       description: true
     });
   });
+
+  it('state machine', async () => {
+    const rules: IRuleNode[] = [
+      {
+        type: 'Attr',
+        value: 'current',
+        children: [
+          {
+            type: 'Value',
+            value: 'goFront',
+            children: [
+              {
+                type: 'Attr',
+                value: 'goBack',
+              },
+              {
+                type: 'Attr',
+                value: 'refresh',
+              },
+            ],
+          },
+          {
+            type: 'Value',
+            value: 'goBack',
+            children: [
+              {
+                type: 'Attr',
+                value: 'goFront',
+              },
+              {
+                type: 'Attr',
+                value: 'refresh',
+              },
+            ],
+          },
+          {
+            type: 'Value',
+            value: 'refresh',
+            children: [
+              {
+                type: 'Attr',
+                value: 'goFront',
+              },
+              {
+                type: 'Attr',
+                value: 'goBack',
+              },
+            ],
+          },
+        ],
+      },
+    ];
+
+    const runner = engine.create(rules);
+
+    expect(await runner.run({
+      current: 'goFront',
+    })).toEqual({
+      current: true,
+      // goFront: false,
+      goBack: true,
+      refresh: true,
+    });
+
+    expect(await runner.run({
+      current: 'goBack',
+    })).toEqual({
+      current: true,
+      goFront: true,
+      // goBack: true,
+      refresh: true,
+    });
+
+    expect(await runner.run({
+      current: 'refresh',
+    })).toEqual({
+      current: true,
+      goFront: true,
+      goBack: true,
+      // refresh: true,
+    });
+  });
 });
+
+
+// var a = {
+//   goFront: {
+//     goBack: true,
+//     refresh: true,
+//   },
+//   goBack: {
+//     goFront: true,
+//     refresh: true,
+//   },
+//   refresh: {
+//     goFront: true,
+//     goBack: true,
+//   },
+// }
