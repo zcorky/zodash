@@ -1,3 +1,5 @@
+import { get } from '@zodash/get';
+
 export interface Seperator {
   start: string;
   end: string;
@@ -31,6 +33,6 @@ export function format(text: string, mapOrFn: Record<string, any> | ((key: strin
   }
 
   return text.replace(pattern, (_, key) => {
-    return typeof mapOrFn[key] !== 'undefined' ? mapOrFn[key] : '';
+    return get(mapOrFn, key, '');
   });
 }

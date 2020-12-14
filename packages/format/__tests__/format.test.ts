@@ -33,4 +33,12 @@ describe("@zodash/format", () => {
       return get(map, key) // map[key];
     })).toBe('Author: Zero, From: China, GirlFriend: any');
   });
+
+  it("nest map", () => {
+    const pattern = 'Author: {author.name}, From: {from}, GirlFriend: {girl.name}';
+    const map = { author: { name: 'Zero' }, from: 'China', girl: { name: 'any' } };
+    expect(format(pattern, (key) => {
+      return get(map, key) // map[key];
+    })).toBe('Author: Zero, From: China, GirlFriend: any');
+  });
 });
