@@ -44,7 +44,7 @@ export async function jsonp<D = any>(url: string, options: IOptions): Promise<D>
       const _url = `${_prefix}?${add(_search, { callback: callbackName })}`;
 
       // @S3 load JSONP
-      await loadJs(url);
+      await loadJs(url, { enableCache: false });
     } catch (error) {
       reject(error);
     }
