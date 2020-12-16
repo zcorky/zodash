@@ -1,13 +1,20 @@
 const cache = new Map();
 
+export interface IOptions {
+  // Default: true, but for jsonp, should set false
+  enableCache?: boolean;
+}
+
 /**
  * dynamic load script
  * 
  * @param path script path
  */
-export function loadScript(path: string) {
+export function loadScript(path: string, options?: IOptions) {
+  const enableCache = options?.enableCache ?? true;
+
   return new Promise((resolve, reject) => {
-    if (cache.get(path)) {
+    if (enableCache && cache.get(path)) {
       return resolve();
     }
 
@@ -17,7 +24,7 @@ export function loadScript(path: string) {
     script.onerror = reject;
     script.onload = () => {
       // script.parentNode.removeChild(script);
-      cache.set(path, true);
+      enableCache && cache.set(path, true);
 
       return resolve();
     };
@@ -30,9 +37,11 @@ export function loadScript(path: string) {
  * 
  * @param path script path
  */
-export function usingAjax(path: string) {
+export function usingAjax(path: string, options?: IOptions) {
+  const enableCache = options?.enableCache ?? true;
+
   return new Promise((resolve, reject) => {
-    if (cache.get(path)) {
+    if (enableCache && cache.get(path)) {
       return resolve();
     }
 
@@ -48,7 +57,7 @@ export function usingAjax(path: string) {
         // };
         document.head.appendChild(script);
         setTimeout(() => {
-          cache.set(path, true);
+          enableCache && cache.set(path, true);
 
           return resolve();
         }, 0);
@@ -65,9 +74,11 @@ export function usingAjax(path: string) {
  * 
  * @param path script path
  */
-export function usingFetch(path: string) {
+export function usingFetch(path: string, options?: IOptions) {
+  const enableCache = options?.enableCache ?? true;
+
   return new Promise((resolve, reject) => {
-    if (cache.get(path)) {
+    if (enableCache && cache.get(path)) {
       return resolve();
     }
 
@@ -83,7 +94,7 @@ export function usingFetch(path: string) {
         // };
         document.head.appendChild(script);
         setTimeout(() => {
-          cache.set(path, true);
+          enableCache && cache.set(path, true);
 
           return resolve();
         }, 0);
