@@ -1,6 +1,6 @@
 import { uuid } from '@zodash/uuid';
 import { add } from '@zcorky/query-string/lib/add';
-import { loadJs } from '@zodash/fs';
+import { loadJs } from '@zodash/load-js';
 
 export interface IOptions {
   /**
