@@ -68,6 +68,7 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
+    "@zodash/jsonp": "^0.0.1",
     "@zodash/load-css": "^0.0.2",
     "@zodash/load-js": "^0.2.5"
   }
