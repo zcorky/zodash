@@ -10,33 +10,34 @@ export interface ISDK extends IEmitter {
   on(event: 'data', fn: <T>(data: T) => void): this;
   on(event: 'message', fn: <T>(message: T) => void): this;
   //
-  ready(fn: IListener): Promise<void>;
+  ready(fn?: IListener): Promise<any>;
   close(): Promise<void>;
 }
 
 export class SDK extends Emitter implements ISDK {
   private _isReady = false;
-  private _readyCallback: IListener;
 
   public get isReady() {
     return this._isReady;
   }
 
-  public ready(fn: IListener) {
-    this._readyCallback = fn;
-
+  public ready(fn?: IListener) {
     return new Promise<void>((resolve, reject) => {
-      this.on('ready', () => {
+      const onReady = (data?: any) => {
         try {
-          this._readyCallback();
-
           this._isReady = true;
 
-          resolve();
+          fn && fn.call(null, data);
+
+          resolve(data);
         } catch (error) {
           reject(error);
+        } finally {
+          this.off('ready', onReady);
         }
-      });
+      };
+
+      this.on('ready', onReady);
     });
   }
 
