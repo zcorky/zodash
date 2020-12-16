@@ -1,19 +1,19 @@
-import { CommonError } from '../src/error';
+import { ApiError } from '../src';
 
 // compose vs pipe
 
 describe("@zodash/throw", () => {
   it('works', () => {
     expect(() => {
-      throw new CommonError('xxxx', { status: 400, code: '400123' });
+      throw new ApiError(400, { code: '400123', message: 'xxxx' });
     }).toThrow('xxxx');
   });
 
   it('options.message will overwrite message', () => {
     try {
-      throw new CommonError('xxxx', { status: 400, code: '400123', message: 'business message' })
+      throw new ApiError(400, { code: '400123', message: 'business message' })
     } catch (_error) {
-      const error = _error as CommonError;
+      const error = _error as ApiError;
       expect(error.status).toEqual(400);
       expect(error.message).toEqual('business message');
       expect(error.body).toEqual({ code: '400123', message: 'business message' });
@@ -22,7 +22,7 @@ describe("@zodash/throw", () => {
 
   it('create error', () => {
     function createError(status: number, message: string) {
-      return new CommonError(message, { status });
+      return new ApiError(status, { message });
     }
 
     function throwError(status: number, message: string) {
