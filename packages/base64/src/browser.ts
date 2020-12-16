@@ -1,7 +1,7 @@
 import { isValid } from './isValid';
 
 export function encode(text: string) {
-  return Buffer.from(text, 'utf8').toString('base64');
+  return window.btoa(text);
 }
 
 export function decode(text: string) {
@@ -9,10 +9,8 @@ export function decode(text: string) {
     throw new Error('Invalid Base64 Text');
   }
 
-  return Buffer.from(text, 'base64').toString('utf8');
+  return window.atob(text);
 }
-
-
 
 export default {
   encode,
