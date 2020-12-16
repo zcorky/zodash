@@ -1,4 +1,6 @@
-const cache = new Map();
+import Cache from '@zodash/cache';
+
+const cache = Cache.create();
 
 export interface IOptions {
   // Default: true, but for jsonp, should set false
