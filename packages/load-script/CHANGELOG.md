@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.7](https://github.com/zcorky/zodash/compare/@zodash/load-script@0.1.6...@zodash/load-script@0.1.7) (2020-12-16)
+
+**Note:** Version bump only for package @zodash/load-script
+
+
+
+
+
 ## [0.1.6](https://github.com/zcorky/zodash/compare/@zodash/load-script@0.1.5...@zodash/load-script@0.1.6) (2020-12-16)
 
 **Note:** Version bump only for package @zodash/load-script
