@@ -1,4 +1,4 @@
-import { Event } from '../src/event';
+import { Event } from '../src';
 
 describe('event', () => {
   let eventPoll = new Event();

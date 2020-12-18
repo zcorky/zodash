@@ -1,4 +1,4 @@
-import { Emitter as Event } from '../src/event';
+import { Emitter as Event } from '../src';
 
 describe('event', () => {
   let eventPoll = new Event();
