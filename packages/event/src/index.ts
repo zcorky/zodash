@@ -6,7 +6,7 @@ export type Arguments<T> = [T] extends [(...args: infer U) => any]
 
 export type Listener = any; // T extends any ? (...args: any[]) => void : T;
 
-export interface IEvent<Events> {
+export interface IEvent<Events = any> {
   on<E extends keyof Events>(event: E, listener: Events[E]): this;
   off<E extends keyof Events>(event: E, listener: Events[E]): this;
   addListener<E extends keyof Events>(event: E, listener: Events[E]): this;
