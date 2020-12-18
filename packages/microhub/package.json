@@ -1,6 +1,6 @@
 {
   "name": "@zodash/microhub",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "micro service hub for service registry and discovery",
   "keywords": [
     "cache",
@@ -66,6 +66,6 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "@zodash/event": "^0.1.3"
+    "@zodash/event": "^0.1.4"
   }
 }

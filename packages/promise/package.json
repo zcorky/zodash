@@ -1,6 +1,6 @@
 {
   "name": "@zodash/promise",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "simple promise",
   "keywords": [
     "zodash",
@@ -65,7 +65,7 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "@zodash/event": "^0.1.3"
+    "@zodash/event": "^0.1.4"
   },
   "devDependencies": {
     "@zodash/delay": "^0.1.3"
