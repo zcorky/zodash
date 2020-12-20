@@ -17,7 +17,7 @@ export function number(max: number = 10, min: number = 0) {
   return ~~(Math.random() * (max - min)) + min;
 }
 
-export function string(length: number) {
+export function string(length: number = 10) {
   return feed(length);
 }
 
@@ -53,8 +53,10 @@ export function shortid() {
 export default {
   number,
   string,
+  code,
   token,
   key,
+  password,
   secret,
   captcha,
   shortid,

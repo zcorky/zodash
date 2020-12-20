@@ -1,14 +1,52 @@
 import random from "../src/random";
 
 describe("@zodash/random", () => {
-  it("min= 5, max = 10", () => {
+  it("number(max, min)", () => {
     "_"
-      .repeat(1000)
+      .repeat(10)
       .split("")
       .forEach(() => {
         const r = random.number(10, 5);
         expect(r < 10).toBeTruthy();
         expect(r >= 5).toBeTruthy();
+
+        expect(random.number() < 10).toBeTruthy();
+        expect(random.number() >= 0).toBeTruthy();
       });
+  });
+
+  it("string", () => {
+    expect(random.string().length).toBe(10);
+    expect(random.string(6).length).toBe(6);
+    expect(random.string(10).length).toBe(10);
+  });
+
+  it("shortid", () => {
+    expect(random.shortid().length).toBe(8);
+  });
+
+  it("code", () => {
+    expect(random.code().length).toBe(24);
+  });
+
+  it("token", () => {
+    expect(random.token().length).toBe(32);
+  });
+
+  it("key", () => {
+    expect(random.key().length).toBe(32);
+  });
+
+  it("password", () => {
+    expect(random.password().length).toBe(16);
+  });
+
+  it("secret", () => {
+    expect(random.secret().length).toBe(32);
+  });
+
+  it("captcha", () => {
+    expect(random.captcha().length).toBe(6);
+    expect(random.captcha().split('').every(e => /\d+/.test(e))).toBeTruthy();
   });
 });
