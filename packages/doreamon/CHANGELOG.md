@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.29](https://github.com/zcorky/zodash/compare/@zodash/doreamon@0.4.28...@zodash/doreamon@0.4.29) (2020-12-20)
+
+**Note:** Version bump only for package @zodash/doreamon
+
+
+
+
+
 ## [0.4.28](https://github.com/zcorky/zodash/compare/@zodash/doreamon@0.4.27...@zodash/doreamon@0.4.28) (2020-12-18)
 
 **Note:** Version bump only for package @zodash/doreamon
