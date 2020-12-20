@@ -9,11 +9,11 @@ export function feed(length: number) {
 /**
  * Produces a random number between the inclusive min and max bounds.
  * 
- * @param min the min bound
  * @param max the max bound
+ * @param min the min bound
  * @returns the random number between min and max
  */
-export function number(min?: number, max?: number) {
+export function number(max: number = 10, min: number = 0) {
   return ~~(Math.random() * (max - min)) + min;
 }
 
