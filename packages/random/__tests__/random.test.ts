@@ -6,7 +6,7 @@ describe("@zodash/random", () => {
       .repeat(1000)
       .split("")
       .forEach(() => {
-        const r = random.number(5, 10);
+        const r = random.number(10, 5);
         expect(r < 10).toBeTruthy();
         expect(r >= 5).toBeTruthy();
       });
