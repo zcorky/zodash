@@ -147,3 +147,5 @@ export function hotkeys(rawKeycode: string) {
 }
 
 hotkeys._cache = keybindingCache;
+
+export default hotkeys;
