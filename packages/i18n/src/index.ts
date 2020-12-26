@@ -18,12 +18,12 @@ export class i18nConfig {
     return this.locales?.[this.language] || {};
   }
   
-  public config(options: IOptions) {
+  public config = (options: IOptions) => {
     this.locales = options.locales || {};
     this.language = options.language || Object.keys(this.locales)[0];
   }
 
-  public setLocales(locales: Record<Language, Translate>) {
+  public setLocales = (locales: Record<Language, Translate>) => {
     this.locales = locales;
 
     if (!this.language) {
@@ -31,15 +31,15 @@ export class i18nConfig {
     }
   }
 
-  public setLanguage(language: string) {
+  public setLanguage = (language: string) => {
     this.language = language;
   }
   
-  public translate(key: string) {
+  public translate = (key: string) => {
     return get(this.locale, key, key);
   }
 
-  public t(key: string) {
+  public t = (key: string) => {
     return this.translate(key);
   }
 }
