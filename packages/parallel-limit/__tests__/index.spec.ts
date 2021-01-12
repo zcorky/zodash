@@ -61,7 +61,7 @@ describe('@zodash/parallel-limit', () => {
     });
   });
 
-  it('async task', (done) => {
+  it('async task use callback task', (done) => {
     const tasks: ITask<any>[] = [
       function (cb) {
         setTimeout(() => {
@@ -84,5 +84,52 @@ describe('@zodash/parallel-limit', () => {
       expect(results).toEqual([1, 2, 3]);
       done();
     });
+  });
+
+  it('async task use async/await task', (done) => {
+    const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+    const tasks: ITask<any>[] = [
+      async function () {
+        await delay(100);
+        return 1;
+      },
+      async function () {
+        await delay(100);
+        return 2;
+      },
+      async function () {
+        await delay(100);
+        return 3;
+      },
+    ];
+
+    parallelLimit(tasks, 2, (results) => {
+      expect(results).toEqual([1, 2, 3]);
+      done();
+    });
+  });
+
+  it('async task use Promise-returned', (done) => {
+    const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+    const tasks: ITask<any>[] = [
+      async function () {
+        await delay(100);
+        return 1;
+      },
+      async function () {
+        await delay(100);
+        return 2;
+      },
+      async function () {
+        await delay(100);
+        return 3;
+      },
+    ];
+
+    parallelLimit(tasks, 2)
+      .then((results) => {
+        expect(results).toEqual([1, 2, 3]);
+        done();
+      });
   });
 });
