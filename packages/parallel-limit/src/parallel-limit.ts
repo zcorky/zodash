@@ -1,3 +1,7 @@
+import { generatee } from '@zodash/generatee';
+import { Queue } from '@zodash/queue';
+import { nextTick } from '@zodash/next-tick';
+
 export type Callback<R> = (err: Error, result?: Result<R>) => void;
 
 export type Done<R> = (results: Result<R>[]) => void;
@@ -13,7 +17,7 @@ export type ITask<R> = (cb: Callback<R>) => void;
 //   isEmpty(): boolean;
 // }
 
-const nextTick = (callback: (...args: any) => void, ...args: any) => typeof setImmediate !== 'undefined' ? setImmediate(callback, ...args) : setTimeout(callback, 0, ...args);
+// const nextTick = (callback: (...args: any) => void, ...args: any) => typeof setImmediate !== 'undefined' ? setImmediate(callback, ...args) : setTimeout(callback, 0, ...args);
 
 // const poll = (queue: Queue<ITask<any>>) => {
 //   if (queue.isEmpty()) {
@@ -38,9 +42,8 @@ const nextTick = (callback: (...args: any) => void, ...args: any) => typeof setI
 // };
 
 export function parallelLimit<R>(tasks: ITask<R>[], limit: number, cb?: Done<R>) {
-  let pending = tasks.length;
-  let len = tasks.length;
-  let next = limit;
+  let running = new Queue();
+  const generator = generatee(tasks.map((task, index) => ({ task, index })));
   const results: Result<R>[] = [];
 
   function done() {
@@ -50,38 +53,48 @@ export function parallelLimit<R>(tasks: ITask<R>[], limit: number, cb?: Done<R>)
     }
   }
 
-  function poll(index: number, err: Error | null, result: Result<R>) {
+  function _done(index: number, err: Error | null, result: Result<R>) {
     results[index] = err || result;
-    
-    if (--pending === 0) {
-      // done();
-      nextTick(done);
-    } else if (next < len) {
-      const key = next;
-      const task = tasks[key];
-      next += 1;
-      task(function (err, result) {
-        // give err and result to next
-        // poll(key, err, result);
-        nextTick(poll, key, err, result);
-      });
+    running.dequeue();
+
+    // give err and result to next
+    nextTick(poll);
+  }
+
+  function poll() {
+    const next = generator.next();
+
+    // no rest tasks
+    if (next.done) {
+      // no running tasks
+      if (!running.isEmpty()) {
+        return ;
+      }
+
+      return nextTick(done);
+    }
+
+    const value = next.value!;
+    running.enqueue(value);
+
+    const { task, index } = value;
+
+    task(function (err, result) {
+      _done(index, err, result);
+    });
+  }
+
+  function setup(limit: number) {
+    for (let i = 0; i < limit; ++i) {
+      nextTick(poll);
     }
   }
 
-  if (!pending) {
+  if (!tasks.length) {
     // empty
-    done();
-  } else {
-    tasks.some((task, i) => {
-      task((err, result) => {
-        // poll(i, err, result)
-        nextTick(poll, i, err, result);
-      });
-
-      // early return
-      if (i === limit - 1) {
-        return true;
-      }
-    });
+    return done();
   }
+
+  // setup
+  setup(limit);
 }

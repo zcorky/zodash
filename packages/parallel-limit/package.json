@@ -65,5 +65,10 @@
   },
   "bugs": {
     "url": "https://github.com/zcorky/zodash/issues"
+  },
+  "dependencies": {
+    "@zodash/generatee": "^0.1.3",
+    "@zodash/next-tick": "^0.1.3",
+    "@zodash/queue": "^0.1.3"
   }
 }
