@@ -10,15 +10,6 @@ export type Result<T> = T | Error;
 
 export type ITask<R> = (() => Promise<R>) | ((cb: Callback<R>) => void);
 
-// export interface Queue<T> {
-//   enqueue(value: T): void;
-//   dequeue(): T;
-//   size(): number;
-//   isEmpty(): boolean;
-// }
-
-// const nextTick = (callback: (...args: any) => void, ...args: any) => typeof setImmediate !== 'undefined' ? setImmediate(callback, ...args) : setTimeout(callback, 0, ...args);
-
 // const poll = (queue: Queue<ITask<any>>) => {
 //   if (queue.isEmpty()) {
 //     nextTick(poll, queue);
@@ -71,45 +62,6 @@ export function parallelLimit<R>(tasks: ITask<R>[], limit: number, cb?: Done<R>)
   const pending = new Queue<{ id: number, index: number, task: ITask<R> }>();
   const results: Result<R>[] = [];
 
-  tasks.forEach((task, index) => {
-    const id = index;
-
-    pending.enqueue({
-      id,
-      task,
-      index,
-    });
-  });
-  
-  
-  const source = createSourceGenerator();
-
-  function* createSourceGenerator () {
-    while (true) {
-      if (pending.isEmpty()) {
-        return undefined as any as { id: number, index: number, task: ITask<R> };
-      }
-
-      yield pending.dequeue();
-    }
-  }
-
-  // const source = {
-  //   next() {
-  //     if (pending.isEmpty()) {
-  //       return {
-  //         done: true,
-  //         value: undefined,
-  //       };
-  //     }
-
-  //     return {
-  //       done: false,
-  //       value: pending.dequeue(),
-  //     };
-  //   },
-  // };
-
   function done() {
     if (cb) {
       cb(results);
@@ -124,19 +76,17 @@ export function parallelLimit<R>(tasks: ITask<R>[], limit: number, cb?: Done<R>)
       return nextTick(next);
     }
 
-    const data = source.next();
-
     // no rest tasks
-    if (data.done) {
+    if (pending.isEmpty()) {
       // no running tasks
-      if (!running.isEmpty()) {
-        return ;
+      if (running.isEmpty()) {
+        return nextTick(done);
       }
 
-      return nextTick(done);
+      return ;
     }
 
-    const value = data.value!;
+    const value = pending.dequeue();
     running.enqueue(value);
 
     const { task, index } = value;
@@ -156,17 +106,26 @@ export function parallelLimit<R>(tasks: ITask<R>[], limit: number, cb?: Done<R>)
       });
   }
 
-  function setup() {
+  function run() {
+    // empty
     if (!tasks.length) {
-      // empty
       return done();
     }
+
+    tasks.forEach((task, index) => {
+      const id = index;
+  
+      pending.enqueue({
+        id,
+        task,
+        index,
+      });
+    });
 
     return nextTick(next);
   }
 
-  // setup
-  setup();
+  run();
 
   if (!cb) {
     return new Promise<Result<R>[]>((resolve) => {
