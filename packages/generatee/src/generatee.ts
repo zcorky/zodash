@@ -24,7 +24,14 @@ export function generatee(data: any): Generator<any> {
 
   return {
     next() {
-      const done = i === len;
+      const done = i >= len;
+
+      if (done) {
+        return {
+          done: true,
+          value: undefined,
+        };
+      }
 
       if (Array.isArray(data)) {
         key = i++;
