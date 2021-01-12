@@ -53,19 +53,11 @@ export function parallelLimit<R>(tasks: ITask<R>[], limit: number, cb?: Done<R>)
     }
   }
 
-  function _done(index: number, err: Error | null, result: Result<R>) {
-    results[index] = err || result;
-    running.dequeue();
-
-    // give err and result to next
-    nextTick(poll);
-  }
-
-  function poll() {
-    const next = generator.next();
+  function next() {
+    const data = generator.next();
 
     // no rest tasks
-    if (next.done) {
+    if (data.done) {
       // no running tasks
       if (!running.isEmpty()) {
         return ;
@@ -74,19 +66,23 @@ export function parallelLimit<R>(tasks: ITask<R>[], limit: number, cb?: Done<R>)
       return nextTick(done);
     }
 
-    const value = next.value!;
+    const value = data.value!;
     running.enqueue(value);
 
     const { task, index } = value;
 
-    task(function (err, result) {
-      _done(index, err, result);
+    task(function _done(err, result) {
+      results[index] = err || result;
+      running.dequeue();
+
+      // give err and result to next
+      nextTick(next);
     });
   }
 
   function setup(limit: number) {
     for (let i = 0; i < limit; ++i) {
-      nextTick(poll);
+      nextTick(next);
     }
   }
 
