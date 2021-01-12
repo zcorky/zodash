@@ -1,7 +1,5 @@
 import { Queue } from '@zodash/queue';
 import { Event } from '@zodash/event';
-import { Cache } from '@zodash/cache';
-import { generatee } from '@zodash/generatee';
 import { nextTick } from '@zodash/next-tick';
 
 export type Callback<R> = (err: Error, result?: Result<R>) => void;
@@ -64,24 +62,53 @@ function toPromise<R>(fn: ITask<R>): () => Promise<R> {
 export function parallelLimit<R>(tasks: ITask<R>[], limit: number): Promise<R>;
 export function parallelLimit<R>(tasks: ITask<R>[], limit: number, cb: Done<R>): void;
 export function parallelLimit<R>(tasks: ITask<R>[], limit: number, cb?: Done<R>) {
-  const store = new Cache<number, { id: number, index: number, task: ITask<R> }>(Infinity);
+  // const store = new Cache<number, { id: number, index: number, task: ITask<R> }>(Infinity);
   const emitter = new Event<{
     done(result: Result<R>[]): void;
   }>();
 
-  const running = new Queue(limit);
+  const running = new Queue<any>(limit);
+  const pending = new Queue<{ id: number, index: number, task: ITask<R> }>();
   const results: Result<R>[] = [];
 
-  const taskIds: number[] = [];
   tasks.forEach((task, index) => {
     const id = index;
 
-    taskIds.push(id);
-    store.set(id, { id, index, task });
+    pending.enqueue({
+      id,
+      task,
+      index,
+    });
   });
   
   
-  const source = generatee(taskIds);
+  const source = createSourceGenerator();
+
+  function* createSourceGenerator () {
+    while (true) {
+      if (pending.isEmpty()) {
+        return undefined as any as { id: number, index: number, task: ITask<R> };
+      }
+
+      yield pending.dequeue();
+    }
+  }
+
+  // const source = {
+  //   next() {
+  //     if (pending.isEmpty()) {
+  //       return {
+  //         done: true,
+  //         value: undefined,
+  //       };
+  //     }
+
+  //     return {
+  //       done: false,
+  //       value: pending.dequeue(),
+  //     };
+  //   },
+  // };
 
   function done() {
     if (cb) {
@@ -112,8 +139,7 @@ export function parallelLimit<R>(tasks: ITask<R>[], limit: number, cb?: Done<R>)
     const value = data.value!;
     running.enqueue(value);
 
-    const taskId = value;
-    const { task, index } = store.get(taskId);
+    const { task, index } = value;
 
     toPromise(task)()
       .then(function _done(result) {
