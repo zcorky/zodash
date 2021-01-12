@@ -14,8 +14,9 @@ export function generatee(data: any): Generator<any> {
   let key: number | string;
   let i: number = 0;
   let keys: any[];
+  const isArray = Array.isArray(data);
 
-  if (Array.isArray(data)) {
+  if (isArray) {
     len = data.length;
   } else {
     keys = Object.keys(data);
@@ -33,7 +34,7 @@ export function generatee(data: any): Generator<any> {
         };
       }
 
-      if (Array.isArray(data)) {
+      if (isArray) {
         key = i++;
       } else {
         key = keys[i++];
