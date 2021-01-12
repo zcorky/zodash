@@ -1,6 +1,6 @@
 {
   "name": "@zodash/worker",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Make worker easy, more simple than Comlink",
   "keywords": [
     "zodash",
