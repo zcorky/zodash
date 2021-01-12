@@ -67,6 +67,7 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
+    "@zodash/cache": "^0.0.1",
     "@zodash/event": "^0.1.4",
     "@zodash/generatee": "^0.1.4",
     "@zodash/next-tick": "^0.1.3",

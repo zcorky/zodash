@@ -1,6 +1,7 @@
-import { generatee } from '@zodash/generatee';
 import { Queue } from '@zodash/queue';
 import { Event } from '@zodash/event';
+import { Cache } from '@zodash/cache';
+import { generatee } from '@zodash/generatee';
 import { nextTick } from '@zodash/next-tick';
 
 export type Callback<R> = (err: Error, result?: Result<R>) => void;
@@ -63,13 +64,24 @@ function toPromise<R>(fn: ITask<R>): () => Promise<R> {
 export function parallelLimit<R>(tasks: ITask<R>[], limit: number): Promise<R>;
 export function parallelLimit<R>(tasks: ITask<R>[], limit: number, cb: Done<R>): void;
 export function parallelLimit<R>(tasks: ITask<R>[], limit: number, cb?: Done<R>) {
+  const store = new Cache<number, { id: number, index: number, task: ITask<R> }>(Infinity);
   const emitter = new Event<{
     done(result: Result<R>[]): void;
   }>();
 
-  let running = new Queue();
-  const generator = generatee(tasks.map((task, index) => ({ task, index })));
+  const running = new Queue(limit);
   const results: Result<R>[] = [];
+
+  const taskIds: number[] = [];
+  tasks.forEach((task, index) => {
+    const id = index;
+
+    taskIds.push(id);
+    store.set(id, { id, index, task });
+  });
+  
+  
+  const source = generatee(taskIds);
 
   function done() {
     if (cb) {
@@ -81,7 +93,11 @@ export function parallelLimit<R>(tasks: ITask<R>[], limit: number, cb?: Done<R>)
   }
 
   function next() {
-    const data = generator.next();
+    if (running.isFull()) {
+      return nextTick(next);
+    }
+
+    const data = source.next();
 
     // no rest tasks
     if (data.done) {
@@ -96,7 +112,8 @@ export function parallelLimit<R>(tasks: ITask<R>[], limit: number, cb?: Done<R>)
     const value = data.value!;
     running.enqueue(value);
 
-    const { task, index } = value;
+    const taskId = value;
+    const { task, index } = store.get(taskId);
 
     toPromise(task)()
       .then(function _done(result) {
@@ -113,19 +130,17 @@ export function parallelLimit<R>(tasks: ITask<R>[], limit: number, cb?: Done<R>)
       });
   }
 
-  function setup(limit: number) {
+  function setup() {
     if (!tasks.length) {
       // empty
       return done();
     }
 
-    for (let i = 0; i < limit; ++i) {
-      nextTick(next);
-    }
+    return nextTick(next);
   }
 
   // setup
-  setup(limit);
+  setup();
 
   if (!cb) {
     return new Promise<Result<R>[]>((resolve) => {
