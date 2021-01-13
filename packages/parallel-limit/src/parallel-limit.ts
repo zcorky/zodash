@@ -1,6 +1,6 @@
 import { Queue } from '@zodash/queue';
 import { Event } from '@zodash/event';
-import { nextTick } from '@zodash/next-tick';
+import { nextTick as _nextTick } from '@zodash/next-tick';
 
 export type Callback<R> = (err: Error, result?: Result<R>) => void;
 
@@ -9,6 +9,10 @@ export type Done<R> = (results: Result<R>[]) => void;
 export type Result<T> = T | Error;
 
 export type ITask<R> = (() => Promise<R>) | ((cb: Callback<R>) => void);
+
+const nextTick = (fn: (...args: any[]) => void) => {
+  return _nextTick(fn, 200);
+}
 
 // const poll = (queue: Queue<ITask<any>>) => {
 //   if (queue.isEmpty()) {
@@ -72,6 +76,7 @@ export function parallelLimit<R>(tasks: ITask<R>[], limit: number, cb?: Done<R>)
   }
 
   function next() {
+    // Full, Go Next Tick
     if (running.isFull()) {
       return nextTick(next);
     }
@@ -106,6 +111,17 @@ export function parallelLimit<R>(tasks: ITask<R>[], limit: number, cb?: Done<R>)
       });
   }
 
+  function coordinator() {
+    if (running.isFull()) {
+      return nextTick(coordinator);
+    }
+
+    const restRunningSize = running.restSize();
+    for (let i = 0; i < restRunningSize; ++i) {
+      nextTick(next);
+    }
+  }
+
   function run() {
     // empty
     if (!tasks.length) {
@@ -122,9 +138,13 @@ export function parallelLimit<R>(tasks: ITask<R>[], limit: number, cb?: Done<R>)
       });
     });
 
-    return nextTick(next);
+    return nextTick(coordinator);
   }
 
+  // setInterval(() => {
+  //   console.log('current running worker:', running.size());
+  // }, 300);
+  
   run();
 
   if (!cb) {

@@ -1,3 +1,5 @@
+import { repeat } from '@zodash/repeat';
+import random from '@zodash/random';
 import { parallelLimit, ITask } from '../src/parallel-limit';
 
 describe('@zodash/parallel-limit', () => {
@@ -88,23 +90,30 @@ describe('@zodash/parallel-limit', () => {
 
   it('async task use async/await task', (done) => {
     const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
-    const tasks: ITask<any>[] = [
-      async function () {
-        await delay(100);
-        return 1;
-      },
-      async function () {
-        await delay(100);
-        return 2;
-      },
-      async function () {
-        await delay(100);
-        return 3;
-      },
-    ];
+    const create = (n: number) => {
+      const workers = repeat(n, (index) => {
+        return async function () {
+          await delay(random.number(100, 300));
+          return index + 1;
+        };
+      });
 
-    parallelLimit(tasks, 2, (results) => {
-      expect(results).toEqual([1, 2, 3]);
+      const results = repeat(n, index => {
+        return index + 1;
+      });
+
+      return {
+        workers,
+        results,
+      };
+    }
+    
+    const { workers, results } = create(10);
+
+    const tasks: ITask<any>[] = workers;
+
+    parallelLimit(tasks, 10, (results) => {
+      expect(results).toEqual(results);
       done();
     });
   });

@@ -49,7 +49,8 @@
         "lines": 90,
         "statements": -10
       }
-    }
+    },
+    "testTimeout": 10000000
   },
   "publishConfig": {
     "access": "public"
@@ -70,5 +71,9 @@
     "@zodash/event": "^0.1.4",
     "@zodash/next-tick": "^0.1.3",
     "@zodash/queue": "^0.1.3"
+  },
+  "devDependencies": {
+    "@zodash/random": "^1.2.4",
+    "@zodash/repeat": "^0.0.1"
   }
 }
