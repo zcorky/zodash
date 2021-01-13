@@ -39,23 +39,23 @@ describe('@zodash/nextTick', () => {
     });
   });
 
-  it('pass arguments', () => {
-    global.setImmediate = undefined;
+  // it('pass arguments', () => {
+  //   global.setImmediate = undefined;
 
-    const data = [];
-    const a = () => data.push('a');
-    const b = () => data.push('b');
-    const c = (name: string) => { data.push(name); };
-    const d = (name: string) => { data.push(name); };
+  //   const data = [];
+  //   const a = () => data.push('a');
+  //   const b = () => data.push('b');
+  //   const c = (name: string) => { data.push(name); };
+  //   const d = (name: string) => { data.push(name); };
 
-    a();
-    nextTick(c, 'c');
-    nextTick(d, 'd');
-    b();
+  //   a();
+  //   nextTick(c, 'c');
+  //   nextTick(d, 'd');
+  //   b();
     
-    expect(data).toEqual(['a', 'b']);
-    nextTick(() => {
-      expect(data).toEqual(['a', 'b', 'c', 'd']);
-    });
-  });
+  //   expect(data).toEqual(['a', 'b']);
+  //   nextTick(() => {
+  //     expect(data).toEqual(['a', 'b', 'c', 'd']);
+  //   });
+  // });
 });

@@ -12,6 +12,7 @@ export interface IQueue<T> {
   contains(value: T): boolean;
   isEmpty(): boolean;
   isFull(): boolean;
+  restSize(): number;
 }
 
 export class Queue<T> implements IQueue<T> {
@@ -50,6 +51,10 @@ export class Queue<T> implements IQueue<T> {
 
   public size() {
     return this.tail - this.head;
+  }
+
+  public restSize() {
+    return this.capacity - this.size();
   }
 
   public isEmpty() {
