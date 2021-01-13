@@ -1,5 +1,5 @@
 export function repeat(times: number, value: string): string;
-export function repeat<T>(times: number, value: (...args: any[]) => T): T[];
+export function repeat<T>(times: number, value: (index: number) => T): T[];
 export function repeat(times: number, value: string | Function) {
   const repeats = new Array(times).fill(value);
 
