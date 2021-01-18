@@ -2,6 +2,7 @@
   "hello": "你好",
   "feedback": {
     "error": "连接失败",
-    "success": "连接成功"
+    "success": "连接成功",
+    "shouldformat": "你好, {name}"
   }
 }

@@ -23,13 +23,13 @@ describe('@zodash/i18n', () => {
     expect(i18n.t('feedback.error.unknown.x')).toBe('feedback.error.unknown.x');
 
 
-    i18n.setLanguage('zh_CN');
+    i18n.setLocale('zh_CN');
     expect(t('hello')).toBe('你好');
     expect(t('feedback.success')).toBe('连接成功');
     expect(t('feedback.error')).toBe('连接失败');
     expect(t('feedback.error.unknown.x')).toBe('feedback.error.unknown.x');
 
-    i18n.setLanguage('en_US');
+    i18n.setLocale('en_US');
     expect(t('hello')).toBe('hello');
     expect(t('feedback.success')).toBe('connection succeeded');
     expect(t('feedback.error')).toBe('connection failed');
@@ -42,16 +42,27 @@ describe('@zodash/i18n', () => {
       en_US,
     });
 
-    i18n.setLanguage('zh_CN');
+    i18n.setLocale('zh_CN');
     expect(t('hello')).toBe('你好');
     expect(t('feedback.success')).toBe('连接成功');
     expect(t('feedback.error')).toBe('连接失败');
     expect(t('feedback.error.unknown.x')).toBe('feedback.error.unknown.x');
 
-    i18n.setLanguage('en_US');
+    i18n.setLocale('en_US');
     expect(t('hello')).toBe('hello');
     expect(t('feedback.success')).toBe('connection succeeded');
     expect(t('feedback.error')).toBe('connection failed');
     expect(t('feedback.error.unknown.x')).toBe('feedback.error.unknown.x');
+  });
+
+  it('support format', async () => {
+    i18n.setLocales({
+      zh_CN,
+      en_US,
+    });
+
+    i18n.setLocale('zh_CN');
+    expect(t('feedback.shouldformat')).toBe('你好, ');
+    expect(t('feedback.shouldformat', { name: 'zero' })).toBe('你好, zero');
   });
 });

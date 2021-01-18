@@ -1,53 +1,54 @@
 import { get } from '@zodash/get';
+import { format } from '@zodash/format';
 
-export type Language = string;
+export type Locale = string;
 export type Translate = Record<string, any>;
 
 export interface IOptions {
-  locales: Record<Language, Translate>;
-  language?: string;
+  locales: Record<Locale, Translate>;
+  current?: string;
 }
 
 export class i18nConfig {
   private locales = {};
-  private language = '';
+  private current: Locale = '';
 
   constructor() {}
 
   private get locale() {
-    return this.locales?.[this.language] || {};
+    return this.locales?.[this.current] || {};
   }
   
   public config = (options: IOptions) => {
     this.locales = options.locales || {};
-    this.language = options.language || Object.keys(this.locales)[0];
+    this.current = options.current || Object.keys(this.locales)[0];
   }
 
-  public setLocales = (locales: Record<Language, Translate>) => {
+  public setLocales = (locales: Record<Locale, Translate>) => {
     this.locales = locales;
 
-    if (!this.language) {
-      this.language = Object.keys(this.locales)[0];
+    if (!this.current) {
+      this.current = Object.keys(this.locales)[0];
     }
   }
 
-  public setLanguage = (language: string) => {
-    this.language = language;
+  public setLocale = (currentLocale: string) => {
+    this.current = currentLocale;
   }
   
-  public translate = (key: string) => {
-    return get(this.locale, key, key);
+  public translate = <T = void>(key: string, data?: T) => {
+    return format(get(this.locale, key, key), data || {});
   }
 
-  public t = (key: string) => {
-    return this.translate(key);
+  public t = <T = void>(key: string, data?: T) => {
+    return this.translate<T>(key, data);
   }
 }
 
 export const i18n = new i18nConfig();
 
-export const t = (key: string) => {
-  return i18n.translate(key);
+export const t = <T = void>(key: string, data?: T) => {
+  return i18n.translate<T>(key, data);
 };
 
 export default i18n;
