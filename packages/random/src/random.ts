@@ -14,7 +14,7 @@ export function feed(length: number) {
  * @returns the random number between min and max
  */
 export function number(max: number = 10, min: number = 0) {
-  return ~~(Math.random() * (max - min)) + min;
+  return parseInt('' + Math.random() * (max - min)) + min;
 }
 
 export function string(length: number = 10) {

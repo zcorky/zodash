@@ -13,6 +13,12 @@ describe("@zodash/random", () => {
         expect(random.number() < 10).toBeTruthy();
         expect(random.number() >= 0).toBeTruthy();
       });
+
+      // const max = 1231231231231230;
+      // console.log('xxx:', ~~(max), random.number(max, max));
+      // expect(random.number(max, max)).toEqual(max);
+      // expect(random.number(max, max - 10)).toBeLessThan(max);
+      // expect(random.number(max, max - 10)).toBeGreaterThanOrEqual(max - 10);
   });
 
   it("string", () => {
