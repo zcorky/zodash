@@ -10,7 +10,9 @@ describe('@zodash/idcard#generate', () => {
     });
 
     d.forEach(i => {
-      expect(new IDCard(i).isValid()).toBeTruthy();
+      const id = new IDCard(i);
+      // console.log("ID:", id.valueOf(), id.toJSON())
+      expect(id.isValid()).toBeTruthy();
     });
   });
 

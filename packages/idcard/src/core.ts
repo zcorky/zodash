@@ -94,6 +94,14 @@ export class IDCard {
     };
   }
 
+  public valueOf() {
+    return this.cardNumber;
+  }
+
+  public toString() {
+    return this.toJSON();
+  }
+
   public length() {
     return this.cardNumber.length;
   }
