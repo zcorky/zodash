@@ -20,11 +20,11 @@
 //  host          [8]   host.com:8080
 //    hostname    [9]   host.com
 //    port        [10]  8080
-//  path          [11]  /path/to/file?query=string
-//    pathname    [12]  /path/to/file
-//    search      [13]  ?query=string
-//      query     [14]  query=string
-//  hash          [15]  #hash
+// path          [11]  /path/to/file?query=string
+//   pathname    [12]  /path/to/file
+//   search      [13]  ?query=string
+//     query     [14]  query=string
+// hash          [15]  #hash
 //
 // export const COMMON = /^(((([^:]+):)\/\/(?:(([^:]+):?([^@]+)?)@)?(([^:/]+)(?::([^/]+))?))(([^?$]+)((?:\?([^#]+)?)))?(#[^$].*)?)/;
 
