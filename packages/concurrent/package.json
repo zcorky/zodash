@@ -1,6 +1,6 @@
 {
   "name": "@zodash/concurrent",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "concurrent task",
   "keywords": [
     "zodash",
@@ -68,6 +68,6 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "@zodash/parallel-limit": "^0.2.6"
+    "@zodash/parallel-limit": "^0.2.7"
   }
 }
