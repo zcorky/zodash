@@ -1,6 +1,6 @@
 {
   "name": "@zodash/idcard",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "chinese id card parser, generator and validator",
   "keywords": [
     "zodash",
@@ -67,7 +67,7 @@
   },
   "dependencies": {
     "@zcorky/moment": "^1.2.0",
-    "@zodash/random": "^1.2.4"
+    "@zodash/random": "^1.2.5"
   },
   "devDependencies": {
     "@zodash/repeat": "^0.0.2"
