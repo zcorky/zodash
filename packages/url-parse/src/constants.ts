@@ -1,3 +1,11 @@
+// Nodejs url.parse doc
+//  => Browser URL
+//  => Whatwg URL
+//  
+//  Reference: https://www.liaoxuefeng.com/wiki/1022910821149312/1023025830950720
+//  Visualization: http://wangwl.net/static/projects/visualRegex/#flags=&source=%2F%5E(%3F%3Chref%3E(%3F%3Corigin%3E(%3F%3Cprotocol%3E(%3F%3Cscheme%3E%5B%5E%3A%5D%2B)%3A)%5C%2F%5C%2F((%3F%3Cauth%3E(%3F%3Cusername%3E%5B%5E%3A%5D%2B)%3A%3F(%3F%3Cpassword%3E%5B%5E%40%5D%2B)%3F)%40)%3F(%3F%3Chost%3E((%3F%3Chostname%3E%5B%5E%3A%2F%5D%2B)(%3A(%3F%3Cport%3E%5B%5E%2F%5D%2B))%3F)))((%3F%3Cpath%3E(%3F%3Cpathname%3E%5B%5E%3F%24%5D%2B)(%3F%3Csearch%3E(%5C%3F(%3F%3Cquery%3E%5B%5E%23%5D%2B)%3F))%3F)(%3F%3Chash%3E%23%5B%5E%24%5D.*)%3F)%3F)%2F&match=&method=exec
+
+
 // COMMON
 // 
 // DATA: http://user:pass@host.com:8080/path/to/file?query=string#hash
@@ -19,6 +27,7 @@
 //  hash          [15]  #hash
 //
 // export const COMMON = /^(((([^:]+):)\/\/(?:(([^:]+):?([^@]+)?)@)?(([^:/]+)(?::([^/]+))?))(([^?$]+)((?:\?([^#]+)?)))?(#[^$].*)?)/;
+
 
 // NAMED
 //
