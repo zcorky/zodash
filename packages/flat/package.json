@@ -1,0 +1,63 @@
+{
+  "name": "@zodash/flat",
+  "version": "0.0.1",
+  "description": "Flat array or object",
+  "keywords": [
+    "flat"
+  ],
+  "author": "zero <tobewhatwewant@gmail.com>",
+  "homepage": "https://github.com/zcorky/zodash#readme",
+  "license": "MIT",
+  "main": "lib/flat.js",
+  "typings": "lib/flat.d.ts",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "jest": {
+    "roots": [
+      "__tests__"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": ".*\\.(spec|test)\\.(ts|tsx)$",
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx"
+    ],
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/**/*.{ts,tsx}"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 70,
+        "functions": 60,
+        "lines": 80,
+        "statements": -10
+      }
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "tsc": "tsc",
+    "test": "jest -w 1",
+    "coverage": "codecov"
+  },
+  "devDependencies": {
+    "@zcorky/deep-equal": "^0.0.1"
+  }
+}
