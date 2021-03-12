@@ -11,3 +11,15 @@ export function getQuery(): Record<string, string> {
 export function getLocation() {
   return window.location;
 }
+
+export function go(url: string, canGoBack: boolean = true) {
+  if (!canGoBack) {
+    return window.location.replace(url);
+  }
+
+  window.location.href = url;
+}
+
+export function navigate(url: string, canGoBack: boolean = true) {
+  return go(url, canGoBack);
+}

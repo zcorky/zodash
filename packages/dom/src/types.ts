@@ -1,6 +1,6 @@
 export type Selector = string;
 
-export type El = HTMLElement | Element | Selector;
+export type El = HTMLElement | Element | Selector | Window;
 
 export type I$S = (selector: Selector | Element) => Element;
 
