@@ -1,6 +1,6 @@
 {
   "name": "@zodash/jsonp",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A simple jsonp function",
   "keywords": [
     "zodash",
@@ -66,7 +66,7 @@
   },
   "dependencies": {
     "@zcorky/query-string": "^1.0.2",
-    "@zodash/load-js": "^0.2.7",
+    "@zodash/load-js": "^0.2.8",
     "@zodash/uuid": "^0.1.3"
   }
 }
