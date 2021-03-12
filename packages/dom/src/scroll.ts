@@ -8,7 +8,7 @@ export function onScrollToTop($element: El, cb: Listener, threshold?: number): U
   const $el = $($element);
   
   const callback = debounce((e) => {
-    const scrollTop = $el?.scrollTop;
+    const scrollTop = $el?.scrollTop || ($el as any as Window).scrollY;
 
     if (scrollTop < threshold) {
       cb(e);

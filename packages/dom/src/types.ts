@@ -1,8 +1,8 @@
 export type Selector = string;
 
-export type El = HTMLElement | Element | Selector | Window;
+export type El = HTMLElement | Element;
 
-export type I$S = (selector: Selector | Element) => Element;
+export type I$S = (selector: Selector | Element | Window) => Element;
 
 export type Listener = <T extends Event>(e?: T) => void;
 
