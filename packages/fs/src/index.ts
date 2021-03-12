@@ -9,10 +9,3 @@ export {
   loadImage,
   download,
 };
-
-export default {
-  loadJs,
-  loadCss,
-  loadImage,
-  download,
-};

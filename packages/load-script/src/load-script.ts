@@ -15,7 +15,7 @@ export interface IOptions {
 export function loadScript(path: string, options?: IOptions) {
   const enableCache = options?.enableCache ?? true;
 
-  return new Promise((resolve, reject) => {
+  return new Promise<void>((resolve, reject) => {
     if (enableCache && cache.get(path)) {
       return resolve();
     }
@@ -42,7 +42,7 @@ export function loadScript(path: string, options?: IOptions) {
 export function usingAjax(path: string, options?: IOptions) {
   const enableCache = options?.enableCache ?? true;
 
-  return new Promise((resolve, reject) => {
+  return new Promise<void>((resolve, reject) => {
     if (enableCache && cache.get(path)) {
       return resolve();
     }
@@ -79,7 +79,7 @@ export function usingAjax(path: string, options?: IOptions) {
 export function usingFetch(path: string, options?: IOptions) {
   const enableCache = options?.enableCache ?? true;
 
-  return new Promise((resolve, reject) => {
+  return new Promise<void>((resolve, reject) => {
     if (enableCache && cache.get(path)) {
       return resolve();
     }

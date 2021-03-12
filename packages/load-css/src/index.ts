@@ -4,7 +4,7 @@
  * @param path style path
  */
 export function loadCss(path: string) {
-  return new Promise((resolve, reject) => {
+  return new Promise<void>((resolve, reject) => {
     const style = document.createElement('link');
     style.rel = 'stylesheet';
     style.href = path;
@@ -23,7 +23,7 @@ export function loadCss(path: string) {
  * @param path script path
  */
 export function usingAjax(path: string) {
-  return new Promise((resolve, reject) => {
+  return new Promise<void>((resolve, reject) => {
     const xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
       if (xhr.readyState === 4){
