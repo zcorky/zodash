@@ -1,4 +1,4 @@
-import timer from '../src';
+import * as timer from '../src';
 
 describe('@zodash/fs', () => {
   it('run', async () => {
