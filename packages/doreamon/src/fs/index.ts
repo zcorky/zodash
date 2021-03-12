@@ -1,3 +1,3 @@
-import fs from '@zodash/fs';
+import * as fs from '@zodash/fs';
 
 export default fs;
