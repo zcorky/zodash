@@ -36,7 +36,7 @@ export function unfetch(url: string, options?: Options) {
       status: request.status,
       url: request.responseURL,
       text: () => Promise.resolve(request.responseText),
-      json: () => Promise.resolve(JSON.parse(request.responseText)),
+      json: () => Promise.resolve(request.responseText).then(JSON.parse),
       blob: () => Promise.resolve(new Blob([request.response])),
       clone: response,
       headers: {
@@ -49,8 +49,6 @@ export function unfetch(url: string, options?: Options) {
 
     request.open(_options.method || 'get', url, true);
 
-    request.responseType
-
     request.onload = () => {
       request.getAllResponseHeaders().replace(/^(.*?):[^\S\n]*([\s\S]*?)$/gm, (m: string, key: string, value: string) => {
         keys.push(key = key.toLowerCase());
@@ -58,6 +56,7 @@ export function unfetch(url: string, options?: Options) {
         headers[key] = headers[key] ? `${headers[key]},${value}` : value;
         return '';
       });
+      
       resolve(response()); // @TODO not the same as fetch Response
     };
 
