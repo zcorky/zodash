@@ -1,7 +1,3 @@
-import Device from '@zcorky/device';
-
-export function device(ua?: string) {
-  return new Device(ua);
-}
+import device from '@zcorky/device';
 
 export default device;
