@@ -1,23 +1,22 @@
-import { observerable, observe } from '../src';
+import { observe } from '../src';
 
 describe('@zodash/observable', () => {
   it('run', async () => {
-    const state = observerable({
+
+    const data = observe({
       count: 0,
       user: {
         nickname: 'zero',
       },
+    }, () => {
+      console.log('count:', data.count);
+
+      console.log('user:', data.user.nickname);
     });
 
-    observe(() => {
-      console.log('count:', state.count);
+    expect(data.count).toBe(0);
 
-      console.log('user:', state.user.nickname);
-    });
-
-    expect(state.count).toBe(0);
-
-    state.count += 1;
-    expect(state.count).toBe(1);
+    data.count += 1;
+    expect(data.count).toBe(1);
   });
 });
