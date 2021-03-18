@@ -1,6 +1,6 @@
 {
   "name": "@zodash/unfetch",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Dynamic load script",
   "keywords": [
     "lodash",
