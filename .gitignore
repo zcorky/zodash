@@ -6,3 +6,4 @@ packages/*/lib
 *.lock
 package-lock.json
 coverage/
+.npmrc
