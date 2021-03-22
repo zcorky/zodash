@@ -1,6 +1,6 @@
-import { openFile } from '../src';
+import { promisify } from '../src';
 
-describe('@zodash/open-file', () => {
+describe('@zodash/promisify', () => {
   it('works', () => {
     expect(true).toBeTruthy();
   });
