@@ -17,6 +17,11 @@ export interface IOptions {
    * Support mutiple file
    */
   multiple?: boolean;
+
+  /**
+   * Support directory
+   */
+  isDirectory?: boolean;
 }
 
 /**
@@ -43,6 +48,12 @@ export function openFile(options?: IOptions) {
       input.setAttribute('multiple', '');
     }
 
+    if (options?.isDirectory) {
+      input.setAttribute('directory', 'directory');
+      input.setAttribute('webkitdirectory', 'webkitdirectory');
+    }
+
+    //
     function onChange() {
       clean();
 
