@@ -8,6 +8,6 @@ describe('@zodash/run-generator - throw', () => {
       });
     };
 
-    await expect(fn).rejects.toThrow('message');
+    await expect(fn()).rejects.toThrow('message');
   });
 });
