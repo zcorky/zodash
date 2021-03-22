@@ -22,4 +22,19 @@ describe('@zodash/reduce', () => {
 
     expect(deepEqual(v1, v)).toBeTruthy();
   });
+
+  it('each', () => {
+    const v = { x: 1, y: 2 };
+    const p = {} as Partial<{ x: number, y: number }>;
+
+    const each = <T extends object>(v: T, fn: (item: any) => void) => reduce(v, (_, item) => fn(item));
+    
+    each(v, (n) => {
+      const [k, v] = n;
+
+      p[k] = v;
+    });
+
+    expect(deepEqual(p, v)).toBeTruthy();
+  });
 });
