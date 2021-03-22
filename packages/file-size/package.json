@@ -1,9 +1,11 @@
 {
-  "name": "@zodash/inject-global-css",
+  "name": "@zodash/file-size",
   "version": "0.0.0",
-  "description": "Inject Global CSS",
+  "description": "Turn bytes into human readable file size",
   "keywords": [
-    "zodash"
+    "zodash",
+    "file-size",
+    "ms"
   ],
   "author": "zero <tobewhatwewant@gmail.com>",
   "homepage": "https://github.com/zcorky/zodash#readme",
@@ -48,7 +50,7 @@
     ],
     "coverageThreshold": {
       "global": {
-        "branches": 80,
+        "branches": 60,
         "functions": 90,
         "lines": 90,
         "statements": -10
@@ -62,5 +64,8 @@
   },
   "bugs": {
     "url": "https://github.com/zcorky/zodash/issues"
+  },
+  "devDependencies": {
+    "base62": "^2.0.1"
   }
 }
