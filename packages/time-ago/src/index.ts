@@ -2,8 +2,8 @@ import { number as isNumber } from '@zcorky/is';
 import i18n, { t } from '@zodash/i18n';
 import { DATA } from './constants';
 
-const zh_CN = require('./locales/zh_CN.json');
-const en_US = require('./locales/en_US.json');
+import * as zh_CN from './locales/zh_CN.json';
+import * as en_US from './locales/en_US.json';
 
 export interface Options {
   /**

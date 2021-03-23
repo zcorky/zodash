@@ -1,4 +1,6 @@
-import { TreeRoute, FlatRoutes, NestRoutes, Route } from './types';
+import {
+  TreeRoute, FlatRoutes, NestRoutes, Route,
+} from './types';
 import { toTree } from './to-tree';
 
 export interface NestOptions {
@@ -80,7 +82,7 @@ export function toNest(routes: FlatRoutes, options?: NestOptions): NestRoutes {
 
 export function traverseNest(
   routes: NestRoutes = [],
-  callback: (route: Route) => void
+  callback: (route: Route) => void,
 ) {
   routes.map((route) => {
     callback(route);

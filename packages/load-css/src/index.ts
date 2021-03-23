@@ -50,21 +50,19 @@ export function usingAjax(path: string) {
  * @param path script path
  */
 export function usingFetch(path: string) {
-  return new Promise((resolve, reject) => {
-    return fetch(path)
-      .then((res) => res.text())
-      .then((styleText) => {
-        const style = document.createElement('style');
-        style.innerText = styleText;
-        style.onerror = reject;
-        // style.onload = () => {
-        //   // style.parentNode.removeChild(style);
-        //   resolve();
-        // };
-        document.head.appendChild(style);
-        setTimeout(resolve, 0);
-      });
-  });
+  return new Promise((resolve, reject) => fetch(path)
+    .then((res) => res.text())
+    .then((styleText) => {
+      const style = document.createElement('style');
+      style.innerText = styleText;
+      style.onerror = reject;
+      // style.onload = () => {
+      //   // style.parentNode.removeChild(style);
+      //   resolve();
+      // };
+      document.head.appendChild(style);
+      setTimeout(resolve, 0);
+    }));
 }
 
 export default loadCss;

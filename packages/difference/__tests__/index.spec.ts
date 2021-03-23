@@ -7,7 +7,7 @@ describe('@zodash/difference', () => {
 
   it('difference string[]', () => {
     expect(
-      difference(['zero', 'any', 'zero', 'zero', 'zero'], ['any'])
+      difference(['zero', 'any', 'zero', 'zero', 'zero'], ['any']),
     ).toEqual(['zero']);
   });
 

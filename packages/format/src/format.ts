@@ -24,22 +24,18 @@ const DEFAULT_SEPERATOR: Seperator = {
 export function format(
   text: string,
   mapOrFn: Record<string, any> | ((key: string, text: string) => any),
-  seperator: Seperator = DEFAULT_SEPERATOR
+  seperator: Seperator = DEFAULT_SEPERATOR,
 ) {
   const seperatorStart = seperator.start;
   const SeperatorEnd = seperator.end;
   const pattern = new RegExp(
     `${seperatorStart}([^${SeperatorEnd}]+)${SeperatorEnd}`,
-    'g'
+    'g',
   );
 
   if (typeof mapOrFn === 'function') {
-    return text.replace(pattern, (_, key) => {
-      return mapOrFn(key, text);
-    });
+    return text.replace(pattern, (_, key) => mapOrFn(key, text));
   }
 
-  return text.replace(pattern, (_, key) => {
-    return get(mapOrFn, key, '');
-  });
+  return text.replace(pattern, (_, key) => get(mapOrFn, key, ''));
 }

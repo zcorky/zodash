@@ -10,7 +10,7 @@ export function Provider(serviceName: string, args?: any[]) {
         id: serviceName,
         args: args || [],
       },
-      target
+      target,
     );
   };
 }

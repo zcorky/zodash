@@ -2,7 +2,7 @@ export function number() {
   return <T>(
     target: any,
     propertyKey: PropertyKey,
-    descriptor: TypedPropertyDescriptor<T>
+    descriptor: TypedPropertyDescriptor<T>,
   ) => {
     // getter
     if (descriptor.get) {
@@ -32,13 +32,13 @@ export function bool() {
   const isFalse = (value: string) => {
     const _v = String(value).toLowerCase();
 
-    return falseEnums.includes(_v) ? false : true;
+    return !falseEnums.includes(_v);
   };
 
   return <T>(
     target: any,
     propertyKey: PropertyKey,
-    descriptor: TypedPropertyDescriptor<T>
+    descriptor: TypedPropertyDescriptor<T>,
   ) => {
     // getter
     if (descriptor.get) {

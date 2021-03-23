@@ -1,4 +1,3 @@
-export * from './types';
 import { $ } from './$';
 import * as event from './event';
 import * as scroll from './scroll';
@@ -8,7 +7,11 @@ import * as viewport from './viewport';
 import * as style from './style';
 import * as router from './router';
 
-export { $, event, scroll, clipboard, page, viewport, style, router };
+export * from './types';
+
+export {
+  $, event, scroll, clipboard, page, viewport, style, router,
+};
 
 export default {
   $,

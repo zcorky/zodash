@@ -6,8 +6,8 @@ export interface IOptions {
 
 export async function download(
   url: string,
-  filename: string = '' + Date.now(),
-  options?: IOptions
+  filename = `${Date.now()}`,
+  options?: IOptions,
 ) {
   const response = await fetch(url, {
     method: options?.method,

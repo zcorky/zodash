@@ -1,5 +1,5 @@
-import * as hmac from '../src';
 import * as C from 'crypto-js';
+import * as hmac from '../src';
 
 describe('Hmac* (default_encoding: hex)', () => {
   const secret = 'your_secret';
@@ -14,31 +14,31 @@ describe('Hmac* (default_encoding: hex)', () => {
 
   it('sha1', () => {
     expect(hmac.hmacSHA1(data, secret)).toBe(
-      C.HmacSHA1(data, secret).toString()
+      C.HmacSHA1(data, secret).toString(),
     );
   });
 
   it('sha224', () => {
     expect(hmac.hmacSHA224(data, secret)).toBe(
-      C.HmacSHA224(data, secret).toString()
+      C.HmacSHA224(data, secret).toString(),
     );
   });
 
   it('sha256', () => {
     expect(hmac.hmacSHA256(data, secret)).toBe(
-      C.HmacSHA256(data, secret).toString()
+      C.HmacSHA256(data, secret).toString(),
     );
   });
 
   it('sha384', () => {
     expect(hmac.hmacSHA384(data, secret)).toBe(
-      C.HmacSHA384(data, secret).toString()
+      C.HmacSHA384(data, secret).toString(),
     );
   });
 
   it('sha512', () => {
     expect(hmac.hmacSHA512(data, secret)).toBe(
-      C.HmacSHA512(data, secret).toString()
+      C.HmacSHA512(data, secret).toString(),
     );
   });
 
@@ -57,37 +57,37 @@ describe('Hmac* encoding: base64', () => {
 
   it('md5', () => {
     expect(hmac.hmacMD5(data, secret, 'base64')).toBe(
-      C.HmacMD5(data, secret).toString(C.enc.Base64)
+      C.HmacMD5(data, secret).toString(C.enc.Base64),
     );
   });
 
   it('sha1', () => {
     expect(hmac.hmacSHA1(data, secret, 'base64')).toBe(
-      C.HmacSHA1(data, secret).toString(C.enc.Base64)
+      C.HmacSHA1(data, secret).toString(C.enc.Base64),
     );
   });
 
   it('sha224', () => {
     expect(hmac.hmacSHA224(data, secret, 'base64')).toBe(
-      C.HmacSHA224(data, secret).toString(C.enc.Base64)
+      C.HmacSHA224(data, secret).toString(C.enc.Base64),
     );
   });
 
   it('sha256', () => {
     expect(hmac.hmacSHA256(data, secret, 'base64')).toBe(
-      C.HmacSHA256(data, secret).toString(C.enc.Base64)
+      C.HmacSHA256(data, secret).toString(C.enc.Base64),
     );
   });
 
   it('sha384', () => {
     expect(hmac.hmacSHA384(data, secret, 'base64')).toBe(
-      C.HmacSHA384(data, secret).toString(C.enc.Base64)
+      C.HmacSHA384(data, secret).toString(C.enc.Base64),
     );
   });
 
   it('sha512', () => {
     expect(hmac.hmacSHA512(data, secret, 'base64')).toBe(
-      C.HmacSHA512(data, secret).toString(C.enc.Base64)
+      C.HmacSHA512(data, secret).toString(C.enc.Base64),
     );
   });
 

@@ -5,7 +5,7 @@ import {
   SECONDS_A_DAY,
 } from '@zcorky/moment/lib/constants';
 
-export interface ITask<P> {
+export interface ITask {
   name: string;
   isIntializing(): boolean; // 未开始
   isRuning(): boolean; // 进行中
@@ -27,9 +27,11 @@ export enum Status {
   REJECTED = 'rejected',
 }
 
-export class Task<P> implements ITask<P> {
+export class Task<P> implements ITask {
   public createdAt: Moment = moment();
+
   public startedAt: Moment;
+
   public finishedAt: Moment;
 
   private status: Status = Status.INITIAL;
@@ -37,7 +39,7 @@ export class Task<P> implements ITask<P> {
   public static create<P>(
     name: string,
     parameters: P,
-    fn: (parameters: P) => Promise<void>
+    fn: (parameters: P) => Promise<void>,
   ) {
     return new Task(name, parameters, fn);
   }
@@ -45,7 +47,7 @@ export class Task<P> implements ITask<P> {
   constructor(
     public readonly name: string,
     private readonly parameters: P,
-    private fn: (parameters: P) => Promise<void>
+    private fn: (parameters: P) => Promise<void>,
   ) {}
 
   public isIntializing() {
@@ -105,17 +107,16 @@ export class Task<P> implements ITask<P> {
 
   private get runningTimeString() {
     const value = this.runningTime.valueOf() / 1000;
-    if (1 <= value && value < SECONDS_A_MINUTE) {
+    if (value >= 1 && value < SECONDS_A_MINUTE) {
       return `${~~value}s`;
-    } else if (SECONDS_A_MINUTE <= value && value < SECONDS_A_HOUR) {
+    } if (SECONDS_A_MINUTE <= value && value < SECONDS_A_HOUR) {
       return `${~~(value / SECONDS_A_MINUTE)}m`;
-    } else if (SECONDS_A_HOUR <= value && value < SECONDS_A_DAY) {
+    } if (SECONDS_A_HOUR <= value && value < SECONDS_A_DAY) {
       return `${~~(value / SECONDS_A_HOUR)}h`;
-    } else if (SECONDS_A_DAY <= value) {
+    } if (SECONDS_A_DAY <= value) {
       return `${~~(value / SECONDS_A_DAY)}d`;
-    } else {
-      return value;
     }
+    return value;
   }
 
   public toString() {

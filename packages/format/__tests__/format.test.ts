@@ -1,5 +1,5 @@
 import { get } from '@zodash/get';
-import { format } from './../src/format';
+import { format } from '../src/format';
 
 describe('@zodash/format', () => {
   it('Author: {author}, From: {from}', () => {
@@ -18,7 +18,7 @@ describe('@zodash/format', () => {
     const pattern = 'Author: {{author}}, From: {{from}}, {{NOTEXIST}}';
     const map = { author: 'Zero', from: 'China' };
     expect(format(pattern, map, { start: '{{', end: '}}' })).toBe(
-      'Author: Zero, From: China, '
+      'Author: Zero, From: China, ',
     );
   });
 
@@ -26,7 +26,7 @@ describe('@zodash/format', () => {
     const pattern = 'Author: #author#, From: #from#, #NOTEXIST#';
     const map = { author: 'Zero', from: 'China' };
     expect(format(pattern, map, { start: '#', end: '#' })).toBe(
-      'Author: Zero, From: China, '
+      'Author: Zero, From: China, ',
     );
   });
 
@@ -34,24 +34,21 @@ describe('@zodash/format', () => {
     const pattern = 'Author: {author}, From: {from}, GirlFriend: {girl.name}';
     const map = { author: 'Zero', from: 'China', girl: { name: 'any' } };
     expect(
-      format(pattern, (key) => {
-        return get(map, key); // map[key];
-      })
+      format(pattern, (key) => get(map, key), // map[key];
+      ),
     ).toBe('Author: Zero, From: China, GirlFriend: any');
   });
 
   it('nest map', () => {
-    const pattern =
-      'Author: {author.name}, From: {from}, GirlFriend: {girl.name}';
+    const pattern = 'Author: {author.name}, From: {from}, GirlFriend: {girl.name}';
     const map = {
       author: { name: 'Zero' },
       from: 'China',
       girl: { name: 'any' },
     };
     expect(
-      format(pattern, (key) => {
-        return get(map, key); // map[key];
-      })
+      format(pattern, (key) => get(map, key), // map[key];
+      ),
     ).toBe('Author: Zero, From: China, GirlFriend: any');
   });
 });

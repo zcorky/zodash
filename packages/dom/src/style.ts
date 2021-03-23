@@ -10,14 +10,13 @@ import { $ } from './$';
 export function setStyle<K extends keyof CSSStyleDeclaration>(
   $element: El,
   name: K,
-  value: CSSStyleDeclaration[K]
+  value: CSSStyleDeclaration[K],
 ) {
   const $node = $($element) as HTMLElement;
 
-  const rValue: any =
-    name === 'zIndex'
-      ? value
-      : typeof value === 'number'
+  const rValue: any = name === 'zIndex'
+    ? value
+    : typeof value === 'number'
       ? `${value}px`
       : value;
 

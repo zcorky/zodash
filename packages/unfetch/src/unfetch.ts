@@ -59,7 +59,7 @@ export function unfetch(url: string, options?: Options) {
             all.push([key, value]);
             headers[key] = headers[key] ? `${headers[key]},${value}` : value;
             return '';
-          }
+          },
         );
 
       resolve(response()); // @TODO not the same as fetch Response

@@ -12,7 +12,7 @@ export function generatee<T>(data: T[]): Generator<T>;
 export function generatee(data: any): Generator<any> {
   let len: number;
   let key: number | string;
-  let i: number = 0;
+  let i = 0;
   let keys: any[];
   const isArray = Array.isArray(data);
 

@@ -14,7 +14,9 @@ export interface IWorker<D extends any[], R> {
 
 export class WebWorker<D extends any[], R> implements IWorker<D, R> {
   private worker: Worker;
+
   private id = createIdGenerator();
+
   private tasks: Record<string, any> = {};
 
   /**
@@ -27,9 +29,7 @@ export class WebWorker<D extends any[], R> implements IWorker<D, R> {
 
     worker.compile().watch();
 
-    return (...args: D) => {
-      return worker.run(...args);
-    };
+    return (...args: D) => worker.run(...args);
   }
 
   constructor(public readonly fn: IWorkerFn<D, R>) {}
@@ -159,7 +159,7 @@ function createIdGenerator() {
 
   return () => {
     id = (id + 1) % MAX_SAFE_INTEGER;
-    return 'task-' + id;
+    return `task-${id}`;
   };
 }
 

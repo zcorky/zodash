@@ -17,7 +17,7 @@ export function encrypt(
   algorithm: string,
   key: string,
   iv: string,
-  text: string
+  text: string,
 ) {
   const cipher = createCipheriv(algorithm, Buffer.from(key), iv);
   const encrypted = cipher.update(text, 'utf8', 'base64');
@@ -28,7 +28,7 @@ export function decrypt(
   algorithm: string,
   key: string,
   iv: string,
-  text: string
+  text: string,
 ) {
   const cipher = createDecipheriv(algorithm, key, iv);
   const decrypted = cipher.update(text, 'base64', 'utf8');

@@ -68,6 +68,7 @@
     "crypto-js": "^4.0.0"
   },
   "devDependencies": {
-    "@types/node-rsa": "^1.0.0"
+    "@types/node-rsa": "^1.0.0",
+    "node-rsa": "^1.1.1"
   }
 }

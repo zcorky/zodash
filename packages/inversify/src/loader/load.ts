@@ -1,8 +1,8 @@
 import * as globby from 'globby';
 
-import { CLASS_KEY } from '../decorators/provider';
+// import { CLASS_KEY } from '../decorators/provider';
 
-export async function load(dirPath: string) {
+export async function load(/* dirPath: string */) {
   const files = await globby('**/*.ts');
   const modules = [];
 
@@ -16,7 +16,7 @@ export async function load(dirPath: string) {
 }
 
 async function loadModule(path: string) {
-  const module = require(path);
+  const module = require(path); // eslint-disable-line
 
   return module || module.default;
 }

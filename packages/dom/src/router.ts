@@ -12,7 +12,7 @@ export function getLocation() {
   return window.location;
 }
 
-export function go(url: string, canGoBack: boolean = true) {
+export function go(url: string, canGoBack = true) {
   if (!canGoBack) {
     return window.location.replace(url);
   }
@@ -20,6 +20,6 @@ export function go(url: string, canGoBack: boolean = true) {
   window.location.href = url;
 }
 
-export function navigate(url: string, canGoBack: boolean = true) {
+export function navigate(url: string, canGoBack = true) {
   return go(url, canGoBack);
 }

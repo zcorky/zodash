@@ -57,7 +57,7 @@ describe('@zodash/random', () => {
       random
         .captcha()
         .split('')
-        .every((e) => /\d+/.test(e))
+        .every((e) => /\d+/.test(e)),
     ).toBeTruthy();
   });
 });

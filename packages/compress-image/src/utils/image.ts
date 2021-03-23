@@ -5,18 +5,18 @@ export interface IImage2CanvasOptions {
 
 export async function image2Canvas(
   image: HTMLImageElement,
-  options: IImage2CanvasOptions = {}
+  options: IImage2CanvasOptions = {},
 ) {
   const { naturalWidth, naturalHeight } = image;
   const aspectRatio = naturalWidth / naturalHeight;
 
   let width = Math.min(
     Math.max(options.width || 0, 0) || naturalWidth,
-    naturalWidth
+    naturalWidth,
   );
   let height = Math.min(
     Math.max(options.height || 0, 0) || naturalHeight,
-    naturalHeight
+    naturalHeight,
   );
 
   if (height * aspectRatio > width) {

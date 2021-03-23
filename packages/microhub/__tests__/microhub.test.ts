@@ -24,7 +24,7 @@ describe('@zodash/microhub', () => {
     expect(microhub.discover('add')(1, 2)).toBe(add(1, 2));
     expect(microhub.discover('sub')(1, 2)).toBe(sub(1, 2));
     expect(microhub.discover('convertNumberToString')(1)).toBe(
-      convertNumberToString(1)
+      convertNumberToString(1),
     );
   });
 

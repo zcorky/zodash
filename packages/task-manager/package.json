@@ -70,5 +70,8 @@
     "@zcorky/moment": "^1.0.11",
     "@zodash/next-tick": "^0.1.5",
     "@zodash/queue": "^0.1.5"
+  },
+  "devDependencies": {
+    "@zcorky/delay": "^1.0.1"
   }
 }

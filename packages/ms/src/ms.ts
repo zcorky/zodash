@@ -22,17 +22,16 @@ function createMemoizedToStringMatch() {
   const key = (ms: number) => {
     if (ms < 0) {
       return 'unknown';
-    } else if (ms < ONE_SECOND) {
+    } if (ms < ONE_SECOND) {
       return 'ms';
-    } else if (ms >= ONE_SECOND && ms < ONE_MINUTE) {
+    } if (ms >= ONE_SECOND && ms < ONE_MINUTE) {
       return 's';
-    } else if (ms >= ONE_MINUTE && ms < ONE_HOUR) {
+    } if (ms >= ONE_MINUTE && ms < ONE_HOUR) {
       return 'm';
-    } else if (ms >= ONE_HOUR && ms < ONE_DAY) {
+    } if (ms >= ONE_HOUR && ms < ONE_DAY) {
       return 'h';
-    } else {
-      return 'd';
     }
+    return 'd';
   };
 
   return (data: number) => match(data, handlers, key);

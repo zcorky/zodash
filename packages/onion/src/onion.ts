@@ -18,9 +18,11 @@ export interface Context<Input, Output, State = any> {
 }
 
 export abstract class Onion<Input, Output, State>
-  implements IOnion<Input, Output, State> {
+implements IOnion<Input, Output, State> {
   private middlewares: Middleware<Context<Input, Output, State>>[] = [];
+
   private handler: Middleware<Context<Input, Output, State>>;
+
   private _callback: (
     input: Input,
     output: Output
@@ -64,7 +66,7 @@ export abstract class Onion<Input, Output, State>
 
   private createContext(
     input: Input,
-    output: Output
+    output: Output,
   ): Context<Input, Output, State> {
     return {
       input,

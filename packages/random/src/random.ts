@@ -13,11 +13,11 @@ export function feed(length: number) {
  * @param min the min bound
  * @returns the random number between min and max
  */
-export function number(max: number = 10, min: number = 0) {
-  return parseInt('' + Math.random() * (max - min)) + min;
+export function number(max = 10, min = 0) {
+  return parseInt(`${Math.random() * (max - min)}`) + min;
 }
 
-export function string(length: number = 10) {
+export function string(length = 10) {
   return feed(length);
 }
 

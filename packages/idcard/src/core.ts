@@ -12,6 +12,7 @@ function getAddressByCode(code: string): string {
 
 export class IDCard {
   public static REGEXP = NAMED_REGEX;
+
   public static generate = generate;
 
   private parsed = parse(this.cardNumber);

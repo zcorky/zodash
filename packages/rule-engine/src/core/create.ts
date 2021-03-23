@@ -9,15 +9,13 @@ import {
 
 import { create as createSync } from './sync';
 
-const DEFAULT_ON_SCALE_TO: IOnScaleTo<any> = (dataSource, name) => {
-  return dataSource[name];
-};
+const DEFAULT_ON_SCALE_TO: IOnScaleTo<any> = (dataSource, name) => dataSource[name];
 
 const DEFAULT_ON_HIT_ATTR: IOnHitAttr<any> = () => null;
 
 export function create<DataSource>(
   rules: IRuleNode<DataSource>[],
-  options?: Options<DataSource>
+  options?: Options<DataSource>,
 ) {
   const defaultOnScaleTo = options?.defaultOnScaleTo || DEFAULT_ON_SCALE_TO;
   const defaultOnHitAttr = options?.defaultOnHitAttr || DEFAULT_ON_HIT_ATTR;
@@ -26,7 +24,7 @@ export function create<DataSource>(
   async function run(dataSource: Partial<DataSource>) {
     const shows: IShowData<DataSource> = Object.keys(dataSource).reduce(
       (all, key) => ((all[key] = false), all),
-      {} as any
+      {} as any,
     );
 
     let attrNodeOfValue: IRuleAttrNode<DataSource> = null;
@@ -65,8 +63,8 @@ export function create<DataSource>(
             await go(rule.children);
             // checkbox, may be oneof
           } else if (
-            Array.isArray(rule.value) &&
-            rule.value.includes(scaledValue)
+            Array.isArray(rule.value)
+            && rule.value.includes(scaledValue)
           ) {
             await go(rule.children);
           }

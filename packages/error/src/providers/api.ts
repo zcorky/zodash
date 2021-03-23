@@ -20,12 +20,17 @@ export interface IOptions {
 
 export class ApiError extends CoreError implements IApiError {
   public code: string | number; // business code
+
   public status: number; // system code
+
   public body: Pick<IOptions, 'code' | 'message'>;
+
   public response?: Response;
 
   constructor(code: number, message: string | null);
+
   constructor(status: number, options: IOptions);
+
   constructor(status: any, options: any = {}) {
     const isCodeMessage = typeof options === 'string' || options === null;
 

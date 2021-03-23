@@ -1,5 +1,5 @@
 export async function file2DataUrl(
-  file: File | Blob
+  file: File | Blob,
 ): Promise<FileReader['result']> {
   return new Promise((resolve) => {
     const reader = new FileReader();

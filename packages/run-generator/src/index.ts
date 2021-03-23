@@ -1,5 +1,5 @@
 export function runGenerator<T = any>(
-  fn: () => Generator<any, T | Promise<T>, any>
+  fn: () => Generator<any, T | Promise<T>, any>,
 ) {
   return new Promise<T>((resolve, reject) => {
     const gen = fn();

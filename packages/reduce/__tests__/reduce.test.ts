@@ -24,7 +24,7 @@ describe('@zodash/reduce', () => {
         p[k] = v;
         return p;
       },
-      {}
+      {},
     );
 
     expect(deepEqual(v1, v)).toBeTruthy();
@@ -34,8 +34,7 @@ describe('@zodash/reduce', () => {
     const v = { x: 1, y: 2 };
     const p = {} as Partial<{ x: number; y: number }>;
 
-    const each = <T extends object>(v: T, fn: (item: any) => void) =>
-      reduce(v, (_, item) => fn(item));
+    const each = <T extends object>(v: T, fn: (item: any) => void) => reduce(v, (_, item) => fn(item));
 
     each(v, (n) => {
       const [k, v] = n;

@@ -1,6 +1,6 @@
 import cookie from '../src';
 
-declare var global: {
+declare let global: {
   document: {
     cookie: string;
   };
@@ -9,8 +9,7 @@ declare var global: {
 document.cookie = 'ai_user=ACxR4|2020-06-26T03:25:14.465Z';
 document.cookie = 'MSCC=NR';
 document.cookie = '_clck=2b3mfs6';
-document.cookie =
-  'ai_session=a1kvg5XJWeZG2dxIpdr6Pd|1605959496083|1605959496083';
+document.cookie = 'ai_session=a1kvg5XJWeZG2dxIpdr6Pd|1605959496083|1605959496083';
 
 describe('@zodash/cookie', () => {
   it('get', async () => {
@@ -18,7 +17,7 @@ describe('@zodash/cookie', () => {
     expect(cookie.get('MSCC')).toBe('NR');
     expect(cookie.get('_clck')).toBe('2b3mfs6');
     expect(cookie.get('ai_session')).toBe(
-      'a1kvg5XJWeZG2dxIpdr6Pd|1605959496083|1605959496083'
+      'a1kvg5XJWeZG2dxIpdr6Pd|1605959496083|1605959496083',
     );
   });
 

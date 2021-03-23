@@ -22,19 +22,16 @@ export function get(name: string) {
       return decodeURIComponent(_value);
     }
   }
-
-  return;
 }
 
 export function set(
   name: string,
   value: string | number | boolean | null,
-  options?: ISetOptions
+  options?: ISetOptions,
 ) {
-  const maxAge =
-    isNull(value) || typeof value === 'undefined'
-      ? 0
-      : options?.maxAge ?? DEFAULT_MAX_AGE;
+  const maxAge = isNull(value) || typeof value === 'undefined'
+    ? 0
+    : options?.maxAge ?? DEFAULT_MAX_AGE;
 
   const domainStr = options?.domain ? `;domain=${options.domain}` : '';
   const pathStr = options?.path ? `;path=${options.path}` : '';
@@ -75,7 +72,7 @@ export function getAll() {
   for (let i = 0; i < arr.length; i++) {
     const [_name, _value] = arr[i].split('=');
 
-    if (!!_name) {
+    if (_name) {
       all[_name] = decodeURIComponent(_value);
     }
   }

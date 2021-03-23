@@ -14,7 +14,7 @@ export interface IOptions {
 
 export async function retry<R extends any>(
   fn: () => Promise<R>,
-  options?: IOptions
+  options?: IOptions,
 ) {
   const times = options?.times ?? 0;
   const delayMs = options?.delay ?? 0;

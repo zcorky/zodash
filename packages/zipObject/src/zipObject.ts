@@ -6,6 +6,6 @@
 export function zipObject(keys: string[], values: any[]) {
   return keys.reduce(
     (all, key, index) => ((all[key] = values[index]), all),
-    {}
+    {},
   );
 }

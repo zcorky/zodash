@@ -1,4 +1,6 @@
-import { FlatRoutes, NestRoutes, RoutesBuilder, IndexRoutes } from '../src';
+import {
+  FlatRoutes, NestRoutes, RoutesBuilder, IndexRoutes,
+} from '../src';
 
 describe('builder', () => {
   it('from flat', () => {

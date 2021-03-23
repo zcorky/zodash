@@ -6,13 +6,12 @@ export function cache(key: string, maxAge?: number);
 export function cache(key: () => string, maxAge?: number);
 export function cache(key: any, maxAge?: any) {
   const _cache = new LRU<string, any>();
-  const cacheOptions =
-    typeof key === 'number' ? { maxAge: key } : maxAge ? { maxAge } : undefined;
+  const cacheOptions = typeof key === 'number' ? { maxAge: key } : maxAge ? { maxAge } : undefined;
 
   return <T>(
     target: any,
     propertyKey: PropertyKey,
-    descriptor: TypedPropertyDescriptor<T>
+    descriptor: TypedPropertyDescriptor<T>,
   ) => {
     const method = (descriptor.value as any) as Function;
 

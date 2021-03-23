@@ -3,9 +3,9 @@ import { nextTick } from '@zodash/next-tick';
 import { ITask, Status } from './task';
 
 export function parallelLimit(
-  tasks: IQueue<ITask<any>>,
+  tasks: IQueue<ITask>,
   limit: number,
-  done: () => void
+  done: () => void,
 ) {
   let rest: number = limit;
 
@@ -14,7 +14,7 @@ export function parallelLimit(
       // if rest === 0, parallel task run, not allow run new parallel task
       nextTick(poll);
       return;
-    } else if (tasks.isEmpty()) {
+    } if (tasks.isEmpty()) {
       //  task queue empty and all task done
       if (rest === limit) {
         done();
@@ -47,7 +47,6 @@ export function parallelLimit(
         rest += 1;
 
         nextTick(poll);
-        return;
       });
   }
 

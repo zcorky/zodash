@@ -42,7 +42,7 @@ export function ajax(options: Options): XMLHttpRequest {
     clearTimeout(abortTimeout);
     let result;
 
-    const status = xhr.status;
+    const { status } = xhr;
     if ((status >= 200 && status < 300) || status === 304) {
       result = xhr.responseText;
 
@@ -54,7 +54,9 @@ export function ajax(options: Options): XMLHttpRequest {
         if (dataType === 'json') {
           result = JSON.parse(result);
         }
-      } catch (e) {}
+      } catch (e) {
+        //
+      }
 
       success?.(result, xhr);
     } else {
@@ -68,8 +70,8 @@ export function ajax(options: Options): XMLHttpRequest {
     data = stringify(data);
     url += url.indexOf('?') > -1 ? `&${data}` : `?${data}`;
   } else if (
-    contentType === 'application/x-www-form-urlencoded' &&
-    isObject(data)
+    contentType === 'application/x-www-form-urlencoded'
+    && isObject(data)
   ) {
     data = stringify((data as any) as {});
   } else if (contentType === 'application/json' && isObject(data)) {
@@ -81,7 +83,7 @@ export function ajax(options: Options): XMLHttpRequest {
 
   if (timeout > 0) {
     abortTimeout = setTimeout(() => {
-      xhr.onreadystatechange = () => {};
+      xhr.onreadystatechange = () => {}; // eslint-disable-line
       xhr.abort();
       error?.(xhr, 'timeout');
       complete?.(xhr);
@@ -108,7 +110,7 @@ export function get(
   url: any,
   data: any,
   success: any,
-  dataType?: any
+  dataType?: any,
 ): XMLHttpRequest {
   if (isFunc(data)) {
     return ajax({
@@ -142,7 +144,7 @@ export function post(
   url: any,
   data: any,
   success: any,
-  dataType?: any
+  dataType?: any,
 ): XMLHttpRequest {
   if (isFunc(data)) {
     return ajax({

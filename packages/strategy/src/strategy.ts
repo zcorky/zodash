@@ -7,7 +7,7 @@
  */
 export function strategy<T, R>(
   strategies: Record<string, (d: T) => R>,
-  strategyKey: (data: T) => string
+  strategyKey: (data: T) => string,
 ) {
   return (data: T): R => {
     const key = strategyKey(data);

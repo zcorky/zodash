@@ -7,7 +7,7 @@
  */
 export function pick<T extends object, K extends keyof T>(
   value: T,
-  keys: K[]
+  keys: K[],
 ): Pick<T, K> {
   return keys.reduce((p, k) => {
     if (k in value) {

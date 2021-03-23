@@ -10,9 +10,11 @@ describe('@zodash/compose', () => {
 
     class App {
       private middlewares: Middleware<Context>[] = [];
+
       private _context: Context = {
         state: [],
       } as Context;
+
       private _handler: Middleware<Context>;
 
       public use(middleware: Middleware<Context>) {

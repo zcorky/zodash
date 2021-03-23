@@ -96,7 +96,7 @@ describe('@zodash/rule-engine', () => {
     expect(
       await runner.run({
         createdBy: 'manual',
-      })
+      }),
     ).toEqual({
       cipher: true,
       createdBy: true,
@@ -111,7 +111,7 @@ describe('@zodash/rule-engine', () => {
     expect(
       await runner.run({
         createdBy: 'import.text',
-      })
+      }),
     ).toEqual({
       createdBy: true,
       importText: true,
@@ -122,7 +122,7 @@ describe('@zodash/rule-engine', () => {
     expect(
       await runner.run({
         createdBy: 'import.qrcode',
-      })
+      }),
     ).toEqual({
       createdBy: true,
       importQRCode: true,
@@ -134,7 +134,7 @@ describe('@zodash/rule-engine', () => {
       await runner.run({
         createdBy: 'manual',
         type: 'ss',
-      })
+      }),
     ).toEqual({
       createdBy: true,
       type: true,
@@ -151,7 +151,7 @@ describe('@zodash/rule-engine', () => {
       await runner.run({
         createdBy: 'manual',
         type: 'vmess',
-      })
+      }),
     ).toEqual({
       createdBy: true,
       type: true,
@@ -223,7 +223,7 @@ describe('@zodash/rule-engine', () => {
     expect(
       await runner.run({
         current: 'goFront',
-      })
+      }),
     ).toEqual({
       current: true,
       // goFront: false,
@@ -234,7 +234,7 @@ describe('@zodash/rule-engine', () => {
     expect(
       await runner.run({
         current: 'goBack',
-      })
+      }),
     ).toEqual({
       current: true,
       goFront: true,
@@ -245,7 +245,7 @@ describe('@zodash/rule-engine', () => {
     expect(
       await runner.run({
         current: 'refresh',
-      })
+      }),
     ).toEqual({
       current: true,
       goFront: true,

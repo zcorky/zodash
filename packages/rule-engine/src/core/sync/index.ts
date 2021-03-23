@@ -1,5 +1,6 @@
-export * from './types';
 import { create } from './create';
+
+export * from './types';
 
 export { create };
 

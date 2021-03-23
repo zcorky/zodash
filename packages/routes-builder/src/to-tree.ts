@@ -4,7 +4,7 @@ import { TreeRoute, FlatRoutes } from './types';
 function createTree(
   parentNode: TreeRoute,
   paths: string[],
-  node: TreeRoute
+  node: TreeRoute,
 ): void {
   if (!parentNode.children) {
     parentNode.children = {};

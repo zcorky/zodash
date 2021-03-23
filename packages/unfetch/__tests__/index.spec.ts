@@ -30,7 +30,7 @@ describe('@zodash/unfetch', () => {
     });
 
     it('sanity test', () => {
-      let p = unfetch('/foo', { headers: { a: 'b' } })
+      const p = unfetch('/foo', { headers: { a: 'b' } })
         .then((r) => {
           expect(r).toMatchObject({
             text: expect.any(Function),
@@ -68,7 +68,7 @@ describe('@zodash/unfetch', () => {
       xhr.getAllResponseHeaders = jest
         .fn()
         .mockReturnValue('Server: \nX-Foo:baz');
-      let p = unfetch('/foo').then((r) => {
+      const p = unfetch('/foo').then((r) => {
         expect(r.headers.get('server')).toEqual('');
         expect(r.headers.get('X-foo')).toEqual('baz');
       });

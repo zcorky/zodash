@@ -1,10 +1,10 @@
 export function memoize<T extends any[], R>(
   fn: (...args: T) => R,
-  resolver: (...args: T) => string
+  resolver: (...args: T) => string,
 ) {
   const memoized = function (...args: T): R {
     const key = resolver.apply(this, args);
-    const cache = memoized.cache;
+    const { cache } = memoized;
 
     if (cache.has(key)) {
       return cache.get(key);

@@ -10,8 +10,8 @@ describe('@zodash/xor', () => {
       xor(
         ['zero', 'any', 'zero', 'zero', 'zero'],
         ['any'],
-        ['eason', 'cole', 'any']
-      )
+        ['eason', 'cole', 'any'],
+      ),
     ).toEqual(['zero', 'eason', 'cole']);
   });
 

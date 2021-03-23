@@ -2,9 +2,7 @@ import { memoize } from '../src/memoize';
 
 function time() {
   const start = Date.now();
-  return () => {
-    return Date.now() - start;
-  };
+  return () => Date.now() - start;
 }
 
 describe('@zodash/memoize', () => {

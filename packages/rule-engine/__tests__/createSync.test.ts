@@ -97,7 +97,7 @@ describe('@zodash/rule-engine', () => {
     expect(
       runner.run({
         createdBy: 'manual',
-      })
+      }),
     ).toEqual({
       cipher: true,
       createdBy: true,
@@ -112,7 +112,7 @@ describe('@zodash/rule-engine', () => {
     expect(
       runner.run({
         createdBy: 'import.text',
-      })
+      }),
     ).toEqual({
       createdBy: true,
       importText: true,
@@ -123,7 +123,7 @@ describe('@zodash/rule-engine', () => {
     expect(
       runner.run({
         createdBy: 'import.qrcode',
-      })
+      }),
     ).toEqual({
       createdBy: true,
       importQRCode: true,
@@ -135,7 +135,7 @@ describe('@zodash/rule-engine', () => {
       runner.run({
         createdBy: 'manual',
         type: 'ss',
-      })
+      }),
     ).toEqual({
       createdBy: true,
       type: true,
@@ -152,7 +152,7 @@ describe('@zodash/rule-engine', () => {
       runner.run({
         createdBy: 'manual',
         type: 'vmess',
-      })
+      }),
     ).toEqual({
       createdBy: true,
       type: true,

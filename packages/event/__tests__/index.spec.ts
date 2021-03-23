@@ -1,7 +1,7 @@
 import { Event } from '../src';
 
 describe('event', () => {
-  let eventPoll = new Event();
+  const eventPoll = new Event();
   const eventName = 'count';
 
   afterEach(() => {

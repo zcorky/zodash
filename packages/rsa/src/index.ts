@@ -15,7 +15,7 @@ export function encrypt(publicKey: string, text: string) {
 
 export function decrypt(privateKey: string, text: string) {
   return privateDecrypt(privateKey, Buffer.from(text, 'base64')).toString(
-    'utf8'
+    'utf8',
   );
 }
 

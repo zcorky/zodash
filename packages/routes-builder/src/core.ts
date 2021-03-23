@@ -1,5 +1,7 @@
 import { deepCopy } from '@zcorky/deep-copy';
-import { NestRoutes, FlatRoutes, IndexRoutes, Route } from './types';
+import {
+  NestRoutes, FlatRoutes, IndexRoutes, Route,
+} from './types';
 import { toNest, traverseNest, NestOptions as Options } from './to-nest';
 import { toIndex } from './to-index';
 import { toFlat } from './to-flat';
@@ -44,7 +46,7 @@ export class RoutesBuilder {
   constructor(
     public readonly type: RouteType,
     public readonly routes: Routes,
-    public readonly options?: Options
+    public readonly options?: Options,
   ) {
     this.cache = create(type, routes, options);
   }
@@ -64,7 +66,7 @@ export class RoutesBuilder {
   traverse(cb: (route: Route) => void) {
     return new Promise((resolve, reject) => {
       const nest = this.nest();
-      const length = this.flat().length;
+      const { length } = this.flat();
       let step = 0;
 
       traverseNest(nest, (route) => {

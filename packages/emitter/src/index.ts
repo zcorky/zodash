@@ -1,6 +1,6 @@
 import { IEvent, Event } from '@zodash/event';
 
-export interface IEmitter<Events = any> extends IEvent<Events> {}
+export type IEmitter<Events = any> = IEvent<Events>
 
 export class Emitter<Events = any>
   extends Event<Events>

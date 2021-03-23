@@ -6,8 +6,8 @@ describe('@zodash/groupBy', () => {
     expect(
       deepEqual(
         groupBy([6.1, 4.2, 6.3], (v) => String(Math.floor(v))),
-        { '4': [4.2], '6': [6.1, 6.3] }
-      )
+        { 4: [4.2], 6: [6.1, 6.3] },
+      ),
     ).toBeTruthy();
   });
 
@@ -15,8 +15,8 @@ describe('@zodash/groupBy', () => {
     expect(
       deepEqual(
         groupBy(['one', 'two', 'three'], (v) => String(v.length)),
-        { '3': ['one', 'two'], '5': ['three'] }
-      )
+        { 3: ['one', 'two'], 5: ['three'] },
+      ),
     ).toBeTruthy();
   });
 
@@ -102,8 +102,8 @@ describe('@zodash/groupBy', () => {
               content: 'hi, zero, i am tom',
             },
           ],
-        }
-      )
+        },
+      ),
     ).toBeTruthy();
 
     expect(
@@ -146,8 +146,8 @@ describe('@zodash/groupBy', () => {
               content: 'hi, master, i am mike',
             },
           ],
-        }
-      )
+        },
+      ),
     ).toBeTruthy();
   });
 });

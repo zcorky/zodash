@@ -6,7 +6,5 @@ export type Pipe = (data: any) => any;
  * @param fns componse functions
  */
 export function pipe(...fns: Pipe[]) {
-  return fns.reduceRight((prev, next) => {
-    return (data: any) => prev(next(data));
-  });
+  return fns.reduceRight((prev, next) => (data: any) => prev(next(data)));
 }

@@ -22,10 +22,8 @@ export interface ISDK extends IEmitter<IEvents> {
 }
 
 const instance = memoize(
-  function _instance(name: string, constructor: any, ...args: any[]) {
-    return new constructor(...args);
-  },
-  (name) => name
+  (name: string, constructor: any, ...args: any[]) => new constructor(...args),
+  (name) => name,
 );
 export abstract class SDK extends Emitter<IEvents> implements ISDK {
   private _isReady = false;

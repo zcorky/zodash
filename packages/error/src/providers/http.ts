@@ -16,10 +16,13 @@ export interface IOptions {
 
 export class HttpError extends CoreError implements IHttpError {
   public status: number; // http status code
+
   public body: IBody;
 
   constructor(status: number, message: string | null);
+
   constructor(status: number, options: IOptions);
+
   constructor(status: any, options: any = {}) {
     const isMessage = typeof options === 'string' || options === null;
 

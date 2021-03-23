@@ -11,11 +11,11 @@ describe('@zodash/logger', () => {
       await next();
     });
 
-    logger.log(`logger.log call`);
-    logger.info(`logger.info call`);
-    logger.warn(`logger.warn call`);
-    logger.debug(`logger.debug call`);
-    logger.error(`logger.error call`);
+    logger.log('logger.log call');
+    logger.info('logger.info call');
+    logger.warn('logger.warn call');
+    logger.debug('logger.debug call');
+    logger.error('logger.error call');
 
     setTimeout(() => {
       expect(levels).toEqual(['log', 'info', 'warn', 'debug', 'error']);
@@ -33,11 +33,11 @@ describe('@zodash/logger', () => {
       await next();
     });
 
-    logger.log(`%s format call`, 'logger.log');
-    logger.info(`%s format call`, 'logger.info');
-    logger.warn(`%s format call`, 'logger.warn');
-    logger.debug(`%s format call`, 'logger.debug');
-    logger.error(`%s format call`, 'logger.error');
+    logger.log('%s format call', 'logger.log');
+    logger.info('%s format call', 'logger.info');
+    logger.warn('%s format call', 'logger.warn');
+    logger.debug('%s format call', 'logger.debug');
+    logger.error('%s format call', 'logger.error');
 
     setTimeout(() => {
       expect(levels).toEqual(['log', 'info', 'warn', 'debug', 'error']);
@@ -55,11 +55,11 @@ describe('@zodash/logger', () => {
       await next();
     });
 
-    logger.log('logger.log', `format call`);
-    logger.info('logger.info', `format call`);
-    logger.warn('logger.warn', `format call`);
-    logger.debug('logger.debug', `format call`);
-    logger.error('logger.error', `format call`);
+    logger.log('logger.log', 'format call');
+    logger.info('logger.info', 'format call');
+    logger.warn('logger.warn', 'format call');
+    logger.debug('logger.debug', 'format call');
+    logger.error('logger.error', 'format call');
 
     setTimeout(() => {
       expect(levels).toEqual(['log', 'info', 'warn', 'debug', 'error']);

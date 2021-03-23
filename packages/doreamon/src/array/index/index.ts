@@ -19,7 +19,7 @@
  */
 export default function index<T>(
   arr: T[],
-  key: string | ((d: T, index: number, arr?: T[]) => string)
+  key: string | ((d: T, index: number, arr?: T[]) => string),
 ) {
   return arr.reduce((all, item, index) => {
     const _key = typeof key === 'string' ? key : key(item, index, arr);

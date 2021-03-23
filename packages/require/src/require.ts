@@ -64,7 +64,7 @@ export const requirejs: Require = (path: string) => {
       requirejs._makeRequire(_path),
       _mod,
       _mod.filename,
-      _mod.dirname
+      _mod.dirname,
     );
 
     _mod.loaded = true;
@@ -77,13 +77,13 @@ requirejs.modules = {};
 
 requirejs.resolve = (name: string) => {
   const base = name;
-  const base_js = name + '.js';
-  const index_js = name + '/index.js';
+  const base_js = `${name}.js`;
+  const index_js = `${name}/index.js`;
 
   return (
-    (requirejs.modules[base_js] && base_js) ||
-    (requirejs.modules[index_js] && index_js) ||
-    base
+    (requirejs.modules[base_js] && base_js)
+    || (requirejs.modules[index_js] && index_js)
+    || base
   );
 };
 
@@ -99,16 +99,16 @@ requirejs.register = (path: string, fn: ModFn) => {
 };
 
 requirejs.relative = (path: string, parent: string) => {
-  if ('.' != path.charAt(0)) return path;
+  if (path.charAt(0) != '.') return path;
 
   const paths = parent.split('/');
   const segs = path.split('/');
   paths.pop();
 
   for (const seg of segs) {
-    if ('..' === seg) {
+    if (seg === '..') {
       paths.pop();
-    } else if ('.' != seg) {
+    } else if (seg != '.') {
       paths.push(seg);
     }
   }
@@ -116,17 +116,13 @@ requirejs.relative = (path: string, parent: string) => {
   return paths.join('/');
 };
 
-requirejs._makeRequire = (parent: string) => {
-  return function require(path: string) {
-    const relativePath = requirejs.relative(path, parent);
+requirejs._makeRequire = (parent: string) => function require(path: string) {
+  const relativePath = requirejs.relative(path, parent);
 
-    return requirejs(relativePath);
-  };
+  return requirejs(relativePath);
 };
 
-requirejs.filename = (path: string) => {
-  return requirejs.resolve(path);
-};
+requirejs.filename = (path: string) => requirejs.resolve(path);
 
 requirejs.dirname = (path: string) => {
   const _path = requirejs.resolve(path);

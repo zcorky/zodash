@@ -1,4 +1,4 @@
-import * as lstatuses from '../../../node_modules/statuses'; // @TODO why import from current
+import * as lstatuses from 'statuses'; // @TODO why import from current
 import * as statuses from '../src/statuses';
 
 describe('@zodash/statuses', () => {
@@ -40,7 +40,7 @@ describe('@zodash/statuses', () => {
 
   it('INTERNAL_SERVER_ERROR === 500', () => {
     expect(lstatuses('INTERNAL SERVER ERROR')).toBe(
-      statuses.INTERNAL_SERVER_ERROR
+      statuses.INTERNAL_SERVER_ERROR,
     );
   });
 

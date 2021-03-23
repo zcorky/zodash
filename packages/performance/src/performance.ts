@@ -1,6 +1,6 @@
 export async function time<Options>(
   fn: (options?: Options) => Promise<any>,
-  options?: Options
+  options?: Options,
 ) {
   const start = new Date();
   await fn.call(null, options);

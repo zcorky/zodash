@@ -7,9 +7,7 @@ describe('@zodash/repeat', () => {
 
   it('function', async () => {
     expect(
-      repeat(5, (index) => {
-        return index * 2;
-      })
+      repeat(5, (index) => index * 2),
     ).toEqual([0, 2, 4, 6, 8]);
   });
 });

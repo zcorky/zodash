@@ -23,7 +23,7 @@ export function encrypt(
   algorithm: Algorithm,
   text: string,
   key: string,
-  encoding: Encoding = 'hex'
+  encoding: Encoding = 'hex',
 ) {
   return createHmac(algorithm, key).update(text).digest(encoding);
 }

@@ -10,9 +10,7 @@ export type Result<T> = T | Error;
 
 export type ITask<R> = (() => Promise<R>) | ((cb: Callback<R>) => void);
 
-const nextTick = (fn: (...args: any[]) => void) => {
-  return _nextTick(fn, 200);
-};
+const nextTick = (fn: (...args: any[]) => void) => _nextTick(fn, 200);
 
 // const poll = (queue: Queue<ITask<any>>) => {
 //   if (queue.isEmpty()) {
@@ -38,17 +36,13 @@ const nextTick = (fn: (...args: any[]) => void) => {
 
 function toPromise<R>(fn: ITask<R>): () => Promise<R> {
   if (fn.length === 1) {
-    return () => {
-      return new Promise((resolve, reject) => {
-        return fn.call(null, (error: any, result: any) => {
-          if (error) {
-            return reject(error);
-          }
+    return () => new Promise((resolve, reject) => fn.call(null, (error: any, result: any) => {
+      if (error) {
+        return reject(error);
+      }
 
-          return resolve(result);
-        });
-      });
-    };
+      return resolve(result);
+    }));
   }
 
   return fn as any;
@@ -63,7 +57,7 @@ export function parallelLimit<R>(
 export function parallelLimit<R>(
   tasks: ITask<R>[],
   limit: number,
-  cb?: Done<R>
+  cb?: Done<R>,
 ) {
   // const store = new Cache<number, { id: number, index: number, task: ITask<R> }>(Infinity);
   const emitter = new Event<{
@@ -105,10 +99,10 @@ export function parallelLimit<R>(
     const { task, index } = value;
 
     toPromise(task)()
-      .then(function _done(result) {
+      .then((result) => {
         results[index] = result;
       })
-      .catch(function _done(error) {
+      .catch((error) => {
         results[index] = error;
       })
       .finally(() => {

@@ -19,6 +19,7 @@ export enum Status {
 
 export class ZPromise<T> implements IZPromise<T> {
   private status: Status = Status.PENDING;
+
   private event = new Event();
 
   public static resolve<T>(value?: T) {
@@ -40,7 +41,7 @@ export class ZPromise<T> implements IZPromise<T> {
   private resolve = (value: any) => {
     this.status = Status.FULLFILLED;
 
-    const resolvers = this.event.listeners['resolve'];
+    const resolvers = this.event.listeners.resolve;
 
     resolvers.reduce((res, next) => {
       // only REJECTED status will break resolve, FULLFILLED wonot

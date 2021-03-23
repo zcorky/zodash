@@ -7,7 +7,7 @@
  */
 export function filter<T, R = any>(
   value: T[],
-  fn: (current: T, index: number, origin: T[]) => R
+  fn: (current: T, index: number, origin: T[]) => R,
 ) {
   return value.filter(fn);
 }

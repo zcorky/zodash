@@ -14,7 +14,7 @@ export interface ICompressOptions extends IImage2CanvasOptions {
 
 export async function compress(
   imageFile,
-  options: ICompressOptions = {} as ICompressOptions
+  options: ICompressOptions = {} as ICompressOptions,
 ) {
   // not image file
   if (!/image\//.test(imageFile.type)) {

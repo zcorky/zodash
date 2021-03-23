@@ -1,5 +1,5 @@
-import * as perf from '../src/performance';
 import * as path from 'path';
+import * as perf from '../src/performance';
 // import * as hash from '@zodash/crypto/lib/file';
 
 describe('@zodash/performance', () => {

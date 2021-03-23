@@ -13,7 +13,7 @@ export function compose<C>(...middlewares: Middleware<C>[]) {
 
     function dispatch(i: number) {
       if (i <= index) {
-        return Promise.reject(new Error(`next() called multiple times`));
+        return Promise.reject(new Error('next() called multiple times'));
       }
 
       index = i;

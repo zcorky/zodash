@@ -31,8 +31,6 @@ export function intersection<T>(by: any, ...arrays: T[][]) {
   });
 
   return Object.keys(_arrayMap)
-    .filter((key) => {
-      return mapArray.every((map) => map[key] === 1);
-    })
+    .filter((key) => mapArray.every((map) => map[key] === 1))
     .map((key) => _arrayMap[key]);
 }

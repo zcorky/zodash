@@ -31,8 +31,6 @@ export function xor<T>(by: any, ...arrays: T[][]) {
   }, {} as { [key: string]: number });
 
   return Object.keys(mapCount)
-    .filter((key) => {
-      return mapCount[key] === 1;
-    })
+    .filter((key) => mapCount[key] === 1)
     .map((key) => arrayMap[key]);
 }

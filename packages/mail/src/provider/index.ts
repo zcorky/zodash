@@ -4,7 +4,7 @@
  *  - services: https://github.com/nodemailer/nodemailer-wellknown/blob/master/services.json
  */
 
-import { IProviderUser } from './../type';
+import { IProviderUser } from '../type';
 import qqex from './qqex';
 import qq from './qq';
 import aliyun from './aliyun';
@@ -29,8 +29,8 @@ export function createClientByProvider(type: IProvider, user: IProviderUser) {
   if (!providers.hasOwnProperty(type)) {
     throw new Error(
       `Unsupport mail provider: ${type}, only support ${Object.keys(
-        providers
-      ).join(',')}`
+        providers,
+      ).join(',')}`,
     );
   }
 

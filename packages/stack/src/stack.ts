@@ -37,7 +37,8 @@ export interface IStack<T> {
 
 export class Stack<T> implements IStack<T> {
   private readonly storage: T[] = [];
-  private count: number = 0;
+
+  private count = 0;
 
   constructor(private readonly capacity: number = Infinity) {}
 

@@ -7,7 +7,7 @@ describe('@zodash/union', () => {
 
   it('union string[]', () => {
     expect(
-      union(['zero', 'any', 'zero', 'zero', 'zero'], ['any'], ['eason', 'cole'])
+      union(['zero', 'any', 'zero', 'zero', 'zero'], ['any'], ['eason', 'cole']),
     ).toEqual(['zero', 'any', 'eason', 'cole']);
   });
 

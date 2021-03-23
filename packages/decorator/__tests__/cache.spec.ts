@@ -6,7 +6,7 @@ import * as c from '../src/cache';
 async function fetchUser(token: string) {
   if (token === 'zero_token') {
     return {
-      nickname: 'zero' + Date.now(),
+      nickname: `zero${Date.now()}`,
     };
   }
 }

@@ -8,6 +8,7 @@ export interface IOptions {
 
 export class Timer extends Emitter {
   private it: NodeJS.Timeout;
+
   private interval = this.options?.interval || 1000;
 
   public static create(options?: IOptions) {

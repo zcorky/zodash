@@ -7,7 +7,7 @@
 export function match<T, R>(
   data: T,
   handlers: Record<string, (d: T) => R>,
-  keyFn: (data: T) => string
+  keyFn: (data: T) => string,
 ): R | undefined {
   const key = keyFn(data);
 

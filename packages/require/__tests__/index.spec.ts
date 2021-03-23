@@ -4,11 +4,11 @@ describe('@zodash/require', () => {
   it('works', () => {
     requirejs.register(
       '@browser/debug.js',
-      function (exports, require, module) {
+      (exports, require, module) => {
         module.exports = function () {
           return true;
         };
-      }
+      },
     );
 
     const debug = requirejs('@browser/debug');
@@ -17,24 +17,20 @@ describe('@zodash/require', () => {
   });
 
   it('deps', () => {
-    requirejs.register('@browser/add.js', function (exports, require, module) {
-      module.exports = (x: number, y: number) => {
-        return x + y;
-      };
+    requirejs.register('@browser/add.js', (exports, require, module) => {
+      module.exports = (x: number, y: number) => x + y;
     });
 
-    requirejs.register('@browser/sub.js', function (exports, require, module) {
-      module.exports = (x: number, y: number) => {
-        return x - y;
-      };
+    requirejs.register('@browser/sub.js', (exports, require, module) => {
+      module.exports = (x: number, y: number) => x - y;
     });
 
     requirejs.register(
       '@browser/utils.js',
-      function (exports, require, module) {
+      (exports, require, module) => {
         exports.add = require('@browser/add');
         exports.sub = require('@browser/sub');
-      }
+      },
     );
 
     const utils = requirejs('@browser/utils');
@@ -44,29 +40,23 @@ describe('@zodash/require', () => {
   });
 
   it('deps deep', () => {
-    requirejs.register('@browser/c.js', function (exports, require, module) {
-      module.exports = (x: number, y: number) => {
-        return x + y;
-      };
+    requirejs.register('@browser/c.js', (exports, require, module) => {
+      module.exports = (x: number, y: number) => x + y;
     });
 
-    requirejs.register('@browser/b.js', function (exports, require, module) {
-      module.exports = (x: number, y: number) => {
-        return require('@browser/c')(x - 1, y);
-      };
+    requirejs.register('@browser/b.js', (exports, require, module) => {
+      module.exports = (x: number, y: number) => require('@browser/c')(x - 1, y);
     });
 
-    requirejs.register('@browser/a.js', function (exports, require, module) {
-      module.exports = (x: number, y: number) => {
-        return require('@browser/b')(x + 1, y);
-      };
+    requirejs.register('@browser/a.js', (exports, require, module) => {
+      module.exports = (x: number, y: number) => require('@browser/b')(x + 1, y);
     });
 
     requirejs.register(
       '@browser/utils.js',
-      function (exports, require, module) {
+      (exports, require, module) => {
         module.exports = require('@browser/a');
-      }
+      },
     );
 
     const utils = requirejs('@browser/utils');
@@ -77,19 +67,17 @@ describe('@zodash/require', () => {
   });
 
   it('deps circle', () => {
-    requirejs.register('@zodash/pick.js', function (exports, require, module) {
-      module.exports = (object: any, keys: string[]) => {
-        return keys.reduce((all, key) => {
-          if (object[key]) {
-            all[key] = object[key];
-          }
+    requirejs.register('@zodash/pick.js', (exports, require, module) => {
+      module.exports = (object: any, keys: string[]) => keys.reduce((all, key) => {
+        if (object[key]) {
+          all[key] = object[key];
+        }
 
-          return all;
-        }, {});
-      };
+        return all;
+      }, {});
     });
 
-    requirejs.register('@zodash/omit.js', function (exports, require, module) {
+    requirejs.register('@zodash/omit.js', (exports, require, module) => {
       const pick = require('@zodash/pick');
 
       module.exports = (object: any, keys: string[]) => {
@@ -105,7 +93,7 @@ describe('@zodash/require', () => {
       };
     });
 
-    requirejs.register('@zodash/utils.js', function (exports, require, module) {
+    requirejs.register('@zodash/utils.js', (exports, require, module) => {
       exports.omit = require('@zodash/omit');
       exports.pick = require('@zodash/pick');
     });
@@ -117,7 +105,7 @@ describe('@zodash/require', () => {
   });
 
   it('project app', () => {
-    requirejs.register('./controllers', function (exports, require, module) {
+    requirejs.register('./controllers', (exports, require, module) => {
       module.exports = {
         c1: () => {
           console.log('controller 1');
@@ -128,7 +116,7 @@ describe('@zodash/require', () => {
       };
     });
 
-    requirejs.register('./models', function (exports, require, module) {
+    requirejs.register('./models', (exports, require, module) => {
       module.exports = {
         m1: () => {
           console.log('model 1');
@@ -139,7 +127,7 @@ describe('@zodash/require', () => {
       };
     });
 
-    requirejs.register('./services', function (exports, require, module) {
+    requirejs.register('./services', (exports, require, module) => {
       module.exports = {
         s1: () => {
           console.log('service 1');
@@ -150,7 +138,7 @@ describe('@zodash/require', () => {
       };
     });
 
-    requirejs.register('./app.js', function (exports, require, module) {
+    requirejs.register('./app.js', (exports, require, module) => {
       // console.log('xx:', exports, require, module);
       const controllers = require('./controllers');
       const models = require('./models');

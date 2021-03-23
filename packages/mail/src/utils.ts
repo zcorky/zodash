@@ -12,12 +12,10 @@ export function createProvider(provider: IProvider) {
    *
    * @param user provider user
    */
-  const createClient = (user: IProviderUser) => {
-    return mailClient.create({
-      ...provider,
-      auth: user,
-    });
-  };
+  const createClient = (user: IProviderUser) => mailClient.create({
+    ...provider,
+    auth: user,
+  });
 
   return {
     createClient,

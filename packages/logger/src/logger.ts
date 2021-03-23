@@ -52,7 +52,7 @@ function formatMessage(
   name: string,
   date: Moment,
   message: any[],
-  level?: LogLevel
+  level?: LogLevel,
 ) {
   const prefix = format('[{name}] {datetime} - {level} -', {
     name: name || 'COMMON',
@@ -73,9 +73,7 @@ function formatPatternMessage(pattern: string, dataMap: any[]) {
     return [pattern, ...dataMap];
   }
 
-  const message = pattern.replace(/%s/g, (_, index) => {
-    return dataMap[index];
-  });
+  const message = pattern.replace(/%s/g, (_, index) => dataMap[index]);
 
   return [message];
 }
@@ -93,7 +91,7 @@ export class Logger extends Onion<Input, any, any> implements ILogger {
 
   constructor(
     private readonly name: string,
-    private readonly options?: Options
+    private readonly options?: Options,
   ) {
     super();
 
@@ -133,18 +131,18 @@ export class Logger extends Onion<Input, any, any> implements ILogger {
 
   public handle(): Middleware<Context<Input, any, any>> {
     return async (ctx) => {
-      const input = ctx.input;
+      const { input } = ctx;
 
       if (this.options.console === false) {
         return;
       }
 
-      const engine = input.engine;
+      const { engine } = input;
       const message = formatMessage(
         this.name,
         input.datetime,
         input.message,
-        input.level
+        input.level,
       );
       const isUseDevConsole = Array.isArray(message);
 

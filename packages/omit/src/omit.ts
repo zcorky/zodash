@@ -5,10 +5,10 @@ import { pick } from '@zodash/pick';
  */
 export function omit<T extends object, K extends keyof T>(
   value: T,
-  keys: K[]
+  keys: K[],
 ): Omit<T, K> {
   const pickedKeys = Object.keys(value).filter(
-    (k) => keys.indexOf((k as any) as K) === -1
+    (k) => keys.indexOf((k as any) as K) === -1,
   );
 
   return pick(value, pickedKeys as any);

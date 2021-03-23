@@ -17,8 +17,10 @@ export interface IQueue<T> {
 
 export class Queue<T> implements IQueue<T> {
   private readonly storage: { [key: string]: T } = {};
-  private head: number = 0;
-  private tail: number = 0;
+
+  private head = 0;
+
+  private tail = 0;
 
   constructor(private capacity: number = Infinity) {}
 

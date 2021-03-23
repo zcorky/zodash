@@ -1,5 +1,5 @@
 export async function dataUrl2Image(
-  dataUrl: string
+  dataUrl: string,
 ): Promise<HTMLImageElement> {
   return new Promise((resolve) => {
     const image = new Image();

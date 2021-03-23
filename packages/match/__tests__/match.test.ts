@@ -1,5 +1,3 @@
-'use strict';
-
 import { deepEqual } from '@zcorky/deep-equal';
 import { match } from '../src/match';
 
@@ -20,33 +18,33 @@ describe('@zodash/match', () => {
 
     expect(
       deepEqual(
-        match({ method: '+', x: 1, y: 2 }, handlers, (d) => d['method']),
-        3
-      )
+        match({ method: '+', x: 1, y: 2 }, handlers, (d) => d.method),
+        3,
+      ),
     ).toBeTruthy();
     expect(
       deepEqual(
-        match({ method: '-', x: 1, y: 2 }, handlers, (d) => d['method']),
-        -1
-      )
+        match({ method: '-', x: 1, y: 2 }, handlers, (d) => d.method),
+        -1,
+      ),
     ).toBeTruthy();
     expect(
       deepEqual(
-        match({ method: '*', x: 1, y: 2 }, handlers, (d) => d['method']),
-        2
-      )
+        match({ method: '*', x: 1, y: 2 }, handlers, (d) => d.method),
+        2,
+      ),
     ).toBeTruthy();
     expect(
       deepEqual(
-        match({ method: '/', x: 1, y: 2 }, handlers, (d) => d['method']),
-        0.5
-      )
+        match({ method: '/', x: 1, y: 2 }, handlers, (d) => d.method),
+        0.5,
+      ),
     ).toBeTruthy();
     expect(
       deepEqual(
-        match({ method: '/', x: 1, y: 2 }, handlers, (d) => d['methodd']),
-        undefined
-      )
+        match({ method: '/', x: 1, y: 2 }, handlers, (d) => (d as any).methodd),
+        undefined,
+      ),
     ).toBeTruthy();
   });
 
@@ -71,50 +69,50 @@ describe('@zodash/match', () => {
         match(
           { type: '+', payload: { x: 1, y: 2 } },
           handlers,
-          (d) => d['type']
+          (d) => d.type,
         ),
-        3
-      )
+        3,
+      ),
     ).toBeTruthy();
     expect(
       deepEqual(
         match(
           { type: '-', payload: { x: 1, y: 2 } },
           handlers,
-          (d) => d['type']
+          (d) => d.type,
         ),
-        -1
-      )
+        -1,
+      ),
     ).toBeTruthy();
     expect(
       deepEqual(
         match(
           { type: '*', payload: { x: 1, y: 2 } },
           handlers,
-          (d) => d['type']
+          (d) => d.type,
         ),
-        2
-      )
+        2,
+      ),
     ).toBeTruthy();
     expect(
       deepEqual(
         match(
           { type: '/', payload: { x: 1, y: 2 } },
           handlers,
-          (d) => d['type']
+          (d) => d.type,
         ),
-        0.5
-      )
+        0.5,
+      ),
     ).toBeTruthy();
     expect(
       deepEqual(
         match(
           { type: '/', payload: { x: 1, y: 2 } },
           handlers,
-          (d) => d['typed']
+          (d) => (d as any).typed,
         ),
-        undefined
-      )
+        undefined,
+      ),
     ).toBeTruthy();
   });
 });

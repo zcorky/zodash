@@ -1,5 +1,3 @@
-'use strict';
-
 import { deepEqual } from '@zcorky/deep-equal';
 import { delay } from '../src/delay';
 

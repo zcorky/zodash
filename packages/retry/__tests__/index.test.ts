@@ -14,7 +14,7 @@ describe('@zodash/Container', () => {
 
         return i;
       },
-      { times: 3 }
+      { times: 3 },
     );
 
     expect(i).toBe(4);

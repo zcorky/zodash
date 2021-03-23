@@ -12,7 +12,7 @@ import { undefined as isUndef, array as isArray } from '@zcorky/is';
 export function get<T extends object, D = any>(
   value: T,
   path: string,
-  defaultValue: D = undefined
+  defaultValue: D = undefined,
 ): D {
   // return toPath(path)
   //   .reduce((p, k) => {
@@ -30,7 +30,7 @@ export function get<T extends object, D = any>(
 export function getValue(
   parent: object | object[],
   paths: string[],
-  currentIndex: number = 0
+  currentIndex = 0,
 ) {
   if (isUndef(parent)) return undefined;
 

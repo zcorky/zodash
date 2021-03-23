@@ -28,7 +28,7 @@ describe('sha512', () => {
       {
         iv: CryptoJS.enc.Utf8.parse(iv),
         mode: CryptoJS.mode.CBC,
-      }
+      },
     ).toString();
 
     expect(encrypted).toEqual(_encrypted);
@@ -47,7 +47,7 @@ describe('sha512', () => {
       {
         iv: CryptoJS.enc.Utf8.parse(iv),
         mode: CryptoJS.mode.CBC,
-      }
+      },
     ).toString();
 
     expect(encrypted).toEqual(_encrypted);
@@ -66,7 +66,7 @@ describe('sha512', () => {
       {
         iv: CryptoJS.enc.Utf8.parse(iv),
         mode: CryptoJS.mode.CBC,
-      }
+      },
     ).toString();
 
     expect(encrypted).toEqual(_encrypted);
@@ -86,7 +86,7 @@ describe('sha512', () => {
         iv: CryptoJS.enc.Utf8.parse(iv),
         mode: CryptoJS.mode.CBC,
         padding: CryptoJS.pad.Pkcs7,
-      }
+      },
     ).toString();
 
     expect(encrypted).toEqual(_encrypted);
@@ -107,7 +107,7 @@ describe('sha512', () => {
           iv: CryptoJS.enc.Utf8.parse(iv),
           mode: CryptoJS.mode.CFB,
           padding: CryptoJS.pad.NoPadding,
-        }
+        },
       ).toString();
 
       expect(encrypted).toEqual(_encrypted);
@@ -127,7 +127,7 @@ describe('sha512', () => {
           iv: CryptoJS.enc.Utf8.parse(iv),
           mode: CryptoJS.mode.CFB,
           padding: CryptoJS.pad.NoPadding,
-        }
+        },
       ).toString();
 
       expect(encrypted).toEqual(_encrypted);
@@ -147,7 +147,7 @@ describe('sha512', () => {
           iv: CryptoJS.enc.Utf8.parse(iv),
           mode: CryptoJS.mode.CFB,
           padding: CryptoJS.pad.NoPadding,
-        }
+        },
       ).toString();
 
       expect(encrypted).toEqual(_encrypted);
@@ -173,7 +173,7 @@ describe('sha512', () => {
           iv: CryptoJS.enc.Utf8.parse(iv),
           mode: CryptoJS.mode.CTR,
           padding: CryptoJS.pad.NoPadding,
-        }
+        },
       ).toString();
 
       expect(encrypted).toEqual(_encrypted);
@@ -193,7 +193,7 @@ describe('sha512', () => {
           iv: CryptoJS.enc.Utf8.parse(iv),
           mode: CryptoJS.mode.CTR,
           padding: CryptoJS.pad.NoPadding,
-        }
+        },
       ).toString();
 
       expect(encrypted).toEqual(_encrypted);
@@ -213,7 +213,7 @@ describe('sha512', () => {
           iv: CryptoJS.enc.Utf8.parse(iv),
           mode: CryptoJS.mode.CTR,
           padding: CryptoJS.pad.NoPadding,
-        }
+        },
       ).toString();
 
       expect(encrypted).toEqual(_encrypted);
@@ -239,7 +239,7 @@ describe('sha512', () => {
           iv: CryptoJS.enc.Utf8.parse(iv),
           mode: CryptoJS.mode.ECB,
           // padding: CryptoJS.pad.NoPadding,
-        }
+        },
       ).toString();
 
       expect(encrypted).toEqual(_encrypted);
@@ -259,7 +259,7 @@ describe('sha512', () => {
           iv: CryptoJS.enc.Utf8.parse(iv),
           mode: CryptoJS.mode.ECB,
           // padding: CryptoJS.pad.NoPadding,
-        }
+        },
       ).toString();
 
       expect(encrypted).toEqual(_encrypted);
@@ -279,7 +279,7 @@ describe('sha512', () => {
           iv: CryptoJS.enc.Utf8.parse(iv),
           mode: CryptoJS.mode.ECB,
           // padding: CryptoJS.pad.NoPadding,
-        }
+        },
       ).toString();
 
       expect(encrypted).toEqual(_encrypted);
@@ -305,7 +305,7 @@ describe('sha512', () => {
           iv: CryptoJS.enc.Utf8.parse(iv),
           mode: CryptoJS.mode.OFB,
           padding: CryptoJS.pad.NoPadding,
-        }
+        },
       ).toString();
 
       expect(encrypted).toEqual(_encrypted);
@@ -325,7 +325,7 @@ describe('sha512', () => {
           iv: CryptoJS.enc.Utf8.parse(iv),
           mode: CryptoJS.mode.OFB,
           padding: CryptoJS.pad.NoPadding,
-        }
+        },
       ).toString();
 
       expect(encrypted).toEqual(_encrypted);
@@ -345,7 +345,7 @@ describe('sha512', () => {
           iv: CryptoJS.enc.Utf8.parse(iv),
           mode: CryptoJS.mode.OFB,
           padding: CryptoJS.pad.NoPadding,
-        }
+        },
       ).toString();
 
       expect(encrypted).toEqual(_encrypted);

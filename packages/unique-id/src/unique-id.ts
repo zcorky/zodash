@@ -1,5 +1,5 @@
 let id = 0;
 
-export function uniqueId(prefix: string = '') {
+export function uniqueId(prefix = '') {
   return `${prefix}${id++}`;
 }

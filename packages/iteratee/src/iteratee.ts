@@ -6,12 +6,11 @@ export function iteratee<T>(data: Record<string, T>): Iterator<T>;
 export function iteratee<T>(data: T[]): Iterator<T>;
 export function iteratee(data: any): Iterator<any> {
   let key: number | string;
-  let i: number = 0;
+  let i = 0;
   let keys: any[];
 
-  if (Array.isArray(data)) {
-  } else {
-    keys = Object.keys(data);
+  if (!Array.isArray(data)) {
+    keys = Object.keys(data);  
   }
 
   return function next() {

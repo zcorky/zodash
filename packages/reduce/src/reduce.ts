@@ -23,7 +23,7 @@ export function reduce<R = any, T extends object = {}>(
 export function reduce(
   value: any,
   fn: (previous: any, current: any, index: number, origin: any) => any,
-  initailValue?: any
+  initailValue?: any,
 ): any {
   if (Array.isArray(value)) {
     return value.reduce(fn, initailValue);

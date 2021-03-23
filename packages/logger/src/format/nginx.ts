@@ -26,9 +26,9 @@ export function format(data: D) {
   return (
     `${data.addr} - ${data.user || '-'} [${data.datetime}] "${data.method} ${
       data.path
-    } HTTP/${data.version || '-'}" ` +
-    `${data.requestTime} ${data.contentLength} ` +
-    `${data.status} ${data.bodyBytesSent} "${data.referer || '-'}" ` +
-    `"${data.userAgent || '-'}"`
+    } HTTP/${data.version || '-'}" `
+    + `${data.requestTime} ${data.contentLength} `
+    + `${data.status} ${data.bodyBytesSent} "${data.referer || '-'}" `
+    + `"${data.userAgent || '-'}"`
   );
 }

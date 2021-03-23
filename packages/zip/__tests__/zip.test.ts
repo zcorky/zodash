@@ -1,5 +1,3 @@
-'use strict';
-
 import { deepEqual } from '@zcorky/deep-equal';
 import { zip } from '../src/zip';
 

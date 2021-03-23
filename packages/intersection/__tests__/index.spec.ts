@@ -10,8 +10,8 @@ describe('@zodash/intersection', () => {
       intersection(
         ['zero', 'any', 'zero', 'zero', 'zero'],
         ['any'],
-        ['eason', 'cole', 'any']
-      )
+        ['eason', 'cole', 'any'],
+      ),
     ).toEqual(['any']);
   });
 

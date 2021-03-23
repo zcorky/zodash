@@ -6,7 +6,7 @@
  */
 export function find<T>(
   list: T[],
-  fn: (one: T, index: number, originList: T[]) => boolean
+  fn: (one: T, index: number, originList: T[]) => boolean,
 ) {
   return list.find(fn);
 }

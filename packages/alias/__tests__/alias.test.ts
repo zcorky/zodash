@@ -1,5 +1,3 @@
-'use strict';
-
 import { deepEqual } from '@zcorky/deep-equal';
 import { get } from '@zodash/get';
 import { alias } from '../src/alias';
@@ -148,7 +146,7 @@ describe('@zodash/alias', () => {
             age: `data.data.${i}.z.l.${ii}.age`,
           })),
           o: res.data.data[i].z.o.map(
-            (eee, iii) => `data.data.${i}.z.o.${iii}`
+            (eee, iii) => `data.data.${i}.z.o.${iii}`,
           ),
         },
       })),
@@ -210,7 +208,7 @@ describe('@zodash/alias', () => {
             age: `data.data.${i}.z.l.${ii}.age`,
           })),
           o: res.data.data[i].z.o.map(
-            (eee, iii) => `data.data.${i}.z.o.${iii}`
+            (eee, iii) => `data.data.${i}.z.o.${iii}`,
           ),
         },
       })),
@@ -267,7 +265,7 @@ describe('@zodash/alias', () => {
             age: `data.data.${i}.z.l.${ii}.age`,
           })),
           o: res.data.data[i].z.o.map(
-            (eee, iii) => `data.data.${i}.z.o.${iii}`
+            (eee, iii) => `data.data.${i}.z.o.${iii}`,
           ),
         },
       })),
@@ -286,7 +284,7 @@ describe('@zodash/alias', () => {
             age: `data.data.${i}.z.l.${ii}.age`,
           })),
           o: get(res, `data.data.${i}.z.o`, []).map(
-            (eee, iii) => `data.data.${i}.z.o.${iii}`
+            (eee, iii) => `data.data.${i}.z.o.${iii}`,
           ),
         },
       })),

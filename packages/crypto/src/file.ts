@@ -6,14 +6,13 @@ const DEFAULT_ENCODING = 'base64';
 export function signature(
   algorithm: 'md5' | 'sha1' | 'sha256' | 'sha384' | 'sha512',
   pathOrStream: string | fs.ReadStream,
-  encoding?: crypto.HexBase64Latin1Encoding
+  encoding?: crypto.HexBase64Latin1Encoding,
 ) {
   return new Promise((resolve, reject) => {
     const hash = crypto.createHash(algorithm);
-    const stream =
-      typeof pathOrStream !== 'string'
-        ? pathOrStream
-        : fs.createReadStream(pathOrStream);
+    const stream = typeof pathOrStream !== 'string'
+      ? pathOrStream
+      : fs.createReadStream(pathOrStream);
 
     stream.on('error', reject);
 
@@ -35,7 +34,7 @@ export function md5(
 ): Promise<string>;
 export function md5(
   pathOrStream: string | fs.ReadStream,
-  encoding?: crypto.HexBase64Latin1Encoding
+  encoding?: crypto.HexBase64Latin1Encoding,
 ) {
   return signature('md5', pathOrStream, encoding);
 }
@@ -50,7 +49,7 @@ export function sha1(
 ): Promise<string>;
 export function sha1(
   pathOrStream: string | fs.ReadStream,
-  encoding?: crypto.HexBase64Latin1Encoding
+  encoding?: crypto.HexBase64Latin1Encoding,
 ) {
   return signature('sha1', pathOrStream, encoding);
 }
@@ -65,7 +64,7 @@ export function sha256(
 ): Promise<string>;
 export function sha256(
   pathOrStream: string | fs.ReadStream,
-  encoding?: crypto.HexBase64Latin1Encoding
+  encoding?: crypto.HexBase64Latin1Encoding,
 ) {
   return signature('sha256', pathOrStream, encoding);
 }
@@ -80,7 +79,7 @@ export function sha384(
 ): Promise<string>;
 export function sha384(
   pathOrStream: string | fs.ReadStream,
-  encoding?: crypto.HexBase64Latin1Encoding
+  encoding?: crypto.HexBase64Latin1Encoding,
 ) {
   return signature('sha384', pathOrStream, encoding);
 }
@@ -95,7 +94,7 @@ export function sha512(
 ): Promise<string>;
 export function sha512(
   pathOrStream: string | fs.ReadStream,
-  encoding?: crypto.HexBase64Latin1Encoding
+  encoding?: crypto.HexBase64Latin1Encoding,
 ) {
   return signature('sha512', pathOrStream, encoding);
 }

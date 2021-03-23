@@ -19,7 +19,7 @@ export function map<T extends object, R = any>(
 ): R[];
 export function map(
   value: any,
-  fn: (value: any, index: number, array: any[]) => any
+  fn: (value: any, index: number, array: any[]) => any,
 ) {
   if (Array.isArray(value)) {
     return value.map(fn);

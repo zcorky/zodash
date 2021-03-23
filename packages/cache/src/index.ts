@@ -1,6 +1,6 @@
 import LRU, { LRU as ILRU } from '@zcorky/lru';
 
-export interface ICache<K, V> extends ILRU<K, V> {}
+export type ICache<K, V> = ILRU<K, V>
 
 export class Cache<K = string, V = any>
   extends LRU<K, V>

@@ -43,7 +43,7 @@ describe('@zodash/parallel-limit', () => {
         cb(null, 3);
       },
       function (cb) {
-        cb(new Error(`error`));
+        cb(new Error('error'));
       },
     ];
 
@@ -89,19 +89,14 @@ describe('@zodash/parallel-limit', () => {
   });
 
   it('async task use async/await task', (done) => {
-    const delay = (ms: number) =>
-      new Promise((resolve) => setTimeout(resolve, ms));
+    const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
     const create = (n: number) => {
-      const workers = repeat(n, (index) => {
-        return async function () {
-          await delay(random.number(100, 300));
-          return index + 1;
-        };
-      });
-
-      const results = repeat(n, (index) => {
+      const workers = repeat(n, (index) => async function () {
+        await delay(random.number(100, 300));
         return index + 1;
       });
+
+      const results = repeat(n, (index) => index + 1);
 
       return {
         workers,
@@ -120,8 +115,7 @@ describe('@zodash/parallel-limit', () => {
   });
 
   it('async task use Promise-returned', (done) => {
-    const delay = (ms: number) =>
-      new Promise((resolve) => setTimeout(resolve, ms));
+    const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
     const tasks: ITask<any>[] = [
       async function () {
         await delay(100);

@@ -11,7 +11,7 @@ export async function blob2Image(blob: Blob) {
 export async function blob2File(
   blob: Blob,
   filename: string,
-  options?: FilePropertyBag
+  options?: FilePropertyBag,
 ) {
   return new File([blob], filename, options);
 }

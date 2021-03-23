@@ -6,21 +6,15 @@ const suite = new Suite();
 
 // add tests
 suite
-  .add('uuid', function () {
-    return uuid();
-  })
-  .add('node-uuid/v4', function () {
-    return v4();
-  })
-  .add('node-uuid/v1', function () {
-    return v1();
-  })
+  .add('uuid', () => uuid())
+  .add('node-uuid/v4', () => v4())
+  .add('node-uuid/v1', () => v1())
   // add listeners
-  .on('cycle', function (event) {
+  .on('cycle', (event) => {
     console.log(String(event.target));
   })
   .on('complete', function () {
-    console.log('Fastest is ' + this.filter('fastest').map('name'));
+    console.log(`Fastest is ${this.filter('fastest').map('name')}`);
   })
   // run async
   .run({ async: true });

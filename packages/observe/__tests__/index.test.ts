@@ -13,7 +13,7 @@ describe('@zodash/observable', () => {
         console.log('count:', data.count);
 
         console.log('user:', data.user.nickname);
-      }
+      },
     );
 
     expect(data.count).toBe(0);

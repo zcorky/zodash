@@ -11,9 +11,8 @@ export interface IOptions {
 
 export class i18nConfig {
   private locales = {};
-  private current: Locale = '';
 
-  constructor() {}
+  private current: Locale = '';
 
   private get locale() {
     return this.locales?.[this.current] || {};
@@ -36,19 +35,13 @@ export class i18nConfig {
     this.current = currentLocale;
   };
 
-  public translate = <T = void>(key: string, data?: T) => {
-    return format(get(this.locale, key, key), data || {});
-  };
+  public translate = <T = void>(key: string, data?: T) => format(get(this.locale, key, key), data || {});
 
-  public t = <T = void>(key: string, data?: T) => {
-    return this.translate<T>(key, data);
-  };
+  public t = <T = void>(key: string, data?: T) => this.translate<T>(key, data);
 }
 
 export const i18n = new i18nConfig();
 
-export const t = <T = void>(key: string, data?: T) => {
-  return i18n.translate<T>(key, data);
-};
+export const t = <T = void>(key: string, data?: T) => i18n.translate<T>(key, data);
 
 export default i18n;

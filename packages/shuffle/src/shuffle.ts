@@ -1,5 +1,5 @@
 const nativeFloor = Math.floor;
-const nativeCeil = Math.ceil;
+// const nativeCeil = Math.ceil;
 const nativeRandom = Math.random;
 
 function copyArray<T>(array: T[]) {
@@ -25,8 +25,8 @@ function swap(array: any[], left: number, right: number) {
 export function shuffle<T>(collection: T[]) {
   const _collection = copyArray(collection);
   let index = -1;
-  let length = _collection.length;
-  let lastIndex = length - 1;
+  const { length } = _collection;
+  const lastIndex = length - 1;
 
   while (++index < length) {
     const rand = baseRandom(index, lastIndex);

@@ -26,11 +26,10 @@ function isStatic(v: any) {
   const keyGen = (d: any) => {
     if (isNumber(d)) {
       return 'number';
-    } else if (isBoolean(d)) {
+    } if (isBoolean(d)) {
       return 'boolean';
-    } else {
-      return 'default';
     }
+    return 'default';
   };
 
   const handlers = {
@@ -43,16 +42,15 @@ function isStatic(v: any) {
 }
 
 export function alias<T extends object, R>(data: T, mappings: Mappings): R {
-  const keyGen = (m: Mappings) => {
+  const keyGen = (/* m: Mappings */) => {
     if (isStatic(mappings)) {
       return 'static';
-    } else if (isString(mappings)) {
+    } if (isString(mappings)) {
       return 'string';
-    } else if (isArray(mappings)) {
+    } if (isArray(mappings)) {
       return 'array';
-    } else {
-      return 'object';
     }
+    return 'object';
   };
 
   const handlers = {
@@ -63,19 +61,17 @@ export function alias<T extends object, R>(data: T, mappings: Mappings): R {
     string: (m: string) => get(data, m),
 
     // 2 array
-    array: (m: Mappings) =>
-      map(mappings as any, (one: any) => alias(data, one)) as any,
+    array: (/* m: Mappings */) => map(mappings as any, (one: any) => alias(data, one)) as any,
 
     // 3 object
-    object: (m: Mappings) =>
-      reduce(
-        Object.keys(mappings),
-        (all, key) => {
-          all[key] = alias(data, mappings[key] as Mappings);
-          return all;
-        },
-        {}
-      ),
+    object: (/* m: Mappings */) => reduce(
+      Object.keys(mappings),
+      (all, key) => {
+        all[key] = alias(data, mappings[key] as Mappings);
+        return all;
+      },
+      {},
+    ),
   };
 
   return match(mappings, handlers, keyGen) as R;
