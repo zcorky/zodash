@@ -1544,11 +1544,6 @@
   resolved "https://registry.npm.taobao.org/@types/stack-utils/download/@types/stack-utils-1.0.1.tgz#0a851d3bd96498fa25c33ab7278ed3bd65f06c3e"
   integrity sha1-CoUdO9lkmPolwzq3J47TvWXwbD4=
 
-"@types/statuses@^1.5.0":
-  version "1.5.1"
-  resolved "https://registry.npm.taobao.org/@types/statuses/download/@types/statuses-1.5.1.tgz#3e69c0cb1e188ebbae2531694efae119854afe27"
-  integrity sha1-PmnAyx4YjruuJTFpTvrhGYVK/ic=
-
 "@types/yargs-parser@*":
   version "15.0.0"
   resolved "https://registry.npm.taobao.org/@types/yargs-parser/download/@types/yargs-parser-15.0.0.tgz#cb3f9f741869e20cce330ffbeb9271590483882d"

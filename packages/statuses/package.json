@@ -67,7 +67,8 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "devDependencies": {
+    "@types/statuses": "^2.0.0",
     "@zcorky/deep-equal": "^0.0.1",
-    "statuses": "^1.5.0"
+    "statuses": "^2.0.1"
   }
 }
