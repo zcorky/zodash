@@ -1,0 +1,10 @@
+{
+  "just now": "刚刚",
+  "{n} seconds ago": "{n}秒前",
+  "{n} minutes ago": "{n}分钟前",
+  "{n} hours ago": "{n}小时前",
+  "{n} days ago": "{n}天前",
+  "{n} weeks ago": "{n}周前",
+  "{n} months ago": "{n}个月前",
+  "{n} years ago": "{n}年前"
+}
