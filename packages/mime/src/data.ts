@@ -10,6 +10,12 @@ export const MAP_MIME_EXTS: IMimeExt = {
   'image/bmp': ['bmp'],
   'image/vnd.adobe.photoshop': ['psd'],
   'image/svg+xml': ['svg'],
+  //
+  'image/apng': ['apng'],
+  'image/avif': ['avif'],
+  'image/heic': ['heic'],
+  'image/heif': ['heif'],
+  'image/x-icon': ['ico'],
   // audio
   'audio/mp4': ['m4a', 'mp4a'],
   'audio/midi': ['midi'],
@@ -30,7 +36,21 @@ export const MAP_MIME_EXTS: IMimeExt = {
   'text/yaml': ['yml', 'yaml'],
   'text/csv': ['csv'],
   'text/markdown': ['md', 'markdown'],
-  'text/plain': ['text', 'text', 'conf', 'log', 'ini'],
+  'text/plain': ['txt', 'text', 'conf', 'log', 'ini'],
+  //
+  'text/cache-manifest': ['manifest', 'appcache'],
+  'text/jade': ['jade'],
+  'text/jsx': ['jsx'],
+  'text/less': ['less'],
+  'text/mdx': ['mdx'],
+  'text/vnd.curl': ['curl'],
+  'text/x-c': ['c', 'cc', 'cxx', 'cpp', 'h', 'hh'],
+  'text/x-handlebars-template': ['hbs'],
+  'text/x-java-source': ['java'],
+  'text/x-lua': ['lua'],
+  'text/x-sass': ['sass'],
+  'text/x-scss': ['scss'],
+  // 'text/xml': ['xml'], // @TODO application/xml
   // font
   'font/ttf': ['ttf'],
   'font/woff': ['woff'],
@@ -52,4 +72,7 @@ export const MAP_MIME_EXTS: IMimeExt = {
   'application/wasm': ['wasm'],
   'application/xml': ['xml'],
   'application/xml-dtd': ['dtd'],
+  //
+  'application/manifest+json': ['webmanifest'],
+  'application/x-web-app-manifest+json': ['webapp'],
 };
