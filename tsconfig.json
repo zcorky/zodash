@@ -9,6 +9,7 @@
     "experimentalDecorators": true,
     "target": "ES6",
     "sourceMap": true,
+    "resolveJsonModule": true,
     "lib": [
       "es2015",
       "ES2016",
