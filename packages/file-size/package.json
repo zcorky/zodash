@@ -1,6 +1,6 @@
 {
   "name": "@zodash/file-size",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Turn bytes into human readable file size",
   "keywords": [
     "zodash",

@@ -1,6 +1,6 @@
 {
   "name": "@zodash/open-file",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Open file dialog to select file in browser",
   "keywords": [
     "zodash",
