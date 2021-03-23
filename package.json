@@ -10,7 +10,8 @@
     "fmt": "prettier --write packages/**/{*.ts,*.tsx}",
     "eslint": "eslint packages/**/*.{ts,tsx} --fix",
     "publish": "lerna run tsc && lerna publish",
-    "publish:ci": "lerna run tsc && lerna publish --canary --yes"
+    "publish:ci": "lerna run tsc && lerna publish --canary --yes",
+    "postinstall": "husky install"
   },
   "devDependencies": {
     "@types/jest": "^24.0.15",
@@ -35,9 +36,6 @@
     "prettier": "^2.2.1",
     "ts-jest": "^24.0.2",
     "typescript": "^4.2.3"
-  },
-  "husky": {
-    "pre-commit": "lint-staged"
   },
   "lint-staged": {
     "**/*.ts": [
