@@ -1,6 +1,6 @@
 {
   "name": "@zodash/extend",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Copy all of the properties in the source objects over to the destination object",
   "keywords": [
     "underscore",
