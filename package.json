@@ -41,6 +41,7 @@
   },
   "lint-staged": {
     "**/*.ts": [
+      "echo 'lint stage run'",
       "prettier --write --ignore-unknown",
       "eslint --fix"
     ],
