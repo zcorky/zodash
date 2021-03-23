@@ -7,3 +7,4 @@ packages/*/lib
 package-lock.json
 coverage/
 .npmrc
+yarn-error.log

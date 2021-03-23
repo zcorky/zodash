@@ -11,7 +11,8 @@
     "eslint": "eslint packages/**/*.{ts,tsx} --fix",
     "publish": "lerna run tsc && lerna publish",
     "publish:ci": "lerna run tsc && lerna publish --canary --yes",
-    "postinstall": "husky install"
+    "postinstall": "husky install",
+    "commit": "cz"
   },
   "devDependencies": {
     "@types/jest": "^24.0.15",
@@ -21,6 +22,8 @@
     "@typescript-eslint/eslint-plugin": "^4.19.0",
     "@typescript-eslint/parser": "^4.19.0",
     "codecov": "^3.5.0",
+    "commitizen": "^4.2.3",
+    "cz-conventional-changelog": "3.3.0",
     "eslint": "^7.22.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-plugin-import": "^2.22.1",
@@ -46,5 +49,10 @@
     "*.{json.css,md,yml,yaml}": [
       "prettier --write"
     ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
