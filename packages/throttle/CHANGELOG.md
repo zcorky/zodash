@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.4](https://github.com/zcorky/zodash/compare/@zodash/throttle@0.1.3...@zodash/throttle@0.1.4) (2021-03-23)
+
+**Note:** Version bump only for package @zodash/throttle
+
+
+
+
+
 ## 0.1.3 (2020-11-11)
 
 **Note:** Version bump only for package @zodash/throttle

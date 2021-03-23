@@ -1,6 +1,6 @@
 {
   "name": "@zodash/hotkeys",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "hotkeys, inspected by jaywcjlove/hotkeys",
   "keywords": [
     "zodash",
@@ -65,7 +65,7 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "@zodash/cache": "^0.0.1",
-    "@zodash/dom": "^0.1.3"
+    "@zodash/cache": "^0.0.2",
+    "@zodash/dom": "^0.1.4"
   }
 }

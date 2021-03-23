@@ -1,6 +1,6 @@
 {
   "name": "@zodash/captcha",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A simple captcha",
   "keywords": [
     "zodash",
@@ -65,8 +65,8 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "@zodash/cache": "^0.0.1",
-    "@zodash/random": "^1.2.6",
+    "@zodash/cache": "^0.0.2",
+    "@zodash/random": "^1.2.7",
     "svg-captcha": "^1.4.0"
   }
 }

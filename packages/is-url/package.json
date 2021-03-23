@@ -1,6 +1,6 @@
 {
   "name": "@zodash/is-url",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "simple url validator",
   "keywords": [
     "zodash",

@@ -1,6 +1,6 @@
 {
   "name": "@zodash/base64",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Simple base64 converter",
   "keywords": [
     "zodash",

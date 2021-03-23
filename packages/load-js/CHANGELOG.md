@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.9](https://github.com/zcorky/zodash/compare/@zodash/load-js@0.2.8...@zodash/load-js@0.2.9) (2021-03-23)
+
+**Note:** Version bump only for package @zodash/load-js
+
+
+
+
+
 ## [0.2.8](https://github.com/zcorky/zodash/compare/@zodash/load-js@0.2.7...@zodash/load-js@0.2.8) (2021-03-12)
 
 **Note:** Version bump only for package @zodash/load-js

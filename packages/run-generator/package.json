@@ -1,6 +1,6 @@
 {
   "name": "@zodash/run-generator",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Run generator, co",
   "keywords": [
     "zodash",
@@ -69,6 +69,6 @@
     "base62": "^2.0.1"
   },
   "dependencies": {
-    "@zodash/basex": "^0.1.4"
+    "@zodash/basex": "^0.1.5"
   }
 }

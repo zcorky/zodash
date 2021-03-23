@@ -1,6 +1,6 @@
 {
   "name": "@zodash/sdk",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A simple sdk base",
   "keywords": [
     "zodash",
@@ -65,11 +65,11 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "@zodash/cache": "^0.0.1",
-    "@zodash/emitter": "^0.0.3",
-    "@zodash/logger": "^0.2.12",
-    "@zodash/memoize": "^1.1.3",
-    "@zodash/storage": "^0.0.1",
+    "@zodash/cache": "^0.0.2",
+    "@zodash/emitter": "^0.0.4",
+    "@zodash/logger": "^0.2.13",
+    "@zodash/memoize": "^1.1.4",
+    "@zodash/storage": "^0.0.2",
     "axios": "^0.21.0"
   }
 }
