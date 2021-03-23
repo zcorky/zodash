@@ -7,7 +7,11 @@ export type IStatus = 'initial' | 'running' | 'resolved' | 'rejected';
 
 export interface ITaskManager {
   add(task: ITask<any>): void;
-  add<P>(name: string, parameters: P, handler: (parameters: P) => Promise<void>): void
+  add<P>(
+    name: string,
+    parameters: P,
+    handler: (parameters: P) => Promise<void>
+  ): void;
   start(): void;
   // pause(): void;
   // stop(): void;
@@ -20,7 +24,6 @@ export interface ITaskManager {
   // runningtime: number;
 }
 
-
 export class TaskManager implements ITaskManager {
   private readonly pendingQueue: IQueue<ITask<any>> = new Queue();
 
@@ -29,8 +32,12 @@ export class TaskManager implements ITaskManager {
 
   constructor(private readonly cocurrency: number = 1) {}
 
-  public add(task: ITask<any>): void
-  public add<P>(name: string, parameters: P, handler: (parameters: P) => Promise<void>): void
+  public add(task: ITask<any>): void;
+  public add<P>(
+    name: string,
+    parameters: P,
+    handler: (parameters: P) => Promise<void>
+  ): void;
   public add(name: any, parameters?: any, handler?: any): void {
     let task = name;
 
@@ -39,7 +46,7 @@ export class TaskManager implements ITaskManager {
     }
 
     this.pendingQueue.enqueue(task);
-    return ;
+    return;
   }
 
   public async start() {
@@ -50,9 +57,7 @@ export class TaskManager implements ITaskManager {
     });
   }
 
-  public info() {
-
-  }
+  public info() {}
 
   public isIdle() {
     return this.idle;
@@ -66,9 +71,7 @@ export class TaskManager implements ITaskManager {
     return moment().valueOf() - this.createdAt.valueOf();
   }
 
-  public runningTime() {
-
-  }
+  public runningTime() {}
 }
 
 // var delay = require('@zcorky/delay').delay;

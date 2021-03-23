@@ -19,24 +19,20 @@ export class WebWorker<D extends any[], R> implements IWorker<D, R> {
 
   /**
    * Create a function as a worker
-   * 
+   *
    * @param fn raw function
    */
   public static create<D extends any[], R>(fn: IWorkerFn<D, R>) {
     const worker = new WebWorker(fn);
 
-    worker
-      .compile()
-      .watch();
+    worker.compile().watch();
 
     return (...args: D) => {
       return worker.run(...args);
     };
   }
 
-  constructor(public readonly fn: IWorkerFn<D, R>) {
-
-  }
+  constructor(public readonly fn: IWorkerFn<D, R>) {}
 
   public compile() {
     const script = createScript(this.fn);
@@ -51,10 +47,10 @@ export class WebWorker<D extends any[], R> implements IWorker<D, R> {
   public watch() {
     this.worker.onmessage = ({ data: { id, response, error } }) => {
       // @IGNORE not found task
-      if (!this.hasTask(id)) return ;
+      if (!this.hasTask(id)) return;
 
       const { resolve, reject } = this.useTask(id);
-      
+
       if (error) {
         const _error = new Error(error.message);
         _error.stack = error.stack;
@@ -139,10 +135,7 @@ self.onmessage = async ({ data }) => {
 }
 
 function createBlob(text: string) {
-  return new Blob(
-    [text],
-    { type: 'text/javascript' },
-  );
+  return new Blob([text], { type: 'text/javascript' });
 }
 
 function createUrl(data: Blob) {

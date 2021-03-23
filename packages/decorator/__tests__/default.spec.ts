@@ -2,7 +2,7 @@ import * as d from '../src/default';
 
 // compose vs pipe
 
-describe("@zodash/decorator to", () => {
+describe('@zodash/decorator to', () => {
   it('number', () => {
     class Controller {
       ctx = {
@@ -14,7 +14,7 @@ describe("@zodash/decorator to", () => {
       @d.default_(18)
       public age;
     }
-    
+
     const c = new Controller();
 
     expect(c.age).toEqual(18);

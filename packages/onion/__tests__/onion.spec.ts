@@ -9,12 +9,12 @@ interface Output {
   state: number[];
 }
 
-describe("@zodash/onion", () => {
+describe('@zodash/onion', () => {
   it('works', () => {
     // interface Context {
     //   state: any[];
     // }
-    
+
     class App extends Onion<Input, Output, any> {
       public handle(): Middleware<Context<Input, Output, any>> {
         return async (ctx, next) => {
@@ -22,13 +22,13 @@ describe("@zodash/onion", () => {
         };
       }
     }
-    
+
     const app = new App();
 
     const m = async (ctx: Context<Input, Output, any>, next: Function) => {
       ctx.output.state = ctx.input.state;
       await next();
-    }
+    };
 
     const m1 = async (ctx: Context<Input, Output, any>, next: Function) => {
       ctx.output.state.push(1);
@@ -48,7 +48,7 @@ describe("@zodash/onion", () => {
       ctx.output.state.push(3);
     };
 
-    app.use(m)
+    app.use(m);
     app.use(m1);
     app.use(m2);
     app.use(m3);
@@ -72,7 +72,7 @@ describe("@zodash/onion", () => {
         };
       }
     }
-    
+
     const app = new App();
 
     app.execute({ state: [] }).then((output) => {

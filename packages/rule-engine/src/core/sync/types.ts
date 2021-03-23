@@ -38,14 +38,14 @@ export interface IRuleValueNode<DataSource> {
    * Type: Value
    */
   type: 'Value';
- 
+
   /**
    * Attribute Value
    *  such as option in select
-   * 
+   *
    * 值，单选时是一个值（必须相等），多选是是多个值（满足其中一个即可）
    */
-  value: string | string[]; 
+  value: string | string[];
 
   /**
    * Value Children must be Attribute Node, means the next attributes
@@ -57,8 +57,9 @@ export interface IRuleValueNode<DataSource> {
  * Rule Node
  *  = Attribute Node + Value Node
  */
-export type IRuleNode<DataSource = any> = IRuleAttrNode<DataSource> | IRuleValueNode<DataSource>;
-
+export type IRuleNode<DataSource = any> =
+  | IRuleAttrNode<DataSource>
+  | IRuleValueNode<DataSource>;
 
 // /**
 //  * DataSource
@@ -72,25 +73,31 @@ export type IRuleNode<DataSource = any> = IRuleAttrNode<DataSource> | IRuleValue
  */
 export type IShowData<DataSource extends Record<string, any>> = {
   [K in keyof DataSource]: boolean;
-}
+};
 
 /**
  * Caculate Current Attribute Value
  *  used to compare his children options
  *  which mean strategies pattern
- * 
+ *
  * @param dataSource dataSource
  * @param attributeName attribute name
  */
-export type IOnScaleTo<DataSource> = (dataSource: Partial<DataSource>, attributeName: string) => string;
+export type IOnScaleTo<DataSource> = (
+  dataSource: Partial<DataSource>,
+  attributeName: string
+) => string;
 
 /**
  * Interface to emit a message when hit attr, maybe show your field
- * 
+ *
  * @param attributeName attribute name
  * @param dataSource dataSource
  */
-export type IOnHitAttr<DataSource> = (attributeName: string, dataSource: DataSource) => void;
+export type IOnHitAttr<DataSource> = (
+  attributeName: string,
+  dataSource: DataSource
+) => void;
 
 /**
  * Create Options

@@ -1,7 +1,5 @@
 import { parse } from './node';
 
-export {
-  parse,
-};
+export { parse };
 
 export default parse;

@@ -1,7 +1,7 @@
 type Fetch = typeof fetch;
 type Params = Parameters<Fetch>;
 
-export type Options = Params[1]; 
+export type Options = Params[1];
 // export type Response = ReturnType<Fetch>;
 
 export interface UnfetchResponse {
@@ -18,7 +18,7 @@ export interface UnfetchResponse {
     entries(): [string, string][];
     get(name: string): string;
     has(name: string): boolean;
-  }
+  };
 }
 
 export function unfetch(url: string, options?: Options) {
@@ -31,7 +31,7 @@ export function unfetch(url: string, options?: Options) {
     const headers = {};
 
     const response = () => ({
-      ok: (request.status / 100 | 0) == 2,
+      ok: ((request.status / 100) | 0) == 2,
       statusText: request.statusText,
       status: request.status,
       url: request.responseURL,
@@ -50,13 +50,18 @@ export function unfetch(url: string, options?: Options) {
     request.open(_options.method || 'get', url, true);
 
     request.onload = () => {
-      request.getAllResponseHeaders().replace(/^(.*?):[^\S\n]*([\s\S]*?)$/gm, (m: string, key: string, value: string) => {
-        keys.push(key = key.toLowerCase());
-        all.push([key, value]);
-        headers[key] = headers[key] ? `${headers[key]},${value}` : value;
-        return '';
-      });
-      
+      request
+        .getAllResponseHeaders()
+        .replace(
+          /^(.*?):[^\S\n]*([\s\S]*?)$/gm,
+          (m: string, key: string, value: string) => {
+            keys.push((key = key.toLowerCase()));
+            all.push([key, value]);
+            headers[key] = headers[key] ? `${headers[key]},${value}` : value;
+            return '';
+          }
+        );
+
       resolve(response()); // @TODO not the same as fetch Response
     };
 

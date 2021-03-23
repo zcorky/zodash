@@ -11,8 +11,13 @@ describe('base64', () => {
   });
 
   it('decode:utf8', () => {
-    expect(JSON.parse(decode('eyJ2IjogIjIiLCAicHMiOiAiZ2l0aHViLmNvbS9mcmVlZnEgLSBcdTdmOGVcdTU2ZmQgMTkzIiwgImFkZCI6ICJ2Mi0xNC5zc3JzdWIub25lIiwgInBvcnQiOiAiNDQzIiwgImlkIjogIjljNmE3MTVhLTk3MDctNDJjMy04ZmY2LTk3MzdiZDQ1NmNmMiIsICJhaWQiOiAiMzIiLCAibmV0IjogIndzIiwgInR5cGUiOiAibm9uZSIsICJob3N0IjogIiIsICJwYXRoIjogIiIsICJ0bHMiOiAidGxzIn0=')).ps)
-      .toBe('github.com/freefq - 美国 193');
+    expect(
+      JSON.parse(
+        decode(
+          'eyJ2IjogIjIiLCAicHMiOiAiZ2l0aHViLmNvbS9mcmVlZnEgLSBcdTdmOGVcdTU2ZmQgMTkzIiwgImFkZCI6ICJ2Mi0xNC5zc3JzdWIub25lIiwgInBvcnQiOiAiNDQzIiwgImlkIjogIjljNmE3MTVhLTk3MDctNDJjMy04ZmY2LTk3MzdiZDQ1NmNmMiIsICJhaWQiOiAiMzIiLCAibmV0IjogIndzIiwgInR5cGUiOiAibm9uZSIsICJob3N0IjogIiIsICJwYXRoIjogIiIsICJ0bHMiOiAidGxzIn0='
+        )
+      ).ps
+    ).toBe('github.com/freefq - 美国 193');
   });
 
   it('decode:invalid', () => {

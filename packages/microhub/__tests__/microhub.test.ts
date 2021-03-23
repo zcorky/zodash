@@ -1,6 +1,6 @@
 import { Microhub, IMicrohub } from '../src/microhub';
 
-describe("@zodash/microhub", () => {
+describe('@zodash/microhub', () => {
   it('common function service', () => {
     interface FunctionService extends IMicrohub {
       discover(name: 'add'): typeof add;
@@ -13,7 +13,7 @@ describe("@zodash/microhub", () => {
     const convertNumberToString = (n: number) => n.toString();
 
     const microhub = Microhub.create<FunctionService>();
-    
+
     microhub.register('add', add);
     microhub.register('sub', sub);
     microhub.register('convertNumberToString', convertNumberToString);
@@ -23,7 +23,9 @@ describe("@zodash/microhub", () => {
     expect(microhub.discover('multiple' as any)).toBeUndefined();
     expect(microhub.discover('add')(1, 2)).toBe(add(1, 2));
     expect(microhub.discover('sub')(1, 2)).toBe(sub(1, 2));
-    expect(microhub.discover('convertNumberToString')(1)).toBe(convertNumberToString(1));
+    expect(microhub.discover('convertNumberToString')(1)).toBe(
+      convertNumberToString(1)
+    );
   });
 
   it('component service', () => {
@@ -60,7 +62,7 @@ describe("@zodash/microhub", () => {
     const Switch: Component<SwitchProps> = (props: Props) => null;
 
     const microhub = Microhub.create<MicroComponentHub>();
-    
+
     microhub.register('text', Text);
     microhub.register('number', Number);
     microhub.register('switch', Switch);

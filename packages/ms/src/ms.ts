@@ -33,7 +33,7 @@ function createMemoizedToStringMatch() {
     } else {
       return 'd';
     }
-  }
+  };
 
   return (data: number) => match(data, handlers, key);
 }
@@ -56,7 +56,7 @@ function createMemoizedToNumberMatch() {
     }
 
     return matched[2];
-  }
+  };
 
   return (data: string) => match(data, handlers, key);
 }
@@ -65,8 +65,8 @@ const toString = createMemoizedToStringMatch();
 
 const toNumber = createMemoizedToNumberMatch();
 
-function ms(humanize: string): number
-function ms(millisenconds: number): string
+function ms(humanize: string): number;
+function ms(millisenconds: number): string;
 function ms(value: any): any {
   if (isString(value)) {
     return toNumber(value);
@@ -75,6 +75,4 @@ function ms(value: any): any {
   return toString(value);
 }
 
-export {
-  ms,
-};
+export { ms };

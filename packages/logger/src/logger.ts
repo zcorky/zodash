@@ -45,18 +45,20 @@ export enum LogLevel {
 function isPattern(value: string) {
   if (!value) return false;
 
-  return /(%s|\{[^\s].*\})/.test(value)
+  return /(%s|\{[^\s].*\})/.test(value);
 }
 
-function formatMessage(name: string, date: Moment, message: any[], level?: LogLevel) {
-  const prefix = format(
-    '[{name}] {datetime} - {level} -',
-    {
-      name: name || 'COMMON',
-      datetime: date.format('YYYY-MM-DD HH:mm:ss'),
-      level: level.toUpperCase() || 'LOG',
-    },
-  );
+function formatMessage(
+  name: string,
+  date: Moment,
+  message: any[],
+  level?: LogLevel
+) {
+  const prefix = format('[{name}] {datetime} - {level} -', {
+    name: name || 'COMMON',
+    datetime: date.format('YYYY-MM-DD HH:mm:ss'),
+    level: level.toUpperCase() || 'LOG',
+  });
 
   if (message?.length === 1) {
     return `${prefix} ${message[0]}`;
@@ -89,9 +91,12 @@ export class Logger extends Onion<Input, any, any> implements ILogger {
     Logger._disableFn = fn;
   }
 
-  constructor(private readonly name: string, private readonly options?: Options) {
+  constructor(
+    private readonly name: string,
+    private readonly options?: Options
+  ) {
     super();
-    
+
     this.options = options || {};
 
     this.use(this.useDisable());
@@ -102,7 +107,7 @@ export class Logger extends Onion<Input, any, any> implements ILogger {
   private useDefaulEngine(): Middleware<Context<Input, any, any>> {
     return async (ctx, next) => {
       ctx.input.engine = console;
-      
+
       await next();
     };
   }
@@ -119,7 +124,7 @@ export class Logger extends Onion<Input, any, any> implements ILogger {
       const enable = !Logger._disableFn ? true : !Logger._disableFn();
 
       if (!enable) {
-        return ;
+        return;
       }
 
       await next();
@@ -129,13 +134,18 @@ export class Logger extends Onion<Input, any, any> implements ILogger {
   public handle(): Middleware<Context<Input, any, any>> {
     return async (ctx) => {
       const input = ctx.input;
-  
+
       if (this.options.console === false) {
-        return ;
+        return;
       }
-  
+
       const engine = input.engine;
-      const message = formatMessage(this.name, input.datetime, input.message, input.level);
+      const message = formatMessage(
+        this.name,
+        input.datetime,
+        input.message,
+        input.level
+      );
       const isUseDevConsole = Array.isArray(message);
 
       if (!isUseDevConsole) {

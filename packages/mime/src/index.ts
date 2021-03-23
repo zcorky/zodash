@@ -5,7 +5,7 @@ import { MAP_MIME_EXTS } from './data';
 const mimeTypes: Record<IExt, IMimeType> = {};
 
 each(MAP_MIME_EXTS, ([mimeType, exts]) => {
-  each(exts, ext => {
+  each(exts, (ext) => {
     mimeTypes[ext] = mimeType;
   });
 });
@@ -24,8 +24,8 @@ export function getExt(name: IMimeType) {
   }
 }
 
-export function mime(name: IExt): IMimeType
-export function mime(name: IMimeType): IExt
+export function mime(name: IExt): IMimeType;
+export function mime(name: IMimeType): IExt;
 export function mime(name: any) {
   if (isMimeType(name)) {
     return getExt(name);

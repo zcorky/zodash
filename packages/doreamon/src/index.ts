@@ -85,7 +85,6 @@ const use = register;
 export {
   logger,
   debug,
-
   request,
   date,
   qs,
@@ -94,22 +93,17 @@ export {
   device,
   cookie,
   fs,
-
   delay,
   uuid,
   random,
   is,
-
   ms,
-
   object,
   array,
   string,
   func,
-
   dom,
   url,
-
   //
   register,
   get,

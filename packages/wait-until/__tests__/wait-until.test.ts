@@ -1,6 +1,6 @@
 import { waitUntil } from '../src/wait-until';
 
-describe("@zodash/wait-until", () => {
+describe('@zodash/wait-until', () => {
   it('works', (done) => {
     const fns = {
       fn: () => null,

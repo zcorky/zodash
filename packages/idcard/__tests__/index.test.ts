@@ -11,7 +11,10 @@ describe('@zodash/idcard', () => {
       sex: 1,
     });
 
-    expect(id.getAddress()).toEqual({ text: '广东省深圳市盐田区', list: ['广东省', '深圳市', '盐田区']});
+    expect(id.getAddress()).toEqual({
+      text: '广东省深圳市盐田区',
+      list: ['广东省', '深圳市', '盐田区'],
+    });
     expect(id.getBirthday()).toEqual('1999-01-10');
     expect(id.getAge()).toEqual(22);
     expect(id.getSex()).toEqual(1);

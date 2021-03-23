@@ -26,8 +26,9 @@ export const DATA = [
   {
     ceil: 12 * 30 * 24 * 60 * 60 * 1000,
     locale: '{n} months ago',
-  },{
-    ceil: 10* 365 * 24 * 60 * 60 * 1000,
+  },
+  {
+    ceil: 10 * 365 * 24 * 60 * 60 * 1000,
     locale: '{n} years ago',
   },
 ];

@@ -5,4 +5,4 @@ describe('sha256', () => {
     const data = 'hello world';
     expect(sha256(data)).toBe(require('crypto-js/sha256')(data).toString());
   });
-})
+});

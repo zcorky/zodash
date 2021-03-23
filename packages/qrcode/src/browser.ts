@@ -7,7 +7,7 @@ export type DataUrl = string;
 
 /**
  * Generate QRCode DataURL from text
- * 
+ *
  * @param text qrcode text
  */
 export async function toDataURL(text: string): Promise<DataUrl> {
@@ -15,7 +15,7 @@ export async function toDataURL(text: string): Promise<DataUrl> {
     return cache.get(text);
   }
 
-  qrcode.toCanvas(text)
+  qrcode.toCanvas(text);
   const dataUrl = await qrcode.toDataURL(text);
   cache.set(text, dataUrl);
   return dataUrl;

@@ -3,8 +3,8 @@ import now from '@zcorky/moment';
 import * as ADDRESS from './data/address.json';
 import { NAMED_REGEX } from './constants';
 
-import { parse }from './parse';
-import { generate }from './generate';
+import { parse } from './parse';
+import { generate } from './generate';
 
 function getAddressByCode(code: string): string {
   return ADDRESS[code] || '';
@@ -42,7 +42,7 @@ export class IDCard {
 
     return {
       name,
-      code
+      code,
     };
   }
 
@@ -50,20 +50,20 @@ export class IDCard {
     const ad = this.getAddressCode();
     const code = `${ad.slice(0, 4)}00`;
     const name = getAddressByCode(code);
-    
+
     return {
       name,
-      code
+      code,
     };
   }
 
   public getAddressRegion() {
     const code = this.getAddressCode();
     const name = getAddressByCode(code);
-    
+
     return {
       name,
-      code
+      code,
     };
   }
 
@@ -74,7 +74,7 @@ export class IDCard {
 
   // 男性为奇数，女性为偶数
   public getSex() {
-    return (+this.parsed.sex) % 2;
+    return +this.parsed.sex % 2;
   }
 
   public getAge() {

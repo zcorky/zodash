@@ -94,9 +94,11 @@ describe('@zodash/rule-engine', () => {
 
     const runner = engine.create.sync(rules);
 
-    expect(runner.run({
-      createdBy: 'manual',
-    })).toEqual({
+    expect(
+      runner.run({
+        createdBy: 'manual',
+      })
+    ).toEqual({
       cipher: true,
       createdBy: true,
       description: true,
@@ -107,28 +109,34 @@ describe('@zodash/rule-engine', () => {
       type: true,
     });
 
-    expect(runner.run({
-      createdBy: 'import.text',
-    })).toEqual({
+    expect(
+      runner.run({
+        createdBy: 'import.text',
+      })
+    ).toEqual({
       createdBy: true,
       importText: true,
       isPublished: true,
-      description: true
+      description: true,
     });
 
-    expect(runner.run({
-      createdBy: 'import.qrcode',
-    })).toEqual({
+    expect(
+      runner.run({
+        createdBy: 'import.qrcode',
+      })
+    ).toEqual({
       createdBy: true,
       importQRCode: true,
       isPublished: true,
-      description: true
+      description: true,
     });
 
-    expect(runner.run({
-      createdBy: 'manual',
-      type: 'ss',
-    })).toEqual({
+    expect(
+      runner.run({
+        createdBy: 'manual',
+        type: 'ss',
+      })
+    ).toEqual({
       createdBy: true,
       type: true,
       password: true,
@@ -137,13 +145,15 @@ describe('@zodash/rule-engine', () => {
       port: true,
       cipher: true,
       isPublished: true,
-      description: true
+      description: true,
     });
 
-    expect(runner.run({
-      createdBy: 'manual',
-      type: 'vmess',
-    })).toEqual({
+    expect(
+      runner.run({
+        createdBy: 'manual',
+        type: 'vmess',
+      })
+    ).toEqual({
       createdBy: true,
       type: true,
       uuid: true,
@@ -153,7 +163,7 @@ describe('@zodash/rule-engine', () => {
       port: true,
       cipher: true,
       isPublished: true,
-      description: true
+      description: true,
     });
   });
 });

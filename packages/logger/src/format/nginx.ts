@@ -1,6 +1,6 @@
 /**
  * Nginx Log Format
- * 
+ *
  * log_format main  '$remote_addr - $remote_user [$time_local] "$request" '
  *               '$request_time $request_length '
  *               '$status $body_bytes_sent "$http_referer" '
@@ -23,8 +23,12 @@ export interface D {
 }
 
 export function format(data: D) {
-  return `${data.addr} - ${data.user || '-'} [${data.datetime}] "${data.method} ${data.path} HTTP/${data.version || '-'}" `
-    + `${data.requestTime} ${data.contentLength} `
-    + `${data.status} ${data.bodyBytesSent} "${data.referer || '-'}" `
-    + `"${data.userAgent || '-'}"`;
+  return (
+    `${data.addr} - ${data.user || '-'} [${data.datetime}] "${data.method} ${
+      data.path
+    } HTTP/${data.version || '-'}" ` +
+    `${data.requestTime} ${data.contentLength} ` +
+    `${data.status} ${data.bodyBytesSent} "${data.referer || '-'}" ` +
+    `"${data.userAgent || '-'}"`
+  );
 }

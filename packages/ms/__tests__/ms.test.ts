@@ -1,7 +1,7 @@
 import { map } from '@zodash/map';
-import { ms } from "../src/ms";
+import { ms } from '../src/ms';
 
-describe("@zodash/alias", () => {
+describe('@zodash/alias', () => {
   const machine = [
     10,
     1000,
@@ -10,18 +10,11 @@ describe("@zodash/alias", () => {
     24 * 60 * 60 * 1000,
     365 * 24 * 60 * 60 * 1000,
   ];
-  const human = [
-    '10ms',
-    '1s',
-    '1m',
-    '1h',
-    '1d',
-    '365d',
-  ];
+  const human = ['10ms', '1s', '1m', '1h', '1d', '365d'];
 
   it('number => string', () => {
     const t = ((e, index) => {
-      expect(ms(e)).toBe(human[index]);;
+      expect(ms(e)).toBe(human[index]);
     }) as any;
 
     map(machine, t);
@@ -29,7 +22,7 @@ describe("@zodash/alias", () => {
 
   it('string => number', () => {
     const t = ((e, index) => {
-      expect(ms(e)).toBe(machine[index]);;
+      expect(ms(e)).toBe(machine[index]);
     }) as any;
 
     map(human, t);

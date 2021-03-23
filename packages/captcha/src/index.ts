@@ -1,17 +1,19 @@
 import * as svgCaptcha from 'svg-captcha';
 import random from '@zodash/random';
 
-export type IOptions = {
-  type?: 'image';
-} | {
-  type?: 'code';
-  length?: number; // default 6
-}
+export type IOptions =
+  | {
+      type?: 'image';
+    }
+  | {
+      type?: 'code';
+      length?: number; // default 6
+    };
 
 export function create(options?: IOptions) {
   const type = options?.type || 'image';
 
-  switch(type) {
+  switch (type) {
     case 'image':
       return createSvgCaptcha();
     case 'code':

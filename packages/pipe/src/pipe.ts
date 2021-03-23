@@ -2,7 +2,7 @@ export type Pipe = (data: any) => any;
 
 /**
  * pipe function
- * 
+ *
  * @param fns componse functions
  */
 export function pipe(...fns: Pipe[]) {

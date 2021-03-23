@@ -2,7 +2,7 @@ import * as to from '../src/to';
 
 // compose vs pipe
 
-describe("@zodash/decorator to", () => {
+describe('@zodash/decorator to', () => {
   it('number', () => {
     class Controller {
       ctx = {
@@ -25,7 +25,7 @@ describe("@zodash/decorator to", () => {
       // @to.number()
       // public age2;
     }
-    
+
     const c = new Controller();
 
     expect(c.age).toEqual(10);
@@ -73,7 +73,7 @@ describe("@zodash/decorator to", () => {
         return this.ctx.query.isActive3;
       }
     }
-    
+
     const c = new Controller();
 
     expect(c.isActive).toEqual(false);

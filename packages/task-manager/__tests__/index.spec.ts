@@ -5,11 +5,11 @@ import { delay } from '@zcorky/delay';
 //  will error: This usually means that there are asynchronous operations that weren't stopped in your tests. Consider running Jest with `--detectOpenHandles` to troubleshoot this issue.
 global.setImmediate = undefined;
 
-describe("@zodash/task-queue", () => {
+describe('@zodash/task-queue', () => {
   it('works', (done) => {
     const results = [];
     const taskManager = new TaskManager();
-    
+
     taskManager.start();
 
     taskManager.add('task1', null, async () => {

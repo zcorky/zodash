@@ -31,7 +31,7 @@ describe('sha512', () => {
       }
     ).toString();
 
-      expect(encrypted).toEqual(_encrypted);
+    expect(encrypted).toEqual(_encrypted);
   });
 
   it('aes-128-cbc', () => {
@@ -50,7 +50,7 @@ describe('sha512', () => {
       }
     ).toString();
 
-      expect(encrypted).toEqual(_encrypted);
+    expect(encrypted).toEqual(_encrypted);
   });
 
   it('aes-192-cbc', () => {
@@ -69,7 +69,7 @@ describe('sha512', () => {
       }
     ).toString();
 
-      expect(encrypted).toEqual(_encrypted);
+    expect(encrypted).toEqual(_encrypted);
   });
 
   it('aes-256-cbc', () => {
@@ -89,7 +89,7 @@ describe('sha512', () => {
       }
     ).toString();
 
-      expect(encrypted).toEqual(_encrypted);
+    expect(encrypted).toEqual(_encrypted);
   });
 
   it('aes-128/192/256-cfb', () => {
@@ -355,7 +355,7 @@ describe('sha512', () => {
     aes192ofb();
     aes256ofb();
   });
-})
+});
 
 describe('aes => crypto-js.aes', () => {
   const data = JSON.stringify({ id: 'c01', username: 'zero' });

@@ -1,7 +1,5 @@
 import { compress } from './core';
 
-export {
-  compress,
-};
+export { compress };
 
 export default compress;

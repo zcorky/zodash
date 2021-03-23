@@ -1,6 +1,6 @@
 /**
  * 数据结构 - 队列的实现
- * 
+ *
  * Referer: https://medium.com/@_jmoller/javascript-data-structures-stacks-and-queues-ea877d72a5f9
  */
 

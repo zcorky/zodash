@@ -22,7 +22,7 @@ export class ZPromise<T> implements IZPromise<T> {
   private event = new Event();
 
   public static resolve<T>(value?: T) {
-    return new ZPromise(resolve => {
+    return new ZPromise((resolve) => {
       setTimeout(() => resolve(value), 0);
     });
   }
@@ -41,12 +41,12 @@ export class ZPromise<T> implements IZPromise<T> {
     this.status = Status.FULLFILLED;
 
     const resolvers = this.event.listeners['resolve'];
-    
+
     resolvers.reduce((res, next) => {
       // only REJECTED status will break resolve, FULLFILLED wonot
       if (this.status === Status.REJECTED) {
         // @TODO should break
-        return ;
+        return;
       }
 
       try {
@@ -55,7 +55,7 @@ export class ZPromise<T> implements IZPromise<T> {
         return this.reject(error);
       }
     }, value);
-  }
+  };
 
   private reject = (error: any) => {
     this.status = Status.REJECTED;
@@ -63,7 +63,7 @@ export class ZPromise<T> implements IZPromise<T> {
     // const rejecters = this.event.listeners['reject'];
 
     this.event.emit('reject', error);
-  }
+  };
 
   public then(resolver: Resolver) {
     this.event.on('resolve', resolver);

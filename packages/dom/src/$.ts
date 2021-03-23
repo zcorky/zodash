@@ -6,4 +6,4 @@ export const $: I$S = (selector: El) => {
   }
 
   return selector;
-}
+};

@@ -1,4 +1,3 @@
-
 import {
   IImage2CanvasOptions,
   //
@@ -13,7 +12,10 @@ export interface ICompressOptions extends IImage2CanvasOptions {
   mimeType?: string;
 }
 
-export async function compress(imageFile, options: ICompressOptions = {} as ICompressOptions) {
+export async function compress(
+  imageFile,
+  options: ICompressOptions = {} as ICompressOptions
+) {
   // not image file
   if (!/image\//.test(imageFile.type)) {
     return imageFile;

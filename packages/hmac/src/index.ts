@@ -1,19 +1,31 @@
 import { createHmac } from 'crypto';
 
-export type Algorithm = 'md5' | 'sha1' | 'sha224' | 'sha256' | 'sha384' | 'sha512' | 'sha3';
+export type Algorithm =
+  | 'md5'
+  | 'sha1'
+  | 'sha224'
+  | 'sha256'
+  | 'sha384'
+  | 'sha512'
+  | 'sha3';
 
 export type Encoding = 'base64' | 'hex';
 
 /**
  * Hmac Enrypt Method
- * 
+ *
  * @param algorithm algorithm
  * @param text the text will be encrypt
  * @param key secret key
  * @param encoding output encoding, default: hex
  */
-export function encrypt(algorithm: Algorithm, text: string, key: string, encoding: Encoding = 'hex') {
-  return createHmac(algorithm, key).update(text).digest(encoding);;
+export function encrypt(
+  algorithm: Algorithm,
+  text: string,
+  key: string,
+  encoding: Encoding = 'hex'
+) {
+  return createHmac(algorithm, key).update(text).digest(encoding);
 }
 
 // export function decrypt(algorithm: Algorithm, text: string, key: string, encoding: Encoding = 'base64') {
@@ -22,7 +34,7 @@ export function encrypt(algorithm: Algorithm, text: string, key: string, encodin
 
 /**
  * HmacMd5
- * 
+ *
  * @param text the text will be encrypt
  * @param secret secret
  * @param encoding output encoding, default: hex
@@ -33,7 +45,7 @@ export function hmacMD5(text: string, secret: string, encoding?: Encoding) {
 
 /**
  * HmacSHA1
- * 
+ *
  * @param text the text will be encrypt
  * @param secret secret
  * @param encoding output encoding, default: hex
@@ -44,7 +56,7 @@ export function hmacSHA1(text: string, secret: string, encoding?: Encoding) {
 
 /**
  * HmacSHA224
- * 
+ *
  * @param text the text will be encrypt
  * @param secret secret
  * @param encoding output encoding, default: hex
@@ -55,7 +67,7 @@ export function hmacSHA224(text: string, secret: string, encoding?: Encoding) {
 
 /**
  * HmacSHA256
- * 
+ *
  * @param text the text will be encrypt
  * @param secret secret
  * @param encoding output encoding, default: hex
@@ -66,7 +78,7 @@ export function hmacSHA256(text: string, secret: string, encoding?: Encoding) {
 
 /**
  * HmacSHA384
- * 
+ *
  * @param text the text will be encrypt
  * @param secret secret
  * @param encoding output encoding, default: hex
@@ -77,7 +89,7 @@ export function hmacSHA384(text: string, secret: string, encoding?: Encoding) {
 
 /**
  * HmacSHA512
- * 
+ *
  * @param text the text will be encrypt
  * @param secret secret
  * @param encoding output encoding, default: hex
@@ -88,7 +100,7 @@ export function hmacSHA512(text: string, secret: string, encoding?: Encoding) {
 
 // /**
 //  * HmacSHA3
-//  * 
+//  *
 //  * @param text the text will be encrypt
 //  * @param secret secret
 //  * @param encoding output encoding, default: hex

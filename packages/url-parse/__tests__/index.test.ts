@@ -90,7 +90,6 @@ describe('@zodash/url-parse', () => {
     expect(parseUrl(data.input)).toEqual(data.expected);
   });
 
-
   it('no auth', () => {
     const data = {
       input: 'http://host.com:8080/path/to/file?query=string#hash',

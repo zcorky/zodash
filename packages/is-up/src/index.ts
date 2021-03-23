@@ -4,22 +4,22 @@ import tcp from './tcp';
 export type IHTTPOptions = {
   type: 'http';
   url: string;
-}
+};
 
 export type ITCPOptions = {
   type: 'tcp';
   host: string;
   port: number;
-}
+};
 
-export type IOptions =  {
+export type IOptions = {
   timeout?: number;
 } & (IHTTPOptions | ITCPOptions);
 
 export async function isUp(options: string | IOptions) {
   // http
   if (typeof options === 'string') {
-    return http(options)
+    return http(options);
   }
 
   // http

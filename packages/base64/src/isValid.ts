@@ -3,4 +3,4 @@ export const isValid = (src: any) => {
   if (typeof src !== 'string') return false;
   const s = src.replace(/\s+/g, '').replace(/=+$/, '');
   return !/[^\s0-9a-zA-Z\+/]/.test(s) || !/[^\s0-9a-zA-Z\-_]/.test(s);
-}
+};

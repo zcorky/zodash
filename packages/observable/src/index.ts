@@ -5,7 +5,7 @@ let currentObserver: Function;
 
 /**
  * Make Data Observerable
- * 
+ *
  * @param object orignal data
  */
 export function observerable<T extends object>(object: T): T {
@@ -39,8 +39,8 @@ export function observerable<T extends object>(object: T): T {
 
 /**
  * Make Observer which using observerable data
- *  run observer to get dependencies 
- * 
+ *  run observer to get dependencies
+ *
  * @param observer observer function
  */
 export function observe(observer: Function) {

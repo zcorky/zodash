@@ -5,13 +5,13 @@ async function copyClipboardApi(text: string) {
     throw new Error('The request is not allowed');
   }
 
-  return navigator.clipboard.writeText(text)
+  return navigator.clipboard.writeText(text);
 }
 
 async function copyExecCommand(text: string) {
   const textArea = window.document.createElement('textarea');
   textArea.value = text;
-  
+
   // Avoid scrolling to bottom
   textArea.style.top = '0';
   textArea.style.left = '0';
@@ -41,10 +41,10 @@ export async function copyToClipboard(text: string): Promise<void> {
   }
 
   try {
-    return await copyClipboardApi(text)
+    return await copyClipboardApi(text);
   } catch (error) {
     throw new Error('Copy Failed');
-  }  
+  }
 }
 
 export default copyClipboardApi;

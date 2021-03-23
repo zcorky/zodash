@@ -2,8 +2,8 @@ export type Value<T> = T;
 
 export type Iterator<T> = () => Value<T>;
 
-export function iteratee<T>(data: Record<string, T>): Iterator<T>
-export function iteratee<T>(data: T[]): Iterator<T>
+export function iteratee<T>(data: Record<string, T>): Iterator<T>;
+export function iteratee<T>(data: T[]): Iterator<T>;
 export function iteratee(data: any): Iterator<any> {
   let key: number | string;
   let i: number = 0;

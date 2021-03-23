@@ -41,7 +41,11 @@ export function create(type: RouteType, routes: Routes, options?: Options) {
 export class RoutesBuilder {
   private cache: RoutesCache;
 
-  constructor(public readonly type: RouteType, public readonly routes: Routes, public readonly options?: Options) {
+  constructor(
+    public readonly type: RouteType,
+    public readonly routes: Routes,
+    public readonly options?: Options
+  ) {
     this.cache = create(type, routes, options);
   }
 

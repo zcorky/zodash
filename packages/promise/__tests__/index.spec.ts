@@ -2,10 +2,9 @@ import { delay } from '@zodash/delay';
 
 import ZPromise from '../src/promise';
 
-
 // compose vs pipe
 
-describe("@zodash/promise", () => {
+describe('@zodash/promise', () => {
   it('works', async () => {
     let data = 0;
 
@@ -16,13 +15,13 @@ describe("@zodash/promise", () => {
       }, 10);
     });
     promise
-      .then(value => {
+      .then((value) => {
         expect(data).toEqual(1);
         expect(value).toEqual(1);
       })
       .then(() => {
         console.log('done');
-      
+
         throw new Error('throwerror');
       })
       .catch((error) => {
@@ -39,7 +38,7 @@ describe("@zodash/promise", () => {
 
     const promise = ZPromise.resolve(-1);
     promise
-      .then(value => {
+      .then((value) => {
         expect(data).toEqual(0);
         expect(value).toEqual(-1);
 
@@ -47,7 +46,7 @@ describe("@zodash/promise", () => {
       })
       .then(() => {
         console.log('done');
-      
+
         throw new Error('throwerror');
       })
       .catch(async (error) => {
@@ -66,7 +65,7 @@ describe("@zodash/promise", () => {
 
     const promise = ZPromise.reject(new Error('Promise.reject'));
     promise
-      .then(value => {
+      .then((value) => {
         expect(data).toEqual(0);
         expect(value).toEqual(-1);
 
@@ -74,7 +73,7 @@ describe("@zodash/promise", () => {
       })
       .then(() => {
         console.log('done');
-      
+
         throw new Error('throwerror');
       })
       .catch((error) => {

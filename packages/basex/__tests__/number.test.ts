@@ -49,18 +49,38 @@ describe('@zodash/basex', () => {
   });
 
   it('basex(13)', () => {
-    expect(num.basex('0123456789abc', 10)).toBe(parseInt('' + 10, 10).toString(13));
-    expect(num.basex('0123456789abc', 13)).toBe(parseInt('' + 13, 10).toString(13));
-    expect(num.basex('0123456789abc', 99)).toBe(parseInt('' + 99, 10).toString(13));
-    expect(num.basex('0123456789abc', 1024)).toBe(parseInt('' + 1024, 10).toString(13));
-    expect(num.basex('0123456789abc', 65535)).toBe(parseInt('' + 65535, 10).toString(13));
+    expect(num.basex('0123456789abc', 10)).toBe(
+      parseInt('' + 10, 10).toString(13)
+    );
+    expect(num.basex('0123456789abc', 13)).toBe(
+      parseInt('' + 13, 10).toString(13)
+    );
+    expect(num.basex('0123456789abc', 99)).toBe(
+      parseInt('' + 99, 10).toString(13)
+    );
+    expect(num.basex('0123456789abc', 1024)).toBe(
+      parseInt('' + 1024, 10).toString(13)
+    );
+    expect(num.basex('0123456789abc', 65535)).toBe(
+      parseInt('' + 65535, 10).toString(13)
+    );
   });
 
   it('basex', () => {
-    expect(typeof num.basex(['文明', '民主', '和谐', '友善'], 10)).toBe('string');
-    expect(typeof num.basex(['文明', '民主', '和谐', '友善'], 13)).toBe('string');
-    expect(typeof num.basex(['文明', '民主', '和谐', '友善'], 99)).toBe('string');
-    expect(typeof num.basex(['文明', '民主', '和谐', '友善'], 1024)).toBe('string');
-    expect(typeof num.basex(['文明', '民主', '和谐', '友善'], 65535)).toBe('string');
+    expect(typeof num.basex(['文明', '民主', '和谐', '友善'], 10)).toBe(
+      'string'
+    );
+    expect(typeof num.basex(['文明', '民主', '和谐', '友善'], 13)).toBe(
+      'string'
+    );
+    expect(typeof num.basex(['文明', '民主', '和谐', '友善'], 99)).toBe(
+      'string'
+    );
+    expect(typeof num.basex(['文明', '民主', '和谐', '友善'], 1024)).toBe(
+      'string'
+    );
+    expect(typeof num.basex(['文明', '民主', '和谐', '友善'], 65535)).toBe(
+      'string'
+    );
   });
 });

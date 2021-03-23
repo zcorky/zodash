@@ -24,8 +24,8 @@ export class ApiError extends CoreError implements IApiError {
   public body: Pick<IOptions, 'code' | 'message'>;
   public response?: Response;
 
-  constructor(code: number, message: string | null)
-  constructor(status: number, options: IOptions)
+  constructor(code: number, message: string | null);
+  constructor(status: number, options: IOptions);
   constructor(status: any, options: any = {}) {
     const isCodeMessage = typeof options === 'string' || options === null;
 
@@ -43,7 +43,7 @@ export class ApiError extends CoreError implements IApiError {
     } else {
       const message = options?.message ?? 'Unknown Error';
 
-      this.status = isCodeMessage ? 200 : (status || 500);
+      this.status = isCodeMessage ? 200 : status || 500;
       this.code = options.code || this.status;
       this.message = message;
 

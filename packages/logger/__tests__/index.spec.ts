@@ -1,6 +1,6 @@
 import { getLogger } from '../src/logger';
 
-describe("@zodash/logger", () => {
+describe('@zodash/logger', () => {
   it('works', (done) => {
     const logger = getLogger('module');
     const levels = [];
@@ -10,7 +10,7 @@ describe("@zodash/logger", () => {
       levels.push(ctx.input.level);
       await next();
     });
-    
+
     logger.log(`logger.log call`);
     logger.info(`logger.info call`);
     logger.warn(`logger.warn call`);
@@ -32,7 +32,7 @@ describe("@zodash/logger", () => {
       levels.push(ctx.input.level);
       await next();
     });
-    
+
     logger.log(`%s format call`, 'logger.log');
     logger.info(`%s format call`, 'logger.info');
     logger.warn(`%s format call`, 'logger.warn');
@@ -45,7 +45,7 @@ describe("@zodash/logger", () => {
     }, 0);
   });
 
-  it('console format', done => {
+  it('console format', (done) => {
     const logger = getLogger('module');
     const levels = [];
     logger.use(async (ctx, next) => {
@@ -54,12 +54,12 @@ describe("@zodash/logger", () => {
       levels.push(ctx.input.level);
       await next();
     });
-    
-    logger.log('logger.log', `format call`, );
+
+    logger.log('logger.log', `format call`);
     logger.info('logger.info', `format call`);
     logger.warn('logger.warn', `format call`);
     logger.debug('logger.debug', `format call`);
-    logger.error('logger.error', `format call`, );
+    logger.error('logger.error', `format call`);
 
     setTimeout(() => {
       expect(levels).toEqual(['log', 'info', 'warn', 'debug', 'error']);
@@ -67,7 +67,7 @@ describe("@zodash/logger", () => {
     }, 0);
   });
 
-  it('support object in dev', done => {
+  it('support object in dev', (done) => {
     const logger = getLogger('module');
     const levels = [];
     logger.use(async (ctx, next) => {
@@ -76,12 +76,12 @@ describe("@zodash/logger", () => {
       levels.push(ctx.input.level);
       await next();
     });
-    
-    logger.log('logger.log', [{ x: 1, y() {}, }], );
-    logger.info('logger.info', [{ x: 1, y() {}, }]);
-    logger.warn('logger.warn', [{ x: 1, y() {}, }]);
-    logger.debug('logger.debug', [{ x: 1, y() {}, }]);
-    logger.error('logger.error', [{ x: 1, y() {}, }], );
+
+    logger.log('logger.log', [{ x: 1, y() {} }]);
+    logger.info('logger.info', [{ x: 1, y() {} }]);
+    logger.warn('logger.warn', [{ x: 1, y() {} }]);
+    logger.debug('logger.debug', [{ x: 1, y() {} }]);
+    logger.error('logger.error', [{ x: 1, y() {} }]);
 
     setTimeout(() => {
       expect(levels).toEqual(['log', 'info', 'warn', 'debug', 'error']);

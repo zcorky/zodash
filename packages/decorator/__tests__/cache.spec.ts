@@ -11,7 +11,7 @@ async function fetchUser(token: string) {
   }
 }
 
-describe("@zodash/decorator => cache", () => {
+describe('@zodash/decorator => cache', () => {
   it('cache(key: string, maxAge: number)', async () => {
     class Service {
       ctx = {
@@ -23,7 +23,7 @@ describe("@zodash/decorator => cache", () => {
         return fetchUser(this.ctx.token);
       }
     }
-    
+
     const s = new Service();
 
     const user1 = await s.getUser();
@@ -39,13 +39,12 @@ describe("@zodash/decorator => cache", () => {
 
   it('cache(maxAge: number)', async () => {
     class Service {
-  
       @c.cache(50)
       public async getUser(token: string) {
         return fetchUser(token);
       }
     }
-    
+
     const s = new Service();
 
     const token = 'zero_token';
@@ -73,7 +72,7 @@ describe("@zodash/decorator => cache", () => {
         return fetchUser(this.ctx.token);
       }
     }
-    
+
     const s = new Service();
 
     const user1 = await s.getUser();

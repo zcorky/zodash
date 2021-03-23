@@ -14,7 +14,7 @@ describe('event', () => {
     eventPoll.on(eventName, (v) => {
       datahub.push(v);
     });
-    
+
     expect(datahub).toEqual([]);
 
     eventPoll.emit(eventName, 1);
@@ -35,7 +35,7 @@ describe('event', () => {
     eventPoll.once(eventName, (v) => {
       datahub.push(v);
     });
-    
+
     expect(datahub).toEqual([]);
 
     eventPoll.emit(eventName, 1);
@@ -56,7 +56,7 @@ describe('event', () => {
     expect(datahub).toEqual([]);
 
     eventPoll.on(eventName, listenr);
-    
+
     expect(datahub).toEqual([]);
 
     eventPoll.emit(eventName, 1);
@@ -76,7 +76,7 @@ describe('event', () => {
     eventPoll.addListener(eventName, (v) => {
       datahub.push(v);
     });
-    
+
     expect(datahub).toEqual([]);
 
     eventPoll.emit(eventName, 1);
@@ -97,7 +97,7 @@ describe('event', () => {
     expect(datahub).toEqual([]);
 
     eventPoll.addListener(eventName, listenr);
-    
+
     expect(datahub).toEqual([]);
 
     eventPoll.emit(eventName, 1);
@@ -125,7 +125,7 @@ describe('event', () => {
     eventPoll.on(anotherEvent, () => {
       count += 1;
     });
-    
+
     expect(datahub).toEqual([]);
 
     eventPoll.emit(anotherEvent, 1);

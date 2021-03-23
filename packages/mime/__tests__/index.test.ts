@@ -15,19 +15,19 @@ describe('@zodash/mime', () => {
   //   { ext: 'js', mime: 'application/javascript' },
   // ];
 
-  const data = map(MAP_MIME_EXTS, item => ({
+  const data = map(MAP_MIME_EXTS, (item) => ({
     ext: item[1][0],
     mime: item[0],
-  }))
+  }));
 
   it('ext => mime', () => {
-    each(data, item => {
+    each(data, (item) => {
       expect(mime(item.ext)).toEqual(item.mime);
     });
   });
 
   it('mime => ext', () => {
-    each(data, item => {
+    each(data, (item) => {
       expect(mime(item.mime)).toEqual(item.ext);
     });
   });

@@ -32,5 +32,4 @@ describe('@zodash/order-by', () => {
 
     expect(orderBy(dataSource, orders)).toEqual(expected);
   });
-
 });

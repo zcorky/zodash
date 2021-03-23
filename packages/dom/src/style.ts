@@ -7,16 +7,21 @@ import { $ } from './$';
  * @param {string} name
  * @param {number | string} value
  */
-export function setStyle<K extends keyof CSSStyleDeclaration>($element: El, name: K, value: CSSStyleDeclaration[K]) {
+export function setStyle<K extends keyof CSSStyleDeclaration>(
+  $element: El,
+  name: K,
+  value: CSSStyleDeclaration[K]
+) {
   const $node = $($element) as HTMLElement;
 
-  const rValue: any = name === 'zIndex'
-    ? value
-    : typeof value === 'number'
+  const rValue: any =
+    name === 'zIndex'
+      ? value
+      : typeof value === 'number'
       ? `${value}px`
       : value;
 
-  if (($node.style[name]) === rValue) return false;
+  if ($node.style[name] === rValue) return false;
 
   $node.style[name] = rValue; // eslint-disable-line
 }
@@ -27,8 +32,7 @@ export function setStyle<K extends keyof CSSStyleDeclaration>($element: El, name
  * @param styles batch styles
  */
 export function setStyles($element: El, styles: Partial<CSSStyleDeclaration>) {
-  Object.keys(styles)
-    .forEach((key: any) => {
-      setStyle($element, key, styles[key]);
-    });
+  Object.keys(styles).forEach((key: any) => {
+    setStyle($element, key, styles[key]);
+  });
 }

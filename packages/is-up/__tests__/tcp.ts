@@ -15,4 +15,4 @@ describe('is-up', () => {
     // console.log('fuck:', await isUp('https://www.baidu.com'));
     expect(await isUp('66.66.66.66', 80, 1)).toBeFalsy();
   });
-})
+});

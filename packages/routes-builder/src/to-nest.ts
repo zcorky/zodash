@@ -9,11 +9,11 @@ function flatChildren(treeNode: TreeRoute): FlatRoutes | undefined {
   if (!treeNode.children) return [];
 
   return Object.keys(treeNode.children)
-    .map(path => {
+    .map((path) => {
       const node = treeNode.children![path];
 
       if (!node.path) {
-        return undefined as any;      
+        return undefined as any;
       }
 
       const flattenNode = {
@@ -23,14 +23,14 @@ function flatChildren(treeNode: TreeRoute): FlatRoutes | undefined {
 
       return flattenNode;
     })
-    .filter(e => !!e);
+    .filter((e) => !!e);
 }
 
 /**
  * route nest
  * @param routes flat routes
  * @returns nest routes
- * 
+ *
  * @example
  *  input:
  *    [
@@ -55,7 +55,7 @@ function flatChildren(treeNode: TreeRoute): FlatRoutes | undefined {
 export function toNest(routes: FlatRoutes, options?: NestOptions): NestRoutes {
   const treeRoute = toTree(routes);
 
-  const basePath = options && options.basePath || '/';
+  const basePath = (options && options.basePath) || '/';
 
   const basePaths = basePath.split('/').slice(1);
 
@@ -78,8 +78,11 @@ export function toNest(routes: FlatRoutes, options?: NestOptions): NestRoutes {
   return flatChildren(_treeRoute);
 }
 
-export function traverseNest(routes: NestRoutes = [], callback: (route: Route) => void) {
-  routes.map(route => {
+export function traverseNest(
+  routes: NestRoutes = [],
+  callback: (route: Route) => void
+) {
+  routes.map((route) => {
     callback(route);
 
     traverseNest(route.children, callback);

@@ -4,7 +4,7 @@ export type Next = () => Promise<void>;
 
 /**
  * Compose function
- * 
+ *
  * @param middlewares componse functions
  */
 export function compose<C>(...middlewares: Middleware<C>[]) {

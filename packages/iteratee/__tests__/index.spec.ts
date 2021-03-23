@@ -24,8 +24,7 @@ describe('iteratee', () => {
     expect(iterator()).toEqual('eason');
     expect(iterator()).toEqual('cole');
     expect(iterator()).toEqual(undefined);
-  }
- );
+  });
 
   it('object complex', () => {
     const iterator = iteratee({

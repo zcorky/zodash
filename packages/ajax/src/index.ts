@@ -37,7 +37,7 @@ export function ajax(options: Options): XMLHttpRequest {
 
   const xhr = new XMLHttpRequest();
   xhr.onreadystatechange = () => {
-    if (xhr.readyState !== 4) return ;
+    if (xhr.readyState !== 4) return;
 
     clearTimeout(abortTimeout);
     let result;
@@ -45,7 +45,7 @@ export function ajax(options: Options): XMLHttpRequest {
     const status = xhr.status;
     if ((status >= 200 && status < 300) || status === 304) {
       result = xhr.responseText;
-      
+
       if (dataType === 'xml') {
         result = xhr.responseXML;
       }
@@ -67,8 +67,11 @@ export function ajax(options: Options): XMLHttpRequest {
   if (type === 'GET') {
     data = stringify(data);
     url += url.indexOf('?') > -1 ? `&${data}` : `?${data}`;
-  } else if (contentType === 'application/x-www-form-urlencoded' && isObject(data)) {
-    data = stringify(data as any as {});
+  } else if (
+    contentType === 'application/x-www-form-urlencoded' &&
+    isObject(data)
+  ) {
+    data = stringify((data as any) as {});
   } else if (contentType === 'application/json' && isObject(data)) {
     data = JSON.stringify(data);
   }
@@ -85,14 +88,28 @@ export function ajax(options: Options): XMLHttpRequest {
     }, timeout);
   }
 
-  xhr.send(type === 'GET' ? null : data as any as string);
+  xhr.send(type === 'GET' ? null : ((data as any) as string));
 
   return xhr;
 }
 
-export function get<T = any>(url: string, success: (data: T) => void, dataType?: string): XMLHttpRequest;
-export function get<T = any>(url: string, data: string | Record<string, string> | null, success: (data: T) => void, dataType?: string): XMLHttpRequest
-export function get(url: any, data: any, success: any, dataType?: any): XMLHttpRequest {
+export function get<T = any>(
+  url: string,
+  success: (data: T) => void,
+  dataType?: string
+): XMLHttpRequest;
+export function get<T = any>(
+  url: string,
+  data: string | Record<string, string> | null,
+  success: (data: T) => void,
+  dataType?: string
+): XMLHttpRequest;
+export function get(
+  url: any,
+  data: any,
+  success: any,
+  dataType?: any
+): XMLHttpRequest {
   if (isFunc(data)) {
     return ajax({
       url,
@@ -110,9 +127,23 @@ export function get(url: any, data: any, success: any, dataType?: any): XMLHttpR
   });
 }
 
-export function post<T = any>(url: string, success: (data: T) => void, dataType?: string): XMLHttpRequest;
-export function post<T = any>(url: string, data: string | Record<string, string> | null, success: (data: T) => void, dataType?: string): XMLHttpRequest;
-export function post(url: any, data: any, success: any, dataType?: any): XMLHttpRequest {
+export function post<T = any>(
+  url: string,
+  success: (data: T) => void,
+  dataType?: string
+): XMLHttpRequest;
+export function post<T = any>(
+  url: string,
+  data: string | Record<string, string> | null,
+  success: (data: T) => void,
+  dataType?: string
+): XMLHttpRequest;
+export function post(
+  url: any,
+  data: any,
+  success: any,
+  dataType?: any
+): XMLHttpRequest {
   if (isFunc(data)) {
     return ajax({
       type: 'POST',

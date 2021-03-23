@@ -27,7 +27,11 @@ type IProvider = keyof typeof providers;
 
 export function createClientByProvider(type: IProvider, user: IProviderUser) {
   if (!providers.hasOwnProperty(type)) {
-    throw new Error(`Unsupport mail provider: ${type}, only support ${Object.keys(providers).join(',')}`);
+    throw new Error(
+      `Unsupport mail provider: ${type}, only support ${Object.keys(
+        providers
+      ).join(',')}`
+    );
   }
 
   return providers[type].createClient(user);

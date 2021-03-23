@@ -3,7 +3,7 @@ export function flat<T>(value: T[], maxDeepth = 1) {
     if (currentDepth >= maxDeepth) {
       return value;
     }
-    
+
     let t: T[] = [];
     for (const element of value) {
       t = Array.isArray(element)

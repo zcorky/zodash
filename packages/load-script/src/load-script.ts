@@ -9,7 +9,7 @@ export interface IOptions {
 
 /**
  * dynamic load script
- * 
+ *
  * @param path script path
  */
 export function loadScript(path: string, options?: IOptions) {
@@ -36,7 +36,7 @@ export function loadScript(path: string, options?: IOptions) {
 
 /**
  * dynamic load script using ajax
- * 
+ *
  * @param path script path
  */
 export function usingAjax(path: string, options?: IOptions) {
@@ -49,7 +49,7 @@ export function usingAjax(path: string, options?: IOptions) {
 
     const xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
-      if (xhr.readyState === 4){
+      if (xhr.readyState === 4) {
         const script = document.createElement('script');
         script.innerText = xhr.responseText;
         script.onerror = reject;
@@ -73,7 +73,7 @@ export function usingAjax(path: string, options?: IOptions) {
 
 /**
  * dynamic load script using fetch
- * 
+ *
  * @param path script path
  */
 export function usingFetch(path: string, options?: IOptions) {
@@ -85,8 +85,8 @@ export function usingFetch(path: string, options?: IOptions) {
     }
 
     return fetch(path)
-      .then(res => res.text())
-      .then(scriptText => {
+      .then((res) => res.text())
+      .then((scriptText) => {
         const script = document.createElement('script');
         script.innerText = scriptText;
         script.onerror = reject;

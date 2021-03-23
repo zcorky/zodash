@@ -4,12 +4,16 @@ import { undefined as isUndef, array as isArray } from '@zcorky/is';
 /**
  * Get the value at path of object.
  * If the resolved values is undefined, the defaultValue is returnted in its place.
- * 
+ *
  * @param value The object to query.
  * @param path The path of the property to get.
  * @param defaultValue The value returned for undefined resolved values.
  */
-export function get<T extends object, D = any>(value: T, path: string, defaultValue: D = undefined): D {
+export function get<T extends object, D = any>(
+  value: T,
+  path: string,
+  defaultValue: D = undefined
+): D {
   // return toPath(path)
   //   .reduce((p, k) => {
   //     if (p && typeof p[k] !== 'undefined') {
@@ -19,11 +23,15 @@ export function get<T extends object, D = any>(value: T, path: string, defaultVa
   //     return defaultValue;
   //   }, value);
   const _v = getValue(value, toPath(path));
-  
-  return !isUndef(_v) ? _v : defaultValue; 
+
+  return !isUndef(_v) ? _v : defaultValue;
 }
 
-export function getValue(parent: object | object[], paths: string[], currentIndex: number = 0) {
+export function getValue(
+  parent: object | object[],
+  paths: string[],
+  currentIndex: number = 0
+) {
   if (isUndef(parent)) return undefined;
 
   const token = paths[currentIndex];
@@ -37,7 +45,7 @@ export function getValue(parent: object | object[], paths: string[], currentInde
 
     return getValue(parent[token], paths, currentIndex + 1);
   }
-  
+
   // array
   if (!isArray(parent)) {
     return undefined;

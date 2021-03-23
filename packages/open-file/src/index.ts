@@ -8,7 +8,7 @@ export interface IOptions {
    *  text/markdown
    *  application/json
    *  ...
-   * 
+   *
    *  see more according @zodash/mime
    */
   accept?: string;
@@ -25,12 +25,12 @@ export interface IOptions {
 }
 
 /**
- * 
+ *
  * @param options Open file dialog to select file in browser
- * @returns 
+ * @returns
  */
 export function openFile(options?: IOptions) {
-  return new Promise<FileList>(resolve => {
+  return new Promise<FileList>((resolve) => {
     const input = document.createElement('input');
     //
     input.style.position = 'fixed';
@@ -58,7 +58,7 @@ export function openFile(options?: IOptions) {
       clean();
 
       resolve(input.files);
-    };
+    }
 
     function mount() {
       document.body.appendChild(input);
@@ -69,7 +69,7 @@ export function openFile(options?: IOptions) {
       input.removeEventListener('change', onChange);
       document.body.removeChild(input);
     }
-    
+
     function open() {
       mount();
 

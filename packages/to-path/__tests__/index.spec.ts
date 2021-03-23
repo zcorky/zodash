@@ -1,6 +1,6 @@
 import { toPath } from '../src/to-path';
 
-describe("@zodash/unique", () => {
+describe('@zodash/unique', () => {
   it('a.b.c => [a, b, c]', () => {
     expect(toPath('a.b.c')).toEqual(['a', 'b', 'c']);
   });

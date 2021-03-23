@@ -4,11 +4,15 @@ import { $ } from './$';
 import { on, off } from './event';
 import { El, Listener, Unsubscibe, Position } from './types';
 
-export function onScrollToTop($element: El, cb: Listener, threshold?: number): Unsubscibe {
+export function onScrollToTop(
+  $element: El,
+  cb: Listener,
+  threshold?: number
+): Unsubscibe {
   const $el = $($element);
-  
+
   const callback = debounce((e) => {
-    const scrollTop = $el?.scrollTop || ($el as any as Window).scrollY;
+    const scrollTop = $el?.scrollTop || (($el as any) as Window).scrollY;
 
     if (scrollTop < threshold) {
       cb(e);
@@ -16,15 +20,19 @@ export function onScrollToTop($element: El, cb: Listener, threshold?: number): U
   }, 250);
 
   on($el, 'scroll', callback);
-  
+
   return () => {
     if ($el) return;
-    
+
     off($el, 'scroll', callback);
   };
 }
 
-export function onScrollToBottom($element: El, cb: Listener, threshold?: number): Unsubscibe {
+export function onScrollToBottom(
+  $element: El,
+  cb: Listener,
+  threshold?: number
+): Unsubscibe {
   const $el = $($element);
 
   const callback = debounce((e) => {
@@ -40,32 +48,33 @@ export function onScrollToBottom($element: El, cb: Listener, threshold?: number)
 
   return () => {
     if ($el) return;
-    
+
     off($el, 'scroll', callback);
   };
 }
 
-
 export function scrollToTop($element: El, animated?: boolean): void {
   const $el = $($element);
-  
+
   setTimeout(() => {
-    $el && $el.scrollTo({
-      top: 0,
-      behavior: animated ? 'smooth' : undefined,
-    });
+    $el &&
+      $el.scrollTo({
+        top: 0,
+        behavior: animated ? 'smooth' : undefined,
+      });
   }, 0);
 }
 
 export function scrollToBottom($element: El, animated?: boolean): void {
   const $el = $($element);
   const scrollHeight = $el?.scrollHeight;
-  
+
   setTimeout(() => {
-    $el && $el.scrollTo({
-      top: scrollHeight,
-      behavior: animated ? 'smooth' : undefined,
-    });
+    $el &&
+      $el.scrollTo({
+        top: scrollHeight,
+        behavior: animated ? 'smooth' : undefined,
+      });
   }, 0);
 }
 

@@ -1,5 +1,8 @@
-export function memoize<T extends any[], R>(fn: (...args: T) => R, resolver: (...args: T) => string) {
-  const memoized = function(...args: T): R {
+export function memoize<T extends any[], R>(
+  fn: (...args: T) => R,
+  resolver: (...args: T) => string
+) {
+  const memoized = function (...args: T): R {
     const key = resolver.apply(this, args);
     const cache = memoized.cache;
 
@@ -9,11 +12,11 @@ export function memoize<T extends any[], R>(fn: (...args: T) => R, resolver: (..
 
     const result = fn.apply(this, args);
     memoized.cache.set(key, result);
-    return memoized as any as R;
-  }
+    return (memoized as any) as R;
+  };
 
   memoized.cache = new memoize.Cache();
-  
+
   return memoized;
 }
 

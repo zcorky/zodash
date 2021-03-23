@@ -1,7 +1,11 @@
 import { deepCopy } from '@zcorky/deep-copy';
 import { TreeRoute, FlatRoutes } from './types';
 
-function createTree(parentNode: TreeRoute, paths: string[], node: TreeRoute): void {
+function createTree(
+  parentNode: TreeRoute,
+  paths: string[],
+  node: TreeRoute
+): void {
   if (!parentNode.children) {
     parentNode.children = {};
   }
@@ -15,11 +19,11 @@ function createTree(parentNode: TreeRoute, paths: string[], node: TreeRoute): vo
         ...node,
         ...parentNode.children[currentPath],
       };
-      return ;
+      return;
     }
 
     parentNode.children[currentPath] = node;
-    return ;
+    return;
   }
 
   if (!parentNode.children[currentPath]) {
@@ -33,7 +37,7 @@ function createTree(parentNode: TreeRoute, paths: string[], node: TreeRoute): vo
  * route tree
  * @param routes flatten routes
  * @returns tree route
- * 
+ *
  * @example
  *  input:
  *    [
@@ -70,15 +74,12 @@ export function toTree(routes: FlatRoutes): TreeRoute {
   };
 
   const clone = deepCopy(routes as any)! as any[];
-  
-  return clone.reduce<TreeRoute>(
-    (root, route) => {
-      const paths = route.path.split('/').slice(1);
 
-      createTree(root, paths, route);
+  return clone.reduce<TreeRoute>((root, route) => {
+    const paths = route.path.split('/').slice(1);
 
-      return root;
-    },
-    ROOT_NODE as TreeRoute,
-  );
+    createTree(root, paths, route);
+
+    return root;
+  }, ROOT_NODE as TreeRoute);
 }

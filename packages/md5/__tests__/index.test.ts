@@ -5,4 +5,4 @@ describe('md5', () => {
     const data = 'hello world';
     expect(md5(data)).toBe(require('crypto-js/md5')(data).toString());
   });
-})
+});

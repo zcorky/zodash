@@ -1,26 +1,53 @@
-import { FlatRoutes, NestRoutes, toFlat, toIndex, toTree, toNest, IndexRoutes } from '../src';
+import {
+  FlatRoutes,
+  NestRoutes,
+  toFlat,
+  toIndex,
+  toTree,
+  toNest,
+  IndexRoutes,
+} from '../src';
 
 describe('routes-builder', () => {
-  const nestRoutes: NestRoutes = [{
-    name: 'Dashboard',
-    icon: 'dashboard',
-    path: '/dashboard',
-    children: [
-      { name: '分析', path: '/dashboard/analysis', icon: 'fund', children: [] },
-      { name: '监控', path: '/dashboard/monitor', icon: 'alert', children: [] },
-      { name: '工作台', path: '/dashboard/workspace', icon: 'appstore', children: [] },
-    ],
-  }, {
-    name: '用户管理',
-    icon: 'user',
-    path: '/user',
-    children: [],
-  }, {
-    name: '应用管理',
-    icon: 'appstore',
-    path: '/application',
-    children: [],
-  }];
+  const nestRoutes: NestRoutes = [
+    {
+      name: 'Dashboard',
+      icon: 'dashboard',
+      path: '/dashboard',
+      children: [
+        {
+          name: '分析',
+          path: '/dashboard/analysis',
+          icon: 'fund',
+          children: [],
+        },
+        {
+          name: '监控',
+          path: '/dashboard/monitor',
+          icon: 'alert',
+          children: [],
+        },
+        {
+          name: '工作台',
+          path: '/dashboard/workspace',
+          icon: 'appstore',
+          children: [],
+        },
+      ],
+    },
+    {
+      name: '用户管理',
+      icon: 'user',
+      path: '/user',
+      children: [],
+    },
+    {
+      name: '应用管理',
+      icon: 'appstore',
+      path: '/application',
+      children: [],
+    },
+  ];
 
   const flatRoutes: FlatRoutes = [
     { path: '/dashboard', name: 'Dashboard', icon: 'dashboard' },
@@ -28,16 +55,32 @@ describe('routes-builder', () => {
     { path: '/dashboard/monitor', name: '监控', icon: 'alert' },
     { path: '/dashboard/workspace', name: '工作台', icon: 'appstore' },
     { path: '/user', name: '用户管理', icon: 'user' },
-    { path: '/application', name: '应用管理', icon: 'appstore' }
+    { path: '/application', name: '应用管理', icon: 'appstore' },
   ];
 
   const indexRoutes: IndexRoutes = {
     '/dashboard': { path: '/dashboard', name: 'Dashboard', icon: 'dashboard' },
-    '/dashboard/analysis': { path: '/dashboard/analysis', name: '分析', icon: 'fund' },
-    '/dashboard/monitor': { path: '/dashboard/monitor', name: '监控', icon: 'alert' },
-    '/dashboard/workspace': { path: '/dashboard/workspace', name: '工作台', icon: 'appstore' },
+    '/dashboard/analysis': {
+      path: '/dashboard/analysis',
+      name: '分析',
+      icon: 'fund',
+    },
+    '/dashboard/monitor': {
+      path: '/dashboard/monitor',
+      name: '监控',
+      icon: 'alert',
+    },
+    '/dashboard/workspace': {
+      path: '/dashboard/workspace',
+      name: '工作台',
+      icon: 'appstore',
+    },
     '/user': { path: '/user', name: '用户管理', icon: 'user' },
-    '/application': { path: '/application', name: '应用管理', icon: 'appstore' },
+    '/application': {
+      path: '/application',
+      name: '应用管理',
+      icon: 'appstore',
+    },
   };
 
   const treeRoutes = {
@@ -52,14 +95,17 @@ describe('routes-builder', () => {
         children: {
           analysis: { name: '分析', path: '/dashboard/analysis', icon: 'fund' },
           monitor: { name: '监控', path: '/dashboard/monitor', icon: 'alert' },
-          workspace: { name: '工作台', path: '/dashboard/workspace', icon: 'appstore' },
+          workspace: {
+            name: '工作台',
+            path: '/dashboard/workspace',
+            icon: 'appstore',
+          },
         },
       },
       user: { name: '用户管理', icon: 'user', path: '/user' },
       application: { name: '应用管理', icon: 'appstore', path: '/application' },
     },
   };
-
 
   it('to flat', () => {
     expect(toFlat(nestRoutes)).toEqual(flatRoutes);
@@ -88,31 +134,66 @@ describe('routes-builder without some parent, children will be ignore', () => {
     { path: '/user/notfound/b', name: '用户管理', icon: 'user' },
     { path: '/user/notfound/c/notfound/@', name: '用户管理', icon: 'user' },
     { path: '/user/notfound/c/notfound/@@', name: '用户管理', icon: 'user' },
-    { path: '/application', name: '应用管理', icon: 'appstore' }
+    { path: '/application', name: '应用管理', icon: 'appstore' },
   ];
 
-  const nestRoutes: NestRoutes = [{
-    name: '用户管理',
-    icon: 'user',
-    path: '/user',
-    children: [],
-  }, {
-    name: '应用管理',
-    icon: 'appstore',
-    path: '/application',
-    children: [],
-  }];
+  const nestRoutes: NestRoutes = [
+    {
+      name: '用户管理',
+      icon: 'user',
+      path: '/user',
+      children: [],
+    },
+    {
+      name: '应用管理',
+      icon: 'appstore',
+      path: '/application',
+      children: [],
+    },
+  ];
 
   const indexRoutes: IndexRoutes = {
-    '/dashboard/analysis': { path: '/dashboard/analysis', name: '分析', icon: 'fund' },
-    '/dashboard/monitor': { path: '/dashboard/monitor', name: '监控', icon: 'alert' },
-    '/dashboard/workspace': { path: '/dashboard/workspace', name: '工作台', icon: 'appstore' },
+    '/dashboard/analysis': {
+      path: '/dashboard/analysis',
+      name: '分析',
+      icon: 'fund',
+    },
+    '/dashboard/monitor': {
+      path: '/dashboard/monitor',
+      name: '监控',
+      icon: 'alert',
+    },
+    '/dashboard/workspace': {
+      path: '/dashboard/workspace',
+      name: '工作台',
+      icon: 'appstore',
+    },
     '/user': { path: '/user', name: '用户管理', icon: 'user' },
-    '/user/notfound/a': { path: '/user/notfound/a', name: '用户管理', icon: 'user' },
-    '/user/notfound/b': { path: '/user/notfound/b', name: '用户管理', icon: 'user' },
-    '/user/notfound/c/notfound/@': { path: '/user/notfound/c/notfound/@', name: '用户管理', icon: 'user' },
-    '/user/notfound/c/notfound/@@': { path: '/user/notfound/c/notfound/@@', name: '用户管理', icon: 'user' },
-    '/application': { path: '/application', name: '应用管理', icon: 'appstore' },
+    '/user/notfound/a': {
+      path: '/user/notfound/a',
+      name: '用户管理',
+      icon: 'user',
+    },
+    '/user/notfound/b': {
+      path: '/user/notfound/b',
+      name: '用户管理',
+      icon: 'user',
+    },
+    '/user/notfound/c/notfound/@': {
+      path: '/user/notfound/c/notfound/@',
+      name: '用户管理',
+      icon: 'user',
+    },
+    '/user/notfound/c/notfound/@@': {
+      path: '/user/notfound/c/notfound/@@',
+      name: '用户管理',
+      icon: 'user',
+    },
+    '/application': {
+      path: '/application',
+      name: '应用管理',
+      icon: 'appstore',
+    },
   };
 
   const treeRoutes = {
@@ -127,7 +208,11 @@ describe('routes-builder without some parent, children will be ignore', () => {
         children: {
           analysis: { name: '分析', path: '/dashboard/analysis', icon: 'fund' },
           monitor: { name: '监控', path: '/dashboard/monitor', icon: 'alert' },
-          workspace: { name: '工作台', path: '/dashboard/workspace', icon: 'appstore' },
+          workspace: {
+            name: '工作台',
+            path: '/dashboard/workspace',
+            icon: 'appstore',
+          },
         },
       },
       user: {
@@ -143,11 +228,19 @@ describe('routes-builder without some parent, children will be ignore', () => {
                 children: {
                   notfound: {
                     children: {
-                      '@': { path: '/user/notfound/c/notfound/@', name: '用户管理', icon: 'user' },
-                      '@@': { path: '/user/notfound/c/notfound/@@', name: '用户管理', icon: 'user' },
+                      '@': {
+                        path: '/user/notfound/c/notfound/@',
+                        name: '用户管理',
+                        icon: 'user',
+                      },
+                      '@@': {
+                        path: '/user/notfound/c/notfound/@@',
+                        name: '用户管理',
+                        icon: 'user',
+                      },
                     },
                   },
-                }
+                },
               },
             },
           },

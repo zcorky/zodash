@@ -2,7 +2,7 @@ import { compose, Middleware } from '../src/compose';
 
 // compose vs pipe
 
-describe("@zodash/compose", () => {
+describe('@zodash/compose', () => {
   it('middleware', () => {
     interface Context {
       state: any[];
@@ -32,7 +32,7 @@ describe("@zodash/compose", () => {
         return this._context;
       }
     }
-    
+
     const app = new App();
 
     const m1 = async (context: Context, next: Function) => {

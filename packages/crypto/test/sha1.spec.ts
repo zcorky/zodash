@@ -5,4 +5,4 @@ describe('sha1', () => {
     const data = 'hello world';
     expect(sha1(data)).toBe(require('crypto-js/sha1')(data).toString());
   });
-})
+});

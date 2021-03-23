@@ -1,5 +1,9 @@
 export function number() {
-  return <T>(target: any, propertyKey: PropertyKey, descriptor: TypedPropertyDescriptor<T>) => {
+  return <T>(
+    target: any,
+    propertyKey: PropertyKey,
+    descriptor: TypedPropertyDescriptor<T>
+  ) => {
     // getter
     if (descriptor.get) {
       const oldGetter = descriptor.get;
@@ -24,14 +28,18 @@ export function number() {
 export function bool() {
   // false enums
   const falseEnums = ['f', 'false', '0'];
-  
+
   const isFalse = (value: string) => {
     const _v = String(value).toLowerCase();
 
     return falseEnums.includes(_v) ? false : true;
   };
 
-  return <T>(target: any, propertyKey: PropertyKey, descriptor: TypedPropertyDescriptor<T>) => {
+  return <T>(
+    target: any,
+    propertyKey: PropertyKey,
+    descriptor: TypedPropertyDescriptor<T>
+  ) => {
     // getter
     if (descriptor.get) {
       const oldGetter = descriptor.get;

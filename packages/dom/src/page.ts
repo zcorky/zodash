@@ -6,7 +6,7 @@ export function onPageShow(cb: Function): Unsubscibe {
       return cb && cb();
     }
   };
-  
+
   document.addEventListener('visibilitychange', handler);
 
   return () => {

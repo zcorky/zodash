@@ -17,12 +17,12 @@ export class Microhub extends Emitter implements IMicrohub {
   private store: Map<string, any> = new Map<string, any>();
 
   static create<T extends IMicrohub>() {
-    return new Microhub() as any as T;
+    return (new Microhub() as any) as T;
   }
 
   public register<N extends string, E>(name: N, entity: E) {
     this.emit('register', { name, entity });
-    
+
     this.store.set(name, entity);
   }
 

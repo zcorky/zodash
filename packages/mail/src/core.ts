@@ -4,7 +4,7 @@ import { IOptions, ISendData } from './type';
 export class Mail {
   /**
    * Create a mail client
-   * 
+   *
    * @param options mail config
    */
   static create(options: IOptions) {
@@ -13,7 +13,7 @@ export class Mail {
 
   /**
    * Alias of create
-   * 
+   *
    * @param options mail config
    */
   static createClient(options: IOptions) {
@@ -29,7 +29,7 @@ export class Mail {
 
   /**
    * send mail method
-   * 
+   *
    * @param mail content
    */
   public async send({ to, subject, content }: ISendData) {

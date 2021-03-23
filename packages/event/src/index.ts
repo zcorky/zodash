@@ -2,7 +2,9 @@ import { once } from '@zodash/once';
 
 export type Arguments<T> = [T] extends [(...args: infer U) => any]
   ? U
-  : [T] extends [void] ? [] : [T]
+  : [T] extends [void]
+  ? []
+  : [T];
 
 export type Listener = any; // T extends any ? (...args: any[]) => void : T;
 
@@ -12,7 +14,10 @@ export interface IEvent<Events = any> {
   addListener<E extends keyof Events>(event: E, listener: Events[E]): this;
   removeListener<E extends keyof Events>(event: E, listener: Events[E]): this;
   removeAllListeners<E extends keyof Events>(event: E): this;
-  emit<E extends keyof Events>(event: E, ...args: Arguments<Events[E]>): boolean;
+  emit<E extends keyof Events>(
+    event: E,
+    ...args: Arguments<Events[E]>
+  ): boolean;
   once<E extends keyof Events>(event: E, listener: Events[E]): this;
   listeners: Record<keyof Events, Listener[]>;
 }
@@ -56,7 +61,7 @@ export class Event<Events = any> implements IEvent<Events> {
   public emit<E extends keyof Events>(event: E, ...args: Arguments<Events[E]>) {
     if (this.listeners[event]) {
       const partListeners = this.listeners[event];
-      partListeners.forEach(listener => {
+      partListeners.forEach((listener) => {
         listener.apply(this, args);
       });
     }

@@ -9,5 +9,4 @@ describe('@zodash/base62', () => {
     expect(b62(1024)).toBe(base62.encode(1024));
     expect(b62(65535)).toBe(base62.encode(65535));
   });
-
 });

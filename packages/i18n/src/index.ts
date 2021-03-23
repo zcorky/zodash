@@ -18,11 +18,11 @@ export class i18nConfig {
   private get locale() {
     return this.locales?.[this.current] || {};
   }
-  
+
   public config = (options: IOptions) => {
     this.locales = options.locales || {};
     this.current = options.current || Object.keys(this.locales)[0];
-  }
+  };
 
   public setLocales = (locales: Record<Locale, Translate>) => {
     this.locales = locales;
@@ -30,19 +30,19 @@ export class i18nConfig {
     if (!this.current) {
       this.current = Object.keys(this.locales)[0];
     }
-  }
+  };
 
   public setLocale = (currentLocale: string) => {
     this.current = currentLocale;
-  }
-  
+  };
+
   public translate = <T = void>(key: string, data?: T) => {
     return format(get(this.locale, key, key), data || {});
-  }
+  };
 
   public t = <T = void>(key: string, data?: T) => {
     return this.translate<T>(key, data);
-  }
+  };
 }
 
 export const i18n = new i18nConfig();

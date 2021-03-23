@@ -8,6 +8,10 @@ export async function blob2Image(blob: Blob) {
   return file2Image(blob);
 }
 
-export async function blob2File(blob: Blob, filename: string, options?: FilePropertyBag) {
+export async function blob2File(
+  blob: Blob,
+  filename: string,
+  options?: FilePropertyBag
+) {
   return new File([blob], filename, options);
 }

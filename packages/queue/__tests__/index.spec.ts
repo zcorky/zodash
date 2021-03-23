@@ -99,5 +99,5 @@ describe('queue', () => {
 
     expect(() => queue1.setCompacity(-1)).toThrow();
     expect(queue1.getCapacity()).toEqual(0);
-  })
+  });
 });

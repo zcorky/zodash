@@ -6,14 +6,14 @@ import Cache from './services/cache';
 import Storage from './services/storage';
 import Http from './services/http';
 
-export type IListener = (...args: any[]) => void
+export type IListener = (...args: any[]) => void;
 
 export interface IEvents {
   error(error: Error): void;
   ready(): void;
   close(): void;
   data(data: object): void;
-  message(message: { type: string, content: any }): void;
+  message(message: { type: string; content: any }): void;
 }
 
 export interface ISDK extends IEmitter<IEvents> {
@@ -21,9 +21,12 @@ export interface ISDK extends IEmitter<IEvents> {
   close(): Promise<void>;
 }
 
-const instance = memoize(function _instance(name: string, constructor: any, ...args: any[]) {
-  return new constructor(...args);
-}, (name) => name);
+const instance = memoize(
+  function _instance(name: string, constructor: any, ...args: any[]) {
+    return new constructor(...args);
+  },
+  (name) => name
+);
 export abstract class SDK extends Emitter<IEvents> implements ISDK {
   private _isReady = false;
 
@@ -71,7 +74,7 @@ export abstract class SDK extends Emitter<IEvents> implements ISDK {
   }
 
   public close() {
-    this.emit('close')
+    this.emit('close');
 
     return Promise.resolve();
   }

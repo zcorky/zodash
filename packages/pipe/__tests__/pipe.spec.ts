@@ -2,10 +2,11 @@ import { pipe } from '../src/pipe';
 
 // pipe vs pipe
 
-describe("@zodash/pipe", () => {
+describe('@zodash/pipe', () => {
   it('calculate', () => {
     // const context = {};
-    const sum = (data: { left: number, right: number }) => data.left + data.right;
+    const sum = (data: { left: number; right: number }) =>
+      data.left + data.right;
     const pow = (x: number) => Math.pow(x, 2);
     const sub = (x: number) => x - 6;
 
@@ -22,19 +23,19 @@ describe("@zodash/pipe", () => {
       // do something
       result.push(1);
       return action;
-    }
+    };
 
     const doTask2 = (action: Action) => {
       // do something
       result.push(2);
       return action;
-    }
+    };
 
     const doTask3 = (action: Action) => {
       // do something
       result.push(3);
       return action;
-    }
+    };
 
     const action = { type: 'setup', payload: { name: 'Zero' } };
     expect(pipe(doTask1, doTask2, doTask3)(action)).toEqual(action);

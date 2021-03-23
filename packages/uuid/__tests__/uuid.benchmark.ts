@@ -6,24 +6,24 @@ const suite = new Suite();
 
 // add tests
 suite
-  .add('uuid', function() {
+  .add('uuid', function () {
     return uuid();
   })
-  .add('node-uuid/v4', function() {
+  .add('node-uuid/v4', function () {
     return v4();
   })
-  .add('node-uuid/v1', function() {
+  .add('node-uuid/v1', function () {
     return v1();
   })
   // add listeners
-  .on('cycle', function(event) {
+  .on('cycle', function (event) {
     console.log(String(event.target));
   })
-  .on('complete', function() {
+  .on('complete', function () {
     console.log('Fastest is ' + this.filter('fastest').map('name'));
   })
   // run async
-  .run({ 'async': true });
+  .run({ async: true });
 
 // logs:
 // => RegExp#test x 4,161,532 +-0.99% (59 cycles)

@@ -8,16 +8,7 @@ import * as viewport from './viewport';
 import * as style from './style';
 import * as router from './router';
 
-export {
-  $,
-  event,
-  scroll,
-  clipboard,
-  page,
-  viewport,
-  style,
-  router,
-};
+export { $, event, scroll, clipboard, page, viewport, style, router };
 
 export default {
   $,

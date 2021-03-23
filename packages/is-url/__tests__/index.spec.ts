@@ -2,7 +2,7 @@ import { isUrl } from '../src/is-url';
 
 // compose vs pipe
 
-describe("@zodash/onion", () => {
+describe('@zodash/onion', () => {
   it('works', () => {
     expect(isUrl('http://example')).toBeTruthy();
     expect(isUrl('https://example')).toBeTruthy();

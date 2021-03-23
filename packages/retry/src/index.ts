@@ -12,10 +12,13 @@ export interface IOptions {
   delay?: number;
 }
 
-export async function retry<R extends any>(fn: () => Promise<R>, options?: IOptions) {
+export async function retry<R extends any>(
+  fn: () => Promise<R>,
+  options?: IOptions
+) {
   const times = options?.times ?? 0;
-  const delayMs = options?.delay ?? 0; 
-  
+  const delayMs = options?.delay ?? 0;
+
   for (let i = times; i >= 0; i--) {
     try {
       return await fn();

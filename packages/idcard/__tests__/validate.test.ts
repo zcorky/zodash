@@ -11,7 +11,7 @@ describe('@zodash/idcard#validate', () => {
       return generate();
     });
 
-    d.forEach(i => {
+    d.forEach((i) => {
       expect(validate(i)).toBeTruthy();
     });
   });

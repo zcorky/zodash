@@ -1,10 +1,12 @@
 import { ApiError } from '@zodash/error';
 
-export type Message = string | {
-  code: string; // business code
-  message: string; // business message
-  // [key: string]: any;
-};
+export type Message =
+  | string
+  | {
+      code: string; // business code
+      message: string; // business message
+      // [key: string]: any;
+    };
 
 export function createError(status: number, message: Message) {
   const _message = typeof message === 'string' ? message : message.message;

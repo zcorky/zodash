@@ -12,7 +12,7 @@ describe('@zodash/nextTick', () => {
     nextTick(c);
     nextTick(d);
     b();
-    
+
     expect(data).toEqual(['a', 'b']);
     nextTick(() => {
       expect(data).toEqual(['a', 'b', 'c', 'd']);
@@ -32,7 +32,7 @@ describe('@zodash/nextTick', () => {
     nextTick(c);
     nextTick(d);
     b();
-    
+
     expect(data).toEqual(['a', 'b']);
     nextTick(() => {
       expect(data).toEqual(['a', 'b', 'c', 'd']);
@@ -52,7 +52,7 @@ describe('@zodash/nextTick', () => {
   //   nextTick(c, 'c');
   //   nextTick(d, 'd');
   //   b();
-    
+
   //   expect(data).toEqual(['a', 'b']);
   //   nextTick(() => {
   //     expect(data).toEqual(['a', 'b', 'c', 'd']);

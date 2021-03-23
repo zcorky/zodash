@@ -4,7 +4,7 @@ import { FlatRoutes, IndexRoutes } from './types';
  * route nest
  * @param routes flat routes
  * @returns nest routes
- * 
+ *
  * @example
  *  input:
  *    [

@@ -15,10 +15,12 @@ interface IParsedKeycode {
   description: string;
 }
 
-type IRawKeycode = string | {
-  code: string;
-  description: string;
-};
+type IRawKeycode =
+  | string
+  | {
+      code: string;
+      description: string;
+    };
 
 const keybindingCache = new Cache(10000);
 
@@ -51,12 +53,18 @@ export function parseDescription(rawKeycode: IRawKeycode) {
   return typeof rawKeycode === 'string' ? null : rawKeycode.description;
 }
 
-export function isMatchedKeyCode(expected: IExpectedKeyCode, current: KeyboardEvent) {
+export function isMatchedKeyCode(
+  expected: IExpectedKeyCode,
+  current: KeyboardEvent
+) {
   for (const _key in expected) {
     const key = _key as keyof IExpectedKeyCode;
 
     // @1 key not match
-    if (key === 'key' && expected.key.toLowerCase() !== current.key.toLowerCase()) {
+    if (
+      key === 'key' &&
+      expected.key.toLowerCase() !== current.key.toLowerCase()
+    ) {
       return false;
     }
 
@@ -84,7 +92,11 @@ export function isMatchedKeyCode(expected: IExpectedKeyCode, current: KeyboardEv
   return true;
 }
 
-export function getInfo(raw: string, parsed: IExpectedKeyCode, description: string) {
+export function getInfo(
+  raw: string,
+  parsed: IExpectedKeyCode,
+  description: string
+) {
   return { raw, parsed, description };
 }
 
@@ -102,13 +114,16 @@ export function hotkeys(rawKeycode: string) {
     return isMatchedKeyCode(parsedKeycode, event);
   }
 
-  function watch(target: Element | Window, handler: (event: KeyboardEvent, info: IParsedKeycode) => void) {
+  function watch(
+    target: Element | Window,
+    handler: (event: KeyboardEvent, info: IParsedKeycode) => void
+  ) {
     const _handler = function (event: any) {
       if (!isMatched(event)) return false;
 
       handler.call(this, event, info);
     };
-    
+
     event.on(target as any, 'keydown', _handler);
 
     return function unwatch() {
@@ -119,13 +134,13 @@ export function hotkeys(rawKeycode: string) {
   return {
     /**
      * match keyboard event
-     * 
+     *
      * @param event keyboard event
      */
     isMatched,
     /**
      * watch element with hotkeys
-     * 
+     *
      * @param target target element or window
      * @param handler handler
      */

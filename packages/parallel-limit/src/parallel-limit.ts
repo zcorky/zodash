@@ -12,7 +12,7 @@ export type ITask<R> = (() => Promise<R>) | ((cb: Callback<R>) => void);
 
 const nextTick = (fn: (...args: any[]) => void) => {
   return _nextTick(fn, 200);
-}
+};
 
 // const poll = (queue: Queue<ITask<any>>) => {
 //   if (queue.isEmpty()) {
@@ -55,15 +55,23 @@ function toPromise<R>(fn: ITask<R>): () => Promise<R> {
 }
 
 export function parallelLimit<R>(tasks: ITask<R>[], limit: number): Promise<R>;
-export function parallelLimit<R>(tasks: ITask<R>[], limit: number, cb: Done<R>): void;
-export function parallelLimit<R>(tasks: ITask<R>[], limit: number, cb?: Done<R>) {
+export function parallelLimit<R>(
+  tasks: ITask<R>[],
+  limit: number,
+  cb: Done<R>
+): void;
+export function parallelLimit<R>(
+  tasks: ITask<R>[],
+  limit: number,
+  cb?: Done<R>
+) {
   // const store = new Cache<number, { id: number, index: number, task: ITask<R> }>(Infinity);
   const emitter = new Event<{
     done(result: Result<R>[]): void;
   }>();
 
   const running = new Queue<any>(limit);
-  const pending = new Queue<{ id: number, index: number, task: ITask<R> }>();
+  const pending = new Queue<{ id: number; index: number; task: ITask<R> }>();
   const results: Result<R>[] = [];
 
   function done() {
@@ -88,7 +96,7 @@ export function parallelLimit<R>(tasks: ITask<R>[], limit: number, cb?: Done<R>)
         return nextTick(done);
       }
 
-      return ;
+      return;
     }
 
     const value = pending.dequeue();
@@ -105,7 +113,7 @@ export function parallelLimit<R>(tasks: ITask<R>[], limit: number, cb?: Done<R>)
       })
       .finally(() => {
         running.dequeue();
-  
+
         // give err and result to next
         nextTick(next);
       });
@@ -130,7 +138,7 @@ export function parallelLimit<R>(tasks: ITask<R>[], limit: number, cb?: Done<R>)
 
     tasks.forEach((task, index) => {
       const id = index;
-  
+
       pending.enqueue({
         id,
         task,
@@ -144,7 +152,7 @@ export function parallelLimit<R>(tasks: ITask<R>[], limit: number, cb?: Done<R>)
   // setInterval(() => {
   //   console.log('current running worker:', running.size());
   // }, 300);
-  
+
   run();
 
   if (!cb) {

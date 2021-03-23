@@ -6,7 +6,7 @@ export function on($el: El | Window, eventName: string, listener: Listener) {
 
   return function _off() {
     off($el, eventName, listener);
-  }
+  };
 }
 
 export function off($el: El | Window, eventName: string, listener: Listener) {

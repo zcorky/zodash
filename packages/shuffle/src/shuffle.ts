@@ -7,7 +7,7 @@ function copyArray<T>(array: T[]) {
 }
 
 function baseRandom(lower: number, upper: number) {
-  return lower + nativeFloor(nativeRandom() * (upper - lower + 1))
+  return lower + nativeFloor(nativeRandom() * (upper - lower + 1));
 }
 
 function swap(array: any[], left: number, right: number) {
@@ -18,7 +18,7 @@ function swap(array: any[], left: number, right: number) {
 
 /**
  * Creates an array of shuffled values
- * 
+ *
  * @param array the collection to shufflee
  * @returns shuffled collection
  */

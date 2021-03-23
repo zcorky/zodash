@@ -1,15 +1,13 @@
-import { noop } from "../src/noop";
+import { noop } from '../src/noop';
 
-describe("@zodash/noop", () => {
-  it("needs tests", () => {
+describe('@zodash/noop', () => {
+  it('needs tests', () => {
     expect(noop()).toBeUndefined();
   });
 
-  it("typescript generic", () => {
+  it('typescript generic', () => {
     type Fn = (x: number, y: number, name: string) => [number, number];
-    function go(fn: Fn = noop) {
-
-    }
+    function go(fn: Fn = noop) {}
     // type Params = Parameters<Fn>;
   });
 });

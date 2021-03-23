@@ -12,8 +12,6 @@ export function decode(text: string) {
   return Buffer.from(text, 'base64').toString('utf8');
 }
 
-
-
 export default {
   encode,
   decode,

@@ -1,4 +1,6 @@
-export async function file2DataUrl(file: File | Blob): Promise<FileReader['result']> {
+export async function file2DataUrl(
+  file: File | Blob
+): Promise<FileReader['result']> {
   return new Promise((resolve) => {
     const reader = new FileReader();
 
@@ -16,7 +18,7 @@ export async function file2Image(file: File | Blob): Promise<HTMLImageElement> {
     const URL = window.webkitURL || window.URL;
 
     const url = URL.createObjectURL(file);
-    
+
     image.onload = () => {
       resolve(image);
       URL.revokeObjectURL(url);

@@ -4,7 +4,7 @@ export interface IIEvent extends IEvent {
   Event: typeof Event;
 }
 
-const event = new Event() as any as IIEvent;
+const event = (new Event() as any) as IIEvent;
 
 event.Event = Event;
 

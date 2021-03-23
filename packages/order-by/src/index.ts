@@ -21,7 +21,7 @@ function genrateCompareFn<T>(factors: Factor[]) {
       if (sorter === 0) {
         return false;
       }
-    
+
       // a 在前
       if (sorter < 0) {
         if (order === 'ASC') {
@@ -34,7 +34,7 @@ function genrateCompareFn<T>(factors: Factor[]) {
 
         return true;
       }
-      
+
       // b 在前
       if (sorter > 0) {
         if (order === 'ASC') {
@@ -50,7 +50,7 @@ function genrateCompareFn<T>(factors: Factor[]) {
     });
 
     return res;
-  }
+  };
 }
 
 export function orderBy<T>(dataSource: T[], factors: Factor[]) {

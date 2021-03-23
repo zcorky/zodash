@@ -93,9 +93,11 @@ describe('@zodash/rule-engine', () => {
 
     const runner = engine.create(rules);
 
-    expect(await runner.run({
-      createdBy: 'manual',
-    })).toEqual({
+    expect(
+      await runner.run({
+        createdBy: 'manual',
+      })
+    ).toEqual({
       cipher: true,
       createdBy: true,
       description: true,
@@ -106,28 +108,34 @@ describe('@zodash/rule-engine', () => {
       type: true,
     });
 
-    expect(await runner.run({
-      createdBy: 'import.text',
-    })).toEqual({
+    expect(
+      await runner.run({
+        createdBy: 'import.text',
+      })
+    ).toEqual({
       createdBy: true,
       importText: true,
       isPublished: true,
-      description: true
+      description: true,
     });
 
-    expect(await runner.run({
-      createdBy: 'import.qrcode',
-    })).toEqual({
+    expect(
+      await runner.run({
+        createdBy: 'import.qrcode',
+      })
+    ).toEqual({
       createdBy: true,
       importQRCode: true,
       isPublished: true,
-      description: true
+      description: true,
     });
 
-    expect(await runner.run({
-      createdBy: 'manual',
-      type: 'ss',
-    })).toEqual({
+    expect(
+      await runner.run({
+        createdBy: 'manual',
+        type: 'ss',
+      })
+    ).toEqual({
       createdBy: true,
       type: true,
       password: true,
@@ -136,13 +144,15 @@ describe('@zodash/rule-engine', () => {
       port: true,
       cipher: true,
       isPublished: true,
-      description: true
+      description: true,
     });
 
-    expect(await runner.run({
-      createdBy: 'manual',
-      type: 'vmess',
-    })).toEqual({
+    expect(
+      await runner.run({
+        createdBy: 'manual',
+        type: 'vmess',
+      })
+    ).toEqual({
       createdBy: true,
       type: true,
       uuid: true,
@@ -152,7 +162,7 @@ describe('@zodash/rule-engine', () => {
       port: true,
       cipher: true,
       isPublished: true,
-      description: true
+      description: true,
     });
   });
 
@@ -210,27 +220,33 @@ describe('@zodash/rule-engine', () => {
 
     const runner = engine.create(rules);
 
-    expect(await runner.run({
-      current: 'goFront',
-    })).toEqual({
+    expect(
+      await runner.run({
+        current: 'goFront',
+      })
+    ).toEqual({
       current: true,
       // goFront: false,
       goBack: true,
       refresh: true,
     });
 
-    expect(await runner.run({
-      current: 'goBack',
-    })).toEqual({
+    expect(
+      await runner.run({
+        current: 'goBack',
+      })
+    ).toEqual({
       current: true,
       goFront: true,
       // goBack: true,
       refresh: true,
     });
 
-    expect(await runner.run({
-      current: 'refresh',
-    })).toEqual({
+    expect(
+      await runner.run({
+        current: 'refresh',
+      })
+    ).toEqual({
       current: true,
       goFront: true,
       goBack: true,
@@ -238,7 +254,6 @@ describe('@zodash/rule-engine', () => {
     });
   });
 });
-
 
 // var a = {
 //   goFront: {

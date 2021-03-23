@@ -8,7 +8,7 @@ export function feed(length: number) {
 
 /**
  * Produces a random number between the inclusive min and max bounds.
- * 
+ *
  * @param max the max bound
  * @param min the min bound
  * @returns the random number between min and max

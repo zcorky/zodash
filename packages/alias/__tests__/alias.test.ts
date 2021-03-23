@@ -1,10 +1,10 @@
-"use strict";
+'use strict';
 
-import { deepEqual } from "@zcorky/deep-equal";
-import { get } from "@zodash/get"; 
-import { alias } from "../src/alias";
+import { deepEqual } from '@zcorky/deep-equal';
+import { get } from '@zodash/get';
+import { alias } from '../src/alias';
 
-describe("@zodash/alias", () => {
+describe('@zodash/alias', () => {
   let res;
 
   beforeAll(() => {
@@ -13,31 +13,34 @@ describe("@zodash/alias", () => {
       message: null,
       data: {
         total: 100,
-        data: [{
-          x: 1,
-          y: 2,
-          z: {
-            m: 'm',
-            n: false,
-            l: [
-              { name: 'z', age: 190 },
-              { name: 'v', age: 300 },
-            ],
-            o: [1, 2, 3],
+        data: [
+          {
+            x: 1,
+            y: 2,
+            z: {
+              m: 'm',
+              n: false,
+              l: [
+                { name: 'z', age: 190 },
+                { name: 'v', age: 300 },
+              ],
+              o: [1, 2, 3],
+            },
           },
-        }, {
-          x: 1,
-          y: 2,
-          z: {
-            m: 'm',
-            n: false,
-            l: [
-              { name: 'z', age: 190 },
-              { name: 'v', age: 300 },
-            ],
-            o: [1, 2, 3],
+          {
+            x: 1,
+            y: 2,
+            z: {
+              m: 'm',
+              n: false,
+              l: [
+                { name: 'z', age: 190 },
+                { name: 'v', age: 300 },
+              ],
+              o: [1, 2, 3],
+            },
           },
-        }],
+        ],
       },
     };
   });
@@ -70,7 +73,7 @@ describe("@zodash/alias", () => {
       message: null,
       data: {
         name: 'zero',
-        attributes: [18, true]
+        attributes: [18, true],
       },
     };
 
@@ -89,7 +92,7 @@ describe("@zodash/alias", () => {
     expect(alias(response, mappings)).toEqual(expected);
   });
 
-  it("string & object & array", () => {
+  it('string & object & array', () => {
     const mappings = {
       total: 'data.total',
       data: 'data.data',
@@ -97,38 +100,41 @@ describe("@zodash/alias", () => {
 
     const expected = {
       total: 100,
-      data: [{
-        x: 1,
-        y: 2,
-        z: {
-          m: 'm',
-          n: false,
-          l: [
-            { name: 'z', age: 190 },
-            { name: 'v', age: 300 },
-          ],
-          o: [1, 2, 3],
+      data: [
+        {
+          x: 1,
+          y: 2,
+          z: {
+            m: 'm',
+            n: false,
+            l: [
+              { name: 'z', age: 190 },
+              { name: 'v', age: 300 },
+            ],
+            o: [1, 2, 3],
+          },
         },
-      }, {
-        x: 1,
-        y: 2,
-        z: {
-          m: 'm',
-          n: false,
-          l: [
-            { name: 'z', age: 190 },
-            { name: 'v', age: 300 },
-          ],
-          o: [1, 2, 3],
+        {
+          x: 1,
+          y: 2,
+          z: {
+            m: 'm',
+            n: false,
+            l: [
+              { name: 'z', age: 190 },
+              { name: 'v', age: 300 },
+            ],
+            o: [1, 2, 3],
+          },
         },
-      }],
+      ],
     };
 
     expect(deepEqual(alias(res, mappings), expected)).toBeTruthy();
     expect(alias(res, mappings)).toEqual(expected);
   });
 
-  it("nest", () => {
+  it('nest', () => {
     const mappings = {
       total: 'data.total',
       data: res.data.data.map((e, i) => ({
@@ -141,38 +147,43 @@ describe("@zodash/alias", () => {
             name: `data.data.${i}.z.l.${ii}.name`,
             age: `data.data.${i}.z.l.${ii}.age`,
           })),
-          o: res.data.data[i].z.o.map((eee, iii) => `data.data.${i}.z.o.${iii}`),
+          o: res.data.data[i].z.o.map(
+            (eee, iii) => `data.data.${i}.z.o.${iii}`
+          ),
         },
       })),
     };
 
     const expected = {
       total: 100,
-      data: [{
-        x: 1,
-        y: 2,
-        z: {
-          m: 'm',
-          n: false,
-          l: [
-            { name: 'z', age: 190 },
-            { name: 'v', age: 300 },
-          ],
-          o: [1, 2, 3],
+      data: [
+        {
+          x: 1,
+          y: 2,
+          z: {
+            m: 'm',
+            n: false,
+            l: [
+              { name: 'z', age: 190 },
+              { name: 'v', age: 300 },
+            ],
+            o: [1, 2, 3],
+          },
         },
-      }, {
-        x: 1,
-        y: 2,
-        z: {
-          m: 'm',
-          n: false,
-          l: [
-            { name: 'z', age: 190 },
-            { name: 'v', age: 300 },
-          ],
-          o: [1, 2, 3],
+        {
+          x: 1,
+          y: 2,
+          z: {
+            m: 'm',
+            n: false,
+            l: [
+              { name: 'z', age: 190 },
+              { name: 'v', age: 300 },
+            ],
+            o: [1, 2, 3],
+          },
         },
-      }],
+      ],
     };
 
     // console.log(JSON.stringify(mappings, null, 2));
@@ -183,7 +194,7 @@ describe("@zodash/alias", () => {
     expect(alias(res, mappings)).toEqual(expected);
   });
 
-  it("nest with static number/boolean", () => {
+  it('nest with static number/boolean', () => {
     const mappings = {
       offset: 0,
       limit: 10,
@@ -198,7 +209,9 @@ describe("@zodash/alias", () => {
             name: `data.data.${i}.z.l.${ii}.name`,
             age: `data.data.${i}.z.l.${ii}.age`,
           })),
-          o: res.data.data[i].z.o.map((eee, iii) => `data.data.${i}.z.o.${iii}`),
+          o: res.data.data[i].z.o.map(
+            (eee, iii) => `data.data.${i}.z.o.${iii}`
+          ),
         },
       })),
     };
@@ -207,37 +220,40 @@ describe("@zodash/alias", () => {
       offset: 0,
       limit: 10,
       total: 100,
-      data: [{
-        x: 1,
-        y: 2,
-        z: {
-          m: 'm',
-          n: false,
-          l: [
-            { name: 'z', age: 190 },
-            { name: 'v', age: 300 },
-          ],
-          o: [1, 2, 3],
+      data: [
+        {
+          x: 1,
+          y: 2,
+          z: {
+            m: 'm',
+            n: false,
+            l: [
+              { name: 'z', age: 190 },
+              { name: 'v', age: 300 },
+            ],
+            o: [1, 2, 3],
+          },
         },
-      }, {
-        x: 1,
-        y: 2,
-        z: {
-          m: 'm',
-          n: false,
-          l: [
-            { name: 'z', age: 190 },
-            { name: 'v', age: 300 },
-          ],
-          o: [1, 2, 3],
+        {
+          x: 1,
+          y: 2,
+          z: {
+            m: 'm',
+            n: false,
+            l: [
+              { name: 'z', age: 190 },
+              { name: 'v', age: 300 },
+            ],
+            o: [1, 2, 3],
+          },
         },
-      }],
+      ],
     };
 
     expect(alias(res, mappings)).toEqual(expected);
   });
 
-  it("nest get", () => {
+  it('nest get', () => {
     const _mappings = {
       total: 'data.total',
       data: res.data.data.map((e, i) => ({
@@ -250,7 +266,9 @@ describe("@zodash/alias", () => {
             name: `data.data.${i}.z.l.${ii}.name`,
             age: `data.data.${i}.z.l.${ii}.age`,
           })),
-          o: res.data.data[i].z.o.map((eee, iii) => `data.data.${i}.z.o.${iii}`),
+          o: res.data.data[i].z.o.map(
+            (eee, iii) => `data.data.${i}.z.o.${iii}`
+          ),
         },
       })),
     };
@@ -267,7 +285,9 @@ describe("@zodash/alias", () => {
             name: `data.data.${i}.z.l.${ii}.name`,
             age: `data.data.${i}.z.l.${ii}.age`,
           })),
-          o: get(res, `data.data.${i}.z.o`, []).map((eee, iii) => `data.data.${i}.z.o.${iii}`),
+          o: get(res, `data.data.${i}.z.o`, []).map(
+            (eee, iii) => `data.data.${i}.z.o.${iii}`
+          ),
         },
       })),
     };
@@ -276,31 +296,34 @@ describe("@zodash/alias", () => {
 
     const expected = {
       total: 100,
-      data: [{
-        x: 1,
-        y: 2,
-        z: {
-          m: 'm',
-          n: false,
-          l: [
-            { name: 'z', age: 190 },
-            { name: 'v', age: 300 },
-          ],
-          o: [1, 2, 3],
+      data: [
+        {
+          x: 1,
+          y: 2,
+          z: {
+            m: 'm',
+            n: false,
+            l: [
+              { name: 'z', age: 190 },
+              { name: 'v', age: 300 },
+            ],
+            o: [1, 2, 3],
+          },
         },
-      }, {
-        x: 1,
-        y: 2,
-        z: {
-          m: 'm',
-          n: false,
-          l: [
-            { name: 'z', age: 190 },
-            { name: 'v', age: 300 },
-          ],
-          o: [1, 2, 3],
+        {
+          x: 1,
+          y: 2,
+          z: {
+            m: 'm',
+            n: false,
+            l: [
+              { name: 'z', age: 190 },
+              { name: 'v', age: 300 },
+            ],
+            o: [1, 2, 3],
+          },
         },
-      }],
+      ],
     };
 
     expect(alias(res, mappings)).toEqual(expected);

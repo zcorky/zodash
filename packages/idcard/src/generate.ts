@@ -28,13 +28,7 @@ export function generate(options?: IOptions) {
   const police = randomPolice();
   const checkBit = randomCheckBit();
 
-  return [
-    addressCode,
-    birthday,
-    sex,
-    police,
-    checkBit,
-  ].join('');
+  return [addressCode, birthday, sex, police, checkBit].join('');
 }
 
 function randomAddressCode() {

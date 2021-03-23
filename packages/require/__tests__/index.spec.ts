@@ -1,12 +1,15 @@
 import { requirejs } from '../src/require';
 
-describe("@zodash/require", () => {
+describe('@zodash/require', () => {
   it('works', () => {
-    requirejs.register('@browser/debug.js', function (exports, require, module) {
-      module.exports = function () {
-        return true;
-      };
-    });
+    requirejs.register(
+      '@browser/debug.js',
+      function (exports, require, module) {
+        module.exports = function () {
+          return true;
+        };
+      }
+    );
 
     const debug = requirejs('@browser/debug');
 
@@ -26,10 +29,13 @@ describe("@zodash/require", () => {
       };
     });
 
-    requirejs.register('@browser/utils.js', function (exports, require, module) {
-      exports.add = require('@browser/add');
-      exports.sub = require('@browser/sub');
-    });
+    requirejs.register(
+      '@browser/utils.js',
+      function (exports, require, module) {
+        exports.add = require('@browser/add');
+        exports.sub = require('@browser/sub');
+      }
+    );
 
     const utils = requirejs('@browser/utils');
 
@@ -52,18 +58,21 @@ describe("@zodash/require", () => {
 
     requirejs.register('@browser/a.js', function (exports, require, module) {
       module.exports = (x: number, y: number) => {
-        return require('@browser/b')(x + 1, y)
+        return require('@browser/b')(x + 1, y);
       };
     });
 
-    requirejs.register('@browser/utils.js', function (exports, require, module) {
-      module.exports = require('@browser/a')
-    });
+    requirejs.register(
+      '@browser/utils.js',
+      function (exports, require, module) {
+        module.exports = require('@browser/a');
+      }
+    );
 
     const utils = requirejs('@browser/utils');
 
     console.log(requirejs, utils);
-    
+
     expect(utils(1, 2)).toEqual(3);
   });
 
@@ -77,12 +86,12 @@ describe("@zodash/require", () => {
 
           return all;
         }, {});
-      }
+      };
     });
 
     requirejs.register('@zodash/omit.js', function (exports, require, module) {
       const pick = require('@zodash/pick');
-        
+
       module.exports = (object: any, keys: string[]) => {
         const _keys = [];
         for (const key in object) {
@@ -93,7 +102,7 @@ describe("@zodash/require", () => {
         }
 
         return pick(object, _keys);
-      }
+      };
     });
 
     requirejs.register('@zodash/utils.js', function (exports, require, module) {
@@ -160,7 +169,7 @@ describe("@zodash/require", () => {
     expect(Object.keys(app.controllers)).toEqual(['c1', 'c2']);
     expect(Object.keys(app.models)).toEqual(['m1', 'm2']);
     expect(Object.keys(app.services)).toEqual(['s1', 's2']);
-    
+
     // console.log(requirejs);
   });
 });

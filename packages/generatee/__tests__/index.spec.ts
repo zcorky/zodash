@@ -50,22 +50,34 @@ describe('generatee', () => {
       },
     });
 
-    expect(generator.next()).toEqual({ done: false, value: { id: 0, name: 'zero', age: 18 } });
-    expect(generator.next()).toEqual({ done: false, value: {
-      id: 1,
-      name: 'any',
-      age: 18,
-    } });
-    expect(generator.next()).toEqual({ done: false, value: {
-      id: 2,
-      name: 'eason',
-      age: 100,
-    } });
-    expect(generator.next()).toEqual({ done: false, value: {
-      id: 3,
-      name: 'cole',
-      age: 120,
-    } });
+    expect(generator.next()).toEqual({
+      done: false,
+      value: { id: 0, name: 'zero', age: 18 },
+    });
+    expect(generator.next()).toEqual({
+      done: false,
+      value: {
+        id: 1,
+        name: 'any',
+        age: 18,
+      },
+    });
+    expect(generator.next()).toEqual({
+      done: false,
+      value: {
+        id: 2,
+        name: 'eason',
+        age: 100,
+      },
+    });
+    expect(generator.next()).toEqual({
+      done: false,
+      value: {
+        id: 3,
+        name: 'cole',
+        age: 120,
+      },
+    });
     expect(generator.next()).toEqual({ done: true, value: undefined });
   });
 });

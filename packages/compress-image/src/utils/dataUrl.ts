@@ -1,5 +1,7 @@
-export async function dataUrl2Image(dataUrl: string): Promise<HTMLImageElement> {
-  return new Promise(resolve => {
+export async function dataUrl2Image(
+  dataUrl: string
+): Promise<HTMLImageElement> {
+  return new Promise((resolve) => {
     const image = new Image();
     image.onload = () => {
       resolve(image);

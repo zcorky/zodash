@@ -9,7 +9,7 @@ describe('@zodash/idcard#generate', () => {
       return generate();
     });
 
-    d.forEach(i => {
+    d.forEach((i) => {
       const id = new IDCard(i);
       // console.log("ID:", id.valueOf(), id.toJSON())
       expect(id.isValid()).toBeTruthy();
@@ -18,8 +18,18 @@ describe('@zodash/idcard#generate', () => {
 
   it('options', () => {
     expect(new IDCard(generate({})).isValid()).toBeTruthy();
-    expect(new IDCard(generate({ addressCode: '310101' })).isValid()).toBeTruthy();
-    expect(new IDCard(generate({ addressCode: '310101', birthday: '20101001' })).isValid()).toBeTruthy();
-    expect(new IDCard(generate({ addressCode: '310101', birthday: '20101001', sex: '9' })).isValid()).toBeTruthy();
+    expect(
+      new IDCard(generate({ addressCode: '310101' })).isValid()
+    ).toBeTruthy();
+    expect(
+      new IDCard(
+        generate({ addressCode: '310101', birthday: '20101001' })
+      ).isValid()
+    ).toBeTruthy();
+    expect(
+      new IDCard(
+        generate({ addressCode: '310101', birthday: '20101001', sex: '9' })
+      ).isValid()
+    ).toBeTruthy();
   });
 });

@@ -1,24 +1,24 @@
 /**
  * 数据结构 - 栈的实现
- * 
+ *
  * Referer: https://medium.com/@_jmoller/javascript-data-structures-stacks-and-queues-ea877d72a5f9
  */
 
 export interface IStack<T> {
   // /**
   //  * Constructor
-  //  * 
+  //  *
   //  * @param capacity limit stack
   //  */
   // new (capacity?: number): any;
-  
+
   /**
    * add an element to stack
-   * 
+   *
    * @param element value
    */
   push(element: T): void;
-  
+
   /**
    * remove and return the last element of stack
    */
@@ -35,7 +35,7 @@ export interface IStack<T> {
   size(): number;
 }
 
-export class Stack<T> implements IStack<T>{
+export class Stack<T> implements IStack<T> {
   private readonly storage: T[] = [];
   private count: number = 0;
 
@@ -45,7 +45,7 @@ export class Stack<T> implements IStack<T>{
     if (this.count >= this.capacity) {
       throw new Error('Max capacity is already reached.');
     }
-    
+
     this.count += 1;
     return this.storage.push(element);
   }

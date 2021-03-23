@@ -2,7 +2,6 @@ import container, { Provider, Inject } from '../src';
 
 describe('@zodash/inversify', () => {
   it('works', async () => {
-    
     @Provider('componentA', ['zero'])
     class ComponentA {
       constructor(private readonly name: string) {}
@@ -14,7 +13,6 @@ describe('@zodash/inversify', () => {
 
     @Provider('componentB')
     class ComponentB {
-
       @Inject('componentA')
       private component: ComponentA;
 
@@ -36,11 +34,7 @@ describe('@zodash/inversify', () => {
       }
     }
 
-    container.load([
-      App,
-      ComponentA,
-      ComponentB,
-    ]);
+    container.load([App, ComponentA, ComponentB]);
 
     function bootstrap() {
       const app = container.get('app') as any;
@@ -50,5 +44,4 @@ describe('@zodash/inversify', () => {
 
     bootstrap();
   });
-
 });

@@ -1,4 +1,6 @@
-export function runGenerator<T = any>(fn: () => Generator<any, T | Promise<T>, any>) {
+export function runGenerator<T = any>(
+  fn: () => Generator<any, T | Promise<T>, any>
+) {
   return new Promise<T>((resolve, reject) => {
     const gen = fn();
 
@@ -8,10 +10,8 @@ export function runGenerator<T = any>(fn: () => Generator<any, T | Promise<T>, a
         if (result.done) {
           return resolve(result.value);
         }
-  
-        toPromise(result.value)
-          .then(next)
-          .catch(reject);
+
+        toPromise(result.value).then(next).catch(reject);
       } catch (error) {
         // console.log('fff:', error);
         return reject(error);

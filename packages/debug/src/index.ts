@@ -4,7 +4,7 @@ const logger = new Logger('COMMON');
 
 export function debug(message: string, ...args: any[]) {
   if (process.env.NODE_ENV === 'production') {
-    return ;
+    return;
   }
 
   logger.debug(message, ...args);

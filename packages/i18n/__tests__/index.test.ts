@@ -9,7 +9,7 @@ describe('@zodash/i18n', () => {
       locales: {
         zh_CN,
         en_US,
-      }
+      },
     });
 
     expect(t('hello')).toBe('你好');
@@ -21,7 +21,6 @@ describe('@zodash/i18n', () => {
     expect(i18n.t('feedback.success')).toBe('连接成功');
     expect(i18n.t('feedback.error')).toBe('连接失败');
     expect(i18n.t('feedback.error.unknown.x')).toBe('feedback.error.unknown.x');
-
 
     i18n.setLocale('zh_CN');
     expect(t('hello')).toBe('你好');

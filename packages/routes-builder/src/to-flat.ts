@@ -18,7 +18,7 @@ import { NestRoutes, FlatRoutes } from './types';
  *        { name: 'workspace', path: '/dashboard/workspace', icon: 'appstore' },
  *      ],
  *    }]
- * 
+ *
  *  output:
  *    [
  *      { path: '/dashboard', name: 'Dashboard', icon: 'dashboard' },

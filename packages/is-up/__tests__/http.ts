@@ -11,4 +11,4 @@ describe('is-up', () => {
     expect(await isUp('https://www.baidu.com')).toBeTruthy();
     expect(await isUp('https://www.baidu.com', 1)).toBeFalsy();
   });
-})
+});

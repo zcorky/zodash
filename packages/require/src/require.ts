@@ -13,7 +13,13 @@ export interface Mod {
 }
 
 export interface ModFn {
-  (exports: Mod['exports'], requirejs: Require, module: Mod, __filename?: string, __dirname?: string): void;
+  (
+    exports: Mod['exports'],
+    requirejs: Require,
+    module: Mod,
+    __filename?: string,
+    __dirname?: string
+  ): void;
   // exports?: any;
 }
 
@@ -45,20 +51,27 @@ export const requirejs: Require = (path: string) => {
 
     //
     // _mod.call(_mod.exports, _mod, _mod.exports, requirejs.relative(_path));
-    
+
     //
     // (function (exports, require, module, __filename, __dirname) {
     //
     // })(_mod.exports, require, _mod, requirejs.relative(_path), requirejs.dirname(_path));
-    
+
     //
-    _mod.fn.call(_mod.exports, _mod.exports, requirejs._makeRequire(_path), _mod, _mod.filename, _mod.dirname);
+    _mod.fn.call(
+      _mod.exports,
+      _mod.exports,
+      requirejs._makeRequire(_path),
+      _mod,
+      _mod.filename,
+      _mod.dirname
+    );
 
     _mod.loaded = true;
   }
 
   return _mod.exports;
-}
+};
 
 requirejs.modules = {};
 
@@ -66,11 +79,13 @@ requirejs.resolve = (name: string) => {
   const base = name;
   const base_js = name + '.js';
   const index_js = name + '/index.js';
-  
-  return requirejs.modules[base_js] && base_js
-    || requirejs.modules[index_js] && index_js
-    || base;
-}
+
+  return (
+    (requirejs.modules[base_js] && base_js) ||
+    (requirejs.modules[index_js] && index_js) ||
+    base
+  );
+};
 
 requirejs.register = (path: string, fn: ModFn) => {
   // if (!requirejs.modules[path]) {
@@ -81,7 +96,7 @@ requirejs.register = (path: string, fn: ModFn) => {
   requirejs.modules[path] = {} as any;
 
   requirejs.modules[path].fn = fn;
-}
+};
 
 requirejs.relative = (path: string, parent: string) => {
   if ('.' != path.charAt(0)) return path;
@@ -104,14 +119,14 @@ requirejs.relative = (path: string, parent: string) => {
 requirejs._makeRequire = (parent: string) => {
   return function require(path: string) {
     const relativePath = requirejs.relative(path, parent);
-    
+
     return requirejs(relativePath);
   };
 };
 
 requirejs.filename = (path: string) => {
   return requirejs.resolve(path);
-}
+};
 
 requirejs.dirname = (path: string) => {
   const _path = requirejs.resolve(path);
@@ -120,6 +135,6 @@ requirejs.dirname = (path: string) => {
   _paths.pop();
 
   return _paths.join('/');
-}
+};
 
 export default requirejs;

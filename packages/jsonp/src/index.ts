@@ -6,7 +6,7 @@ export interface IOptions {
   /**
    * Custom Callback Param
    *  Default: callback
-   * 
+   *
    *  which is an query param, like /data?_callback=xxx
    *  here is `_callback`
    */
@@ -27,18 +27,23 @@ export interface IOptions {
 
 /**
  * Load JSON By JSONP (no cors)
- * 
+ *
  * @param url JSONP URL
  * @param options JSONP Options
  */
-export async function jsonp<D = any>(url: string, options: IOptions): Promise<D> {
+export async function jsonp<D = any>(
+  url: string,
+  options: IOptions
+): Promise<D> {
   const timeout = options?.timeout ?? 10000;
   const callbackParam = options?.callbackParam ?? 'callback';
 
   return new Promise(async (resolve, reject) => {
     try {
       // @S1 prepare callback
-      const callbackName = options?.callbackName || `_zodash_jsonp_callvack_${uuid().replace(/_/g, '_')}`;
+      const callbackName =
+        options?.callbackName ||
+        `_zodash_jsonp_callvack_${uuid().replace(/_/g, '_')}`;
       const callbackFn = (data: D) => {
         // clear callback
         delete window[callbackName];
@@ -51,7 +56,9 @@ export async function jsonp<D = any>(url: string, options: IOptions): Promise<D>
       const _q_index = url.indexOf('?');
       const _prefix = _q_index === -1 ? url : url.slice(0, _q_index);
       const _search = url.slice(_q_index);
-      const _url = `${_prefix}?${add(_search, { [callbackParam]: callbackName })}`;
+      const _url = `${_prefix}?${add(_search, {
+        [callbackParam]: callbackName,
+      })}`;
 
       // create timer
       let it = setTimeout(() => {
@@ -60,11 +67,11 @@ export async function jsonp<D = any>(url: string, options: IOptions): Promise<D>
 
       // @S3 load JSONP
       await loadJs(_url, { enableCache: false });
-      
+
       // clear timer
       if (it) {
         clearTimeout(it);
-        it = null; 
+        it = null;
       }
     } catch (error) {
       reject(error);

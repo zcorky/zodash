@@ -47,4 +47,4 @@ describe('is-up', () => {
   it('works', () => {
     expect(true).toBeTruthy();
   });
-})
+});

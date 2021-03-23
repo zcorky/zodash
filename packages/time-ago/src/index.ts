@@ -30,17 +30,17 @@ export function timeAgo(ago: Date | number, options?: Options) {
 
   const diff = _now.getTime() - _ago.getTime();
   let i = 0;
-  while ((diff / DATA[i].ceil) > 1) {
+  while (diff / DATA[i].ceil > 1) {
     i++;
   }
 
   const _time = i === 0 ? diff : Math.floor(diff / DATA[i - 1].ceil);
-  
+
   //
   if (options?.language) {
     i18n.setLocale(options.language.replace('-', '_'));
   } else {
-    i18n.setLocale(window.navigator?.language?.replace('-', '_'))
+    i18n.setLocale(window.navigator?.language?.replace('-', '_'));
   }
 
   //

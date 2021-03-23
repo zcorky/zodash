@@ -1,10 +1,10 @@
-import random from "../src/random";
+import random from '../src/random';
 
-describe("@zodash/random", () => {
-  it("number(max, min)", () => {
-    "_"
+describe('@zodash/random', () => {
+  it('number(max, min)', () => {
+    '_'
       .repeat(10)
-      .split("")
+      .split('')
       .forEach(() => {
         const r = random.number(10, 5);
         expect(r < 10).toBeTruthy();
@@ -14,45 +14,50 @@ describe("@zodash/random", () => {
         expect(random.number() >= 0).toBeTruthy();
       });
 
-      // const max = 1231231231231230;
-      // console.log('xxx:', ~~(max), random.number(max, max));
-      // expect(random.number(max, max)).toEqual(max);
-      // expect(random.number(max, max - 10)).toBeLessThan(max);
-      // expect(random.number(max, max - 10)).toBeGreaterThanOrEqual(max - 10);
+    // const max = 1231231231231230;
+    // console.log('xxx:', ~~(max), random.number(max, max));
+    // expect(random.number(max, max)).toEqual(max);
+    // expect(random.number(max, max - 10)).toBeLessThan(max);
+    // expect(random.number(max, max - 10)).toBeGreaterThanOrEqual(max - 10);
   });
 
-  it("string", () => {
+  it('string', () => {
     expect(random.string().length).toBe(10);
     expect(random.string(6).length).toBe(6);
     expect(random.string(10).length).toBe(10);
   });
 
-  it("shortid", () => {
+  it('shortid', () => {
     expect(random.shortid().length).toBe(8);
   });
 
-  it("code", () => {
+  it('code', () => {
     expect(random.code().length).toBe(24);
   });
 
-  it("token", () => {
+  it('token', () => {
     expect(random.token().length).toBe(32);
   });
 
-  it("key", () => {
+  it('key', () => {
     expect(random.key().length).toBe(32);
   });
 
-  it("password", () => {
+  it('password', () => {
     expect(random.password().length).toBe(16);
   });
 
-  it("secret", () => {
+  it('secret', () => {
     expect(random.secret().length).toBe(32);
   });
 
-  it("captcha", () => {
+  it('captcha', () => {
     expect(random.captcha().length).toBe(6);
-    expect(random.captcha().split('').every(e => /\d+/.test(e))).toBeTruthy();
+    expect(
+      random
+        .captcha()
+        .split('')
+        .every((e) => /\d+/.test(e))
+    ).toBeTruthy();
   });
 });

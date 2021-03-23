@@ -5,8 +5,14 @@ import NodeRSA from 'node-rsa';
 import { encrypt, decrypt } from '../src/rsa';
 
 describe('rsa', () => {
-  const publicKey = fs.readFileSync(path.join(__dirname, './fixtures/public.pem'), 'utf8');
-  const privateKey = fs.readFileSync(path.join(__dirname, './fixtures/private.pem'), 'utf8');
+  const publicKey = fs.readFileSync(
+    path.join(__dirname, './fixtures/public.pem'),
+    'utf8'
+  );
+  const privateKey = fs.readFileSync(
+    path.join(__dirname, './fixtures/private.pem'),
+    'utf8'
+  );
 
   it('encrypt && decrypt works', () => {
     expect(decrypt(privateKey, encrypt(publicKey, 'zero'))).toEqual('zero');
@@ -20,7 +26,7 @@ describe('rsa', () => {
 
   it('node-rsa.encrypt can be decrypt', () => {
     expect(
-      decrypt(privateKey, new NodeRSA(publicKey).encrypt('zero', 'base64')),
+      decrypt(privateKey, new NodeRSA(publicKey).encrypt('zero', 'base64'))
     ).toEqual('zero');
   });
 });

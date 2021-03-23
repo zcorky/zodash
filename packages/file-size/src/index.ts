@@ -1,10 +1,4 @@
-const SUFFIXS = [
-  '',
-  'K',
-  'M',
-  'G',
-  'T',
-];
+const SUFFIXS = ['', 'K', 'M', 'G', 'T'];
 
 export function fileSize(bytes: number, dots: number = 2) {
   if (bytes <= 0) return '0';

@@ -3,9 +3,9 @@ import 'reflect-metadata';
 export const PROPS_KEY = 'ioc:inject_props';
 
 export function Inject(serviceName?: string) {
-  return function(target: any, targetKey: string) {
+  return function (target: any, targetKey: string) {
     const annotationTarget = target.constructor;
-    
+
     let props = {};
 
     // get other metadata

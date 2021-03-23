@@ -89,7 +89,8 @@ describe('@zodash/parallel-limit', () => {
   });
 
   it('async task use async/await task', (done) => {
-    const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+    const delay = (ms: number) =>
+      new Promise((resolve) => setTimeout(resolve, ms));
     const create = (n: number) => {
       const workers = repeat(n, (index) => {
         return async function () {
@@ -98,7 +99,7 @@ describe('@zodash/parallel-limit', () => {
         };
       });
 
-      const results = repeat(n, index => {
+      const results = repeat(n, (index) => {
         return index + 1;
       });
 
@@ -106,8 +107,8 @@ describe('@zodash/parallel-limit', () => {
         workers,
         results,
       };
-    }
-    
+    };
+
     const { workers, results } = create(10);
 
     const tasks: ITask<any>[] = workers;
@@ -119,7 +120,8 @@ describe('@zodash/parallel-limit', () => {
   });
 
   it('async task use Promise-returned', (done) => {
-    const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+    const delay = (ms: number) =>
+      new Promise((resolve) => setTimeout(resolve, ms));
     const tasks: ITask<any>[] = [
       async function () {
         await delay(100);
@@ -135,10 +137,9 @@ describe('@zodash/parallel-limit', () => {
       },
     ];
 
-    parallelLimit(tasks, 2)
-      .then((results) => {
-        expect(results).toEqual([1, 2, 3]);
-        done();
-      });
+    parallelLimit(tasks, 2).then((results) => {
+      expect(results).toEqual([1, 2, 3]);
+      done();
+    });
   });
 });

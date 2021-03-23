@@ -1,7 +1,7 @@
 import ajax from '../src';
 
-describe("@zodash/ajax", () => {
+describe('@zodash/ajax', () => {
   it('works', () => {
-		expect(true).toEqual(true);
+    expect(true).toEqual(true);
   });
 });

@@ -4,15 +4,18 @@ describe('@zodash/Container', () => {
   it('works', async () => {
     let i = 0;
 
-    const res = await retry(async () => {
-      i++;
+    const res = await retry(
+      async () => {
+        i++;
 
-      if (i !== 4) {
-        throw new Error();
-      }
+        if (i !== 4) {
+          throw new Error();
+        }
 
-      return i;
-    }, { times: 3 });
+        return i;
+      },
+      { times: 3 }
+    );
 
     expect(i).toBe(4);
     expect(res).toBe(4);
@@ -44,35 +47,27 @@ describe('@zodash/Container', () => {
 
     i = 0;
     await expect(retry(fn)) // 4
-      .rejects
-      .toThrowError();
+      .rejects.toThrowError();
 
     i = 0;
     await expect(retry(fn, { times: 1 })) // 4
-      .rejects
-      .toThrowError();
+      .rejects.toThrowError();
 
     i = 0;
     await expect(retry(fn, { times: 2 })) // 4
-      .rejects
-      .toThrowError();
+      .rejects.toThrowError();
 
     i = 0;
     await expect(retry(fn, { times: 3 })) // 4
-      .rejects
-      .toThrowError();
+      .rejects.toThrowError();
 
     i = 0;
     await expect(retry(fn, { times: 4 })) // 4
-      .resolves
-      .not
-      .toThrowError();
+      .resolves.not.toThrowError();
 
     i = 0;
     await expect(retry(fn, { times: 5 })) // 4
-      .resolves
-      .not
-      .toThrowError();
+      .resolves.not.toThrowError();
   });
 
   it('delay', async () => {
