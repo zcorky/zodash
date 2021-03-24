@@ -11,8 +11,7 @@
   "main": "lib/flat.js",
   "typings": "lib/flat.d.ts",
   "directories": {
-    "lib": "lib",
-    "test": "__tests__"
+    "lib": "lib"
   },
   "files": [
     "lib"

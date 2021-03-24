@@ -11,8 +11,7 @@
   "license": "MIT",
   "main": "lib/performance.js",
   "directories": {
-    "lib": "lib",
-    "test": "__tests__"
+    "lib": "lib"
   },
   "files": [
     "lib"

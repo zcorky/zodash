@@ -12,8 +12,7 @@
   "main": "lib/index.js",
   "browser": "lib/browser.js",
   "directories": {
-    "lib": "lib",
-    "test": "__tests__"
+    "lib": "lib"
   },
   "files": [
     "lib"
