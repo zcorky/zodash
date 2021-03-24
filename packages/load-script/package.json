@@ -1,6 +1,6 @@
 {
   "name": "@zodash/load-script",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "Dynamic load script",
   "keywords": [
     "lodash",
@@ -66,6 +66,6 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "@zodash/cache": "^0.0.2"
+    "@zodash/cache": "^0.0.3"
   }
 }

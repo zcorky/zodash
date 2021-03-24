@@ -1,6 +1,6 @@
 {
   "name": "@zodash/difference",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Creates an array of `array` values not included in the other given arrays",
   "keywords": [
     "lodash",
@@ -68,6 +68,6 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "@zodash/compose": "^0.1.4"
+    "@zodash/compose": "^0.1.5"
   }
 }

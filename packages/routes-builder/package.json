@@ -1,6 +1,6 @@
 {
   "name": "@zodash/routes-builder",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "A simple routes builder",
   "keywords": [
     "zodash",

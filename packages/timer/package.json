@@ -1,6 +1,6 @@
 {
   "name": "@zodash/timer",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "A Timer, support count up and count down",
   "keywords": [
     "zodash",
@@ -68,6 +68,6 @@
   },
   "dependencies": {
     "@zcorky/moment": "^1.2.0",
-    "@zodash/event": "^0.1.5"
+    "@zodash/event": "^0.1.6"
   }
 }

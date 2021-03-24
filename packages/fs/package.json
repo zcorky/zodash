@@ -1,6 +1,6 @@
 {
   "name": "@zodash/fs",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "File Utils In Browser, loadJS / loadCSS / download",
   "keywords": [
     "zodash",
@@ -68,9 +68,9 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "@zodash/jsonp": "^0.0.6",
-    "@zodash/load-css": "^0.0.4",
-    "@zodash/load-image": "^0.0.2",
-    "@zodash/load-js": "^0.2.9"
+    "@zodash/jsonp": "^0.0.7",
+    "@zodash/load-css": "^0.0.5",
+    "@zodash/load-image": "^0.0.3",
+    "@zodash/load-js": "^0.2.10"
   }
 }

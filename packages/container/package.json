@@ -1,6 +1,6 @@
 {
   "name": "@zodash/container",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A simple container, using for service register and discovery",
   "keywords": [
     "zodash",
@@ -65,6 +65,6 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "@zodash/cache": "^0.0.2"
+    "@zodash/cache": "^0.0.3"
   }
 }
