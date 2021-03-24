@@ -3,14 +3,14 @@
   "private": true,
   "scripts": {
     "bootstrap": "lerna bootstrap --hoist",
-    "build": "lerna run tsc",
+    "build": "lerna run build",
     "test": "lerna run test",
     "coverage": "codecov",
     "clean": "lerna clean",
     "fmt": "prettier --write packages/**/{*.ts,*.tsx}",
     "eslint": "eslint packages/**/*.{ts,tsx} --fix",
-    "publish": "lerna run tsc && lerna publish",
-    "publish:ci": "lerna run tsc && lerna publish --canary --yes",
+    "publish": "lerna run build && lerna publish",
+    "publish:ci": "lerna run build && lerna publish --canary --yes",
     "postinstall": "husky install",
     "commit": "cz"
   },
