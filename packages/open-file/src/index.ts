@@ -30,7 +30,7 @@ export interface IOptions {
  * @returns
  */
 export function openFile(options?: IOptions) {
-  return new Promise<FileList>((resolve) => {
+  return new Promise<File[]>((resolve) => {
     const input = document.createElement('input');
     //
     input.style.position = 'fixed';
@@ -57,7 +57,7 @@ export function openFile(options?: IOptions) {
     function onChange() {
       clean();
 
-      resolve(input.files);
+      resolve([...(input.files as any)]);
     }
 
     function mount() {

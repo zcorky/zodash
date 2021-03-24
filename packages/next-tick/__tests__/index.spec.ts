@@ -2,7 +2,7 @@ import { nextTick } from '../src/next-tick';
 
 describe('@zodash/nextTick', () => {
   it('using setImmediate', () => {
-    const data = [];
+    const data: string[] = [];
     const a = () => data.push('a');
     const b = () => data.push('b');
     const c = () => data.push('c');
@@ -20,9 +20,9 @@ describe('@zodash/nextTick', () => {
   });
 
   it('using setTimeout', () => {
-    global.setImmediate = undefined;
+    (global as any).setImmediate = undefined;
 
-    const data = [];
+    const data: string[] = [];
     const a = () => data.push('a');
     const b = () => data.push('b');
     const c = () => data.push('c');

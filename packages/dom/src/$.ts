@@ -1,6 +1,6 @@
-import { I$S, El } from './types';
+import { I$S } from './types';
 
-export const $: I$S = (selector: El) => {
+export const $: I$S = (selector) => {
   if (typeof selector === 'string') {
     return document.querySelector(selector);
   }

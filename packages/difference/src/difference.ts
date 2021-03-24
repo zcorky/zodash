@@ -12,18 +12,20 @@ export function difference<T>(
 ): T[];
 export function difference<T>(main: T[], compare: T[]): T[];
 export function difference<T>(
-  main?: T[],
-  compare?: T[],
-  by?: (value: T) => string,
+  main: T[],
+  compare: T[],
+  by?: (value: T) => string
 ) {
   const mainMap = main.reduce((all, value) => {
-    const key = typeof by === 'function' ? by(value) : ((value as any) as string);
+    const key =
+      typeof by === 'function' ? by(value) : ((value as any) as string);
     all[key] = value;
     return all;
   }, {} as { [key: string]: T });
 
   compare.forEach((value) => {
-    const key = typeof by === 'function' ? by(value) : ((value as any) as string);
+    const key =
+      typeof by === 'function' ? by(value) : ((value as any) as string);
     if (key in mainMap) {
       delete mainMap[key];
     }

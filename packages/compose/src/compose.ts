@@ -18,7 +18,7 @@ export function compose<C>(...middlewares: Middleware<C>[]) {
 
       index = i;
       let fn = middlewares[i];
-      if (i === middlewares.length) fn = next;
+      if (i === middlewares.length) fn = (next as any) as Middleware<C>;
       if (!fn) return Promise.resolve();
 
       try {

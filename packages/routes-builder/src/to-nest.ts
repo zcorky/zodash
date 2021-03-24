@@ -1,14 +1,12 @@
-import {
-  TreeRoute, FlatRoutes, NestRoutes, Route,
-} from './types';
+import { TreeRoute, FlatRoutes, NestRoutes, Route } from './types';
 import { toTree } from './to-tree';
 
 export interface NestOptions {
   basePath?: string;
 }
 
-function flatChildren(treeNode: TreeRoute): FlatRoutes | undefined {
-  if (!treeNode.children) return [];
+function flatChildren(treeNode: TreeRoute | null): FlatRoutes | undefined {
+  if (!treeNode?.children) return [];
 
   return Object.keys(treeNode.children)
     .map((path) => {
@@ -72,17 +70,20 @@ export function toNest(routes: FlatRoutes, options?: NestOptions): NestRoutes {
   //   if (!_treeRoute) return [];
   // }
 
-  const _treeRoute = basePaths.reduce((rest, childKey) => {
-    if (!rest.children[childKey]) return null;
+  const _treeRoute = basePaths.reduce<TreeRoute | null>((rest, childKey) => {
+    if (!rest?.children?.[childKey]) {
+      return null;
+    }
+
     return rest.children[childKey];
   }, treeRoute);
 
-  return flatChildren(_treeRoute);
+  return flatChildren(_treeRoute)!;
 }
 
 export function traverseNest(
   routes: NestRoutes = [],
-  callback: (route: Route) => void,
+  callback: (route: Route) => void
 ) {
   routes.map((route) => {
     callback(route);

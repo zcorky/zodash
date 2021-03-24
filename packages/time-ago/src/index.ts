@@ -26,7 +26,11 @@ i18n.config({
 
 export function timeAgo(ago: Date | number, options?: Options) {
   const _ago = isNumber(ago) ? new Date(ago) : ago;
-  const _now = isNumber(options?.now) ? new Date(options.now) : options.now;
+  const _now = !options?.now
+    ? new Date()
+    : isNumber(options.now)
+    ? new Date(options.now)
+    : options.now;
 
   const diff = _now.getTime() - _ago.getTime();
   let i = 0;

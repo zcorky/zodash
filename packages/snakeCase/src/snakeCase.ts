@@ -17,7 +17,6 @@ function words(value: string) {
  * ```
  */
 export function snakeCase(value: string) {
-  return words(value)
-    .map((word) => word.toLowerCase())
-    .join('_');
+  const _words = words(value) ?? [];
+  return _words.map((word) => word.toLowerCase()).join('_');
 }

@@ -1,7 +1,7 @@
 const observers = new WeakMap();
-const queuedObservers = new Set();
+const queuedObservers = new Set<Function>();
 
-let currentObserver: Function;
+let currentObserver: Function | undefined;
 
 /**
  * Make Data Observerable

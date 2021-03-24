@@ -9,10 +9,10 @@ import { undefined as isUndef, array as isArray } from '@zcorky/is';
  * @param path The path of the property to get.
  * @param defaultValue The value returned for undefined resolved values.
  */
-export function get<T extends object, D = any>(
+export function get<T extends object, D = undefined>(
   value: T,
   path: string,
-  defaultValue: D = undefined,
+  defaultValue?: D
 ): D {
   // return toPath(path)
   //   .reduce((p, k) => {
@@ -30,7 +30,7 @@ export function get<T extends object, D = any>(
 export function getValue(
   parent: object | object[],
   paths: string[],
-  currentIndex = 0,
+  currentIndex = 0
 ) {
   if (isUndef(parent)) return undefined;
 

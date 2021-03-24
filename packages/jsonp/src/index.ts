@@ -33,7 +33,7 @@ export interface IOptions {
  */
 export async function jsonp<D = any>(
   url: string,
-  options: IOptions,
+  options: IOptions
 ): Promise<D> {
   const timeout = options?.timeout ?? 10000;
   const callbackParam = options?.callbackParam ?? 'callback';
@@ -41,8 +41,9 @@ export async function jsonp<D = any>(
   return new Promise(async (resolve, reject) => {
     try {
       // @S1 prepare callback
-      const callbackName = options?.callbackName
-        || `_zodash_jsonp_callvack_${uuid().replace(/_/g, '_')}`;
+      const callbackName =
+        options?.callbackName ||
+        `_zodash_jsonp_callvack_${uuid().replace(/_/g, '_')}`;
       const callbackFn = (data: D) => {
         // clear callback
         delete window[callbackName];
@@ -60,7 +61,7 @@ export async function jsonp<D = any>(
       })}`;
 
       // create timer
-      let it = setTimeout(() => {
+      let it: NodeJS.Timeout | null = setTimeout(() => {
         reject(new Error('timeout'));
       }, timeout);
 

@@ -36,13 +36,16 @@ const nextTick = (fn: (...args: any[]) => void) => _nextTick(fn, 200);
 
 function toPromise<R>(fn: ITask<R>): () => Promise<R> {
   if (fn.length === 1) {
-    return () => new Promise((resolve, reject) => fn.call(null, (error: any, result: any) => {
-      if (error) {
-        return reject(error);
-      }
+    return () =>
+      new Promise((resolve, reject) =>
+        (fn as any).call(null, (error: any, result: any) => {
+          if (error) {
+            return reject(error);
+          }
 
-      return resolve(result);
-    }));
+          return resolve(result);
+        })
+      );
   }
 
   return fn as any;
@@ -57,7 +60,7 @@ export function parallelLimit<R>(
 export function parallelLimit<R>(
   tasks: ITask<R>[],
   limit: number,
-  cb?: Done<R>,
+  cb?: Done<R> | null
 ) {
   // const store = new Cache<number, { id: number, index: number, task: ITask<R> }>(Infinity);
   const emitter = new Event<{

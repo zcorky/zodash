@@ -1,18 +1,22 @@
 {
   "compilerOptions": {
+    "target": "esnext",
     "module": "commonjs",
+    "strict": true,
     "declaration": true,
     "noImplicitAny": false,
+    "noImplicitThis": false,
     // "removeComments": true,
-    "noLib": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "target": "ES6",
     "sourceMap": true,
     "resolveJsonModule": true,
+    // "importHelpers": true,
+    "skipLibCheck": true,
+    // "noUnusedLocals": true,
+    "noEmitOnError": true,
     "lib": [
-      "es2015",
-      "ES2016",
+      "ESNext",
       "DOM"
     ]
   },

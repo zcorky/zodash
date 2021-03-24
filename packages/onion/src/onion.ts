@@ -18,15 +18,14 @@ export interface Context<Input, Output, State = any> {
 }
 
 export abstract class Onion<Input, Output, State>
-implements IOnion<Input, Output, State> {
+  implements IOnion<Input, Output, State> {
   private middlewares: Middleware<Context<Input, Output, State>>[] = [];
 
-  private handler: Middleware<Context<Input, Output, State>>;
+  private handler: Middleware<Context<Input, Output, State>> | null = null;
 
-  private _callback: (
-    input: Input,
-    output: Output
-  ) => Promise<Context<Input, Output, State>>;
+  private _callback:
+    | ((input: Input, output: Output) => Promise<Context<Input, Output, State>>)
+    | null = null;
 
   public use(middleware: Middleware<Context<Input, Output, State>>) {
     this.middlewares.push(middleware);
@@ -47,7 +46,7 @@ implements IOnion<Input, Output, State> {
 
     return async (input: Input, output: Output) => {
       const context = this.createContext(input, output);
-      await this.handler(context);
+      await this.handler?.(context);
       return context;
     };
   }
@@ -66,7 +65,7 @@ implements IOnion<Input, Output, State> {
 
   private createContext(
     input: Input,
-    output: Output,
+    output: Output
   ): Context<Input, Output, State> {
     return {
       input,

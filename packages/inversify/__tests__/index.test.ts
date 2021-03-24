@@ -14,7 +14,7 @@ describe('@zodash/inversify', () => {
     @Provider('componentB')
     class ComponentB {
       @Inject('componentA')
-      private component: ComponentA;
+      private component!: ComponentA;
 
       public run() {
         return this.component.status();
@@ -24,10 +24,10 @@ describe('@zodash/inversify', () => {
     @Provider('app')
     class App {
       @Inject()
-      componentA: ComponentA;
+      componentA!: ComponentA;
 
       @Inject()
-      componentB: ComponentB;
+      componentB!: ComponentB;
 
       run() {
         return this.componentB.run();

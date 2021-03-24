@@ -5,7 +5,7 @@ import { ITask, Status } from './task';
 export function parallelLimit(
   tasks: IQueue<ITask>,
   limit: number,
-  done: () => void,
+  done: () => void
 ) {
   let rest: number = limit;
 
@@ -14,7 +14,8 @@ export function parallelLimit(
       // if rest === 0, parallel task run, not allow run new parallel task
       nextTick(poll);
       return;
-    } if (tasks.isEmpty()) {
+    }
+    if (tasks.isEmpty()) {
       //  task queue empty and all task done
       if (rest === limit) {
         done();
@@ -32,15 +33,15 @@ export function parallelLimit(
     // console.log(`run task: ${task.name}, rest: ${rest}`);
     rest -= 1;
 
-    task.setStatus(Status.STARTED);
+    task!.setStatus(Status.STARTED);
 
-    task
+    task!
       .start()
       .then(() => {
-        task.setStatus(Status.RESOLVED);
+        task!.setStatus(Status.RESOLVED);
       })
       .catch(() => {
-        task.setStatus(Status.REJECTED);
+        task!.setStatus(Status.REJECTED);
       })
       .finally(() => {
         // console.log(`task(${task.name}) done`);

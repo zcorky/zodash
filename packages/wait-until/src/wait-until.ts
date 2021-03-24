@@ -1,8 +1,10 @@
 export function waitUntil(fn: (...args: any) => any, ms: number) {
-  let it = setTimeout(fn, ms);
+  let it: NodeJS.Timeout | null = setTimeout(fn, ms);
 
   return () => {
-    clearTimeout(it);
-    it = null;
+    if (it) {
+      clearTimeout(it);
+      it = null;
+    }
   };
 }

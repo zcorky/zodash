@@ -4,7 +4,7 @@ import * as globby from 'globby';
 
 export async function load(/* dirPath: string */) {
   const files = await globby('**/*.ts');
-  const modules = [];
+  const modules: any[] = [];
 
   for (const file of files) {
     if (/\.ts$/.test(file)) {

@@ -85,7 +85,7 @@ export type IShowData<DataSource extends Record<string, any>> = {
  */
 export type IOnScaleTo<DataSource> = (
   dataSource: Partial<DataSource>,
-  attributeName: string
+  attributeName?: string
 ) => Promise<string>;
 
 /**

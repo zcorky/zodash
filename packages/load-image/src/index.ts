@@ -6,10 +6,11 @@ export interface ILoadedImage {
 function _loadImage(url: string) {
   return new Promise<ILoadedImage>((resolve, reject) => {
     const image = new Image();
-    image.onload = () => resolve({
-      url,
-      image,
-    });
+    image.onload = () =>
+      resolve({
+        url,
+        image,
+      });
     image.onerror = reject;
     image.src = url;
   });
@@ -22,7 +23,7 @@ function _silent<I extends any[], T>(
   try {
     return fn.call(null, ...args);
   } catch (error) {
-    return null;
+    return Promise.resolve(null);
   }
 }
 

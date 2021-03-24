@@ -1,14 +1,17 @@
 import { $ } from './$';
-import { El } from './types';
+import { El, Selector } from './types';
 
 export function isVisibleInViewport(
-  $element: El,
-  fullVisible?: boolean,
+  $element: El | Selector,
+  fullVisible?: boolean
 ): boolean {
-  const $el = $($element);
-  const {
-    top, right, bottom, left,
-  } = $el.getBoundingClientRect();
+  const $el = $($element) as Element | null;
+  // @TODO should throw ?
+  if (!$el) {
+    throw new Error(`Cannot found element: ${$element}`);
+  }
+
+  const { top, right, bottom, left } = $el.getBoundingClientRect();
   const { innerHeight, innerWidth } = window;
 
   if (fullVisible) {
@@ -17,7 +20,9 @@ export function isVisibleInViewport(
     );
   }
 
-  const isVerticalMatch = (top > 0 && top < innerHeight) || (bottom > 0 && bottom < innerHeight);
-  const isHorizontalMatch = (left > 0 && left < innerWidth) || (right > 0 && right < innerWidth);
+  const isVerticalMatch =
+    (top > 0 && top < innerHeight) || (bottom > 0 && bottom < innerHeight);
+  const isHorizontalMatch =
+    (left > 0 && left < innerWidth) || (right > 0 && right < innerWidth);
   return isVerticalMatch && isHorizontalMatch;
 }

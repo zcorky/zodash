@@ -61,10 +61,10 @@ export const requirejs: Require = (path: string) => {
     _mod.fn.call(
       _mod.exports,
       _mod.exports,
-      requirejs._makeRequire(_path),
+      (requirejs._makeRequire(_path) as any) as Require,
       _mod,
       _mod.filename,
-      _mod.dirname,
+      _mod.dirname
     );
 
     _mod.loaded = true;
@@ -81,9 +81,9 @@ requirejs.resolve = (name: string) => {
   const index_js = `${name}/index.js`;
 
   return (
-    (requirejs.modules[base_js] && base_js)
-    || (requirejs.modules[index_js] && index_js)
-    || base
+    (requirejs.modules[base_js] && base_js) ||
+    (requirejs.modules[index_js] && index_js) ||
+    base
   );
 };
 
@@ -116,11 +116,12 @@ requirejs.relative = (path: string, parent: string) => {
   return paths.join('/');
 };
 
-requirejs._makeRequire = (parent: string) => function require(path: string) {
-  const relativePath = requirejs.relative(path, parent);
+requirejs._makeRequire = (parent: string) =>
+  function require(path: string) {
+    const relativePath = requirejs.relative(path, parent);
 
-  return requirejs(relativePath);
-};
+    return requirejs(relativePath);
+  };
 
 requirejs.filename = (path: string) => requirejs.resolve(path);
 

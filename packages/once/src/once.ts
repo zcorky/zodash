@@ -12,7 +12,7 @@ export function once<T extends [], R>(fn: (...args: T) => R) {
   return (...args: T): R => {
     if (fn) {
       res = fn.call(this, ...args);
-      fn = null;
+      (fn as any) = null;
     }
 
     return res;

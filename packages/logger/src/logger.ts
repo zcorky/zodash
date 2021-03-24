@@ -52,12 +52,12 @@ function formatMessage(
   name: string,
   date: Moment,
   message: any[],
-  level?: LogLevel,
+  level?: LogLevel
 ) {
   const prefix = format('[{name}] {datetime} - {level} -', {
     name: name || 'COMMON',
     datetime: date.format('YYYY-MM-DD HH:mm:ss'),
-    level: level.toUpperCase() || 'LOG',
+    level: level?.toUpperCase() || 'LOG',
   });
 
   if (message?.length === 1) {
@@ -79,7 +79,7 @@ function formatPatternMessage(pattern: string, dataMap: any[]) {
 }
 
 export class Logger extends Onion<Input, any, any> implements ILogger {
-  static _disableFn = null;
+  static _disableFn: (() => boolean) | null = null;
 
   static create(name: string, options?: Options) {
     return new Logger(name, options);
@@ -91,7 +91,7 @@ export class Logger extends Onion<Input, any, any> implements ILogger {
 
   constructor(
     private readonly name: string,
-    private readonly options?: Options,
+    private readonly options?: Options
   ) {
     super();
 
@@ -106,14 +106,14 @@ export class Logger extends Onion<Input, any, any> implements ILogger {
     return async (ctx, next) => {
       ctx.input.engine = console;
 
-      await next();
+      await next!();
     };
   }
 
   private useDateTime(): Middleware<Context<Input, any, any>> {
     return async (ctx, next) => {
       ctx.input.datetime = moment();
-      await next();
+      await next!();
     };
   }
 
@@ -125,7 +125,7 @@ export class Logger extends Onion<Input, any, any> implements ILogger {
         return;
       }
 
-      await next();
+      await next!();
     };
   }
 
@@ -133,16 +133,16 @@ export class Logger extends Onion<Input, any, any> implements ILogger {
     return async (ctx) => {
       const { input } = ctx;
 
-      if (this.options.console === false) {
+      if (this.options?.console === false) {
         return;
       }
 
       const { engine } = input;
       const message = formatMessage(
         this.name,
-        input.datetime,
+        input!.datetime!,
         input.message,
-        input.level,
+        input.level
       );
       const isUseDevConsole = Array.isArray(message);
 

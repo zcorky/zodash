@@ -2,7 +2,7 @@ export function number() {
   return <T>(
     target: any,
     propertyKey: PropertyKey,
-    descriptor: TypedPropertyDescriptor<T>,
+    descriptor: TypedPropertyDescriptor<T>
   ) => {
     // getter
     if (descriptor.get) {
@@ -38,13 +38,13 @@ export function bool() {
   return <T>(
     target: any,
     propertyKey: PropertyKey,
-    descriptor: TypedPropertyDescriptor<T>,
+    descriptor: TypedPropertyDescriptor<T>
   ) => {
     // getter
     if (descriptor.get) {
       const oldGetter = descriptor.get;
       descriptor.get = function () {
-        const value = oldGetter.apply(this);
+        const value = oldGetter.apply(this) as any;
         return isFalse(value);
       } as any;
     }

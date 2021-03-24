@@ -15,8 +15,8 @@ export interface ITask {
   setStatus(status: Status): void;
   start(): Promise<any>;
   createdAt: Moment; // 任务创建时间
-  startedAt: Moment; // 任务开始执行时间
-  finishedAt: Moment; // 任务执行结束时间
+  startedAt: Moment | null; // 任务开始执行时间
+  finishedAt: Moment | null; // 任务执行结束时间
   runningTime: Moment; // 任务运行时间
 }
 
@@ -30,16 +30,16 @@ export enum Status {
 export class Task<P> implements ITask {
   public createdAt: Moment = moment();
 
-  public startedAt: Moment;
+  public startedAt: Moment | null = null;
 
-  public finishedAt: Moment;
+  public finishedAt: Moment | null = null;
 
   private status: Status = Status.INITIAL;
 
   public static create<P>(
     name: string,
     parameters: P,
-    fn: (parameters: P) => Promise<void>,
+    fn: (parameters: P) => Promise<void>
   ) {
     return new Task(name, parameters, fn);
   }
@@ -47,7 +47,7 @@ export class Task<P> implements ITask {
   constructor(
     public readonly name: string,
     private readonly parameters: P,
-    private fn: (parameters: P) => Promise<void>,
+    private fn: (parameters: P) => Promise<void>
   ) {}
 
   public isIntializing() {
@@ -81,7 +81,7 @@ export class Task<P> implements ITask {
   }
 
   public get runningTime() {
-    return moment(this.finishedAt.valueOf() - this.startedAt.valueOf());
+    return moment(this.finishedAt!.valueOf() - this.startedAt!.valueOf());
   }
 
   public toJSON() {
@@ -91,8 +91,8 @@ export class Task<P> implements ITask {
       fn: this.fn,
       status: this.status,
       createdAt: this.createdAt.toString(),
-      startedAt: this.startedAt.toString(),
-      finishedAt: this.finishedAt.toString(),
+      startedAt: this.startedAt?.toString(),
+      finishedAt: this.finishedAt?.toString(),
       runningTime: this.runningTime.toString(),
     };
   }
@@ -102,18 +102,21 @@ export class Task<P> implements ITask {
   }
 
   private get finishedAtString() {
-    return this.finishedAt.format('YYYY/MM/DD HH:mm:ss');
+    return this.finishedAt?.format('YYYY/MM/DD HH:mm:ss');
   }
 
   private get runningTimeString() {
     const value = this.runningTime.valueOf() / 1000;
     if (value >= 1 && value < SECONDS_A_MINUTE) {
       return `${~~value}s`;
-    } if (SECONDS_A_MINUTE <= value && value < SECONDS_A_HOUR) {
+    }
+    if (SECONDS_A_MINUTE <= value && value < SECONDS_A_HOUR) {
       return `${~~(value / SECONDS_A_MINUTE)}m`;
-    } if (SECONDS_A_HOUR <= value && value < SECONDS_A_DAY) {
+    }
+    if (SECONDS_A_HOUR <= value && value < SECONDS_A_DAY) {
       return `${~~(value / SECONDS_A_HOUR)}h`;
-    } if (SECONDS_A_DAY <= value) {
+    }
+    if (SECONDS_A_DAY <= value) {
       return `${~~(value / SECONDS_A_DAY)}d`;
     }
     return value;

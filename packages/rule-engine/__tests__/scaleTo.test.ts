@@ -20,9 +20,10 @@ describe('@zodash/rule-engine', () => {
         type: 'Attr',
         value: 'age',
         onScaleTo(d) {
-          if (d.age < 10) {
+          if (d.age! < 10) {
             return 'ageUnder10';
-          } if (d.age < 18) {
+          }
+          if (d.age! < 18) {
             return 'ageBetween10And18';
           }
           return 'ageOver18';
@@ -52,7 +53,7 @@ describe('@zodash/rule-engine', () => {
     expect(
       runner.run({
         age: 5,
-      }),
+      })
     ).toEqual({
       name: true,
       age: true,
@@ -64,7 +65,7 @@ describe('@zodash/rule-engine', () => {
     expect(
       runner.run({
         age: 15,
-      }),
+      })
     ).toEqual({
       name: true,
       age: true,
@@ -76,7 +77,7 @@ describe('@zodash/rule-engine', () => {
     expect(
       runner.run({
         age: 25,
-      }),
+      })
     ).toEqual({
       name: true,
       age: true,

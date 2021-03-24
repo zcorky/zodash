@@ -13,7 +13,7 @@ export interface IWorker<D extends any[], R> {
 }
 
 export class WebWorker<D extends any[], R> implements IWorker<D, R> {
-  private worker: Worker;
+  private worker: Worker | null = null;
 
   private id = createIdGenerator();
 
@@ -45,6 +45,10 @@ export class WebWorker<D extends any[], R> implements IWorker<D, R> {
   }
 
   public watch() {
+    if (!this.worker) {
+      throw new Error(`Please compile worker before watch.`);
+    }
+
     this.worker.onmessage = ({ data: { id, response, error } }) => {
       // @IGNORE not found task
       if (!this.hasTask(id)) return;
@@ -70,7 +74,7 @@ export class WebWorker<D extends any[], R> implements IWorker<D, R> {
 
       this.registerTask(id, resolve, reject);
 
-      this.worker.postMessage({
+      this.worker?.postMessage({
         id,
         request: args,
       });
@@ -78,7 +82,7 @@ export class WebWorker<D extends any[], R> implements IWorker<D, R> {
   }
 
   public async stop() {
-    return this.worker.terminate();
+    return this.worker?.terminate();
   }
 
   //

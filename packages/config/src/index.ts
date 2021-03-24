@@ -2,12 +2,12 @@ import Cache from '@zodash/cache';
 
 export interface IConfig<D extends object, K extends keyof D> {
   load(fn: () => Promise<D>): Promise<void>;
-  get(key: K): D[K];
+  get(key: K): D[K] | undefined;
   set(key: K, value: D[K]): void;
 }
 
 export class Config<D extends object, K extends keyof D>
-implements IConfig<D, K> {
+  implements IConfig<D, K> {
   private store = new Cache<K, D[K]>();
 
   public static create<K = string, V = any>() {

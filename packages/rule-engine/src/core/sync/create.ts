@@ -7,13 +7,14 @@ import {
   Options,
 } from './types';
 
-const DEFAULT_ON_SCALE_TO: IOnScaleTo<any> = (dataSource, name) => dataSource[name];
+const DEFAULT_ON_SCALE_TO: IOnScaleTo<any> = (dataSource, name) =>
+  name && dataSource[name];
 
 const DEFAULT_ON_HIT_ATTR: IOnHitAttr<any> = () => null;
 
 export function create<DataSource>(
   rules: IRuleNode<DataSource>[],
-  options?: Options<DataSource>,
+  options?: Options<DataSource>
 ) {
   const defaultOnScaleTo = options?.defaultOnScaleTo || DEFAULT_ON_SCALE_TO;
   const defaultOnHitAttr = options?.defaultOnHitAttr || DEFAULT_ON_HIT_ATTR;
@@ -22,10 +23,10 @@ export function create<DataSource>(
   function run(dataSource: Partial<DataSource>) {
     const shows: IShowData<DataSource> = Object.keys(dataSource).reduce(
       (all, key) => ((all[key] = false), all),
-      {} as any,
+      {} as any
     );
 
-    let attrNodeOfValue: IRuleAttrNode<DataSource> = null;
+    let attrNodeOfValue: IRuleAttrNode<DataSource> | null = null;
 
     function go(_rules: IRuleNode<DataSource>[]) {
       for (const rule of _rules) {
@@ -36,7 +37,7 @@ export function create<DataSource>(
             // hit attr first time
             const onHitAttr = getOnHitAttr(rule);
             if (onHitAttr) {
-              onHitAttr(rule.value, dataSource);
+              onHitAttr(rule.value, dataSource as any);
             }
 
             shows[rule.value] = true;
@@ -54,15 +55,15 @@ export function create<DataSource>(
           // @2 value compare
           const sacleTo: IOnScaleTo<DataSource> = getOnScaleTo();
 
-          const scaledValue = sacleTo(dataSource, attrNodeOfValue.value);
+          const scaledValue = sacleTo(dataSource, attrNodeOfValue?.value);
 
           // radio, must be equal
           if (typeof rule.value === 'string' && scaledValue === rule.value) {
             go(rule.children);
             // checkbox, may be oneof
           } else if (
-            Array.isArray(rule.value)
-            && rule.value.includes(scaledValue)
+            Array.isArray(rule.value) &&
+            rule.value.includes(scaledValue)
           ) {
             go(rule.children);
           }
@@ -73,7 +74,7 @@ export function create<DataSource>(
     }
 
     function getOnScaleTo() {
-      return attrNodeOfValue.onScaleTo || defaultOnScaleTo;
+      return attrNodeOfValue?.onScaleTo || defaultOnScaleTo;
     }
 
     function getOnHitAttr(node: IRuleAttrNode<DataSource>) {

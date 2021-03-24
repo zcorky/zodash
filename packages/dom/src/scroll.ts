@@ -2,19 +2,23 @@ import { debounce } from '@zodash/debounce';
 
 import { $ } from './$';
 import { on, off } from './event';
-import {
-  El, Listener, Unsubscibe, Position,
-} from './types';
+import { El, Selector, Listener, Unsubscibe, Position } from './types';
+
+const DEFAULT_THRESHOLD = 50;
 
 export function onScrollToTop(
-  $element: El,
+  $element: El | Selector,
   cb: Listener,
-  threshold?: number,
+  threshold: number = DEFAULT_THRESHOLD
 ): Unsubscibe {
   const $el = $($element);
+  // @TODO should throw ?
+  if (!$el) {
+    throw new Error(`Cannot found element: ${$element}`);
+  }
 
   const callback = debounce((e) => {
-    const scrollTop = $el?.scrollTop || (($el as any) as Window).scrollY;
+    const scrollTop = ($el as Element).scrollTop || ($el as Window).scrollY;
 
     if (scrollTop < threshold) {
       cb(e);
@@ -31,15 +35,20 @@ export function onScrollToTop(
 }
 
 export function onScrollToBottom(
-  $element: El,
+  $element: El | Selector,
   cb: Listener,
-  threshold?: number,
+  threshold: number = DEFAULT_THRESHOLD
 ): Unsubscibe {
   const $el = $($element);
+  // @TODO should throw ?
+  if (!$el) {
+    throw new Error(`Cannot found element: ${$element}`);
+  }
 
   const callback = debounce((e) => {
-    const scrollTop = $el?.scrollTop;
-    const scrollHeight = $el?.scrollHeight;
+    const scrollTop = ($el as Element).scrollTop || ($el as Window).scrollY;
+    const scrollHeight =
+      ($el as Element).scrollHeight || window.document.body.scrollHeight;
 
     if (scrollTop + threshold >= scrollHeight) {
       cb(e);
@@ -59,8 +68,8 @@ export function scrollToTop($element: El, animated?: boolean): void {
   const $el = $($element);
 
   setTimeout(() => {
-    $el
-      && $el.scrollTo({
+    $el &&
+      $el.scrollTo({
         top: 0,
         behavior: animated ? 'smooth' : undefined,
       });
@@ -69,11 +78,12 @@ export function scrollToTop($element: El, animated?: boolean): void {
 
 export function scrollToBottom($element: El, animated?: boolean): void {
   const $el = $($element);
-  const scrollHeight = $el?.scrollHeight;
+  const scrollHeight =
+    ($el as Element).scrollHeight || window.document.body.scrollHeight;
 
   setTimeout(() => {
-    $el
-      && $el.scrollTo({
+    $el &&
+      $el.scrollTo({
         top: scrollHeight,
         behavior: animated ? 'smooth' : undefined,
       });

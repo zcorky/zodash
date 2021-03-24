@@ -66,8 +66,8 @@ describe('queue', () => {
     expect(queue1.contains(6)).toBeTruthy();
     expect(queue1.contains(3)).toBeFalsy();
 
-    expect(queue1.contains(null)).toBeFalsy();
-    expect(queue1.contains(undefined)).toBeFalsy();
+    expect(queue1.contains(null as any)).toBeFalsy();
+    expect(queue1.contains(undefined as any)).toBeFalsy();
     expect((queue1 as any).contains()).toBeFalsy();
   });
 

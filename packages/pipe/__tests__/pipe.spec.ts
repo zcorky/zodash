@@ -5,7 +5,8 @@ import { pipe } from '../src/pipe';
 describe('@zodash/pipe', () => {
   it('calculate', () => {
     // const context = {};
-    const sum = (data: { left: number; right: number }) => data.left + data.right;
+    const sum = (data: { left: number; right: number }) =>
+      data.left + data.right;
     const pow = (x: number) => Math.pow(x, 2);
     const sub = (x: number) => x - 6;
 
@@ -17,7 +18,7 @@ describe('@zodash/pipe', () => {
       type: string;
       payload: string;
     }
-    const result = [];
+    const result: number[] = [];
     const doTask1 = (action: Action) => {
       // do something
       result.push(1);

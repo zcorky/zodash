@@ -12,7 +12,7 @@ interface IExpectedKeyCode {
 interface IParsedKeycode {
   raw: string;
   parsed: IExpectedKeyCode;
-  description: string;
+  description: string | null;
 }
 
 type IRawKeycode =
@@ -55,15 +55,15 @@ export function parseDescription(rawKeycode: IRawKeycode) {
 
 export function isMatchedKeyCode(
   expected: IExpectedKeyCode,
-  current: KeyboardEvent,
+  current: KeyboardEvent
 ) {
   for (const _key in expected) {
     const key = _key as keyof IExpectedKeyCode;
 
     // @1 key not match
     if (
-      key === 'key'
-      && expected.key.toLowerCase() !== current.key.toLowerCase()
+      key === 'key' &&
+      expected.key.toLowerCase() !== current.key.toLowerCase()
     ) {
       return false;
     }
@@ -95,7 +95,7 @@ export function isMatchedKeyCode(
 export function getInfo(
   raw: string,
   parsed: IExpectedKeyCode,
-  description: string,
+  description: string | null
 ) {
   return { raw, parsed, description };
 }
@@ -116,7 +116,7 @@ export function hotkeys(rawKeycode: string) {
 
   function watch(
     target: Element | Window,
-    handler: (event: KeyboardEvent, info: IParsedKeycode) => void,
+    handler: (event: KeyboardEvent, info: IParsedKeycode) => void
   ) {
     const _handler = function (event: any) {
       if (!isMatched(event)) return false;

@@ -26,8 +26,8 @@ export function unfetch(url: string, options?: Options) {
 
   return new Promise<UnfetchResponse>((resolve, reject) => {
     const request = new XMLHttpRequest();
-    const keys = [];
-    const all = [];
+    const keys: string[] = [];
+    const all: [string, string][] = [];
     const headers = {};
 
     const response = () => ({
@@ -59,7 +59,7 @@ export function unfetch(url: string, options?: Options) {
             all.push([key, value]);
             headers[key] = headers[key] ? `${headers[key]},${value}` : value;
             return '';
-          },
+          }
         );
 
       resolve(response()); // @TODO not the same as fetch Response

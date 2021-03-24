@@ -26,12 +26,13 @@ export function get(name: string) {
 
 export function set(
   name: string,
-  value: string | number | boolean | null,
-  options?: ISetOptions,
+  value: string | number | boolean | null | undefined,
+  options?: ISetOptions
 ) {
-  const maxAge = isNull(value) || typeof value === 'undefined'
-    ? 0
-    : options?.maxAge ?? DEFAULT_MAX_AGE;
+  const maxAge =
+    isNull(value) || typeof value === 'undefined'
+      ? 0
+      : options?.maxAge ?? DEFAULT_MAX_AGE;
 
   const domainStr = options?.domain ? `;domain=${options.domain}` : '';
   const pathStr = options?.path ? `;path=${options.path}` : '';

@@ -7,7 +7,7 @@ export interface IOptions {
 }
 
 export class Timer extends Emitter {
-  private it: NodeJS.Timeout;
+  private it: NodeJS.Timeout | null = null;
 
   private interval = this.options?.interval || 1000;
 

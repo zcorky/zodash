@@ -19,7 +19,9 @@ function words(value: string) {
  ```
  */
 export function camelCase(value: string) {
-  return words(value).reduce((result, word, index) => {
+  const _words = words(value) ?? [];
+
+  return _words.reduce((result, word, index) => {
     const lower = word.toLowerCase();
     return result + (index ? capitalize(lower) : lower);
   }, '');
