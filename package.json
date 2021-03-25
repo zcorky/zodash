@@ -1,5 +1,6 @@
 {
   "name": "root",
+  "version": "0.0.0",
   "private": true,
   "scripts": {
     "bootstrap": "lerna bootstrap --hoist",
@@ -55,6 +56,5 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
-  },
-  "version": "0.0.0"
+  }
 }
