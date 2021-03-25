@@ -1,6 +1,6 @@
 {
   "name": "@zodash/order-by",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Multiple Field Sorter, support ASC + DESC",
   "keywords": [
     "zodash",
@@ -68,6 +68,6 @@
     "base62": "^2.0.1"
   },
   "dependencies": {
-    "@zodash/basex": "^0.1.6"
+    "@zodash/basex": "^0.1.7"
   }
 }

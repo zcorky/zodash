@@ -1,6 +1,6 @@
 {
   "name": "@zodash/ajax",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Ajax: Perform an asynchronous HTTP request",
   "keywords": [
     "lodash",

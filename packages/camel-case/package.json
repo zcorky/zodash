@@ -1,6 +1,6 @@
 {
   "name": "@zodash/camel-case",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Convert string to camelCase.",
   "keywords": [
     "camelCase",
@@ -70,6 +70,6 @@
     "lodash": "^4.17.11"
   },
   "dependencies": {
-    "@zodash/capitalize": "^0.1.5"
+    "@zodash/capitalize": "^0.1.6"
   }
 }

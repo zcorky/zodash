@@ -1,6 +1,6 @@
 {
   "name": "@zodash/error",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "simple common error",
   "keywords": [
     "zodash",
@@ -64,6 +64,6 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "@zodash/pick": "^1.1.5"
+    "@zodash/pick": "^1.1.6"
   }
 }

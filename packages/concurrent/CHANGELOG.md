@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.10](https://github.com/zcorky/zodash/compare/@zodash/concurrent@0.1.9...@zodash/concurrent@0.1.10) (2021-03-25)
+
+**Note:** Version bump only for package @zodash/concurrent
+
+
+
+
+
 ## [0.1.9](https://github.com/zcorky/zodash/compare/@zodash/concurrent@0.1.8...@zodash/concurrent@0.1.9) (2021-03-24)
 
 **Note:** Version bump only for package @zodash/concurrent

@@ -1,6 +1,6 @@
 {
   "name": "@zodash/workerize",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "decorator function as worker, same as workerize, more simple than Comlink",
   "keywords": [
     "zodash",
@@ -66,6 +66,6 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "@zodash/worker": "^0.0.6"
+    "@zodash/worker": "^0.0.7"
   }
 }

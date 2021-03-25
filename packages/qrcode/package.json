@@ -1,6 +1,6 @@
 {
   "name": "@zodash/qrcode",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A simple qrcode",
   "keywords": [
     "zodash",
@@ -65,7 +65,7 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "@zodash/cache": "^0.0.3",
+    "@zodash/cache": "^0.0.4",
     "qrcode": "^1.4.4",
     "qrcode-terminal": "^0.12.0"
   },

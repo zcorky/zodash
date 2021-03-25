@@ -1,6 +1,6 @@
 {
   "name": "@zodash/url-parse",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "An url parser with regular expression",
   "keywords": [
     "zodash",

@@ -1,6 +1,6 @@
 {
   "name": "@zodash/inversify",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "DI / IoC for TypeScript",
   "keywords": [
     "zodash",

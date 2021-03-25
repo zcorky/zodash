@@ -1,6 +1,6 @@
 {
   "name": "@zodash/config",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A simple configuration container",
   "keywords": [
     "zodash",
@@ -64,6 +64,6 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "@zodash/cache": "^0.0.3"
+    "@zodash/cache": "^0.0.4"
   }
 }

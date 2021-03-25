@@ -1,6 +1,6 @@
 {
   "name": "@zodash/compress-image",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "compress image in browser",
   "keywords": [
     "zodash",
