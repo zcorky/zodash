@@ -1,0 +1,30 @@
+version: 2
+
+defaults: &defaults
+  working_directory: ~/zero
+  docker:
+    - image: circleci/node:10
+
+jobs:
+  build:
+    <<: *defaults
+    steps:
+      - checkout
+      - run:
+          name: update-npm
+          command: 'sudo npm install -g npm@latest'
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: install-npm-wee
+          command: npm install
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+          - ./node_modules
+      - run:
+          name: test
+          command: npm test
+      - run:
+          name: code-coverage
+          command: npm run coverage

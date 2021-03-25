@@ -1,0 +1,27 @@
+language: node_js
+
+node_js:
+  - "8"
+  - "10"
+
+install:
+  - npm i
+
+script:
+  - npm run test
+
+after_success:
+  - npm run coverage
+
+jobs:
+  include:
+    - stage: npm release
+      node_js: 10
+      script: echo "deploying to npm"
+      deploy:
+        provider: npm
+        email: uniquecolesmith@gmail.com
+        api_key: $NPM_AUTH_TOKEN
+        skip_cleanup: true
+        on:
+          tags: true
