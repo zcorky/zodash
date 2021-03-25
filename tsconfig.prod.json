@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "noImplicitAny": false,
+    // "removeComments": true,
+    "noLib": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "ES6",
+    "sourceMap": false,
+    "resolveJsonModule": true,
+    "lib": [
+      "es2015",
+      "ES2016",
+      "DOM"
+    ]
+  },
+  "exclude": [
+    "node_modules",
+    "__tests__",
+    "**/*.spec.ts",
+    "**/*.test.ts"
+  ]
+ }

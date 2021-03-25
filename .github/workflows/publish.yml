@@ -59,8 +59,14 @@ jobs:
           npm i
           npm run bootstrap
 
+      - name: Before Build
+        run: cp tsconfig.prod.json tsconfig.json
+
       - name: Make Build
         run: npm run build
+
+      - name: After Build
+        run: git checkout tsconfig.json
 
       - name: Make Testing
         run: npm run test
