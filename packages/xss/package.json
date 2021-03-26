@@ -1,6 +1,6 @@
 {
   "name": "@zodash/xss",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Sanitize untrusted HTML (to prevent XSS) with a configuration specified by a Whitelist",
   "keywords": [
     "zodash",
