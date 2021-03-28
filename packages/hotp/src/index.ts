@@ -39,11 +39,13 @@ export interface IHOTP {
 }
 
 export interface IHOTPOptions {
-  base32: {
-    encode(decoded: string): Promise<string>;
-    decode(encoded: string): Promise<string>;
-  };
-  hmac(key: string, message: string): Promise<string>;
+  base32?: IBase32;
+  hmac?(key: string, message: string): Promise<string>;
+}
+
+export interface IBase32 {
+  encode(decoded: string): Promise<string>;
+  decode(encoded: string): Promise<string>;
 }
 
 export interface IOTPOptions {
