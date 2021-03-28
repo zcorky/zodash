@@ -1,6 +1,6 @@
 {
   "name": "@zodash/invert",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Creates an object composed of the inverted keys and values of object",
   "keywords": [
     "zodash",
