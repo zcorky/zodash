@@ -31,9 +31,9 @@ export interface ITOTP {
    * Get TTL
    * 
    * @param timeStep number, optional
-   * @param startedTime milliseconds, optional
+   * @param startedAt milliseconds, optional
    */
-  getTTL(timeStep?: number, startedTime?: number): Promise<number>;
+  getTTL(timeStep?: number, startedAt?: number): Promise<number>;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
@@ -50,7 +50,7 @@ export interface IGetOptions {
   /**
    * Started time milliseconds, default: 0
    */
-  startedTime?: number;
+  startedAt?: number;
 
   /**
    * One-time password length, default: 6
@@ -60,17 +60,23 @@ export interface IGetOptions {
 
 export type IVerifyOptions = IGetOptions;
 
+
+const CONSTANTS = {
+  TIME_STEP: 30,
+  STARTED_AT: 0,
+};
+
 export class TOTP implements ITOTP {
   private hotp = new HOTP(this.options);
 
   constructor(private readonly options?: ITOTPOptions) {}
 
   public async get(token: string, options?: IGetOptions): Promise<string> {
-    const timeStep = options?.timeStep ?? 30;
-    const startedTime = options?.startedTime ?? 0;
-    const length = options?.length ?? 0;
+    const timeStep = options?.timeStep ?? CONSTANTS.TIME_STEP;
+    const startedAt = options?.startedAt ?? CONSTANTS.STARTED_AT;
+    const length = options?.length;
 
-    const timeCounter = Math.floor((Date.now() / 1000 - startedTime) / timeStep);
+    const timeCounter = Math.floor((Date.now() / 1000 - startedAt) / timeStep);
     return this.hotp.get(token, timeCounter, { length });
   }
 
@@ -82,10 +88,10 @@ export class TOTP implements ITOTP {
     return `otpauth://totp/${account}?issuer=${issuer}&secret=${token}`;
   }
 
-  public async getTTL(timeStep = 30, startedTime = 0): Promise<number> {
+  public async getTTL(timeStep = 30, startedAt = 0): Promise<number> {
     const now = Math.floor(Date.now() / 1000);
-    const timeCounter = Math.floor((now - startedTime) / timeStep);
-    return timeStep - (now - (timeCounter * timeStep + startedTime));
+    const timeCounter = Math.floor((now - startedAt) / timeStep);
+    return timeStep - (now - (timeCounter * timeStep + startedAt));
   }
 }
 

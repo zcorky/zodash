@@ -55,11 +55,16 @@ export interface IOTPOptions {
   length?: number;
 }
 
+const CONSTANTS = {
+  OTP_LENGTH: 6,
+};
+
+
 export class HOTP implements IHOTP {
   constructor(private readonly options?: IHOTPOptions) {}
 
   public async get(token: string, timeCounter: number, options?: IOTPOptions): Promise<string> {
-    const otpLength = options?.length ?? 6;
+    const otpLength = options?.length ?? CONSTANTS.OTP_LENGTH;
     const _base32Decode = this.options?.base32?.decode ?? base32Decode;
     const _hmac = this.options?.hmac ?? hmac;
 
