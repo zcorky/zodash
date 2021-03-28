@@ -64,7 +64,7 @@ export class TOTP implements ITOTP {
     const length = options?.length ?? 0;
 
     const timeCounter = Math.floor((Date.now() / 1000 - startedTime) / timeStep);
-    return this.hotp.get(timeCounter, token, { length });
+    return this.hotp.get(token, timeCounter, { length });
   }
 
   public async verify(otp: string, token: string, options?: IVerifyOptions): Promise<boolean> {
