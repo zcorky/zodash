@@ -17,9 +17,13 @@ export function timeCounter2ByteText(counter: number) {
   return text.join('');
 }
 
-export function hmac(key: string, message: string): string {
+export async function base32Decode(encoded: string): Promise<string> {
+  return base32.decode(encoded).toString();
+}
+
+export async function hmac(key: string, message: string): Promise<string> {
   const hmacSha = new jsSHA('SHA-1', 'BYTES');
-  hmacSha.setHMACKey(base32.decode(key).toString(), 'BYTES');
+  hmacSha.setHMACKey(key, 'BYTES');
   hmacSha.update(message);
   return hmacSha.getHMAC('BYTES');
 }

@@ -1,6 +1,10 @@
-import TOTP, { IGetOptions, IVerifyOptions } from '@zodash/totp';
+import TOTP, { ITOTPOptions, IGetOptions, IVerifyOptions } from '@zodash/totp';
 
-const totp = new TOTP();
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+export interface I2faGetOptions extends IGetOptions, ITOTPOptions {}
+
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+export interface I2faVerifyOptions extends IVerifyOptions, ITOTPOptions {}
 
 /**
 * Get a OTP based HMAC-SHA-1
@@ -8,7 +12,9 @@ const totp = new TOTP();
 * @param token token string
 * @param options optional options 
 */
-export async function get(token: string, options?: IGetOptions): Promise<string> {
+export async function get(token: string, options?: I2faGetOptions): Promise<string> {
+  const totp = new TOTP(options);
+
   return totp.get(token, options);
 }
 
@@ -19,7 +25,9 @@ export async function get(token: string, options?: IGetOptions): Promise<string>
  * @param token token string
  * @param options optional options 
  */
-export async function verify(otp: string, token: string, options?: IVerifyOptions): Promise<boolean> {
+export async function verify(otp: string, token: string, options?: I2faVerifyOptions): Promise<boolean> {
+  const totp = new TOTP(options);
+
   return totp.verify(otp, token, options);
 }
 
@@ -31,6 +39,8 @@ export async function verify(otp: string, token: string, options?: IVerifyOption
  * @param issuer issuer or organazation
  */
 export async function getURI(token: string, account: string, issuer: string): Promise<string> {
+  const totp = new TOTP();
+
   return totp.getURI(token, account, issuer);
 }
 
@@ -41,5 +51,7 @@ export async function getURI(token: string, account: string, issuer: string): Pr
  * @param startedTime milliseconds, optional
  */
 export async function getTTL(timeStep?: number, startedTime?: number): Promise<number> {
+  const totp = new TOTP();
+
   return totp.getTTL(timeStep, startedTime);
 }

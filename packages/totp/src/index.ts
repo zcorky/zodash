@@ -1,4 +1,4 @@
-import HOTP from '@zodash/hotp';
+import HOTP, { IHOTPOptions } from '@zodash/hotp';
 
 export interface ITOTP {
    /**
@@ -36,6 +36,11 @@ export interface ITOTP {
   getTTL(timeStep?: number, startedTime?: number): Promise<number>;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+export interface ITOTPOptions extends IHOTPOptions {
+  //
+}
+
 export interface IGetOptions {
   /**
    * Time step seconds, default: 30
@@ -56,7 +61,9 @@ export interface IGetOptions {
 export type IVerifyOptions = IGetOptions;
 
 export class TOTP implements ITOTP {
-  private hotp = new HOTP();
+  private hotp = new HOTP(this.options);
+
+  constructor(private readonly options?: ITOTPOptions) {}
 
   public async get(token: string, options?: IGetOptions): Promise<string> {
     const timeStep = options?.timeStep ?? 30;

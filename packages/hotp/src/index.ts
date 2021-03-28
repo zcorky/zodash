@@ -3,6 +3,7 @@ import {
   timeCounter2ByteText,
   hmac,
   truncat,
+  base32Decode,
 } from './utils';
 
 export {
@@ -37,6 +38,14 @@ export interface IHOTP {
   getURI(token: string, account: string, issuer: string): Promise<string>;
 }
 
+export interface IHOTPOptions {
+  base32: {
+    encode(decoded: string): Promise<string>;
+    decode(encoded: string): Promise<string>;
+  };
+  hmac(key: string, message: string): Promise<string>;
+}
+
 export interface IOTPOptions {
   /**
    * One-time password length, default: 6
@@ -45,10 +54,16 @@ export interface IOTPOptions {
 }
 
 export class HOTP implements IHOTP {
+  constructor(private readonly options?: IHOTPOptions) {}
+
   public async get(token: string, timeCounter: number, options?: IOTPOptions): Promise<string> {
     const otpLength = options?.length ?? 6;
+    const _base32Decode = this.options?.base32?.decode ?? base32Decode;
+    const _hmac = this.options?.hmac ?? hmac;
+
     const timeCounterBytes = timeCounter2ByteText(timeCounter);
-    const hmacHash = hmac(token, timeCounterBytes);
+    const decodedToken = await _base32Decode(token);
+    const hmacHash = await _hmac(decodedToken, timeCounterBytes);
     return truncat(hmacHash, otpLength);
   }
 
