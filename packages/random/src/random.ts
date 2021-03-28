@@ -17,8 +17,14 @@ export function number(max = 10, min = 0) {
   return parseInt(`${Math.random() * (max - min)}`) + min;
 }
 
-export function string(length = 10) {
-  return feed(length);
+/**
+ * Produce a random string
+ * 
+ * @param length  string length, default 10
+ * @param feeds   feeds string, default abcdef0123456789
+ */
+export function string(length = 10, feeds: string = BASESTR) {
+  return customAlphabet(feeds, length)();
 }
 
 export function token() {
