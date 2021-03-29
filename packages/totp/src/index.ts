@@ -48,7 +48,7 @@ export interface IGetOptions {
   timeStep?: number;
 
   /**
-   * Started time milliseconds, default: 0
+   * Started time seconds, default: 0
    */
   startedAt?: number;
 
@@ -76,7 +76,7 @@ export class TOTP implements ITOTP {
     const startedAt = options?.startedAt ?? CONSTANTS.STARTED_AT;
     const length = options?.length;
 
-    const timeCounter = Math.floor((Date.now() / 1000 - startedAt) / timeStep);
+    const timeCounter = getTimeCounter(timeStep, startedAt);
     return this.hotp.get(token, timeCounter, { length });
   }
 
@@ -89,10 +89,18 @@ export class TOTP implements ITOTP {
   }
 
   public async getTTL(timeStep = 30, startedAt = 0): Promise<number> {
-    const now = Math.floor(Date.now() / 1000);
-    const timeCounter = Math.floor((now - startedAt) / timeStep);
-    return timeStep - (now - (timeCounter * timeStep + startedAt));
+    return getTTL(timeStep, startedAt);
   }
+}
+
+function getTimeCounter(timeStep: number, startedAt: number, nowSeconds = Date.now()) {
+  return Math.floor((nowSeconds / 1000 - startedAt) / timeStep);
+}
+
+function getTTL(timeStep = 30, startedAt = 0) {
+  const now = Date.now();
+  const timeCounter = getTimeCounter(timeStep, startedAt, now);
+  return timeStep - Math.floor(now - timeCounter * timeStep);
 }
 
 export default TOTP;
