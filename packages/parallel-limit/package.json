@@ -1,6 +1,6 @@
 {
   "name": "@zodash/parallel-limit",
-  "version": "0.2.10",
+  "version": "0.2.11",
   "description": "Parallel Limit Running Task Function",
   "keywords": [
     "zodash",
@@ -72,7 +72,7 @@
     "@zodash/queue": "^0.1.7"
   },
   "devDependencies": {
-    "@zodash/random": "^1.2.9",
+    "@zodash/random": "^1.2.10",
     "@zodash/repeat": "^0.0.5"
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "@zodash/totp",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "TOTP + HOTP library, with nice utilities for handing 2FA",
   "keywords": [
     "zodash",
@@ -66,6 +66,6 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "@zodash/hotp": "^0.0.0"
+    "@zodash/hotp": "^0.0.1"
   }
 }

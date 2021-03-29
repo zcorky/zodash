@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.10](https://github.com/zcorky/zodash/compare/@zodash/random@1.2.9...@zodash/random@1.2.10) (2021-03-29)
+
+**Note:** Version bump only for package @zodash/random
+
+
+
+
+
 ## [1.2.9](https://github.com/zcorky/zodash/compare/@zodash/random@1.2.8...@zodash/random@1.2.9) (2021-03-25)
 
 **Note:** Version bump only for package @zodash/random
