@@ -1,6 +1,6 @@
 {
   "name": "@zodash/hotp",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "HOTP library, HMAC-Based One-Time Password Algorithm",
   "keywords": [
     "zodash",
