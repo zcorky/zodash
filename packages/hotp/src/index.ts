@@ -1,7 +1,7 @@
 import {
   randomToken,
   timeCounter2ByteText,
-  hmac,
+  hmacSha1,
   truncat,
   base32Decode,
 } from './utils';
@@ -17,7 +17,7 @@ export interface IHOTP {
    * @param timeCounter timeCounter number
    * @param token token string 
    */
-  get(token: string, timeCounter: number): Promise<string>;
+  generate(token: string, timeCounter: number): Promise<string>;
 
   /**
    * Verify OTP is valid to Token
@@ -63,19 +63,19 @@ const CONSTANTS = {
 export class HOTP implements IHOTP {
   constructor(private readonly options?: IHOTPOptions) {}
 
-  public async get(token: string, timeCounter: number, options?: IOTPOptions): Promise<string> {
+  public async generate(token: string, timeCounter: number, options?: IOTPOptions): Promise<string> {
     const otpLength = options?.length ?? CONSTANTS.OTP_LENGTH;
     const _base32Decode = this.options?.base32?.decode ?? base32Decode;
-    const _hmac = this.options?.hmac ?? hmac;
+    const _hmacSha1 = this.options?.hmac ?? hmacSha1;
 
     const timeCounterBytes = timeCounter2ByteText(timeCounter);
     const decodedToken = await _base32Decode(token);
-    const hmacHash = await _hmac(decodedToken, timeCounterBytes);
-    return truncat(hmacHash, otpLength);
+    const hexToken = await _hmacSha1(decodedToken, timeCounterBytes);
+    return truncat(hexToken, otpLength);
   }
 
   public async verify(otp: string, token: string, timeCounter: number) {
-    return otp === await this.get(token, timeCounter);
+    return otp === await this.generate(token, timeCounter);
   }
 
   public async getURI(token: string, account: string, issuer: string) {

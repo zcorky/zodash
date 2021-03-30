@@ -21,7 +21,7 @@ export async function base32Decode(encoded: string): Promise<string> {
   return base32.decode(encoded).toString();
 }
 
-export async function hmac(key: string, message: string): Promise<string> {
+export async function hmacSha1(key: string, message: string): Promise<string> {
   const hmacSha = new jsSHA('SHA-1', 'BYTES');
   hmacSha.setHMACKey(key, 'BYTES');
   hmacSha.update(message);

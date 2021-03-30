@@ -13,33 +13,33 @@ describe('@zodash/totp', () => {
 
   it('on unix time 59 sec', async () => {
     Date.now = () => 59 * 1000;
-    expect(await totp.get(token, { length: 8 })).toEqual('94287082');
+    expect(await totp.generate(token, { length: 8 })).toEqual('94287082');
     expect(await totp.getTTL()).toEqual(1);
   });
 
   it('on unix time 1111111109 sec', async () => {
     Date.now = () => 1111111109 * 1000;
-    expect(await totp.get(token, { length: 8 })).toEqual('07081804');
+    expect(await totp.generate(token, { length: 8 })).toEqual('07081804');
   });
 
   it('on unix time 1111111111 sec', async () => {
     Date.now = () => 1111111111 * 1000;
-    expect(await totp.get(token, { length: 8 })).toEqual('14050471');
+    expect(await totp.generate(token, { length: 8 })).toEqual('14050471');
   });
 
   it('on unix time 1234567890 sec', async () => {
     Date.now = () => 1234567890 * 1000;
-    expect(await totp.get(token, { length: 8 })).toEqual('89005924');
+    expect(await totp.generate(token, { length: 8 })).toEqual('89005924');
   });
 
   it('on unix time 2000000000 sec', async () => {
     Date.now = () => 2000000000 * 1000;
-    expect(await totp.get(token, { length: 8 })).toEqual('69279037');
+    expect(await totp.generate(token, { length: 8 })).toEqual('69279037');
   });
 
   it('on unix time 20000000000 sec', async () => {
     Date.now = () => 20000000000 * 1000;
-    expect(await totp.get(token, { length: 8 })).toEqual('65353130');
+    expect(await totp.generate(token, { length: 8 })).toEqual('65353130');
   });
 
   it('google authenticator url', async () => {

@@ -51,7 +51,7 @@ describe('@zodash/hotp', () => {
     ];
 
     for (const co of expected) {
-      expect(await hotp.get(token, co.timeCounter)).toBe(String(co.otp));
+      expect(await hotp.generate(token, co.timeCounter)).toBe(String(co.otp));
     }
   });
 

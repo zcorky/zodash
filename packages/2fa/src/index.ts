@@ -12,10 +12,10 @@ export interface I2faVerifyOptions extends IVerifyOptions, ITOTPOptions {}
 * @param token token string
 * @param options optional options 
 */
-export async function get(token: string, options?: I2faGetOptions): Promise<string> {
+export async function generate(token: string, options?: I2faGetOptions): Promise<string> {
   const totp = new TOTP(options);
 
-  return totp.get(token, options);
+  return totp.generate(token, options);
 }
 
 /**

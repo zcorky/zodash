@@ -7,7 +7,7 @@ export interface ITOTP {
    * @param token token string
    * @param options optional options 
    */
-  get(token: string, options?: IGetOptions): Promise<string>;
+  generate(token: string, options?: IGetOptions): Promise<string>;
 
   /**
    * Verify OTP is valid to Token
@@ -71,17 +71,17 @@ export class TOTP implements ITOTP {
 
   constructor(private readonly options?: ITOTPOptions) {}
 
-  public async get(token: string, options?: IGetOptions): Promise<string> {
+  public async generate(token: string, options?: IGetOptions): Promise<string> {
     const timeStep = options?.timeStep ?? CONSTANTS.TIME_STEP;
     const startedAt = options?.startedAt ?? CONSTANTS.STARTED_AT;
     const length = options?.length;
 
     const timeCounter = getTimeCounter(timeStep, startedAt);
-    return this.hotp.get(token, timeCounter, { length });
+    return this.hotp.generate(token, timeCounter, { length });
   }
 
   public async verify(otp: string, token: string, options?: IVerifyOptions): Promise<boolean> {
-    return otp === await this.get(token, options);
+    return otp === await this.generate(token, options);
   }
 
   public async getURI(token: string, account: string, issuer: string): Promise<string> {
@@ -99,8 +99,7 @@ function getTimeCounter(timeStep: number, startedAt: number, nowSeconds = Date.n
 
 function getTTL(timeStep = 30, startedAt = 0) {
   const now = Date.now();
-  const timeCounter = getTimeCounter(timeStep, startedAt, now);
-  return timeStep - Math.floor(now - timeCounter * timeStep);
+  return timeStep - Math.floor(now / 1000 - startedAt) % timeStep;
 }
 
 export default TOTP;
