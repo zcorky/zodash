@@ -4,28 +4,28 @@ export interface ITOTP {
    /**
    * Get a OTP based HMAC-SHA-1
    * 
-   * @param token token string
+   * @param secret secret string
    * @param options optional options 
    */
-  generate(token: string, options?: IGetOptions): Promise<string>;
+  generate(secret: string, options?: IGetOptions): Promise<string>;
 
   /**
-   * Verify OTP is valid to Token
+   * Verify OTP is valid to Secret
    * 
    * @param otp one-time password
-   * @param token token string
+   * @param secret secret string
    * @param options optional options 
    */
-  verify(otp: string, token: string, options?: IVerifyOptions): Promise<boolean>;
+  verify(otp: string, secret: string, options?: IVerifyOptions): Promise<boolean>;
   
   /**
    * Get TOTP URI
    * 
-   * @param token token string
+   * @param secret secret string
    * @param account account
    * @param issuer issuer or organazation
    */
-  getURI(token: string, account: string, issuer: string): Promise<string>;
+  getURI(secret: string, account: string, issuer: string): Promise<string>;
   
   /**
    * Get TTL
@@ -71,21 +71,21 @@ export class TOTP implements ITOTP {
 
   constructor(private readonly options?: ITOTPOptions) {}
 
-  public async generate(token: string, options?: IGetOptions): Promise<string> {
+  public async generate(secret: string, options?: IGetOptions): Promise<string> {
     const timeStep = options?.timeStep ?? CONSTANTS.TIME_STEP;
     const startedAt = options?.startedAt ?? CONSTANTS.STARTED_AT;
     const length = options?.length;
 
     const timeCounter = getTimeCounter(timeStep, startedAt);
-    return this.hotp.generate(token, timeCounter, { length });
+    return this.hotp.generate(secret, timeCounter, { length });
   }
 
-  public async verify(otp: string, token: string, options?: IVerifyOptions): Promise<boolean> {
-    return otp === await this.generate(token, options);
+  public async verify(otp: string, secret: string, options?: IVerifyOptions): Promise<boolean> {
+    return otp === await this.generate(secret, options);
   }
 
-  public async getURI(token: string, account: string, issuer: string): Promise<string> {
-    return `otpauth://totp/${account}?issuer=${issuer}&secret=${token}`;
+  public async getURI(secret: string, account: string, issuer: string): Promise<string> {
+    return `otpauth://totp/${account}?issuer=${issuer}&secret=${secret}`;
   }
 
   public async getTTL(timeStep = 30, startedAt = 0): Promise<number> {

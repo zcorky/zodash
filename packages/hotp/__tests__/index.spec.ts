@@ -4,7 +4,7 @@ import HOTP from '../src';
 
 describe('@zodash/hotp', () => {
   const hotp = new HOTP();
-  const token = base32.encode('12345678901234567890').toString();
+  const secret = base32.encode('12345678901234567890').toString();
 
   it('works', async () => {
     const expected = [
@@ -51,13 +51,13 @@ describe('@zodash/hotp', () => {
     ];
 
     for (const co of expected) {
-      expect(await hotp.generate(token, co.timeCounter)).toBe(String(co.otp));
+      expect(await hotp.generate(secret, co.timeCounter)).toBe(String(co.otp));
     }
   });
 
   it('google authenticator url', async () => {
     const account = 'zero';
     const issuer = 'zcorky';
-    expect(await hotp.getURI(token, account, issuer)).toEqual(`otpauth://hotp/${account}?issuer=${issuer}&secret=${token}`)
+    expect(await hotp.getURI(secret, account, issuer)).toEqual(`otpauth://hotp/${account}?issuer=${issuer}&secret=${secret}`)
   });
 });
