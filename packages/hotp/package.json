@@ -66,6 +66,7 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
+    "jsotp": "^1.0.4",
     "jssha": "2",
     "thirty-two": "^1.0.2"
   }

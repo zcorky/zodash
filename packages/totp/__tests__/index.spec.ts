@@ -1,4 +1,15 @@
+import * as jsotp from 'jsotp';
+import * as tfa from 'node-2fa';
 import TOTP from '../src';
+
+function jsotpGenerate(secret: string) {
+  const totp = jsotp.TOTP(secret);
+  return totp.now();
+}
+
+function tfaGenerate(secret: string) {
+  return tfa.generateToken(secret).token;
+}
 
 describe('@zodash/totp', () => {
   beforeEach(() => {
@@ -48,5 +59,11 @@ describe('@zodash/totp', () => {
     const issuer = 'zcorky';
 
     expect(await totp.getURI(token, account, issuer)).toEqual(`otpauth://totp/${account}?issuer=${issuer}&secret=${token}`);
+  });
+
+  it('totp generate correct', async () => {
+    const secret = 'BASE32ENCODEDSECRET';
+    expect(await totp.generate(secret)).toEqual(jsotpGenerate(secret));
+    expect(await totp.generate(secret)).toEqual(tfaGenerate(secret));
   });
 });

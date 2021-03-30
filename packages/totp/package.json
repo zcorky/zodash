@@ -67,5 +67,9 @@
   },
   "dependencies": {
     "@zodash/hotp": "^0.0.5"
+  },
+  "devDependencies": {
+    "jsotp": "^1.0.4",
+    "node-2fa": "^2.0.1"
   }
 }

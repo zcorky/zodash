@@ -1,4 +1,5 @@
 import * as base32 from 'thirty-two';
+import * as jsotp from 'jsotp';
 
 import HOTP from '../src';
 
@@ -60,4 +61,12 @@ describe('@zodash/hotp', () => {
     const issuer = 'zcorky';
     expect(await hotp.getURI(secret, account, issuer)).toEqual(`otpauth://hotp/${account}?issuer=${issuer}&secret=${secret}`)
   });
+
+  it('hotop generate correct', async () => {
+    const secret = 'BASE32ENCODEDSECRET';
+    const jsotp_hotp = jsotp.HOTP(secret);
+    expect(await hotp.generate(secret, 0)).toEqual(jsotp_hotp.at(0));
+    expect(await hotp.generate(secret, 1)).toEqual(jsotp_hotp.at(1));
+    expect(await hotp.generate(secret, 2132)).toEqual(jsotp_hotp.at(2132));
+  })
 });
