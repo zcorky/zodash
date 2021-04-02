@@ -65,3 +65,7 @@ export async function getTimeCounter(timeStep?: number, startedTime?: number): P
   const totp = new TOTP();
   return totp.getTimeCounter(timeStep, startedTime);
 }
+
+export function generateSecret(length?: number) {
+  return TOTP.generateSecret(length);
+}

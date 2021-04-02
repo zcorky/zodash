@@ -71,6 +71,10 @@ export type IVerifyOptions = IGetOptions;
 export class TOTP implements ITOTP {
   private hotp = new HOTP(this.options);
 
+  static generateSecret(length?: number) {
+    return HOTP.generateSecret(length);
+  }
+
   constructor(private readonly options?: ITOTPOptions) {}
 
   public async generate(secret: string, options?: IGetOptions): Promise<IOTPToken> {

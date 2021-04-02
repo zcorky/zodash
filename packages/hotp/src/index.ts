@@ -66,6 +66,10 @@ const CONSTANTS = {
 
 
 export class HOTP implements IHOTP {
+  static generateSecret(length?: number) {
+    return randomToken(length);
+  }
+  
   constructor(private readonly options?: IHOTPOptions) {}
 
   public async generate(secret: string, timeCounter: number, options?: IOTPOptions): Promise<IOTPToken> {
