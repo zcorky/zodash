@@ -1,6 +1,6 @@
 {
   "name": "@zodash/run-async-in-series",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Runs an array of async function (method return promise) in series",
   "keywords": [
     "zodash",
