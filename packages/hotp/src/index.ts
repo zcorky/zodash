@@ -10,23 +10,28 @@ export {
   randomToken,
 };
 
+/**
+ * OTP Token based on Secret
+ */
+export type IOTPToken = string;
+
 export interface IHOTP {
   /**
-   * Get a OTP based HMAC-SHA-1
+   * Get an OTP Token based HMAC-SHA-1
    * 
    * @param timeCounter timeCounter number
    * @param secret secret string 
    */
-  generate(secret: string, timeCounter: number): Promise<string>;
+  generate(secret: string, timeCounter: number): Promise<IOTPToken>;
 
   /**
-   * Verify OTP is valid to Secret
+   * Verify OTP Token is valid to Secret
    * 
-   * @param otp one-time password
+   * @param token one-time password
    * @param secret secret string
    * @param timeCounter time counter
    */
-  verify(otp: string, secret: string, timeCounter: number): Promise<boolean>;
+  verify(token: IOTPToken, secret: string, timeCounter: number): Promise<boolean>;
 
   /**
    * Get HOTP URI
@@ -63,7 +68,7 @@ const CONSTANTS = {
 export class HOTP implements IHOTP {
   constructor(private readonly options?: IHOTPOptions) {}
 
-  public async generate(secret: string, timeCounter: number, options?: IOTPOptions): Promise<string> {
+  public async generate(secret: string, timeCounter: number, options?: IOTPOptions): Promise<IOTPToken> {
     const otpLength = options?.length ?? CONSTANTS.OTP_LENGTH;
     const _base32Decode = this.options?.base32?.decode ?? base32Decode;
     const _hmacSha1 = this.options?.hmac ?? hmacSha1;
@@ -74,8 +79,8 @@ export class HOTP implements IHOTP {
     return truncat(secretHashHex, otpLength);
   }
 
-  public async verify(otp: string, secret: string, timeCounter: number) {
-    return otp === await this.generate(secret, timeCounter);
+  public async verify(token: IOTPToken, secret: string, timeCounter: number) {
+    return token === await this.generate(secret, timeCounter);
   }
 
   public async getURI(secret: string, account: string, issuer: string) {

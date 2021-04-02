@@ -7,7 +7,7 @@ export interface I2faGetOptions extends IGetOptions, ITOTPOptions {}
 export interface I2faVerifyOptions extends IVerifyOptions, ITOTPOptions {}
 
 /**
-* Get a OTP based HMAC-SHA-1
+* Get a OTP Token based HMAC-SHA-1
 * 
 * @param secret secret string
 * @param options optional options 
@@ -19,16 +19,16 @@ export async function generate(secret: string, options?: I2faGetOptions): Promis
 }
 
 /**
- * Verify OTP is valid to Secret
+ * Verify OTP Token is valid to Secret
  * 
- * @param otp one-time password
+ * @param token one-time password
  * @param secret secret string
  * @param options optional options 
  */
-export async function verify(otp: string, secret: string, options?: I2faVerifyOptions): Promise<boolean> {
+export async function verify(token: string, secret: string, options?: I2faVerifyOptions): Promise<boolean> {
   const totp = new TOTP(options);
 
-  return totp.verify(otp, secret, options);
+  return totp.verify(token, secret, options);
 }
 
 /**
