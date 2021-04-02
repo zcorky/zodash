@@ -55,3 +55,13 @@ export async function getTTL(timeStep?: number, startedTime?: number): Promise<n
 
   return totp.getTTL(timeStep, startedTime);
 }
+
+/**
+ * Get Time Counter
+ * @param timeStep number, optional
+ * @param startedAt milliseconds, optional
+ */
+export async function getTimeCounter(timeStep?: number, startedTime?: number): Promise<number> {
+  const totp = new TOTP();
+  return totp.getTimeCounter(timeStep, startedTime);
+}

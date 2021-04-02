@@ -35,6 +35,13 @@ export interface ITOTP {
    * @param startedAt milliseconds, optional
    */
   getTTL(timeStep?: number, startedAt?: number): Promise<number>;
+
+  /**
+   * Get Time Counter
+   * @param timeStep number, optional
+   * @param startedAt milliseconds, optional
+   */
+  getTimeCounter(timeStep?: number, startedAt?: number): Promise<number>;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
@@ -71,7 +78,7 @@ export class TOTP implements ITOTP {
     const startedAt = options?.startedAt;
     const length = options?.length;
 
-    const timeCounter = getTimeCounter(timeStep, startedAt);
+    const timeCounter = await this.getTimeCounter(timeStep, startedAt);
     return this.hotp.generate(secret, timeCounter, { length });
   }
 
@@ -85,6 +92,10 @@ export class TOTP implements ITOTP {
 
   public async getTTL(timeStep?: number, startedAt?: number): Promise<number> {
     return getTTL(timeStep, startedAt);
+  }
+
+  public async getTimeCounter(timeStep?: number, startedAt?: number) {
+    return getTimeCounter(timeStep, startedAt);
   }
 }
 
