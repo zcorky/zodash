@@ -43,3 +43,7 @@ console.log(uuid()); // -> 0e3b84af-f911-4a55-b78a-cedf6f0bd815
 ## Contribution
 
 Read [Contributing Guide](.github/CONTRIBUTING.md) for development setup instructions.
+
+## License
+
+MIT@[whatwewant](https://github.com/whatwewant)
