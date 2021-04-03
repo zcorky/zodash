@@ -1,6 +1,6 @@
 {
   "name": "@zodash/utf8",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "UTF-8(8-bit Unicode Transform Format) encode/decode",
   "keywords": [
     "zodash",
@@ -66,6 +66,6 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "@zodash/totp": "^0.0.7"
+    "@zodash/totp": "^0.0.8"
   }
 }
