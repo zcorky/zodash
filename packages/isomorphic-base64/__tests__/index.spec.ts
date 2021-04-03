@@ -36,6 +36,6 @@ describe('@zodash/2fa', () => {
     // expect(base64.encode(str)).toEqual(base64Str);
     // expect(base64.encode(str)).toEqual(base64JS.encode(str));
     // expect(base64.decode(base64Str)).toEqual(str);
-    // expect(base64.decode(base64.encode(str))).toEqual(str);
+    expect(base64.decode(base64.encode(str))).toEqual(str);
   });
 });
