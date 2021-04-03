@@ -10,6 +10,7 @@
  *  字符编码笔记：ASCII，Unicode 和 UTF-8: http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html
  *  Base64 Wikipedia: https://zh.wikipedia.org/wiki/Base64
  *  Base64笔记: http://www.ruanyifeng.com/blog/2008/06/base64.html
+ *  Base64 RFC (rfc4648): https://tools.ietf.org/html/rfc4648
  * 
  * @TODO emoji is broken, use Buffer or @zodash/base64 or js-base64 instead of
  */
