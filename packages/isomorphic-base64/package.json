@@ -64,7 +64,6 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "@zodash/totp": "^0.0.8",
     "@zodash/utf8": "^0.0.2"
   },
   "devDependencies": {

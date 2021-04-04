@@ -1,12 +1,10 @@
 {
-  "name": "@zodash/hotp",
-  "version": "0.0.8",
-  "description": "HOTP library, HMAC-Based One-Time Password Algorithm",
+  "name": "@zodash/isomorphic-base32",
+  "version": "0.0.0",
+  "description": "Base32 for Node.js and Browser",
   "keywords": [
     "zodash",
-    "totp",
-    "hotp",
-    "2fa"
+    "base32"
   ],
   "author": "zero <tobewhatwewant@gmail.com>",
   "homepage": "https://github.com/zcorky/zodash#readme",
@@ -65,12 +63,7 @@
   "bugs": {
     "url": "https://github.com/zcorky/zodash/issues"
   },
-  "dependencies": {
-    "@zodash/isomorphic-base32": "^0.0.0",
-    "jssha": "2"
-  },
   "devDependencies": {
-    "jsotp": "^1.0.4",
-    "thirty-two": "^1.0.2"
+    "jsotp": "^1.0.4"
   }
 }

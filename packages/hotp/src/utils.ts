@@ -1,9 +1,10 @@
 // import * as base32 from 'thirty-two';
+import base32 from '@zodash/isomorphic-base32';
 // import * as jsSHA from 'jssha';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const jsSHA = require('jssha');
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const base32 = require('jsotp/lib/base32').Base32;
+// const base32 = require('jsotp/lib/base32').Base32;
 
 
 export function randomToken(length = 16) {
