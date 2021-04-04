@@ -37,17 +37,17 @@ export function transformUnicodeString2Utf8String(unicodeString: string): string
       const charCode = char.charCodeAt(0);
 
       const charByte: number[] = []; // new Array(3); // new Uint8Array(3);
-      if (charCode <= 0b01111111) { // UTF8 - 1 个字节
+      if (charCode < 0b10000000) { // UTF8 - 1 个字节
         charByte[0] = charCode & 0b01111111;
-      } else if (charCode <= 0b000011111111111) { // UTF8 - 2 个字节
+      } else if (charCode < 0b000100000000000) { // UTF8 - 2 个字节
         charByte[0] = charCode >> 6 | 0b11000000;
-        charByte[1] = charCode & 0b00111111 | 0b10000000;
-      } else if (charCode <= 0b1111111111111111) { // UTF8 - 3 个字节
+        charByte[1] = (charCode & 0b00111111) | 0b10000000;
+      } else if (charCode < 0b10000000000000000) { // UTF8 - 3 个字节
         charByte[0] = charCode >> 12 | 0b11100000;
         charByte[1] = (charCode >> 6 & 0b00111111) | 0b10000000;
         charByte[2] = (charCode & 0b00111111) | 0b10000000;
       } else { // UTF8 - 4 个字节
-        charByte[0] = charCode >> 18 | 0b111100000;
+        charByte[0] = (charCode >> 18) | 0b11110000;
         charByte[1] = (charCode >> 12 & 0b00111111) | 0b10000000;
         charByte[2] = (charCode >> 6 & 0b00111111) | 0b10000000;
         charByte[3] = (charCode & 0b00111111) | 0b10000000;

@@ -67,5 +67,8 @@
   },
   "dependencies": {
     "@zodash/totp": "^0.0.8"
+  },
+  "devDependencies": {
+    "jszip": "^3.6.0"
   }
 }
