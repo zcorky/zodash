@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.5](https://github.com/zcorky/zodash/compare/@zodash/utf8@0.0.4...@zodash/utf8@0.0.5) (2021-04-05)
+
+
+### Bug Fixes
+
+* **utf8:** remove invalid dependencies ([dd9860d](https://github.com/zcorky/zodash/commit/dd9860ddfdb4e90466d495677244ce73c196724a))
+
+
+
+
+
 ## [0.0.4](https://github.com/zcorky/zodash/compare/@zodash/utf8@0.0.3...@zodash/utf8@0.0.4) (2021-04-05)
 
 **Note:** Version bump only for package @zodash/utf8
