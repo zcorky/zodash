@@ -12,6 +12,7 @@
     "eslint": "eslint packages/**/*.{ts,tsx} --fix",
     "publish": "lerna run build && lerna publish",
     "publish:ci": "lerna run build && lerna publish --canary --yes",
+    "prepare": "husky install",
     "postinstall": "husky install",
     "commit": "cz"
   },
