@@ -65,9 +65,6 @@
   "bugs": {
     "url": "https://github.com/zcorky/zodash/issues"
   },
-  "dependencies": {
-    "@zodash/totp": "^0.0.10"
-  },
   "devDependencies": {
     "jszip": "^3.6.0"
   }
