@@ -1,5 +1,6 @@
 // import * as base32 from 'thirty-two';
 import base32 from '@zodash/isomorphic-base32';
+import random from '@zodash/random';
 // import * as jsSHA from 'jssha';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const jsSHA = require('jssha');
@@ -8,7 +9,7 @@ const jsSHA = require('jssha');
 
 
 export function randomToken(length = 16) {
-  const str = Math.random().toString(36);
+  const str = random.string(36); // Math.random().toString(36);
   return base32.encode(str).toString().substr(0, length);
 }
 

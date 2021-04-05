@@ -67,6 +67,7 @@
   },
   "dependencies": {
     "@zodash/isomorphic-base32": "^0.0.1",
+    "@zodash/random": "^1.2.10",
     "jssha": "2"
   },
   "devDependencies": {
