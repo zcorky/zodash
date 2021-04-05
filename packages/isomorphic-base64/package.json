@@ -1,6 +1,6 @@
 {
   "name": "@zodash/isomorphic-base64",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Base64 for Node.js and Browser",
   "keywords": [
     "zodash",
@@ -64,7 +64,7 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "@zodash/utf8": "^0.0.3"
+    "@zodash/utf8": "^0.0.4"
   },
   "devDependencies": {
     "@zodash/base64": "^0.0.5",
