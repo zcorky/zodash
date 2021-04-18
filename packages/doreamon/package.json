@@ -1,6 +1,6 @@
 {
   "name": "@zodash/doreamon",
-  "version": "0.4.45",
+  "version": "0.4.46",
   "description": "utils like a doreamon",
   "keywords": [
     "zodash",
@@ -84,7 +84,7 @@
     "@zodash/event": "^0.1.7",
     "@zodash/find": "^0.1.6",
     "@zodash/format": "^1.2.7",
-    "@zodash/fs": "^0.0.10",
+    "@zodash/fs": "^0.0.11",
     "@zodash/get": "^1.1.6",
     "@zodash/group-by": "^1.1.9",
     "@zodash/load-js": "^0.2.11",
