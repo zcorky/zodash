@@ -1,13 +1,11 @@
 {
-  "name": "@zodash/fs",
-  "version": "0.0.10",
-  "description": "File Utils In Browser, loadJS / loadCSS / download",
+  "name": "@zodash/download",
+  "version": "0.0.0",
+  "description": "Download File in Browser",
   "keywords": [
     "zodash",
-    "fs",
-    "download",
-    "loadJS",
-    "loadCSS"
+    "save-as",
+    "download"
   ],
   "author": "zero <tobewhatwewant@gmail.com>",
   "homepage": "https://github.com/zcorky/zodash#readme",
@@ -19,13 +17,6 @@
   "files": [
     "lib"
   ],
-  "publishConfig": {
-    "access": "public"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/zcorky/zodash.git"
-  },
   "jest": {
     "roots": [
       "__tests__"
@@ -51,12 +42,19 @@
     ],
     "coverageThreshold": {
       "global": {
-        "branches": 80,
-        "functions": 90,
-        "lines": 90,
-        "statements": -10
+        "branches": 0,
+        "functions": 0,
+        "lines": 0,
+        "statements": 0
       }
     }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zcorky/zodash.git"
   },
   "scripts": {
     "build": "tsc",
@@ -67,11 +65,6 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "@zodash/download": "^0.0.0",
-    "@zodash/jsonp": "^0.0.8",
-    "@zodash/load-css": "^0.0.6",
-    "@zodash/load-image": "^0.0.4",
-    "@zodash/load-js": "^0.2.11",
     "@zodash/save-as": "^0.0.0"
   }
 }
