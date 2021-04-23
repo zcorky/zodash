@@ -6,13 +6,21 @@ const banksData: IBankData[] = require('./banks.json');
 const bankTypesData: IBankTypeData[] = require('./bank-type.json');
 
 export interface IData {
-  banksDataMap: Record<string, IBankData> | null;
-  bankTypesDataMap: Record<string, IBankTypeData> | null;
-  banksRegExpMap: Map<RegExp, string> | null;
+  loaded: boolean;
+  banksDataMap: Map<string, IBankData>;
+  bankTypesDataMap: Map<string, IBankTypeData>;
+  banksRegExpMap: Map<RegExp, string>;
+  banksRegExpMaybeMap: Map<RegExp, string>;
 }
 
 export class DataLoader {
-  private data = ({} as any) as IData;
+  private data: IData = {
+    loaded: false,
+    banksDataMap: new Map(),
+    bankTypesDataMap: new Map(),
+    banksRegExpMap: new Map(),
+    banksRegExpMaybeMap: new Map(),
+  };
 
   public get banksDataMap() {
     return this.data.banksDataMap;
@@ -26,28 +34,47 @@ export class DataLoader {
     return this.data.banksRegExpMap;
   }
 
+  public get banksRegExpMaybeMap() {
+    return this.data.banksRegExpMaybeMap;
+  }
+
   public shouldLoad() {
-    return !this.data.banksDataMap;
+    return !this.data.loaded;
   }
 
   public async load() {
-    this.data.banksDataMap = banksData.reduce((all, bd) => {
-      all[bd.code] = bd;
-      return all;
-    }, {});
+    if (this.data.loaded) {
+      return;
+    }
 
-    this.data.bankTypesDataMap = bankTypesData.reduce((all, bd) => {
-      all[bd.code] = bd;
-      return all;
-    }, {});
+    this.data.loaded = true;
 
-    this.data.banksRegExpMap = banksData.reduce((map, bd) => {
+    const {
+      banksDataMap,
+      bankTypesDataMap,
+      banksRegExpMap,
+      banksRegExpMaybeMap,
+    } = this.data;
+
+    banksData.forEach((bd) => {
+      banksDataMap.set(bd.code, bd);
+
       bd.patterns.forEach((pattern) => {
-        map.set(new RegExp(pattern.regex, 'g'), bd.code + '#' + pattern.type);
-      });
+        const code_type = bd.code + '#' + pattern.type;
+        const fullRegExp = new RegExp(pattern.regex, 'g');
+        const maybeRegExp = new RegExp(
+          pattern.regex.replace(/\\d\{\d+\}\$/, ''),
+          'g'
+        );
 
-      return map;
-    }, new Map());
+        banksRegExpMap.set(fullRegExp, code_type);
+        banksRegExpMaybeMap.set(maybeRegExp, code_type);
+      });
+    });
+
+    bankTypesData.forEach((bd) => {
+      bankTypesDataMap.set(bd.code, bd);
+    });
   }
 
   public async lazyLoad() {

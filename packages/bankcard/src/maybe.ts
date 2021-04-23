@@ -6,10 +6,10 @@ import { IBank } from './type';
 import data from './data';
 import { find } from './utils';
 
-export async function parse(cardNumber: string): Promise<IBank | null> {
+export async function maybe(cardNumber: string): Promise<IBank | null> {
   await data.lazyLoad();
 
-  const reCodeType = find(data.banksRegExpMap, ([key]) => {
+  const reCodeType = find(data.banksRegExpMaybeMap, ([key]) => {
     return key.test(cardNumber);
   });
 

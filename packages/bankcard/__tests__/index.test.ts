@@ -5,6 +5,7 @@ describe('@zodash/idcard', () => {
     const bank = await bankcard.parse('6222005865412565805');
     // console.log(bank);
 
+    console.log(bank);
     expect(bank.code).toEqual('ICBC');
     expect(bank.type.code).toEqual('DC');
     expect(bank.name).toEqual('中国工商银行');
@@ -27,5 +28,16 @@ describe('@zodash/idcard', () => {
   it('validate bank', async () => {
     expect(await bankcard.validate('6212824565761234567')).toBeTruthy();
     expect(await bankcard.validate('621282456576123456')).toBeFalsy();
+  });
+
+  it('maybe bank', async () => {
+    const cardNumber = '621282456576123';
+
+    expect(await bankcard.validate(cardNumber)).toBeFalsy();
+    expect(await bankcard.maybe(cardNumber)).toEqual({
+      name: '中国农业银行',
+      code: 'ABC',
+      type: { name: '储蓄卡', code: 'DC' },
+    });
   });
 });
