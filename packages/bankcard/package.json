@@ -1,6 +1,6 @@
 {
   "name": "@zodash/bankcard",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "chinese bank card parser, generator and validator, inspired by bankcardinfo",
   "keywords": [
     "zodash",
