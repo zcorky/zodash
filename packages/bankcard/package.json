@@ -13,10 +13,12 @@
   "main": "lib/index.js",
   "browser": "lib/browser.js",
   "directories": {
-    "lib": "lib"
+    "lib": "lib",
+    "data": "data"
   },
   "files": [
-    "lib"
+    "lib",
+    "data"
   ],
   "publishConfig": {
     "access": "public"

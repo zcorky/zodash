@@ -1,9 +1,9 @@
 import { IBankData, IBankTypeData } from '../type';
 
 /* eslint-disable-next-line */
-const banksData: IBankData[] = require('./banks.json');
+const banksData: IBankData[] = require('../../data/banks.json');
 /* eslint-disable-next-line */
-const bankTypesData: IBankTypeData[] = require('./bank-type.json');
+const bankTypesData: IBankTypeData[] = require('../../data/bank-type.json');
 
 export interface IData {
   loaded: boolean;
