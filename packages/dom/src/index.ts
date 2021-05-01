@@ -7,14 +7,25 @@ import * as viewport from './viewport';
 import * as style from './style';
 import * as router from './router';
 
+import { canUseDom } from './canUseDom';
+
 export * from './types';
 
 export {
-  $, event, scroll, clipboard, page, viewport, style, router,
+  $,
+  canUseDom,
+  event,
+  scroll,
+  clipboard,
+  page,
+  viewport,
+  style,
+  router,
 };
 
 export default {
   $,
+  canUseDom,
   event,
   scroll,
   clipboard,
