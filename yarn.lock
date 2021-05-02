@@ -1626,6 +1626,11 @@
     "@typescript-eslint/types" "4.19.0"
     eslint-visitor-keys "^2.0.0"
 
+"@zcorky/tsconfig@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.npmjs.org/@zcorky/tsconfig/-/tsconfig-0.0.2.tgz#bbb99bf4d3b416f71c51685a9c8e4cf66e59d9fe"
+  integrity sha512-czDFG2dUuQYCDcfhqaozw0fG5zG0BELvFds7VxmxaUuP987aOAA4z2+MDyGJjb/SVRn1kFINxi+DDlkFOExIdg==
+
 "@zkochan/cmd-shim@^3.1.0":
   version "3.1.0"
   resolved "https://registry.npm.taobao.org/@zkochan/cmd-shim/download/@zkochan/cmd-shim-3.1.0.tgz#2ab8ed81f5bb5452a85f25758eb9b8681982fd2e"

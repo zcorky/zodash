@@ -1,14 +1,39 @@
 {
   "compilerOptions": {
+		// Disabled because of https://github.com/Microsoft/TypeScript/issues/29172
+		// "outDir": "dist",
+
     "target": "es2018", // Node.js 10
 		"module": "commonjs",
 		"moduleResolution": "node",
 		"resolveJsonModule": true,
 		"jsx": "react",
 		"declaration": true,
+    "sourceMap": true,
 		"pretty": true,
 		"newLine": "lf",
-    // "stripInternal": true,
+    "noEmitOnError": true,
+    "skipLibCheck": true,
+    "importHelpers": true,
+    //
+    "noImplicitAny": false,
+    // "removeComments": true, // keep comments for tip
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "lib": [
+      "es2018",
+      "DOM"
+    ],
+
+		// @Notice import default should disable first for node and front
+		//	1. disable in node (cjs)
+		//	2. you can enable in front (es)
+		//		Stackoverflow: https://stackoverflow.com/questions/56238356/understanding-esmoduleinterop-in-tsconfig-file
+		//
+		// "allowSyntheticDefaultImports": true, // To provide backwards compatibility, ignore typecheck, Node.js allows you to import most CommonJS packages with a default import. This flag tells TypeScript that it's okay to use import on CommonJS modules.
+		// "esModuleInterop": true, // Add real defaut for cjs module, __importDefault
+
+    // @TODO
 		// "strict": true,
 		// "noImplicitReturns": true,
     // "noUnusedLocals": true,
@@ -16,22 +41,11 @@
     // "noFallthroughCasesInSwitch": true,
     // "noUncheckedIndexedAccess": true,
 		// "noPropertyAccessFromIndexSignature": true,
-    "noEmitOnError": true,
     // "useDefineForClassFields": true,
-		// "forceConsistentCasingInFileNames": true,
-    "skipLibCheck": true,
-    //
-    //
-    "noImplicitAny": false,
-    // "removeComments": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "sourceMap": true,
-    "lib": [
-      "DOM",
-      "es2015",
-      "es2016"
-    ]
+    
+    // Reference: https://github.com/njleonzhang/njleonzhang.github.io/issues/1
+    "stripInternal": true, // 不为有/** @internal */标记的代码生成declaration
+		"forceConsistentCasingInFileNames": true, // 是否在导入文件的时候需要保证大小写一致。
   },
   "exclude": [
     "node_modules",
