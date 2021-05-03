@@ -1,6 +1,6 @@
 {
   "name": "@zodash/noop",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "description": "No operation. Used to use as default function props.",
   "keywords": [
     "noop"

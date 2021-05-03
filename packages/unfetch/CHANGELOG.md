@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.8](https://github.com/zcorky/zodash/compare/@zodash/unfetch@0.1.7...@zodash/unfetch@0.1.8) (2021-05-03)
+
+**Note:** Version bump only for package @zodash/unfetch
+
+
+
+
+
 ## [0.1.7](https://github.com/zcorky/zodash/compare/@zodash/unfetch@0.1.6...@zodash/unfetch@0.1.7) (2021-03-25)
 
 **Note:** Version bump only for package @zodash/unfetch

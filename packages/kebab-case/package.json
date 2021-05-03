@@ -1,6 +1,6 @@
 {
   "name": "@zodash/kebab-case",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Convert string to kebabCase",
   "keywords": [
     "camelCase",

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.11](https://github.com/zcorky/zodash/compare/@zodash/hotkeys@0.0.10...@zodash/hotkeys@0.0.11) (2021-05-03)
+
+**Note:** Version bump only for package @zodash/hotkeys
+
+
+
+
+
 ## [0.0.10](https://github.com/zcorky/zodash/compare/@zodash/hotkeys@0.0.9...@zodash/hotkeys@0.0.10) (2021-05-02)
 
 **Note:** Version bump only for package @zodash/hotkeys
