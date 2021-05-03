@@ -10,7 +10,7 @@ const DEFAULT_TIMEOUT = 3000;
 const ERROR = new Error('timeout');
 
 function exception(ms: number) {
-  return new Promise((resolve, reject) => {
+  return new Promise((_resolve, reject) => {
     setTimeout(() => reject(ERROR), ms);
   });
 }

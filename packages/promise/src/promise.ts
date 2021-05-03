@@ -29,12 +29,12 @@ export class ZPromise<T> implements IZPromise<T> {
   }
 
   public static reject<T extends Error>(error: T) {
-    return new ZPromise((resolve, reject) => {
+    return new ZPromise((_resolve, reject) => {
       setTimeout(() => reject(error), 0);
     });
   }
 
-  constructor(private readonly executor: Executor) {
+  constructor(readonly executor: Executor) {
     executor.call(this, this.resolve, this.reject);
   }
 

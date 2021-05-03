@@ -54,12 +54,12 @@ export function unfetch(url: string, options?: Options) {
         .getAllResponseHeaders()
         .replace(
           /^(.*?):[^\S\n]*([\s\S]*?)$/gm,
-          (m: string, key: string, value: string) => {
+          (_m: string, key: string, value: string) => {
             keys.push((key = key.toLowerCase()));
             all.push([key, value]);
             headers[key] = headers[key] ? `${headers[key]},${value}` : value;
             return '';
-          },
+          }
         );
 
       resolve(response()); // @TODO not the same as fetch Response

@@ -52,7 +52,7 @@ function formatMessage(
   name: string,
   date: Moment,
   message: any[],
-  level?: LogLevel,
+  level?: LogLevel
 ) {
   const prefix = format('[{name}] {datetime} - {level} -', {
     name: name || 'COMMON',
@@ -91,7 +91,7 @@ export class Logger extends Onion<Input, any, any> implements ILogger {
 
   constructor(
     private readonly name: string,
-    private readonly options?: Options,
+    private readonly options?: Options
   ) {
     super();
 
@@ -118,7 +118,7 @@ export class Logger extends Onion<Input, any, any> implements ILogger {
   }
 
   private useDisable(): Middleware<Context<Input, any, any>> {
-    return async (ctx, next) => {
+    return async (_ctx, next) => {
       const enable = !Logger._disableFn ? true : !Logger._disableFn();
 
       if (!enable) {
@@ -142,7 +142,7 @@ export class Logger extends Onion<Input, any, any> implements ILogger {
         this.name,
         input.datetime,
         input.message,
-        input.level,
+        input.level
       );
       const isUseDevConsole = Array.isArray(message);
 

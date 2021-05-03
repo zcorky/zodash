@@ -1,8 +1,8 @@
 export function pre(fn: (...args: any[]) => void) {
   return <T>(
-    target: any,
-    propertyKey: PropertyKey,
-    descriptor: TypedPropertyDescriptor<T>,
+    _target: any,
+    _propertyKey: PropertyKey,
+    descriptor: TypedPropertyDescriptor<T>
   ) => {
     const method = descriptor.value as any;
     descriptor.value = async function (...args: any[]) {
@@ -17,9 +17,9 @@ export function pre(fn: (...args: any[]) => void) {
 
 export function post(fn: (output: any, input: any[]) => void) {
   return <T>(
-    target: any,
-    propertyKey: PropertyKey,
-    descriptor: TypedPropertyDescriptor<T>,
+    _target: any,
+    _propertyKey: PropertyKey,
+    descriptor: TypedPropertyDescriptor<T>
   ) => {
     const method = descriptor.value as any;
     descriptor.value = async function (...args: any[]) {

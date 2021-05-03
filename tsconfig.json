@@ -1,6 +1,8 @@
 {
   "extends": "@zcorky/tsconfig",
-  // "compilerOptions": {
+  "compilerOptions": {
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
 	// 	// Disabled because of https://github.com/Microsoft/TypeScript/issues/29172
 	// 	// "outDir": "dist",
 
@@ -47,7 +49,7 @@
   //   // Reference: https://github.com/njleonzhang/njleonzhang.github.io/issues/1
   //   "stripInternal": true, // 不为有/** @internal */标记的代码生成declaration
 	// 	"forceConsistentCasingInFileNames": true, // 是否在导入文件的时候需要保证大小写一致。
-  // },
+  },
   "exclude": [
     "node_modules",
     "__tests__",

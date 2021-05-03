@@ -1,5 +1,5 @@
 export function isEmpty(obj: object) {
-  for (const key in obj) {
+  for (const _key in obj) {
     return false;
   }
 

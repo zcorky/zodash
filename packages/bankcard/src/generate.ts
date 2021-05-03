@@ -2,6 +2,6 @@
 
 export interface IOptions {}
 
-export async function generate(options?: IOptions) {
+export async function generate() {
   return;
 }
