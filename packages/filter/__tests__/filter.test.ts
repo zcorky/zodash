@@ -8,8 +8,8 @@ describe('@zodash/filter', () => {
       { x: 3, y: 4 },
     ];
 
-    const v1 = filter(v, (c, i) => c.x > 1);
-    const v2 = v.filter((c, i) => c.x > 1);
+    const v1 = filter(v, (c) => c.x > 1);
+    const v2 = v.filter((c) => c.x > 1);
 
     expect(deepEqual(v1, v2)).toBeTruthy();
   });

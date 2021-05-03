@@ -1,6 +1,3 @@
-import { deepEqual } from '@zcorky/deep-equal';
-import { camelCase } from '@zodash/camel-case';
-
 import { snakeCase } from '../src/snakeCase';
 
 describe('@zodash/snakeCase', () => {
