@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.14](https://github.com/zcorky/zodash/compare/@zodash/crypto@0.1.13...@zodash/crypto@0.1.14) (2021-05-06)
+
+
+### Bug Fixes
+
+* **crypto:** export index ([fb064b4](https://github.com/zcorky/zodash/commit/fb064b42887a1242ae2b75ac2e7c7e69c60e8e5a))
+
+
+
+
+
 ## [0.1.13](https://github.com/zcorky/zodash/compare/@zodash/crypto@0.1.12...@zodash/crypto@0.1.13) (2021-03-25)
 
 **Note:** Version bump only for package @zodash/crypto
