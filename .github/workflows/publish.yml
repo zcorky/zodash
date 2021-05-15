@@ -83,3 +83,15 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+
+      - name: Notification Feishu
+        uses: whatwewant/action-robot-feishu@v0.0.10
+        with:
+          url: ${{ secrets.FEISHU_BOT_WEBHOOK_URL }}
+          title: 'NPM 发布：${{ github.repository }}'
+          text: |
+            分支: ${{ github.ref }}
+            提交信息: ${{ github.event.head_commit.message }}
+            提交人: ${{ github.actor }}
+            状态: ${{ job.status }}
+      
