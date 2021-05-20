@@ -1,11 +1,18 @@
-# `@zodash/2fa`
+# `@zodash/nobot-feishu`
 
-> TODO: description
+> 飞书群通知机器人
 
 ## Usage
 
-```
-import tfa from '@zodash/2fa';
+```js
+import sendMessage from '@zodash/nobot-feishu';
 
-// TODO: DEMONSTRATE API
+sendMessage(webhookUrl, {
+  msg_type: 'text',
+  content: {
+    text: 'text message',
+  },
+});
+
+// more example see __tests__/sendMessage
 ```
