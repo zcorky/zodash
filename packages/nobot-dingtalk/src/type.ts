@@ -55,7 +55,7 @@ export type IFeedCard = {
   };
 };
 
-export type IResponse<Data = any> = {
+export type IResponse = {
   errcode: number;
   errmsg: string;
 };

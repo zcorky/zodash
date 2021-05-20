@@ -1,94 +1,95 @@
-// import { sendMessage } from '../src';
-// import { IMessage } from '../src/type';
+import { sendMessage } from '../src';
+import { IMessage } from '../src/type';
 
 describe('@zodash/nobot-feishu', () => {
   it('ok', () => {
     expect(true).toBeTruthy();
   });
 
-  // const webhookUrl = '';
+  //   const webhookUrl = 'https://oapi.dingtalk.com/robot/send?access_token=xxxx';
 
-  // it('text message', async () => {
-  //   const message: IMessage = {
-  //     msg_type: 'text',
-  //     content: {
-  //       text: 'text content<at user_id=\"ou_88a56e7e8e9f680b682f6905cc09098e\">test</at>',
-  //     },
-  //   };
+  //   it('text message', async () => {
+  //     const message: IMessage = {
+  //       msgtype: 'text',
+  //       text: {
+  //         content: '我就是我，@xxx 是不一样的烟火',
+  //       },
+  //     };
 
-  //   expect(() => sendMessage(webhookUrl, message)).not.toThrowError();
-  // });
+  //     await expect(sendMessage(webhookUrl, message)).resolves.toEqual(void 0);
+  //   });
 
-  // it('image message', async () => {
-  //   const message: IMessage = {
-  //     msg_type: 'image',
-  //     content: {
-  //       image_key: '1a0c4cb9-c680-4371-924c-ddb5f2750c3d',
-  //     },
-  //   };
+  //   it('link message', async () => {
+  //     const message: IMessage = {
+  //       msgtype: 'link',
+  //       link: {
+  //         "text": "这个即将发布的新版本，创始人xx称它为红树林。而在此之前，每当面临重大升级，产品经理们都会取一个应景的代号，这一次，为什么是红树林",
+  //         "title": "时代的火车向前开",
+  //         "picUrl": "",
+  //         "messageUrl": "https://www.dingtalk.com/s?__biz=MzA4NjMwMTA2Ng==&mid=2650316842&idx=1&sn=60da3ea2b29f1dcc43a7c8e4a7c97a16&scene=2&srcid=09189AnRJEdIiWVaKltFzNTw&from=timeline&isappinstalled=0&key=&ascene=2&uin=&devicetype=android-23&version=26031933&nettype=WIFI",
+  //       },
+  //     };
 
-  //   expect(() => sendMessage(webhookUrl, message)).not.toThrowError();
-  // });
+  //     await expect(sendMessage(webhookUrl, message)).resolves.toEqual(void 0);
+  //   });
 
-  // it('post message (rich text)', async () => {
-  //   const message: IMessage = {
-  //     msg_type: 'post',
-  //     content: {
-  //       post: {
-  //         zh_cn: {
-  //           title: '我是一个标题',
-  //           content:  [
-  //             [
-  //               {
-  //                 tag: 'text',
-  //                 un_escape: true,
-  //                 text: '第一行&nbsp;:',
-  //               },
-  //               {
-  //                 tag: 'a',
-  //                 text: '超链接',
-  //                 href: 'http://www.feishu.cn',
-  //               },
-  //               {
-  //                 tag: 'at',
-  //                 user_id: 'ou_18eac85d35a26f989317ad4f02e8bbbb',
-  //               },
-  //             ],
-  //             [
-  //               {
-  //                 tag: 'text',
-  //                 text: '第二行：',
-  //               },
-  //               {
-  //                 tag: 'text',
-  //                 text: '文本测试',
-  //               },
-  //             ],
-  //             [
-  //               {
-  //                 tag: 'img',
-  //                 image_key: 'd640eeea-4d2f-4cb3-88d8-c964fab53987',
-  //                 width: 300,
-  //                 height: 300,
-  //               },
-  //             ],
-  //           ],
-  //         },
-  //       }
-  //     },
-  //   };
+  //   it('markdown message (rich text)', async () => {
+  //     const message: IMessage = {
+  //       msgtype: 'markdown',
+  //       markdown: {
+  //         "title": "杭州天气",
+  //         "text": "#### 杭州天气 @150XXXXXXXX \n > 9度，西北风1级，空气良89，相对温度73%\n > ![screenshot](https://img.alicdn.com/tfs/TB1NwmBEL9TBuNjy1zbXXXpepXa-2400-1218.png)\n > ###### 10点20分发布 [天气](https://www.dingtalk.com) \n"
+  //       },
+  //       "at": {
+  //         "atMobiles": [
+  //           "150XXXXXXXX"
+  //         ],
+  //         "atUserIds": [
+  //           "user123"
+  //         ],
+  //         "isAtAll": false
+  //       },
+  //     };
 
-  //   expect(() => sendMessage(webhookUrl, message)).not.toThrowError();
-  // });
+  //     await expect(sendMessage(webhookUrl, message)).resolves.toEqual(void 0);
+  //   });
 
-  // it('share chat message (share group)', async () => {
-  //   const message: IMessage = {
-  //     msg_type: 'share_chat',
-  //     content: {
-  //       share_chat_id: 'oc_f5b1a7eb27ae2c7b6adc2a74faf339ff',
-  //     },
-  //   };
+  //   it('action card message', async () => {
+  //     const message: IMessage = {
+  //       msgtype: 'actionCard',
+  //       actionCard: {
+  //         "title": "乔布斯 20 年前想打造一间苹果咖啡厅，而它正是 Apple Store 的前身",
+  //         "text": `![screenshot](https://gw.alicdn.com/tfs/TB1ut3xxbsrBKNjSZFpXXcXhFXa-846-786.png)
+  //  ### 乔布斯 20 年前想打造的苹果咖啡厅
+  //  Apple Store 的设计正从原来满满的科技感走向生活化，而其生活化的走向其实可以追溯到 20 年前苹果一个建立咖啡馆的计划`,
+  //         "btnOrientation": "0",
+  //         "singleTitle": "阅读全文",
+  //         "singleURL": "https://www.dingtalk.com/"
+  //       },
+  //     };
 
-  //   expect(() => sendMessage(webhookUrl, message)).not.toThrowError();
-  // });
+  //     await expect(sendMessage(webhookUrl, message)).resolves.toEqual(void 0);
+  //   });
+
+  //   it('feedback message', async () => {
+  //     const message: IMessage = {
+  //       msgtype: 'feedCard',
+  //       feedCard: {
+  //         "links": [
+  //           {
+  //             "title": "时代的火车向前开1",
+  //             "messageURL": "https://www.dingtalk.com/",
+  //             "picURL": "https://img.alicdn.com/tfs/TB1NwmBEL9TBuNjy1zbXXXpepXa-2400-1218.png"
+  //           },
+  //           {
+  //             "title": "时代的火车向前开2",
+  //             "messageURL": "https://www.dingtalk.com/",
+  //             "picURL": "https://img.alicdn.com/tfs/TB1NwmBEL9TBuNjy1zbXXXpepXa-2400-1218.png"
+  //           }
+  //         ]
+  //       },
+  //     };
+
+  //     await expect(sendMessage(webhookUrl, message)).resolves.toEqual(void 0);
+  //   });
 });

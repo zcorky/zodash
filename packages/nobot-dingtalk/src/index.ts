@@ -15,7 +15,8 @@ export async function request(url: string, body: any) {
     })
     .json<IResponse>();
 
-  if (response?.errcode === 310000) {
+  // 31000
+  if (response?.errcode !== 0) {
     throw new Error(`[${response?.errcode}] ${response?.errmsg}`);
   }
 }
