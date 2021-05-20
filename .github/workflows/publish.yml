@@ -41,7 +41,8 @@ jobs:
             提交人: ${{ github.actor }}
             状态: 构建失败（https://github.com/${{ github.repository }}/actions/runs/${{ github.run.id }}）
 
-  bootstrap:
+  publish:
+    # bootstrap:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -67,34 +68,33 @@ jobs:
           node-version: 14.x
           registry-url: https://registry.npmjs.org
 
-      - name: Cache Node_modules
+      - name: Cache node_modules
         uses: actions/cache@v2
-        # env:
-        #   cache-name: cache-node-modules
         id: yarn-cache
         with:
-          # npm cache files are stored in `~/.npm` on Linux/macOS
           path: ~/.npm
-          # key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-          # restore-keys: |
-          #   ${{ runner.os }}-build-${{ env.cache-name }}-
-          #   ${{ runner.os }}-build-
-          #   ${{ runner.os }}-
-          # path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
 
       - name: Install Dependencies
         run: |
           npm i
           npm run bootstrap
 
-  # This workflow contains a single job called "build"
-  build:
-    needs: bootstrap
-    runs-on: ubuntu-latest
-    steps:
+      # build:
+      #   needs: bootstrap
+      #   runs-on: ubuntu-latest
+      #   steps:
+      #     - uses: actions/checkout@v2
+      #       with:
+      #         fetch-depth: '0'
+
+      #     - name: Restore node_modules cache
+      #       uses: actions/cache@v2
+      #       id: yarn-cache
+      #       with:
+      #         path: ~/.npm
+      #         key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+
       - name: Before Build
         run: cp tsconfig.prod.json tsconfig.json
 
@@ -104,24 +104,50 @@ jobs:
       - name: After Build
         run: git checkout tsconfig.json
 
-  test:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
+      # test:
+      #   needs: build
+      #   runs-on: ubuntu-latest
+      #   steps:
+      #     - uses: actions/checkout@v2
+      #       with:
+      #         fetch-depth: '0'
+
+      #     - name: Restore node_modules cache
+      #       uses: actions/cache@v2
+      #       id: yarn-cache
+      #       with:
+      #         path: ~/.npm
+      #         key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+
       - name: Make Testing
         run: npm run test
 
-  coverage:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
+      # coverage:
+      #   needs: build
+      #   runs-on: ubuntu-latest
+      #   steps:
+      #     - uses: actions/checkout@v2
+      #       with:
+      #         fetch-depth: '0'
+
+      #     - name: Restore node_modules cache
+      #       uses: actions/cache@v2
+      #       id: yarn-cache
+      #       with:
+      #         path: ~/.npm
+      #         key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+
       - name: Make Coverage
         run: npm run coverage
 
-  publish:
-    needs: [test, coverage]
-    runs-on: ubuntu-latest
-    steps:
+      # publish:
+      #   needs: [test, coverage]
+      #   runs-on: ubuntu-latest
+      #   steps:
+      #     - uses: actions/checkout@v2
+      #       with:
+      #         fetch-depth: '0'
+
       - name: Before Publish
         run: cp .npmrc.template .npmrc
 
