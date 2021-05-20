@@ -1,6 +1,6 @@
 {
   "name": "@zodash/nobot-dingtalk",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Dingtalk notify bot",
   "keywords": [
     "zodash",
