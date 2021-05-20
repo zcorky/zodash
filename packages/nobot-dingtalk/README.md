@@ -1,16 +1,21 @@
-# `@zodash/nobot-feishu`
+# `@zodash/nobot-dingtalk`
 
-> 飞书群通知机器人
+> 钉钉通知机器人
 
 ## Usage
 
 ```js
-import sendMessage from '@zodash/nobot-feishu';
+import sendMessage from '@zodash/nobot-dingtalk';
 
 sendMessage(webhookUrl, {
-  msg_type: 'text',
-  content: {
-    text: 'text message',
+  msgtype: 'text',
+  text: {
+    content: '我就是我, @XXX 是不一样的烟火',
+  },
+  at: {
+    atMobiles: ['180xxxxxx'],
+    atUserIds: ['user123'],
+    isAtAll: false,
   },
 });
 
