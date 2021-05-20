@@ -12,7 +12,7 @@ jobs:
   on-success:
     needs: build
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ needs.build.result == 'success' }}
     steps:
       - name: Notification Feishu
         uses: whatwewant/action-robot-feishu@v0.0.10
@@ -28,7 +28,7 @@ jobs:
   on-failure:
     needs: build
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+    if: ${{ needs.build.result == 'failure' }}
     steps:
       - name: Notification Feishu
         uses: whatwewant/action-robot-feishu@v0.0.10
