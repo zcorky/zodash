@@ -10,6 +10,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   on-success:
+    needs: build
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
@@ -25,6 +26,7 @@ jobs:
             状态: 构建成功（https://github.com/${{ github.repository }}/actions/runs/${{ github.run.id }}）
 
   on-failure:
+    needs: build
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'failure' }}
     steps:
