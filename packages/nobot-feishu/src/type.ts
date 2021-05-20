@@ -1,3 +1,7 @@
+/**
+ * Feishu Robot Docs: https://www.feishu.cn/hc/zh-CN/articles/360024984973#magicdomid-3_135
+ */
+
 export type IMessage =
   | ITextMessage
   | IImageMessage
