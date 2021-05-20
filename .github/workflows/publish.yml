@@ -112,14 +112,14 @@ jobs:
         run: npm run test
 
   coverage:
-    needs: test
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Make Coverage
         run: npm run coverage
 
   publish:
-    needs: coverage
+    needs: [test, coverage]
     runs-on: ubuntu-latest
     steps:
       - name: Before Publish
