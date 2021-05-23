@@ -1,6 +1,6 @@
 {
   "name": "@zodash/nobot",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Notify bot, support feishu, dingtalk, wecom, slack ...",
   "keywords": [
     "zodash",
@@ -67,7 +67,7 @@
   },
   "dependencies": {
     "@zodash/nobot-dingtalk": "^0.0.4",
-    "@zodash/nobot-feishu": "^0.1.0",
+    "@zodash/nobot-feishu": "^0.1.1",
     "@zodash/nobot-slack": "^0.0.1",
     "@zodash/nobot-wecom": "^0.0.2"
   }
