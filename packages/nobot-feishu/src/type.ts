@@ -39,11 +39,18 @@ export type IShareMessage = {
   };
 };
 
-export type IResponse<Data = any> = {
-  code: number;
-  msg: string;
-  data: Data;
-};
+export type IResponse<Data = any> =
+  | {
+      code: number;
+      msg: string;
+      data: Data;
+    }
+  | {
+      // @TODO 2021.05.23 测试发现飞书偷偷升级了返回结果，类型不对了
+      StatusCode: number;
+      StatusMessage: string;
+      Extra: Data;
+    };
 
 //
 export type IRichTextCard = {

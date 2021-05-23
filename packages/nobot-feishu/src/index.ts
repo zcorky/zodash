@@ -15,8 +15,12 @@ export async function request(url: string, body: any) {
     })
     .json<IResponse>();
 
-  if (response?.code !== 0) {
+  if ('code' in response && response?.code !== 0) {
     throw new Error(`[${response?.code}] ${response?.msg}`);
+  }
+
+  if ('StatusCode' in response && response?.StatusCode !== 0) {
+    throw new Error(`[${response?.StatusCode}] ${response?.StatusMessage}`);
   }
 }
 
