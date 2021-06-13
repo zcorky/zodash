@@ -63,8 +63,5 @@
   },
   "bugs": {
     "url": "https://github.com/zcorky/zodash/issues"
-  },
-  "dependencies": {
-    "@zodash/doreamon": "^0.4.51"
   }
 }
