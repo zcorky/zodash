@@ -1,4 +1,5 @@
 import orderBy, { Factor } from '../src';
+import * as lodash from 'lodash';
 
 describe('@zodash/order-by', () => {
   it('works', () => {
@@ -31,5 +32,11 @@ describe('@zodash/order-by', () => {
     ];
 
     expect(orderBy(dataSource, orders)).toEqual(expected);
+    expect(orderBy(dataSource, orders))
+      .toEqual(lodash.orderBy(
+        dataSource,
+        ['name', 'day', 'three'],
+        ['asc', 'desc', 'asc'],
+      ));
   });
 });
