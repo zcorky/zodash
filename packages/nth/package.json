@@ -1,6 +1,6 @@
 {
   "name": "@zodash/nth",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Gets the element at index n of array. If n is negative, the nth element from the end is returned.",
   "keywords": [
     "zodash",

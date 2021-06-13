@@ -1,6 +1,6 @@
 {
   "name": "@zodash/slice",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Creates a slice of array from start up to, but not including, end.",
   "keywords": [
     "zodash",
