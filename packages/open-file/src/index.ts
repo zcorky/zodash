@@ -13,6 +13,8 @@ export interface IOptions {
    */
   accept?: string;
 
+  mimeTypes?: string[];
+
   /**
    * Support mutiple file
    */
@@ -42,6 +44,9 @@ export function openFile(options?: IOptions) {
 
     if (options?.accept) {
       input.setAttribute('accept', options.accept);
+    } else if (options?.mimeTypes) {
+      const accept = options.mimeTypes.join(',');
+      input.setAttribute('accept', accept);
     }
 
     if (options?.multiple) {
