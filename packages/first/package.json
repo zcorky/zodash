@@ -1,6 +1,6 @@
 {
   "name": "@zodash/first",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Gets the first element of array",
   "keywords": [
     "zodash",
