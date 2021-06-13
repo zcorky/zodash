@@ -1,6 +1,6 @@
 {
   "name": "@zodash/sample",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Gets a random element from collection.",
   "keywords": [
     "zodash",

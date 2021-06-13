@@ -1,6 +1,6 @@
 {
   "name": "@zodash/join",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Converts all elements in array into a string separated by separator",
   "keywords": [
     "zodash",
