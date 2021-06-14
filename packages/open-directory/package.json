@@ -1,6 +1,6 @@
 {
   "name": "@zodash/open-directory",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Open directory dialog to select the whole file of directory in browser",
   "keywords": [
     "zodash",
@@ -65,6 +65,6 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "@zodash/open-file": "^0.0.4"
+    "@zodash/open-file": "^0.1.0"
   }
 }
