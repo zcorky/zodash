@@ -8,14 +8,17 @@ import { Socket } from './socket';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const debug = require('debug')('@zodash/websocet');
 
+export interface ServerOptions {
+  path?: string;
+}
+
 export class Server {
   private emitter = new EventEmitter();
   private ws = new ws.Server({
-    // port: 9999,
     noServer: true,
   });
 
-  constructor() {
+  constructor(private readonly options: ServerOptions) {
     const cancelSchedule = this.schedule();
 
     this.ws.on('connection', (socket: ws.Socket) => {
@@ -27,7 +30,29 @@ export class Server {
       cancelSchedule();
     });
 
-    console.log('start ws app ...');
+    debug('[start] ws app ...');
+  }
+
+  public attach(server: http.Server) {
+    server.on('upgrade', (request, socket, head) => {
+      const pathname = new URL(request.url).pathname;
+  
+      if (this.options.path !== pathname) {
+        return ;
+      }
+  
+      this.handleUpgrade(request, socket, head, (client) => {
+        this.emit('connection', client, request);
+      });
+    });
+  }
+
+  public listen(port: number, host: string, callback: () => void) {
+    const server = http.createServer();
+    server.listen(port, host, callback);
+
+    this.attach(server);
+    return server;
   }
 
   public handleUpgrade(request: http.IncomingMessage, socket: net.Socket, upgradeHead: Buffer, callback: (client: ws, request: http.IncomingMessage) => void) {
