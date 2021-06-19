@@ -17,6 +17,11 @@ declare module 'ws' {
   }
 }
 
+export interface SocketOptions {
+  pingInterval?: number;
+  pingTimeout?: number;
+}
+
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const debug = require('debug')('@zodash/websocet');
 
@@ -25,7 +30,10 @@ export class Socket {
   public createdAt = new Date();
   public updatedAt = this.createdAt;
 
-  constructor(private readonly socket: ws.Socket) {
+  constructor(
+    private readonly socket: ws.Socket,
+    private readonly options?: SocketOptions,
+  ) {
     this.socket.id = uuid();
     this.socket.isAlive = true;
     this.socket.hasMessageLast10Minutes = false;
@@ -43,12 +51,12 @@ export class Socket {
 
     this.socket.on('error', (error) => {
       // this.socket.isAlive = false;
-      
+
       this.emit('error', error);
     });
 
     this.socket.on('message', (message) => {
-      const [type, payload = ''] = JSON.parse(message as any as string);
+      const [type, payload = ''] = JSON.parse((message as any) as string);
       debug('onmessage:', type, payload);
 
       if (type != 'ping') {
@@ -62,7 +70,7 @@ export class Socket {
     this.on('ping', () => {
       this.socket.isAlive = true;
 
-      this.emit('pong')
+      this.emit('pong');
     });
 
     this.emit('id', this.socket.id);
@@ -82,12 +90,14 @@ export class Socket {
 
   public emit(type: string, ...args: any[]) {
     if (type === 'error') {
-      return this.socket.send(JSON.stringify([
-        type,
-        {
-          message: args[0] instanceof Error ? args[0].message : args[0],
-        },
-      ]));
+      return this.socket.send(
+        JSON.stringify([
+          type,
+          {
+            message: args[0] instanceof Error ? args[0].message : args[0],
+          },
+        ]),
+      );
     }
 
     this.socket.send(JSON.stringify([type, ...args]));

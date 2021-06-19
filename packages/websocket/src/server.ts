@@ -3,13 +3,15 @@ import * as http from 'http';
 import * as ws from 'ws';
 import { EventEmitter } from 'events';
 
-import { Socket } from './socket';
+import { Socket, SocketOptions } from './socket';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const debug = require('debug')('@zodash/websocet');
 
 export interface ServerOptions {
   path?: string;
+  pingInterval?: number;
+  pingTimeout?: number;
 }
 
 export class Server {
@@ -21,9 +23,18 @@ export class Server {
   constructor(private readonly options: ServerOptions) {
     const cancelSchedule = this.schedule();
 
-    this.ws.on('connection', (socket: ws.Socket) => {
-      const _socket = new Socket(socket);
-      this.emitter.emit('connection', _socket);
+    this.ws.on('connection', (rawSocket: ws.Socket) => {
+      const socketOptions: SocketOptions = {
+        pingInterval: this.options.pingInterval,
+        pingTimeout: this.options.pingTimeout,
+      };
+
+      const socket = new Socket(rawSocket, socketOptions);
+
+      // @TODO
+      socket.emit('@@CONFIG', socketOptions);
+
+      this.emitter.emit('connection', socket);
     });
 
     this.ws.on('close', () => {
@@ -36,11 +47,11 @@ export class Server {
   public attach(server: http.Server) {
     server.on('upgrade', (request, socket, head) => {
       const pathname = new URL(request.url).pathname;
-  
+
       if (this.options.path !== pathname) {
-        return ;
+        return;
       }
-  
+
       this.handleUpgrade(request, socket, head, (client) => {
         this.emit('connection', client, request);
       });
@@ -55,16 +66,30 @@ export class Server {
     return server;
   }
 
-  public handleUpgrade(request: http.IncomingMessage, socket: net.Socket, upgradeHead: Buffer, callback: (client: ws, request: http.IncomingMessage) => void) {
-    return this.ws.handleUpgrade(request, socket, upgradeHead, callback);
+  public handleUpgrade(
+    request: http.IncomingMessage,
+    socket: net.Socket,
+    upgradeHead: Buffer,
+    callback: (client: ws, request: http.IncomingMessage) => void,
+  ) {
+    return this.ws.handleUpgrade(
+      request,
+      socket as any,
+      upgradeHead,
+      callback,
+    );
   }
 
-  public on(event: 'connection', fn: (socket: Socket) => void): void
+  public on(event: 'connection', fn: (socket: Socket) => void): void;
   public on(event: string, fn: (...args: any[]) => void) {
     return this.emitter.on(event, fn);
   }
 
-  public emit(event: 'connection', socket: ws, request: http.IncomingMessage): void
+  public emit(
+    event: 'connection',
+    socket: ws,
+    request: http.IncomingMessage,
+  ): void;
   public emit(event: string, ...args: any[]) {
     return this.ws.emit(event, ...args);
   }
@@ -75,7 +100,7 @@ export class Server {
       debug('[schedule][gc][alive]', this.ws.clients.size);
 
       this.ws.clients.forEach((_client) => {
-        const client = _client as unknown as ws.Socket;
+        const client = (_client as unknown) as ws.Socket;
         if (!client.isAlive) {
           debug('[schedule][gc][alive] client:', client.id);
           return client.terminate();
@@ -90,7 +115,7 @@ export class Server {
       debug('[schedule][gc][nomessage]', this.ws.clients.size);
 
       this.ws.clients.forEach((_client) => {
-        const client = _client as unknown as ws.Socket;
+        const client = (_client as unknown) as ws.Socket;
         if (!client.hasMessageLast10Minutes) {
           debug('[schedule][gc][nomessage] client:', client.id);
           return client.terminate();
@@ -103,6 +128,6 @@ export class Server {
     return () => {
       clearInterval(itIsAlive);
       clearInterval(itHasMessageIn10Minutes);
-    }
+    };
   }
 }
