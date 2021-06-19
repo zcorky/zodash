@@ -63,11 +63,5 @@
   },
   "bugs": {
     "url": "https://github.com/zcorky/zodash/issues"
-  },
-  "dependencies": {
-    "@types/ws": "^7.4.4",
-    "@zodash/uuid": "^0.1.6",
-    "debug": "^4.3.1",
-    "ws": "^7.4.6"
   }
 }
