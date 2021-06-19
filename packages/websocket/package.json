@@ -1,6 +1,6 @@
 {
   "name": "@zodash/websocket",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A websocket wrapper with ws",
   "keywords": [
     "zodash",
