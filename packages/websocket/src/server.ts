@@ -20,13 +20,13 @@ export class Server {
     noServer: true,
   });
 
-  constructor(private readonly options: ServerOptions) {
+  constructor(private readonly options?: ServerOptions) {
     const cancelSchedule = this.schedule();
 
     this.ws.on('connection', (rawSocket: ws.Socket) => {
       const socketOptions: SocketOptions = {
-        pingInterval: this.options.pingInterval,
-        pingTimeout: this.options.pingTimeout,
+        pingInterval: this.options?.pingInterval,
+        pingTimeout: this.options?.pingTimeout,
       };
 
       const socket = new Socket(rawSocket, socketOptions);
@@ -48,7 +48,7 @@ export class Server {
     server.on('upgrade', (request, socket, head) => {
       const pathname = new URL(request.url).pathname;
 
-      if (this.options.path !== pathname) {
+      if (this.options?.path !== pathname) {
         return;
       }
 
