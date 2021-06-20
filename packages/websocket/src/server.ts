@@ -1,5 +1,6 @@
 import * as net from 'net';
 import * as http from 'http';
+import * as url from 'url';
 import * as ws from 'ws';
 import { EventEmitter } from 'events';
 
@@ -46,7 +47,7 @@ export class Server {
 
   public attach(server: http.Server) {
     server.on('upgrade', (request, socket, head) => {
-      const pathname = new URL(request.url).pathname;
+      const pathname = url.parse(request.url).pathname;
 
       if (this.options?.path !== pathname) {
         return;
