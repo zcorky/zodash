@@ -46,13 +46,13 @@ export class Socket {
       debug('socket disconnect:', this.id, args);
       this.socket.isAlive = false;
 
-      this.emit('close', ...args);
+      this.emitter.emit('close', ...args);
     });
 
     this.socket.on('error', (error) => {
       // this.socket.isAlive = false;
 
-      this.emit('error', error);
+      this.emitter.emit('error', error);
     });
 
     this.socket.on('message', (message) => {
