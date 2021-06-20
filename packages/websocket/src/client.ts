@@ -39,6 +39,12 @@ export class Client {
       this.emitter.emit('error', error);
     });
 
+    this.on('close', (...args) => {
+      this.disconnect();
+
+      this.emitter.emit('disconnect', ...args);
+    });
+
     this.on('@@CONFIG', (options: SocketOptions) => {
       this.options = options;
       //

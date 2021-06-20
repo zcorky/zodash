@@ -67,6 +67,12 @@ export class Socket {
     });
 
     //
+    this.on('close', (...args) => {
+      this.disconnect();
+
+      this.emitter.emit('disconnect', ...args);
+    });
+
     this.on('ping', () => {
       this.socket.isAlive = true;
 
@@ -84,6 +90,8 @@ export class Socket {
     return this.socket.isAlive;
   }
 
+  // public on(type: 'error', handler: (...args: any[]) => void): void
+  // public on(type: 'disconnect', handler: (...args: any[]) => void): void
   public on(type: string, handler: (...args: any[]) => void) {
     this.emitter.on(type, handler);
   }
