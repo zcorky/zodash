@@ -64,6 +64,10 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
+    "@zcorky/query-string": "^1.0.2",
+    "@zodash/hmac": "^0.0.4",
+    "@zodash/sha1": "^0.0.4",
+    "@zodash/sha512": "^0.0.4",
     "crypto-js": "^4.0.0"
   }
 }
