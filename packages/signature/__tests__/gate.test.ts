@@ -71,4 +71,20 @@ describe('@zodash/signature/wechat.jssdk', () => {
       'eae42da914a590ddf727473aff25fc87d50b64783941061f47a3fdb92742541fc4c2c14017581b4199a1418d54471c269c03a38d788d802e2c306c37636389f0',
     );
   });
+
+  it('realword', async () => {
+    const data: IData = {
+      method: 'GET',
+      url: '/spot/accounts',
+      query: null,
+      payload: null,
+      timestamp: 1624523009.931,
+    };
+    const secret =
+      '59p59rtcrah69bsqsrjd73585zvavnrf9nt78hrbnkh65u5hbrcxr5y5crhdgqvw';
+
+    expect(signature(data, secret)).toEqual(
+      '017cc74dedde49babb27aa821c4e9ac6c06e9ff982d35e3b179e2f9cf77174080aeb68a4e7ee942933e2be935b6e5aa4bbfc99c87e4c2b8c4a82a4aeab2c56fb',
+    );
+  });
 });

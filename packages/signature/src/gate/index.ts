@@ -13,19 +13,25 @@ export interface IData {
 export function signature(data: IData, secret: string) {
   const _method = data.method.toUpperCase();
   const _url = data.url;
-  const _query =
-    typeof data.query === 'string'
-      ? data.query
-      : qs.stringify(data.query as any);
-  const _payload = data.payload || '';
+  const _query = stringify(data.query, qs.stringify as any);
+  const _payload = stringify(data.payload, JSON.stringify);
   const _timestamp = data.timestamp;
 
-  const _payloadHash =
-    typeof _payload === 'string'
-      ? sha512(_payload)
-      : sha512(JSON.stringify(_payload));
-
+  // sha512 hash body
+  const _payloadHash = sha512(_payload);
+  // specify sort
   const _data = [_method, _url, _query, _payloadHash, _timestamp];
+  // join with \n
   const text = _data.join('\n');
+  // hmac sha512
   return hmacSHA512(text, secret);
+}
+
+function stringify(
+  v: string | object | null | undefined,
+  stringifyFn: (value: object) => string,
+) {
+  if (!v) return '';
+  if (typeof v === 'string') return v;
+  return stringifyFn(v);
 }
