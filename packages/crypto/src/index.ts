@@ -13,6 +13,3 @@ export * as hmac from './hmac';
 // crypto/decryto
 export * as aes from './aes';
 export * as rsa from './rsa';
-
-// data singature
-export { signature } from './signature';
