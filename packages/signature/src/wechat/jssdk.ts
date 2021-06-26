@@ -7,7 +7,7 @@ export interface IData {
   timestamp: number;
 }
 
-export function signature(data: IData) {
+export function sign(data: IData) {
   // 1. 按照字段名的ASCII 码从小到大排序（字典序）
   const _data = [
     'url',

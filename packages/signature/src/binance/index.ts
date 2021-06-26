@@ -17,7 +17,7 @@ export interface D {
   timestamp: number;
 }
 
-export function signature(data: IData, secret: string) {
+export function sign(data: IData, secret: string) {
   const query = omitUndefined(data.query);
   const queryText = stringify(query, qs.stringify);
 
@@ -47,3 +47,5 @@ function stringify(
   if (typeof v === 'string') return v;
   return stringifyFn(v);
 }
+
+export default sign;

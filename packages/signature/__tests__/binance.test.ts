@@ -1,6 +1,7 @@
-import { signature, IData } from '../src/binance';
+import sign from '../src';
+import { IData } from '../src/binance';
 
-describe('@zodash/signature/binance', () => {
+describe('@zodash/signature:binance', () => {
   const apiKey =
     'vmPUZE6mv9SD5VNHk4HlWFsOr6aKE2zvsw0MuIgwCIPy6utIco14y7Ju91duEh8A';
   const secretKey =
@@ -21,7 +22,7 @@ describe('@zodash/signature/binance', () => {
       },
     };
 
-    expect(signature(data, secretKey)).toEqual(
+    expect(sign.binance(data, secretKey)).toEqual(
       'c8db56825ae71d6d79447849e617115f4a920fa2acdcab2b053c4b2838bd6b71',
     );
   });
@@ -41,7 +42,7 @@ describe('@zodash/signature/binance', () => {
       },
     };
 
-    expect(signature(data, secretKey)).toEqual(
+    expect(sign.binance(data, secretKey)).toEqual(
       'c8db56825ae71d6d79447849e617115f4a920fa2acdcab2b053c4b2838bd6b71',
     );
   });
@@ -63,7 +64,7 @@ describe('@zodash/signature/binance', () => {
       },
     };
 
-    expect(signature(data, secretKey)).toEqual(
+    expect(sign.binance(data, secretKey)).toEqual(
       '0fd168b8ddb4876a0358a8d14d0c9f3da0e9b20c5d52b2a00fcf7d1c602f9a77',
     );
   });

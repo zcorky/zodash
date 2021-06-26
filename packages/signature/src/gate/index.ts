@@ -10,7 +10,7 @@ export interface IData {
   timestamp: number;
 }
 
-export function signature(data: IData, secret: string) {
+export function sign(data: IData, secret: string) {
   const _method = data.method.toUpperCase();
   const _url = data.url;
   const _query = stringify(data.query, qs.stringify as any);
@@ -35,3 +35,5 @@ function stringify(
   if (typeof v === 'string') return v;
   return stringifyFn(v);
 }
+
+export default sign;

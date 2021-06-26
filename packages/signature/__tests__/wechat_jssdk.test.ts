@@ -1,9 +1,9 @@
-import { signature } from '../src/wechat/jssdk';
+import sign from '../src';
 
-describe('@zodash/signature/wechat.jssdk', () => {
+describe('@zodash/signature:wechat.jssdk', () => {
   it('works', async () => {
     expect(
-      signature({
+      sign.wechat.jssdk({
         url: 'http://mp.weixin.qq.com?params=value',
         jsapi_ticket:
           'sM4AOVdWfPE4DxkXGEs8VMCPGGVi4C3VM0P37wVUCFvkVAy_90u5h9nbSlYy3-Sl-HhTdfl2fzFy1AOcHKP7qg',

@@ -1,6 +1,7 @@
-import { signature, IData } from '../src/okex';
+import sign from '../src';
+import { IData } from '../src/okex';
 
-describe('@zodash/signature/okex', () => {
+describe('@zodash/signature:okex', () => {
   const AccessKey =
     'vmPUZE6mv9SD5VNHk4HlWFsOr6aKE2zvsw0MuIgwCIPy6utIco14y7Ju91duEh8A';
   const SecretKey =
@@ -13,7 +14,7 @@ describe('@zodash/signature/okex', () => {
       timestamp: 1499827319559,
     };
 
-    expect(signature(data, SecretKey)).toEqual(
+    expect(sign.okex(data, SecretKey)).toEqual(
       'dd27d63bc46ef4cb878ffd089cfbbb119f4183cd9273024d7e7a016236970c55',
     );
   });
@@ -28,14 +29,14 @@ describe('@zodash/signature/okex', () => {
       timestamp: 1499827319559,
     };
 
-    expect(signature(data, SecretKey)).toEqual(
+    expect(sign.okex(data, SecretKey)).toEqual(
       '4cfc8147328dc4243edf10bbb8eb1d5a3b5db18d8b1237ff6ea8371ddcfff958',
     );
   });
 
   it('POST - body allow null | undefined', async () => {
     expect(
-      signature(
+      sign.okex(
         {
           method: 'POST',
           path: '/api/v5/account/balance',
@@ -49,7 +50,7 @@ describe('@zodash/signature/okex', () => {
     );
 
     expect(
-      signature(
+      sign.okex(
         {
           method: 'POST',
           path: '/api/v5/account/balance',
@@ -63,7 +64,7 @@ describe('@zodash/signature/okex', () => {
     );
 
     expect(
-      signature(
+      sign.okex(
         {
           method: 'POST',
           path: '/api/v5/account/balance',

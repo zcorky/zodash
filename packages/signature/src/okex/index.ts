@@ -8,7 +8,7 @@ export interface IData {
   timestamp: number;
 }
 
-export function signature(data: IData, secret: string) {
+export function sign(data: IData, secret: string) {
   const timestamp = new Date(data.timestamp).toISOString();
   const method = data.method.toUpperCase();
   const path = data.path;
@@ -28,3 +28,5 @@ function stringify(
   if (typeof v === 'string') return v;
   return stringifyFn(v);
 }
+
+export default sign;
