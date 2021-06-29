@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/zcorky/zodash/compare/@zodash/signature@0.1.0...@zodash/signature@0.2.0) (2021-06-26)
+
+
+### Features
+
+* **signature:** add okex ([405d1a0](https://github.com/zcorky/zodash/commit/405d1a0aeee8e412a6ba25a992da3d8d674d626f))
+
+
+
+
+
 # [0.1.0](https://github.com/zcorky/zodash/compare/@zodash/signature@0.0.6...@zodash/signature@0.1.0) (2021-06-26)
 
 
