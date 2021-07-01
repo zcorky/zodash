@@ -1,6 +1,6 @@
 {
   "name": "@zodash/time-ago",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Format datetime with *** time ago statement",
   "keywords": [
     "zodash",
