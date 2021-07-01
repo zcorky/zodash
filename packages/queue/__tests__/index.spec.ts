@@ -100,4 +100,19 @@ describe('queue', () => {
     expect(() => queue1.setCompacity(-1)).toThrow();
     expect(queue1.getCapacity()).toEqual(0);
   });
+
+  it('iterable', () => {
+    const queue = new Queue<string>();
+    const data = ['a', 'b', 'c'];
+    for (const d of data) {
+      queue.enqueue(d);
+    }
+
+    const expected = [];
+    for (const d of queue) {
+      expected.push(d);
+    }
+
+    expect(expected).toEqual(data);
+  });
 });

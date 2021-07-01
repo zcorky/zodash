@@ -90,4 +90,10 @@ export class Queue<T> implements IQueue<T> {
 
     this.capacity = capacity;
   }
+
+  *[Symbol.iterator]() {
+    for (let i = this.head; i < this.tail; i++) {
+      yield this.storage[i];
+    }
+  }
 }
