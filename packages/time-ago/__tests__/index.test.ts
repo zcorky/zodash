@@ -126,4 +126,34 @@ describe('@zodash/time-ago', () => {
     expect(timeAgo(new Date())).toEqual('just now');
     expect(timeAgo(new Date(), { language: 'zh-CN' })).toEqual('刚刚');
   });
+
+  it('i18n: set zh-TW', () => {
+    const now = new Date().getTime();
+    expect(timeAgo(now - 800, { now, language: 'zh-TW' })).toEqual('剛剛');
+    expect(timeAgo(now - 8000, { now, language: 'zh-TW' })).toEqual('8秒前');
+    expect(timeAgo(now - 8 * 60 * 1000, { now, language: 'zh-TW' })).toEqual(
+      '8分鐘前',
+    );
+    expect(
+      timeAgo(now - 8 * 60 * 60 * 1000, { now, language: 'zh-TW' }),
+    ).toEqual('8小時前');
+    expect(
+      timeAgo(now - 5 * 24 * 60 * 60 * 1000, { now, language: 'zh-TW' }),
+    ).toEqual('5天前');
+    expect(
+      timeAgo(now - 8 * 24 * 60 * 60 * 1000, { now, language: 'zh-TW' }),
+    ).toEqual('1週前');
+    expect(
+      timeAgo(now - 30 * 24 * 60 * 60 * 1000, { now, language: 'zh-TW' }),
+    ).toEqual('1個月前');
+    expect(
+      timeAgo(now - 365 * 24 * 60 * 60 * 1000, { now, language: 'zh-TW' }),
+    ).toEqual('1年前');
+    expect(
+      timeAgo(now - 10 * 365 * 24 * 60 * 60 * 1000, {
+        now,
+        language: 'zh-CN',
+      }),
+    ).toEqual('10年前');
+  });
 });
