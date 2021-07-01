@@ -1,4 +1,8 @@
-import { number as isNumber } from '@zcorky/is';
+import {
+  number as isNumber,
+  undef as isUndefined,
+  null as isNull,
+} from '@zcorky/is';
 import i18n, { t } from '@zodash/i18n';
 import { DATA } from './constants';
 
@@ -26,7 +30,12 @@ i18n.config({
 
 export function timeAgo(ago: Date | number, options?: Options) {
   const _ago = isNumber(ago) ? new Date(ago) : ago;
-  const _now = isNumber(options?.now) ? new Date(options.now) : options.now;
+  const _now =
+    isUndefined(options?.now) || isNull(options?.now)
+      ? new Date()
+      : isNumber(options?.now)
+      ? new Date(options.now)
+      : options.now;
 
   const diff = _now.getTime() - _ago.getTime();
   let i = 0;
@@ -37,7 +46,7 @@ export function timeAgo(ago: Date | number, options?: Options) {
   const _time = i === 0 ? diff : Math.floor(diff / DATA[i - 1].ceil);
 
   //
-  if (options?.language) {
+  if (options?.language || isUndefined(window)) {
     i18n.setLocale(options.language.replace('-', '_'));
   } else {
     i18n.setLocale(window.navigator?.language?.replace('-', '_'));

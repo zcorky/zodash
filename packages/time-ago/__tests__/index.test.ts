@@ -17,12 +17,12 @@ describe('@zodash/time-ago', () => {
     expect(timeAgo(now.getTime() - 8 * 24 * 60 * 60 * 1000, { now })).toEqual(
       '1 weeks ago',
     );
-    expect(timeAgo(now.getTime() - 30 * 24 * 60 * 60 * 1000, { now })).toEqual(
-      '1 months ago',
-    );
-    expect(timeAgo(now.getTime() - 365 * 24 * 60 * 60 * 1000, { now })).toEqual(
-      '1 years ago',
-    );
+    expect(
+      timeAgo(now.getTime() - 30 * 24 * 60 * 60 * 1000, { now }),
+    ).toEqual('1 months ago');
+    expect(
+      timeAgo(now.getTime() - 365 * 24 * 60 * 60 * 1000, { now }),
+    ).toEqual('1 years ago');
     expect(
       timeAgo(now.getTime() - 10 * 365 * 24 * 60 * 60 * 1000, { now }),
     ).toEqual('10 years ago');
@@ -66,16 +66,24 @@ describe('@zodash/time-ago', () => {
       timeAgo(new Date(now - 8 * 60 * 60 * 1000), { now: new Date(now) }),
     ).toEqual('8 hours ago');
     expect(
-      timeAgo(new Date(now - 5 * 24 * 60 * 60 * 1000), { now: new Date(now) }),
+      timeAgo(new Date(now - 5 * 24 * 60 * 60 * 1000), {
+        now: new Date(now),
+      }),
     ).toEqual('5 days ago');
     expect(
-      timeAgo(new Date(now - 8 * 24 * 60 * 60 * 1000), { now: new Date(now) }),
+      timeAgo(new Date(now - 8 * 24 * 60 * 60 * 1000), {
+        now: new Date(now),
+      }),
     ).toEqual('1 weeks ago');
     expect(
-      timeAgo(new Date(now - 30 * 24 * 60 * 60 * 1000), { now: new Date(now) }),
+      timeAgo(new Date(now - 30 * 24 * 60 * 60 * 1000), {
+        now: new Date(now),
+      }),
     ).toEqual('1 months ago');
     expect(
-      timeAgo(new Date(now - 365 * 24 * 60 * 60 * 1000), { now: new Date(now) }),
+      timeAgo(new Date(now - 365 * 24 * 60 * 60 * 1000), {
+        now: new Date(now),
+      }),
     ).toEqual('1 years ago');
     expect(
       timeAgo(new Date(now - 10 * 365 * 24 * 60 * 60 * 1000), {
@@ -107,7 +115,15 @@ describe('@zodash/time-ago', () => {
       timeAgo(now - 365 * 24 * 60 * 60 * 1000, { now, language: 'zh-CN' }),
     ).toEqual('1年前');
     expect(
-      timeAgo(now - 10 * 365 * 24 * 60 * 60 * 1000, { now, language: 'zh-CN' }),
+      timeAgo(now - 10 * 365 * 24 * 60 * 60 * 1000, {
+        now,
+        language: 'zh-CN',
+      }),
     ).toEqual('10年前');
+  });
+
+  it('now is optional', () => {
+    expect(timeAgo(new Date())).toEqual('just now');
+    expect(timeAgo(new Date(), { language: 'zh-CN' })).toEqual('刚刚');
   });
 });
