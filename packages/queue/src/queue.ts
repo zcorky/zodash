@@ -13,6 +13,7 @@ export interface IQueue<T> {
   isEmpty(): boolean;
   isFull(): boolean;
   restSize(): number;
+  clear(): void;
 }
 
 export class Queue<T> implements IQueue<T> {
@@ -89,6 +90,11 @@ export class Queue<T> implements IQueue<T> {
     }
 
     this.capacity = capacity;
+  }
+
+  public clear() {
+    this.head = this.tail = 0;
+    (this as any).storage = {};
   }
 
   *[Symbol.iterator]() {
