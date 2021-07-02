@@ -20,15 +20,11 @@ function words(value: string) {
  * ```
  */
 export function snakeCase(value: string | string[]) {
-  if (Array.isArray(value)) {
-    return snakeCaseWords(value);
-  }
+  const _words = !Array.isArray(value) ? words(value) : value;
 
-  return words(value)
-    .map((word) => word.toLowerCase())
-    .join('_');
+  return compose(_words);
 }
 
-export function snakeCaseWords(words: string[]) {
+export function compose(words: string[]) {
   return words.map((word) => word.toLowerCase()).join('_');
 }

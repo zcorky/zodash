@@ -20,15 +20,11 @@ function words(value: string) {
  ```
  */
 export function kebabCase(value: string | string[]) {
-  if (Array.isArray(value)) {
-    return kebabCaseWords(value);
-  }
+  const _words = !Array.isArray(value) ? words(value) : value;
 
-  return words(value)
-    .map((word) => word.toLowerCase())
-    .join('-');
+  return compose(_words);
 }
 
-export function kebabCaseWords(words: string[]) {
+function compose(words: string[]) {
   return words.map((word) => word.toLowerCase()).join('-');
 }

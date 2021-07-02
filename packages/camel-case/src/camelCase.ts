@@ -22,17 +22,12 @@ function words(value: string) {
  ```
  */
 export function camelCase(value: string | string[]) {
-  if (Array.isArray(value)) {
-    return camelCaseWords(value);
-  }
+  const _words = !Array.isArray(value) ? words(value) : value;
 
-  return words(value).reduce((result, word, index) => {
-    const lower = word.toLowerCase();
-    return result + (index ? capitalize(lower) : lower);
-  }, '');
+  return compose(_words);
 }
 
-export function camelCaseWords(words: string[]) {
+function compose(words: string[]) {
   return words
     .map((word, index) => {
       const _word = word.toLowerCase();
