@@ -16,4 +16,11 @@ describe('@zodash/snakeCase', () => {
   it('fooBar => foo_bar', () => {
     expect(snakeCase('fooBar')).toBe('foo_bar');
   });
+
+  it('words', () => {
+    expect(snakeCase(['foo', 'bar', 'baz'])).toBe('foo_bar_baz');
+    expect(snakeCase(['Foo', 'Bar', 'Baz'])).toBe('foo_bar_baz');
+    expect(snakeCase(['Foo', 'bar', 'baz'])).toBe('foo_bar_baz');
+    expect(snakeCase(['fOo', 'bAr', 'baZ'])).toBe('foo_bar_baz');
+  });
 });

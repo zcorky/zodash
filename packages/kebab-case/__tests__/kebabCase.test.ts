@@ -32,4 +32,11 @@ describe('@zodash/kebab-case', () => {
   it('foo_b => foo-b', () => {
     expect(kebabCase('foo_b')).toBe('foo-b');
   });
+
+  it('words', () => {
+    expect(kebabCase(['foo', 'bar', 'baz'])).toBe('foo-bar-baz');
+    expect(kebabCase(['Foo', 'Bar', 'Baz'])).toBe('foo-bar-baz');
+    expect(kebabCase(['Foo', 'bar', 'baz'])).toBe('foo-bar-baz');
+    expect(kebabCase(['fOo', 'bAr', 'baZ'])).toBe('foo-bar-baz');
+  });
 });

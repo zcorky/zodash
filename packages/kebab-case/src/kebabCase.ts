@@ -14,10 +14,21 @@ function words(value: string) {
  * @example ```ts
  kebabCase('fooBarBaz')
  // => 'foo-bar-baz'
+
+ kebabCase(['foo', 'bar', 'baz'])
+ // => 'foo-bar-baz'
  ```
  */
-export function kebabCase(value: string) {
+export function kebabCase(value: string | string[]) {
+  if (Array.isArray(value)) {
+    return kebabCaseWords(value);
+  }
+
   return words(value)
     .map((word) => word.toLowerCase())
     .join('-');
+}
+
+export function kebabCaseWords(words: string[]) {
+  return words.map((word) => word.toLowerCase()).join('-');
 }

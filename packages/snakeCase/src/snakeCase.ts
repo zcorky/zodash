@@ -14,10 +14,21 @@ function words(value: string) {
  * @example ```ts
  * snakeCase('fooBarBaz')
  * // => 'foo_bar_baz'
+ *
+ * snakeCase(['foo', 'bar', 'baz'])
+ * // => 'foo_bar_baz'
  * ```
  */
-export function snakeCase(value: string) {
+export function snakeCase(value: string | string[]) {
+  if (Array.isArray(value)) {
+    return snakeCaseWords(value);
+  }
+
   return words(value)
     .map((word) => word.toLowerCase())
     .join('_');
+}
+
+export function snakeCaseWords(words: string[]) {
+  return words.map((word) => word.toLowerCase()).join('_');
 }
