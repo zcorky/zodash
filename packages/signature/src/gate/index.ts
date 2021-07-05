@@ -36,4 +36,21 @@ function stringify(
   return stringifyFn(v);
 }
 
-export default sign;
+export interface IWSEventData {
+  channel: string;
+  event: string;
+  time: number;
+}
+
+export function signWs(data: IWSEventData, secret: string) {
+  const text = qs.stringify(data as any);
+  return hmacSHA512(text, secret);
+}
+
+const _sign: typeof sign & {
+  ws?: typeof signWs;
+} = sign;
+
+_sign.ws = signWs;
+
+export default _sign;

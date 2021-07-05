@@ -1,5 +1,5 @@
 import sign from '../src';
-import { IData } from '../src/gate';
+import { IData, IWSEventData } from '../src/gate';
 
 describe('@zodash/signature:gate', () => {
   it('GET - without payload', async () => {
@@ -86,6 +86,20 @@ describe('@zodash/signature:gate', () => {
 
     expect(sign.gate(data, secret)).toEqual(
       '017cc74dedde49babb27aa821c4e9ac6c06e9ff982d35e3b179e2f9cf77174080aeb68a4e7ee942933e2be935b6e5aa4bbfc99c87e4c2b8c4a82a4aeab2c56fb',
+    );
+  });
+
+  it('ws', async () => {
+    const data: IWSEventData = {
+      channel: 'spot.orders',
+      event: 'subscribe',
+      time: 1541993715,
+    };
+    const secret =
+      '59p59rtcrah69bsqsrjd73585zvavnrf9nt78hrbnkh65u5hbrcxr5y5crhdgqvw';
+
+    expect(sign.gate.ws(data, secret)).toEqual(
+      'a0fad3dabeba6ca7992bb8ad5eb7bbc142b24436c71e3e34ba5213658ca5d9a07319a11c89703acb051f11249008cbc68dc531769b4d029b8246f3f7d0c737d5',
     );
   });
 });

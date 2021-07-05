@@ -65,6 +65,7 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
+    "@zodash/cache": "^0.0.5",
     "@zodash/jsonp": "^0.0.9",
     "@zodash/unfetch": "^0.1.8"
   }
