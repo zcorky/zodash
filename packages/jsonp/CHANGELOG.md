@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.10](https://github.com/zcorky/zodash/compare/@zodash/jsonp@0.0.9...@zodash/jsonp@0.0.10) (2021-07-05)
+
+**Note:** Version bump only for package @zodash/jsonp
+
+
+
+
+
 ## [0.0.9](https://github.com/zcorky/zodash/compare/@zodash/jsonp@0.0.8...@zodash/jsonp@0.0.9) (2021-05-03)
 
 **Note:** Version bump only for package @zodash/jsonp

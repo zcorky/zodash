@@ -1,6 +1,6 @@
 {
   "name": "@zodash/nobot-dingtalk",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Dingtalk notify bot",
   "keywords": [
     "zodash",
@@ -66,6 +66,6 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "@zodash/doreamon": "^0.4.51"
+    "@zodash/doreamon": "^0.4.52"
   }
 }
