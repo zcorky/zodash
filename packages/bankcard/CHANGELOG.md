@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.4](https://github.com/zcorky/zodash/compare/@zodash/bankcard@0.0.3...@zodash/bankcard@0.0.4) (2021-07-11)
+
+
+### Bug Fixes
+
+* **bankcard:** regular error with g (closes [#16](https://github.com/zcorky/zodash/issues/16)) ([e5cc53d](https://github.com/zcorky/zodash/commit/e5cc53d97d452134dcce6bf4432815890a842206))
+
+
+
+
+
 ## [0.0.3](https://github.com/zcorky/zodash/compare/@zodash/bankcard@0.0.2...@zodash/bankcard@0.0.3) (2021-05-03)
 
 **Note:** Version bump only for package @zodash/bankcard

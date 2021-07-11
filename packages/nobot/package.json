@@ -1,6 +1,6 @@
 {
   "name": "@zodash/nobot",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Notify bot, support feishu, dingtalk, wecom, slack ...",
   "keywords": [
     "zodash",
@@ -66,9 +66,9 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "@zodash/nobot-dingtalk": "^0.0.5",
-    "@zodash/nobot-feishu": "^0.1.2",
-    "@zodash/nobot-slack": "^0.0.2",
-    "@zodash/nobot-wecom": "^0.0.3"
+    "@zodash/nobot-dingtalk": "^0.0.6",
+    "@zodash/nobot-feishu": "^0.1.3",
+    "@zodash/nobot-slack": "^0.0.3",
+    "@zodash/nobot-wecom": "^0.0.4"
   }
 }

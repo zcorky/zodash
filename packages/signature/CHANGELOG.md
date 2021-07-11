@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.4](https://github.com/zcorky/zodash/compare/@zodash/signature@0.2.3...@zodash/signature@0.2.4) (2021-07-11)
+
+**Note:** Version bump only for package @zodash/signature
+
+
+
+
+
 ## [0.2.3](https://github.com/zcorky/zodash/compare/@zodash/signature@0.2.2...@zodash/signature@0.2.3) (2021-07-05)
 
 **Note:** Version bump only for package @zodash/signature

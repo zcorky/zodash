@@ -1,6 +1,6 @@
 {
   "name": "@zodash/nobot-slack",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Slack notify bot",
   "keywords": [
     "zodash",
@@ -66,6 +66,6 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "@zodash/doreamon": "^0.4.52"
+    "@zodash/doreamon": "^0.4.53"
   }
 }
