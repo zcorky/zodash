@@ -61,10 +61,9 @@ export class DataLoader {
 
       bd.patterns.forEach((pattern) => {
         const code_type = bd.code + '#' + pattern.type;
-        const fullRegExp = new RegExp(pattern.regex, 'g');
+        const fullRegExp = new RegExp(pattern.regex);
         const maybeRegExp = new RegExp(
           pattern.regex.replace(/\\d\{\d+\}\$/, ''),
-          'g'
         );
 
         banksRegExpMap.set(fullRegExp, code_type);

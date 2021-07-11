@@ -40,4 +40,16 @@ describe('@zodash/idcard', () => {
       type: { name: '储蓄卡', code: 'DC' },
     });
   });
+
+  it('twice value should the same', async () => {
+    const cardNumber = '6217002920108228586';
+    const res = {
+      name: '中国建设银行',
+      code: 'CCB',
+      type: { name: '储蓄卡', code: 'DC' },
+    };
+
+    expect(await bankcard.parse(cardNumber)).toEqual(res);
+    expect(await bankcard.parse(cardNumber)).toEqual(res);
+  });
 });
