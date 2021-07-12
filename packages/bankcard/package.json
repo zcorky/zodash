@@ -52,7 +52,7 @@
     ],
     "coverageThreshold": {
       "global": {
-        "branches": 80,
+        "branches": 70,
         "functions": 80,
         "lines": 90,
         "statements": -10
@@ -68,7 +68,7 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "@zcorky/moment": "^1.2.0",
+    "@zodash/find": "^0.1.7",
     "@zodash/random": "^1.2.10"
   },
   "devDependencies": {
