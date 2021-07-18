@@ -3,8 +3,9 @@ import wechat from './wechat';
 import gate from './gate';
 import binance from './binance';
 import okex from './okex';
+import ftx from './ftx';
 
-export { sign, wechat, gate, binance, okex };
+export { sign, wechat, gate, binance, okex, ftx };
 
 export default {
   sign,
@@ -12,4 +13,5 @@ export default {
   gate,
   binance,
   okex,
+  ftx,
 };
