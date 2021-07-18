@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/zcorky/zodash/compare/@zodash/signature@0.2.4...@zodash/signature@0.3.0) (2021-07-18)
+
+
+### Features
+
+* **signature:** add ftx sign request + ws ([82384a7](https://github.com/zcorky/zodash/commit/82384a7670025e1a80604158e6d0ed99b0d3cabe))
+
+
+
+
+
 ## [0.2.4](https://github.com/zcorky/zodash/compare/@zodash/signature@0.2.3...@zodash/signature@0.2.4) (2021-07-11)
 
 **Note:** Version bump only for package @zodash/signature
