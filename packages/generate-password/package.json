@@ -1,6 +1,6 @@
 {
   "name": "@zodash/generate-password",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Password Generator like lastpass",
   "keywords": [
     "zodash",
@@ -63,6 +63,5 @@
   },
   "bugs": {
     "url": "https://github.com/zcorky/zodash/issues"
-  },
-  "dependencies": {}
+  }
 }
