@@ -64,10 +64,5 @@
   "bugs": {
     "url": "https://github.com/zcorky/zodash/issues"
   },
-  "dependencies": {
-    "@octokit/core": "^3.5.1",
-    "@zodash/base64": "^0.0.5",
-    "@zodash/compose": "^0.1.6",
-    "@zodash/emitter": "^0.0.6"
-  }
+  "dependencies": {}
 }
