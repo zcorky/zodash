@@ -15,7 +15,7 @@ jobs:
     if: ${{ needs.publish.result == 'success' }}
     steps:
       - name: Notification Feishu
-        uses: whatwewant/action-robot-feishu@v0.0.10
+        uses: whatwewant/action-robot-feishu@v0.0.13
         with:
           url: ${{ secrets.NPM_VERSION_FEISHU_BOT_WEBHOOK_URL }}
           title: '✅ NPM 发布：${{ github.repository }}'
@@ -31,7 +31,7 @@ jobs:
     if: ${{ needs.publish.result == 'failure' }}
     steps:
       - name: Notification Feishu
-        uses: whatwewant/action-robot-feishu@v0.0.10
+        uses: whatwewant/action-robot-feishu@v0.0.13
         with:
           url: ${{ secrets.NPM_VERSION_FEISHU_BOT_WEBHOOK_URL }}
           title: '❌ NPM 发布：${{ github.repository }}'
