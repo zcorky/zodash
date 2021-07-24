@@ -6,6 +6,25 @@ import { SocketOptions } from './socket';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const debug = require('debug')('@zodash/websocet');
 
+export interface ClientOptions {
+  /**
+   * Ping Interval, default: 15000
+   */
+  pingInterval?: number;
+
+  /**
+   * Ping Timeout, default: 5000
+   */
+  pingTimeout?: number;
+
+  /**
+   * Auto Echo, default: false
+   *
+   *  for save server tcp socket, use 10 minites message echo
+   */
+  autoEcho?: boolean;
+}
+
 export class Client {
   private emitter = new EventEmitter();
   private readonly socket = new ws(this.url);
@@ -15,14 +34,17 @@ export class Client {
   public createdAt = new Date();
   public updatedAt = this.createdAt;
   //
-  private options: SocketOptions;
-  private pingInterval = 15000;
-  private pingTimeout = 5000;
+  private socketOptions: SocketOptions;
+  private pingInterval = this.options?.pingInterval ?? 15000;
+  private pingTimeout = this.options?.pingTimeout ?? 5000;
 
   private $pingInterval: NodeJS.Timeout;
   private $pingTimeout: NodeJS.Timeout;
 
-  constructor(private readonly url: string) {
+  constructor(
+    private readonly url: string,
+    private readonly options?: ClientOptions,
+  ) {
     // this.socket.on('pong', () => {
     //   this.socket.isAlive = true;
     // });
@@ -46,14 +68,15 @@ export class Client {
     });
 
     this.on('@@CONFIG', (options: SocketOptions) => {
-      this.options = options;
+      this.socketOptions = options;
       //
-      this.pingInterval = this.options.pingInterval ?? 15000;
-      this.pingTimeout = this.options.pingTimeout ?? 5000;
+      this.pingInterval = this.socketOptions.pingInterval ?? 15000;
+      this.pingTimeout = this.socketOptions.pingTimeout ?? 5000;
     });
 
     //
     this.on('pong', () => {
+      debug('pong');
       this.isAlive = true;
 
       // release $pingTimeout
@@ -68,7 +91,14 @@ export class Client {
     });
 
     this.socket.on('open', () => {
+      // setup
+      //  1. ping => alive
       this.ping();
+
+      if (this.options?.autoEcho) {
+        //  2. echo => 10 minite message communication
+        this.echo();
+      }
     });
 
     this.on('id', (id) => {
@@ -79,7 +109,7 @@ export class Client {
     });
 
     this.socket.on('message', (message) => {
-      const [type, payload = ''] = JSON.parse((message as any) as string);
+      const [type, payload = ''] = JSON.parse(message as any as string);
       debug('onmessage:', type, payload);
 
       if (type === 'error') {
@@ -111,6 +141,8 @@ export class Client {
   }
 
   private ping() {
+    debug('ping');
+
     // if no response when timeout, stop ping
     this.$pingTimeout = setTimeout(() => {
       if (this.$pingInterval) {
@@ -120,5 +152,13 @@ export class Client {
     }, this.pingTimeout);
 
     return this.emit('ping');
+  }
+
+  private echo() {
+    setTimeout(() => {
+      this.echo();
+    }, 30 * 1000);
+
+    this.emit('echo');
   }
 }
