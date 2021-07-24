@@ -58,6 +58,15 @@ export class Client {
     this.socket.on('error', (error) => {
       // this.isAlive = false;
 
+      // if (error && (error as any).code) {
+      //   const code = (error as any).code;
+
+      //   // server doesnot exist
+      //   if (code === 'ECONNREFUSED') {
+
+      //   }
+      // }
+
       this.emitter.emit('error', error);
     });
 
@@ -109,17 +118,34 @@ export class Client {
     });
 
     this.socket.on('message', (message) => {
-      const [type, payload = ''] = JSON.parse(message as any as string);
-      debug('onmessage:', type, payload);
+      try {
+        const structedMessage = safeJSONParse(
+          message as any as string,
+        ) as any as [string, any];
+        // const [type, payload = '']
+        const type = structedMessage[0];
+        const payload = structedMessage[1];
 
-      if (type === 'error') {
-        return this.emitter.emit(
-          'error',
-          new Error(payload?.message ?? 'unknown'),
-        );
+        if (typeof type === 'undefined') {
+          throw new Error(
+            `unkown ws message format, expected [type, payload], but ${message}`,
+          );
+        }
+
+        debug('onmessage:', type, payload);
+
+        if (type === 'error') {
+          return this.emitter.emit(
+            'error',
+            new Error(payload?.message ?? 'unknown'),
+          );
+        }
+
+        this.emitter.emit(type, payload);
+      } catch (error) {
+        // @TODO
+        console.error('error', error);
       }
-
-      this.emitter.emit(type, payload);
     });
   }
 
@@ -160,5 +186,13 @@ export class Client {
     }, 30 * 1000);
 
     this.emit('echo');
+  }
+}
+
+function safeJSONParse(text: string) {
+  try {
+    return JSON.parse(text);
+  } catch (error) {
+    throw new Error('unknown ws message format, internal use json');
   }
 }
