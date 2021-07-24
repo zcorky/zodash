@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.1](https://github.com/zcorky/zodash/compare/@zodash/websocket@0.2.0...@zodash/websocket@0.2.1) (2021-07-24)
+
+
+### Bug Fixes
+
+* **websocket:** catch raw message parse error if not ([a933010](https://github.com/zcorky/zodash/commit/a9330100878036b3d090a3a730498f8ac265b077))
+
+
+
+
+
 # [0.2.0](https://github.com/zcorky/zodash/compare/@zodash/websocket@0.1.5...@zodash/websocket@0.2.0) (2021-07-24)
 
 
