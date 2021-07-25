@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.2](https://github.com/zcorky/zodash/compare/@zodash/websocket@0.2.1...@zodash/websocket@0.2.2) (2021-07-25)
+
+
+### Bug Fixes
+
+* **websocket:** add cleaner ([51f81eb](https://github.com/zcorky/zodash/commit/51f81eb502b7f050c8266b266bd0535900071463))
+
+
+
+
+
 ## [0.2.1](https://github.com/zcorky/zodash/compare/@zodash/websocket@0.2.0...@zodash/websocket@0.2.1) (2021-07-24)
 
 
