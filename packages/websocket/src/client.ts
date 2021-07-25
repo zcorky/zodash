@@ -179,6 +179,8 @@ export class Client {
   }
 
   private echo() {
+    debug('echo');
+
     this.$echoInterval = setTimeout(() => {
       this.echo();
     }, 30 * 1000);
