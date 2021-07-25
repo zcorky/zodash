@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.3](https://github.com/zcorky/zodash/compare/@zodash/websocket@0.2.2...@zodash/websocket@0.2.3) (2021-07-25)
+
+
+### Bug Fixes
+
+* **websocket:** call disconnect normmaly ([7255e1c](https://github.com/zcorky/zodash/commit/7255e1ca908f03c21dd8ce8e4592f1e3ade8dcf3))
+
+
+
+
+
 ## [0.2.2](https://github.com/zcorky/zodash/compare/@zodash/websocket@0.2.1...@zodash/websocket@0.2.2) (2021-07-25)
 
 
