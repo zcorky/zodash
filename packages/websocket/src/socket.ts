@@ -114,7 +114,7 @@ export class Socket {
   // 手动调用，一定是正常关闭
   public disconnect() {
     // return this.socket.terminate();
-    this.socket.close(1000, 'disconnect normal');
+    this.socket.close(1000, 'server disconnect normal');
   }
 
   private ping() {

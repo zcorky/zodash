@@ -23,11 +23,29 @@ export interface ClientOptions {
    *  for save server tcp socket, use 10 minites message echo
    */
   autoEcho?: boolean;
+
+  /**
+   * Auto Reconnect if close is not normally, default: true
+   */
+  autoReconnect?: boolean;
+
+  /**
+   * Auto Reconnect Delay in milliseconds, default: 5000
+   */
+  autoReconnectDelay?: number;
+
+  /**
+   * Max Auto Reconnect Times, default: 1440
+   *
+   *  if cannot connect after reconnect 1440 times (2h, when autoReconnectDelay = 5000),
+   *    which may be mean your server is gone
+   */
+  maxAutoReconnectTimes?: number;
 }
 
 export class Client {
   private emitter = new EventEmitter();
-  private readonly socket = new ws(this.url);
+  private readonly socket: ws;
 
   public id: string;
   public isAlive: boolean;
@@ -37,67 +55,56 @@ export class Client {
   private socketOptions: SocketOptions;
   private pingInterval = this.options?.pingInterval ?? 15000;
   private pingTimeout = this.options?.pingTimeout ?? 5000;
+  private autoReconnectDelay = this.options?.autoReconnectDelay ?? 5000;
+  private autoReconnect = this.options?.autoReconnect ?? true;
+  private maxAutoReconnectTimes = this.options?.maxAutoReconnectTimes ?? 1440;
 
   private $pingInterval: NodeJS.Timeout;
   private $pingTimeout: NodeJS.Timeout;
   private $echoInterval: NodeJS.Timeout;
+  private $currentAutoReconnectTimes = 0;
 
   constructor(
     private readonly url: string,
     private readonly options?: ClientOptions,
   ) {
+    this.connect();
+  }
+
+  public on(type: string, handler: (...args: any[]) => void) {
+    this.emitter.on(type, handler);
+  }
+
+  public off(type: string, handler: (...args: any[]) => void) {
+    this.emitter.off(type, handler);
+  }
+
+  public emit(type: string, ...args: any[]) {
+    this.socket.send(JSON.stringify([type, ...args]));
+  }
+
+  public disconnect() {
+    // return this.socket.terminate();
+    return this.socket.close(1000, 'client disconnect normal');
+  }
+
+  public connect() {
+    //
+    (this as any).socket = new ws(this.url);
+    this.listen();
+
     // this.socket.on('pong', () => {
     //   this.socket.isAlive = true;
     // });
 
-    this.socket.on('close', (...args) => {
+    this.socket.on('close', (code, reason) => {
       this.isAlive = false;
 
-      this.emitter.emit('close', ...args);
+      this.emitter.emit('close', code, reason);
     });
 
     this.socket.on('error', (error) => {
-      // this.isAlive = false;
-
-      // if (error && (error as any).code) {
-      //   const code = (error as any).code;
-
-      //   // server doesnot exist
-      //   if (code === 'ECONNREFUSED') {
-
-      //   }
-      // }
-
       this.emitter.emit('error', error);
-    });
-
-    this.on('close', (...args) => {
-      this.disconnect();
-
-      this.emitter.emit('disconnect', ...args);
-    });
-
-    this.on('@@CONFIG', (options: SocketOptions) => {
-      this.socketOptions = options;
-      //
-      this.pingInterval = this.socketOptions.pingInterval ?? 15000;
-      this.pingTimeout = this.socketOptions.pingTimeout ?? 5000;
-    });
-
-    //
-    this.on('pong', () => {
-      debug('pong');
-      this.isAlive = true;
-
-      // release $pingTimeout
-      if (this.$pingTimeout) {
-        clearTimeout(this.$pingTimeout);
-        this.$pingTimeout = null;
-      }
-
-      this.$pingInterval = setTimeout(() => {
-        this.ping();
-      }, this.pingInterval);
     });
 
     this.socket.on('open', () => {
@@ -109,13 +116,6 @@ export class Client {
         //  2. echo => 10 minite message communication
         this.echo();
       }
-    });
-
-    this.on('id', (id) => {
-      debug('receive id:', id);
-      this.id = id;
-
-      this.emitter.emit('connection');
     });
 
     this.socket.on('message', (message) => {
@@ -150,18 +150,12 @@ export class Client {
     });
   }
 
-  public on(type: string, handler: (...args: any[]) => void) {
-    this.emitter.on(type, handler);
-  }
+  public reconnect() {
+    debug('reconnect');
 
-  public emit(type: string, ...args: any[]) {
-    this.socket.send(JSON.stringify([type, ...args]));
-  }
+    this.emitter.emit('reconnect');
 
-  public disconnect() {
-    this.clean();
-
-    return this.socket.terminate();
+    this.connect();
   }
 
   private ping() {
@@ -186,6 +180,92 @@ export class Client {
     }, 30 * 1000);
 
     this.emit('echo');
+  }
+
+  private listen() {
+    const onClose = (code: number, reason: string) => {
+      debug('close', 'code:', code, 'reason:', reason);
+
+      removeListeners();
+      this.clean();
+
+      //  if not close normal and autoReconnect is true, reconnect
+      if (code !== 1000 && this.autoReconnect) {
+        debug('auto reconnect ...');
+
+        if (this.$currentAutoReconnectTimes >= this.maxAutoReconnectTimes) {
+          this.emitter.emit(
+            'error',
+            new Error(
+              `reached max auto reconnect times (${this.maxAutoReconnectTimes})`,
+            ),
+          );
+          return;
+        }
+
+        setTimeout(() => {
+          this.$currentAutoReconnectTimes += 1;
+          debug(
+            'current auto reconect times:',
+            this.$currentAutoReconnectTimes,
+          );
+
+          this.reconnect();
+        }, this.autoReconnectDelay);
+      }
+
+      this.emitter.emit('disconnect', code, reason);
+    };
+
+    const onConfig = (options: SocketOptions) => {
+      this.socketOptions = options;
+      //
+      this.pingInterval = this.socketOptions.pingInterval ?? 15000;
+      this.pingTimeout = this.socketOptions.pingTimeout ?? 5000;
+    };
+
+    const onPong = () => {
+      debug('pong');
+      this.isAlive = true;
+
+      // release $pingTimeout
+      if (this.$pingTimeout) {
+        clearTimeout(this.$pingTimeout);
+        this.$pingTimeout = null;
+      }
+
+      this.$pingInterval = setTimeout(() => {
+        this.ping();
+      }, this.pingInterval);
+    };
+
+    const onId = (id: string) => {
+      debug('receive id:', id);
+      this.id = id;
+
+      // @TODO reset auto reconnect times
+      this.$currentAutoReconnectTimes = 0;
+
+      // @TODO compatible
+      this.emitter.emit('connection');
+      this.emitter.emit('connect');
+    };
+
+    const addListeners = () => {
+      this.on('close', onClose);
+      this.on('@@CONFIG', onConfig);
+      this.on('pong', onPong);
+      this.on('id', onId);
+    };
+
+    const removeListeners = () => {
+      this.off('close', onClose);
+      this.off('@@CONFIG', onConfig);
+      this.off('pong', onPong);
+      this.off('id', onId);
+    };
+
+    addListeners();
   }
 
   private clean() {
