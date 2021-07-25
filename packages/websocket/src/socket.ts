@@ -42,11 +42,11 @@ export class Socket {
     //   this.socket.isAlive = true;
     // });
 
-    this.socket.on('close', (...args) => {
-      debug('socket disconnect:', this.id, args);
+    this.socket.on('close', (code, reason) => {
+      debug('socket disconnect:', this.id, code, reason);
       this.socket.isAlive = false;
 
-      this.emitter.emit('close', ...args);
+      this.emitter.emit('close', code, reason);
     });
 
     this.socket.on('error', (error) => {
@@ -56,7 +56,7 @@ export class Socket {
     });
 
     this.socket.on('message', (message) => {
-      const [type, payload = ''] = JSON.parse((message as any) as string);
+      const [type, payload = ''] = JSON.parse(message as any as string);
       debug('onmessage:', type, payload);
 
       if (type != 'ping') {
@@ -67,10 +67,10 @@ export class Socket {
     });
 
     //
-    this.on('close', (...args) => {
-      this.disconnect();
+    this.on('close', (code, reason) => {
+      // this.disconnect();
 
-      this.emitter.emit('disconnect', ...args);
+      this.emitter.emit('disconnect', code, reason);
     });
 
     this.on('ping', () => {
@@ -111,8 +111,10 @@ export class Socket {
     this.socket.send(JSON.stringify([type, ...args]));
   }
 
+  // 手动调用，一定是正常关闭
   public disconnect() {
-    return this.socket.terminate();
+    // return this.socket.terminate();
+    this.socket.close(1000, 'disconnect normal');
   }
 
   private ping() {
