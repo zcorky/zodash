@@ -40,6 +40,7 @@ export class Client {
 
   private $pingInterval: NodeJS.Timeout;
   private $pingTimeout: NodeJS.Timeout;
+  private $echoInterval: NodeJS.Timeout;
 
   constructor(
     private readonly url: string,
@@ -158,10 +159,7 @@ export class Client {
   }
 
   public disconnect() {
-    if (this.$pingInterval) {
-      clearTimeout(this.$pingInterval);
-      this.$pingInterval = null;
-    }
+    this.clean();
 
     return this.socket.terminate();
   }
@@ -181,11 +179,23 @@ export class Client {
   }
 
   private echo() {
-    setTimeout(() => {
+    this.$echoInterval = setTimeout(() => {
       this.echo();
     }, 30 * 1000);
 
     this.emit('echo');
+  }
+
+  private clean() {
+    if (this.$pingInterval) {
+      clearTimeout(this.$pingInterval);
+      this.$pingInterval = null;
+    }
+
+    if (this.$echoInterval) {
+      clearTimeout(this.$echoInterval);
+      this.$echoInterval = null;
+    }
   }
 }
 
