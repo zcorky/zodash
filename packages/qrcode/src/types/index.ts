@@ -6,3 +6,4 @@ export { svg } from './svg';
 export { terminal } from './terminal';
 
 export { wechatArticleShare } from './wechat-article-share';
+export { wifiCard } from './wifi-card';
