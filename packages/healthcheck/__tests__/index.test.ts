@@ -4,7 +4,7 @@ describe('@zodash/websocket', () => {
   it('http', async () => {
     expect(
       await Promise.all([
-        healthcheck.http('https://httpbin.zcorky.com'),
+        healthcheck.http('https://example.com'),
         healthcheck.http('https://examplex.com'),
       ]),
     ).toEqual([true, false]);
@@ -13,7 +13,7 @@ describe('@zodash/websocket', () => {
   it('tcp', async () => {
     expect(
       await Promise.all([
-        healthcheck.tcp('httpbin.zcorky.com', 443),
+        healthcheck.tcp('example.com', 443),
         healthcheck.tcp('example.com', 4443),
         healthcheck.tcp('10.10.10.10', 80),
       ]),
