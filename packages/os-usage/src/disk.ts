@@ -8,6 +8,7 @@ export interface IDiskUsage {
 
 export async function disk(): Promise<IDiskUsage> {
   const response = await exec('df -k');
+  const devices: Record<string, any> = {};
   const combined = response
     .split('\n')
     .filter((e) => /^\/dev\//.test(e))
@@ -20,6 +21,15 @@ export async function disk(): Promise<IDiskUsage> {
       usedPercent: e[4],
       mountPath: e[5],
     }))
+    // filter the same devices in docker
+    .filter((e) => {
+      if (!devices[e.device]) {
+        devices[e.device] = true;
+        return true;
+      }
+
+      return false;
+    })
     .reduce(
       (all, one) => {
         all.total += one.total;
@@ -40,6 +50,6 @@ export async function disk(): Promise<IDiskUsage> {
 }
 
 function toG(value: number) {
-  return value >> 20;
-  // return ~~(value / (1024 ** 2));
+  // return value >> 20; // maybe cause error
+  return ~~(value / 1024 ** 2);
 }
