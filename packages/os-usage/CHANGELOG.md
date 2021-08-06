@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.2](https://github.com/zcorky/zodash/compare/@zodash/os-usage@0.0.1...@zodash/os-usage@0.0.2) (2021-08-06)
+
+
+### Bug Fixes
+
+* **os-usage:** disk should exclude the same device ([c117429](https://github.com/zcorky/zodash/commit/c117429fc979556edd51e72ef7177910988ce920))
+* **os-usage:** fix cpu calculate ([7e7ec64](https://github.com/zcorky/zodash/commit/7e7ec6444f6f862847cb21f94c09c80e2194d4ff))
+
+
+
+
+
 ## 0.0.1 (2021-08-05)
 
 **Note:** Version bump only for package @zodash/os-usage

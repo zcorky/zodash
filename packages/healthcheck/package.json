@@ -1,6 +1,6 @@
 {
   "name": "@zodash/healthcheck",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A health check lib",
   "keywords": [
     "zodash",
