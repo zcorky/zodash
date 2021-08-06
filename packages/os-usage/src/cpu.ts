@@ -36,7 +36,7 @@ export async function cpu(free = false) {
       } else {
         resolve(100 - perc);
       }
-    }, 100);
+    }, 500);
   });
 }
 
