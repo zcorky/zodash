@@ -1,12 +1,18 @@
 import { cpu } from './cpu';
-import { memory } from './memory';
-import { disk } from './disk';
+import { memory, MemoryUsage } from './memory';
+import { disk, DiskUsage } from './disk';
 
-export { cpu } from './cpu';
-export { memory } from './memory';
-export { disk } from './disk';
+export * from './cpu';
+export * from './memory';
+export * from './disk';
 
-export async function osUsage() {
+export interface OsUsage {
+  cpu: number;
+  memory: MemoryUsage;
+  disk: DiskUsage;
+}
+
+export async function osUsage(): Promise<OsUsage> {
   return {
     cpu: await cpu(),
     memory: await memory(),

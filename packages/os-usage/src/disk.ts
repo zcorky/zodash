@@ -1,12 +1,12 @@
 import { exec } from './utils';
 
-export interface IDiskUsage {
+export interface DiskUsage {
   total: number;
   used: number;
   percent: number;
 }
 
-export async function disk(): Promise<IDiskUsage> {
+export async function disk(): Promise<DiskUsage> {
   const response = await exec('df -k');
   const devices: Record<string, any> = {};
   const combined = response

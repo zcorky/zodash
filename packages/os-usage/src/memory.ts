@@ -1,12 +1,12 @@
 import { exec } from './utils';
 
-export interface IMemoryUsage {
+export interface MemoryUsage {
   total: number;
   used: number;
   percent: number;
 }
 
-export async function memory(): Promise<IMemoryUsage> {
+export async function memory(): Promise<MemoryUsage> {
   const response = await exec('free -m');
   const text = response.split('\n').find((e) => /^Mem:/.test(e));
 
