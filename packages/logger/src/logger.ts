@@ -52,7 +52,7 @@ function formatMessage(
   name: string,
   date: Moment,
   message: any[],
-  level?: LogLevel
+  level?: LogLevel,
 ) {
   const prefix = format('[{name}] {datetime} - {level} -', {
     name: name || 'COMMON',
@@ -89,9 +89,13 @@ export class Logger extends Onion<Input, any, any> implements ILogger {
     Logger._disableFn = fn;
   }
 
+  private logDir = null; // '/tmp/zodash.log';
+  private logDate = moment('YYYY-MM-DD');
+  private logFiles: Record<string, string> = {};
+
   constructor(
     private readonly name: string,
-    private readonly options?: Options
+    private readonly options?: Options,
   ) {
     super();
 
@@ -142,7 +146,7 @@ export class Logger extends Onion<Input, any, any> implements ILogger {
         this.name,
         input.datetime,
         input.message,
-        input.level
+        input.level,
       );
       const isUseDevConsole = Array.isArray(message);
 
@@ -214,6 +218,63 @@ export class Logger extends Onion<Input, any, any> implements ILogger {
     const _message = formatPatternMessage(message, args);
 
     this.execute({ level: LogLevel.debug, message: _message });
+  }
+
+  public getLogMessage(datetime: Moment, message: string[], level: LogLevel) {
+    return formatMessage(this.name, datetime, message, level);
+  }
+
+  private getLogFile = async function (level: LogLevel) {
+    // eslint-disable-next-line
+    const fs = require('fs');
+    const today = moment().format('YYYY-MM-DD');
+    const getLogeFileStream = () => {
+      return fs.createWriteStream(
+        `${this.logDir}/${level}.${this.logDate}.log`,
+        { flags: 'a' },
+      );
+    };
+
+    if (!this.logDir) {
+      this.logDir = process.env.LOG_DIR || this.logDir;
+
+      if (!fs.existsSync(this.logDir)) {
+        await fs.promises.mkdir(this.logDir);
+      }
+    }
+
+    if (!this.logFiles[level]) {
+      this.logFiles[level] = getLogeFileStream();
+    } else if (this.logDate !== today) {
+      // for safe, close old fs handler
+      if (this.logFiles[level]) {
+        this.logFiles[level].close();
+      }
+
+      this.logDate = today;
+      this.logFiles[level] = getLogeFileStream();
+    }
+
+    return this.logFiles[level];
+  };
+
+  public setLogDir(logDir: string) {
+    this.logDir = logDir;
+
+    this.use(async (ctx, next) => {
+      await next();
+
+      const logfile = await this.getLogFile(ctx.input.level);
+      const logfileAll = await this.getLogFile('all' as any);
+
+      // @TODO
+      const message = `[${ctx.input.datetime.format(
+        'YYYY-MM-DD HH:mm:ss.SSS',
+      )}] ${ctx.input.level.toUpperCase()} - ${ctx.input.message}`;
+
+      logfile.write(message + '\n');
+      logfileAll.write(message + '\n');
+    });
   }
 }
 
