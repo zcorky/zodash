@@ -80,6 +80,7 @@ function formatPatternMessage(pattern: string, dataMap: any[]) {
 
 export class Logger extends Onion<Input, any, any> implements ILogger {
   static _disableFn = null;
+  static _defaultLogDir = null;
 
   static create(name: string, options?: Options) {
     return new Logger(name, options);
@@ -87,6 +88,10 @@ export class Logger extends Onion<Input, any, any> implements ILogger {
 
   static setDisable(fn: () => boolean) {
     Logger._disableFn = fn;
+  }
+
+  static setDefaultLogDir(logDir: string) {
+    this._defaultLogDir = logDir;
   }
 
   private logDir = null; // '/tmp/zodash.log';
@@ -104,6 +109,11 @@ export class Logger extends Onion<Input, any, any> implements ILogger {
     this.use(this.useDisable());
     this.use(this.useDefaulEngine());
     this.use(this.useDateTime());
+
+    // default log dir
+    if (Logger._defaultLogDir) {
+      this.setLogDir(Logger._defaultLogDir);
+    }
   }
 
   private useDefaulEngine(): Middleware<Context<Input, any, any>> {
