@@ -90,7 +90,7 @@ export class Logger extends Onion<Input, any, any> implements ILogger {
   }
 
   private logDir = null; // '/tmp/zodash.log';
-  private logDate = moment('YYYY-MM-DD');
+  private logDate = moment().format('YYYY-MM-DD');
   private logFiles: Record<string, string> = {};
 
   constructor(
