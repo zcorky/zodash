@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.19](https://github.com/zcorky/zodash/compare/@zodash/logger@0.2.18...@zodash/logger@0.2.19) (2021-08-16)
+
+
+### Bug Fixes
+
+* **logger:** setLogDir array message join with white space instead of default common ([95b5526](https://github.com/zcorky/zodash/commit/95b5526b50329dcac76e1eed9329d8bef37f4944))
+
+
+
+
+
 ## [0.2.18](https://github.com/zcorky/zodash/compare/@zodash/logger@0.2.17...@zodash/logger@0.2.18) (2021-08-12)
 
 **Note:** Version bump only for package @zodash/logger

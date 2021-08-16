@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.6](https://github.com/zcorky/zodash/compare/@zodash/nobot-slack@0.0.5...@zodash/nobot-slack@0.0.6) (2021-08-16)
+
+**Note:** Version bump only for package @zodash/nobot-slack
+
+
+
+
+
 ## [0.0.5](https://github.com/zcorky/zodash/compare/@zodash/nobot-slack@0.0.4...@zodash/nobot-slack@0.0.5) (2021-08-12)
 
 **Note:** Version bump only for package @zodash/nobot-slack
