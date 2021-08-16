@@ -277,10 +277,26 @@ export class Logger extends Onion<Input, any, any> implements ILogger {
       const logfile = await this.getLogFile(ctx.input.level);
       const logfileAll = await this.getLogFile('all' as any);
 
-      // @TODO
-      const message = `[${ctx.input.datetime.format(
-        'YYYY-MM-DD HH:mm:ss.SSS',
-      )}] ${ctx.input.level.toUpperCase()} - ${ctx.input.message}`;
+      let message = this.getLogMessage(
+        ctx.input.datetime,
+        ctx.input.message,
+        ctx.input.level,
+      );
+
+      if (Array.isArray(message)) {
+        const [prefix, ...rest] = message;
+        const restText = rest
+          .map((item) => {
+            if (typeof item === 'object') {
+              return JSON.stringify(item, null, 2);
+            }
+
+            return item;
+          })
+          .join(' ');
+
+        message = `${prefix} - ${restText}`;
+      }
 
       logfile.write(message + '\n');
       logfileAll.write(message + '\n');
