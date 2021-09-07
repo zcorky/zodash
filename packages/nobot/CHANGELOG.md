@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.7](https://github.com/zcorky/zodash/compare/@zodash/nobot@0.0.6...@zodash/nobot@0.0.7) (2021-09-07)
+
+
+### Bug Fixes
+
+* **nobot:** dingtalk markdown multiple line with custom \n ([7ddef1b](https://github.com/zcorky/zodash/commit/7ddef1b9f6d7146319b847d96f8dcb562b86be07))
+
+
+
+
+
 ## [0.0.6](https://github.com/zcorky/zodash/compare/@zodash/nobot@0.0.5...@zodash/nobot@0.0.6) (2021-08-16)
 
 **Note:** Version bump only for package @zodash/nobot
