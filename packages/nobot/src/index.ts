@@ -28,7 +28,7 @@ export async function sendMessage(
         msgtype: 'markdown',
         markdown: {
           title: message.title,
-          text: `**${message.title}**\n> ${message.content}`,
+          text: [`**${message.title}**`, message.content].join('\n'),
         },
       });
     case 'wecom':
