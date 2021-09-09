@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.10](https://github.com/zcorky/zodash/compare/@zodash/nobot-dingtalk@0.0.9...@zodash/nobot-dingtalk@0.0.10) (2021-09-09)
+
+**Note:** Version bump only for package @zodash/nobot-dingtalk
+
+
+
+
+
 ## [0.0.9](https://github.com/zcorky/zodash/compare/@zodash/nobot-dingtalk@0.0.8...@zodash/nobot-dingtalk@0.0.9) (2021-08-16)
 
 **Note:** Version bump only for package @zodash/nobot-dingtalk
