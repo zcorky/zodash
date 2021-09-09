@@ -28,6 +28,7 @@ export interface IEngine {
 
 export interface Options {
   console?: boolean;
+  nameMinLength?: number;
 }
 
 export enum LogLevel {
@@ -57,7 +58,7 @@ function formatMessage(
   const prefix = format('[{name}] {datetime} - {level} -', {
     name: name || 'COMMON',
     datetime: date.format('YYYY-MM-DD HH:mm:ss'),
-    level: level.toUpperCase() || 'LOG',
+    level: level?.toUpperCase() || 'LOG',
   });
 
   if (message?.length === 1) {
@@ -152,12 +153,16 @@ export class Logger extends Onion<Input, any, any> implements ILogger {
       }
 
       const { engine } = input;
-      const message = formatMessage(
-        this.name,
+      const name = !this.options?.nameMinLength
+        ? this.name
+        : this.name.padEnd(this.options?.nameMinLength);
+
+      const message = this.getLogMessage(
         input.datetime,
         input.message,
         input.level,
       );
+
       const isUseDevConsole = Array.isArray(message);
 
       if (!isUseDevConsole) {
@@ -230,8 +235,16 @@ export class Logger extends Onion<Input, any, any> implements ILogger {
     this.execute({ level: LogLevel.debug, message: _message });
   }
 
-  public getLogMessage(datetime: Moment, message: string[], level: LogLevel) {
-    return formatMessage(this.name, datetime, message, level);
+  public getLogMessage(
+    datetime: Moment,
+    message: string[],
+    level?: LogLevel,
+  ) {
+    const name = !this.options?.nameMinLength
+      ? this.name
+      : this.name.padEnd(this.options?.nameMinLength);
+
+    return formatMessage(name, datetime, message, level);
   }
 
   private getLogFile = async function (level: LogLevel) {

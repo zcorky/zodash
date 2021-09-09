@@ -1,3 +1,4 @@
+import moment from '@zcorky/moment';
 import { getLogger } from '../src/logger';
 
 describe('@zodash/logger', () => {
@@ -87,5 +88,23 @@ describe('@zodash/logger', () => {
       expect(levels).toEqual(['log', 'info', 'warn', 'debug', 'error']);
       done();
     }, 0);
+  });
+
+  it('support name min length for format', () => {
+    const nameMinLength = 10;
+    const logger1 = getLogger('xxxxxxx', { nameMinLength });
+    const logger2 = getLogger('y', { nameMinLength });
+    const logger3 = getLogger('zzz', { nameMinLength });
+
+    const messages = [
+      logger1.getLogMessage(moment(), ['message']),
+      logger2.getLogMessage(moment(), ['message']),
+      logger3.getLogMessage(moment(), ['message']),
+    ] as string[];
+
+    console.log('messages:', messages);
+    messages.forEach((message) => {
+      expect(message.split(/[\[\]]/)[1].length).toEqual(nameMinLength);
+    });
   });
 });
