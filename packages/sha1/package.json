@@ -63,7 +63,7 @@
   "bugs": {
     "url": "https://github.com/zcorky/zodash/issues"
   },
-  "dependencies": {
+  "devDependencies": {
     "crypto-js": "^4.0.0"
   }
 }

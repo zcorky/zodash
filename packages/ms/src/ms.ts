@@ -10,6 +10,8 @@ const ONE_WEEK = 7 * ONE_DAY;
 const REG = /^((?:\d+)?\.?\d+)+(ms|s|m|h|d|w)$/;
 
 function createMemoizedToStringMatch() {
+  const parts: string[] = [];
+
   const handlers = {
     ms: (ms: number) => `${ms}ms`,
     s: (ms: number) => `${ms / ONE_SECOND}s`,
@@ -20,18 +22,31 @@ function createMemoizedToStringMatch() {
   };
 
   const key = (ms: number) => {
-    if (ms < 0) {
-      return 'unknown';
-    } if (ms < ONE_SECOND) {
-      return 'ms';
-    } if (ms >= ONE_SECOND && ms < ONE_MINUTE) {
-      return 's';
-    } if (ms >= ONE_MINUTE && ms < ONE_HOUR) {
-      return 'm';
-    } if (ms >= ONE_HOUR && ms < ONE_DAY) {
+    if (ms > 365 * ONE_DAY) {
+      return 'y';
+    }
+
+    if (ms >= ONE_DAY) {
+      return 'd';
+    }
+
+    if (ms >= ONE_HOUR) {
       return 'h';
     }
-    return 'd';
+
+    if (ms >= ONE_MINUTE) {
+      return 'm';
+    }
+
+    if (ms >= ONE_SECOND) {
+      return 's';
+    }
+
+    if (ms >= 0) {
+      return 'ms';
+    }
+
+    return 'unknown';
   };
 
   return (data: number) => match(data, handlers, key);
