@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.5](https://github.com/zcorky/zodash/compare/@zodash/rsa@0.0.4...@zodash/rsa@0.0.5) (2021-09-16)
+
+**Note:** Version bump only for package @zodash/rsa
+
+
+
+
+
 ## [0.0.4](https://github.com/zcorky/zodash/compare/@zodash/rsa@0.0.3...@zodash/rsa@0.0.4) (2021-03-25)
 
 **Note:** Version bump only for package @zodash/rsa
