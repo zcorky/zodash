@@ -309,13 +309,17 @@ export class Logger extends Onion<Input, any, any> implements ILogger {
                 return all;
               }, {});
 
-              return {
-                type: 'error',
-                name: item.name,
-                message: item.message,
-                stack: item.stack,
-                ...others,
-              };
+              return JSON.stringify(
+                {
+                  type: 'error',
+                  name: item.name,
+                  message: item.message,
+                  stack: item.stack,
+                  ...others,
+                },
+                null,
+                2,
+              );
             }
 
             if (typeof item === 'object') {
