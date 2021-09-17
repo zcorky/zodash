@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.21](https://github.com/zcorky/zodash/compare/@zodash/logger@0.2.20...@zodash/logger@0.2.21) (2021-09-17)
+
+
+### Bug Fixes
+
+* **logger:** fix error object JSON.stringify is {} if setLogDir will use middleware to write file ([09d5e98](https://github.com/zcorky/zodash/commit/09d5e98143004af5a2968e32d776e0e2e1ec0dbd))
+
+
+
+
+
 ## [0.2.20](https://github.com/zcorky/zodash/compare/@zodash/logger@0.2.19...@zodash/logger@0.2.20) (2021-09-09)
 
 **Note:** Version bump only for package @zodash/logger
