@@ -300,6 +300,24 @@ export class Logger extends Onion<Input, any, any> implements ILogger {
         const [prefix, ...rest] = message;
         const restText = rest
           .map((item) => {
+            if (item instanceof Error) {
+              // such
+              //   backend: code | status
+              //   axios: request | response
+              const others = Object.keys(item).reduce((all, key) => {
+                all[key] = item[key];
+                return all;
+              }, {});
+
+              return {
+                type: 'error',
+                name: item.name,
+                message: item.message,
+                stack: item.stack,
+                ...others,
+              };
+            }
+
             if (typeof item === 'object') {
               return JSON.stringify(item, null, 2);
             }
