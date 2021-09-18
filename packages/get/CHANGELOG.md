@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/zcorky/zodash/compare/@zodash/get@1.1.6...@zodash/get@1.2.0) (2021-09-18)
+
+
+### Features
+
+* **get:** support template literal Types in TypeScript v4.1 ([58053cd](https://github.com/zcorky/zodash/commit/58053cd314b5fafcd5d90e2859b066b5bf0d5093))
+
+
+
+
+
 ## [1.1.6](https://github.com/zcorky/zodash/compare/@zodash/get@1.1.5...@zodash/get@1.1.6) (2021-03-25)
 
 **Note:** Version bump only for package @zodash/get
