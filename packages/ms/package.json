@@ -1,6 +1,6 @@
 {
   "name": "@zodash/ms",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "description": "humanable time formats to millisenconds",
   "keywords": [
     "mapTo",
