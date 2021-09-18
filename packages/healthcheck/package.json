@@ -64,7 +64,7 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "@zcorky/fz": "^1.2.5",
+    "@zcorky/fz": "^1.2.7",
     "icmp": "^2.0.1",
     "net-ping": "^1.2.3"
   }
