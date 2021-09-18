@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.12](https://github.com/zcorky/zodash/compare/@zodash/nobot-feishu@0.1.11...@zodash/nobot-feishu@0.1.12) (2021-09-18)
+
+**Note:** Version bump only for package @zodash/nobot-feishu
+
+
+
+
+
 ## [0.1.11](https://github.com/zcorky/zodash/compare/@zodash/nobot-feishu@0.1.10...@zodash/nobot-feishu@0.1.11) (2021-09-18)
 
 **Note:** Version bump only for package @zodash/nobot-feishu
