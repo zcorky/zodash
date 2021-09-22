@@ -9,10 +9,9 @@
     "publish": {
       "registry": "https://registry.npmjs.org/",
       "ignoreChanges": [
-        "yarn.lock",
         ".npmrc",
-        "**/*.md",
-        "**/*.lock"
+        "yarn.lock",
+        "**/*.md"
       ],
       "allowBranch": [
         "master"
