@@ -1,6 +1,5 @@
-import mail from './core';
-import providers, { createClientByProvider } from './provider';
+import mail from '@znode/mail';
 
-export { providers, createClientByProvider };
+export * from '@znode/mail';
 
 export default mail;

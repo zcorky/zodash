@@ -1,13 +1,4 @@
-import { Socket } from './socket';
-import { Server } from './server';
-import { Client } from './client';
+import * as websocket from '@znode/websocket';
 
-export * from './socket';
-export * from './server';
-export * from './client';
-
-export default {
-  Server,
-  Client,
-  Socket,
-};
+export * from '@znode/websocket';
+export default websocket;

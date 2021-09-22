@@ -66,9 +66,6 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "@types/ws": "^7.4.4",
-    "@zodash/uuid": "^0.1.7",
-    "debug": "^4.3.1",
-    "ws": "^7.4.6"
+    "@znode/websocket": "^0.2.8"
   }
 }

@@ -1,16 +1,4 @@
-import { http } from './http';
-import { tcp } from './tcp';
-import { ping } from './ping';
-import { keyword } from './keyword';
+import * as healthcheck from '@znode/healthcheck';
 
-export * from './http';
-export * from './tcp';
-export * from './ping';
-export * from './keyword';
-
-export default {
-  tcp,
-  http,
-  ping,
-  keyword,
-};
+export * from '@znode/healthcheck';
+export default healthcheck;

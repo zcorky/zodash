@@ -1,5 +1,5 @@
 {
-  "name": "@zodash/download",
+  "name": "@zodash/download-file",
   "version": "0.0.2",
   "description": "Download File in Browser",
   "keywords": [

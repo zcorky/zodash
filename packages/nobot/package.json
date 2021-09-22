@@ -68,9 +68,6 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "@zodash/nobot-dingtalk": "^0.0.17",
-    "@zodash/nobot-feishu": "^0.1.14",
-    "@zodash/nobot-slack": "^0.0.14",
-    "@zodash/nobot-wecom": "^0.0.15"
+    "@znode/nobot": "^0.0.2"
   }
 }

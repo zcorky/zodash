@@ -1879,6 +1879,70 @@
     mkdirp-promise "^5.0.1"
     mz "^2.5.0"
 
+"@znode/healthcheck@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.nlark.com/@znode/healthcheck/download/@znode/healthcheck-0.0.3.tgz#a72b0026afa836de2a366f80b2a11ffa513dbd83"
+  integrity sha1-pysAJq+oNt4qNm+AsqEf+lE9vYM=
+  dependencies:
+    "@zcorky/fz" "^1.2.7"
+    icmp "^2.0.1"
+    net-ping "^1.2.3"
+
+"@znode/mail@^0.0.4":
+  version "0.0.4"
+  resolved "https://registry.nlark.com/@znode/mail/download/@znode/mail-0.0.4.tgz#3e5806b94c5b2bd6adc85ea920ed4b46129e8bee"
+  integrity sha1-PlgGuUxbK9atyF6pIO1LRhKei+4=
+  dependencies:
+    nodemailer "^6.4.17"
+
+"@znode/nobot-dingtalk@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.nlark.com/@znode/nobot-dingtalk/download/@znode/nobot-dingtalk-0.0.2.tgz#3f53db030a46ddf1d3344709254f7b5a79bc3435"
+  integrity sha1-P1PbAwpG3fHTNEcJJU97Wnm8NDU=
+  dependencies:
+    "@zodash/doreamon" "^0.4.62"
+
+"@znode/nobot-feishu@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.nlark.com/@znode/nobot-feishu/download/@znode/nobot-feishu-0.0.2.tgz#0e1e3fbab8aeaccd2e3df380f6f1e70721440fc5"
+  integrity sha1-Dh4/uriurM0uPfOA9vHnByFED8U=
+  dependencies:
+    "@zodash/doreamon" "^0.4.62"
+
+"@znode/nobot-slack@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.nlark.com/@znode/nobot-slack/download/@znode/nobot-slack-0.0.2.tgz#95ef51d0ae13e118ee78ff56e5bcbba7f0068c32"
+  integrity sha1-le9R0K4T4RjueP9W5by7p/AGjDI=
+  dependencies:
+    "@zodash/doreamon" "^0.4.62"
+
+"@znode/nobot-wecom@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.nlark.com/@znode/nobot-wecom/download/@znode/nobot-wecom-0.0.2.tgz#fd6946fc0a0d9586f6298a45a7b6991c6b8ffd5a"
+  integrity sha1-/WlG/AoNlYb2KYpFp7aZHGuP/Vo=
+  dependencies:
+    "@zodash/doreamon" "^0.4.62"
+
+"@znode/nobot@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.nlark.com/@znode/nobot/download/@znode/nobot-0.0.2.tgz#aafdaed1631a10ea3d763396d5f27dd647f1ecc3"
+  integrity sha1-qv2u0WMaEOo9djOW1fJ91kfx7MM=
+  dependencies:
+    "@znode/nobot-dingtalk" "^0.0.2"
+    "@znode/nobot-feishu" "^0.0.2"
+    "@znode/nobot-slack" "^0.0.2"
+    "@znode/nobot-wecom" "^0.0.2"
+
+"@znode/websocket@^0.2.8":
+  version "0.2.8"
+  resolved "https://registry.nlark.com/@znode/websocket/download/@znode/websocket-0.2.8.tgz#d04b456d9c839c43176fc6279a8e9f54c2461773"
+  integrity sha1-0EtFbZyDnEMXb8Ynmo6fVMJGF3M=
+  dependencies:
+    "@types/ws" "^7.4.4"
+    "@zodash/uuid" "^0.1.6"
+    debug "^4.3.1"
+    ws "^7.4.6"
+
 "@zodash/camel-case@^0.0.2":
   version "0.0.2"
   resolved "https://registry.npmjs.org/@zodash/camel-case/-/camel-case-0.0.2.tgz"

@@ -1,5 +1,4 @@
 import { sendMessage } from '../src';
-import { IMessage } from '../src/type';
 
 describe('@zodash/nobot-slack', () => {
   it('ok', () => {
