@@ -1,6 +1,6 @@
 {
   "name": "@zodash/nobot-wecom",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "description": "WeCom(Wechat Work) notify bot",
   "keywords": [
     "zodash",
@@ -68,6 +68,6 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "@zodash/doreamon": "^0.4.63"
+    "@zodash/doreamon": "^0.4.64"
   }
 }

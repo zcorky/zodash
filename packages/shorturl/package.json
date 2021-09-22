@@ -1,6 +1,6 @@
 {
   "name": "@zodash/shorturl",
-  "version": "0.2.8",
+  "version": "0.2.9",
   "description": "Create short url from long url by Node Murmurhash",
   "keywords": [
     "zodash",
@@ -68,7 +68,7 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "@zodash/base62": "^0.1.7",
+    "@zodash/base62": "^0.1.8",
     "murmurhash": "^1.0.0"
   },
   "devDependencies": {

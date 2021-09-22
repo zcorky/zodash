@@ -1,6 +1,6 @@
 {
   "name": "@zodash/utf8",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "UTF-8(8-bit Unicode Transform Format) encode/decode",
   "keywords": [
     "zodash",

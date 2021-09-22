@@ -1,6 +1,6 @@
 {
   "name": "@zodash/timeout",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Timeout a promise-returning or async function",
   "keywords": [
     "zodash",
@@ -66,6 +66,6 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "devDependencies": {
-    "@zodash/delay": "^0.1.6"
+    "@zodash/delay": "^0.1.7"
   }
 }

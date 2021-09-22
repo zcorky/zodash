@@ -1,6 +1,6 @@
 {
   "name": "@zodash/websocket",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "A websocket wrapper with ws",
   "keywords": [
     "zodash",
@@ -67,7 +67,7 @@
   },
   "dependencies": {
     "@types/ws": "^7.4.4",
-    "@zodash/uuid": "^0.1.6",
+    "@zodash/uuid": "^0.1.7",
     "debug": "^4.3.1",
     "ws": "^7.4.6"
   }

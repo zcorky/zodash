@@ -1,6 +1,6 @@
 {
   "name": "@zodash/pipeline",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A simple pipeline core",
   "keywords": [
     "zodash",
@@ -67,8 +67,8 @@
   },
   "dependencies": {
     "@octokit/core": "^3.5.1",
-    "@zodash/base64": "^0.0.5",
-    "@zodash/compose": "^0.1.6",
-    "@zodash/emitter": "^0.0.6"
+    "@zodash/base64": "^0.0.6",
+    "@zodash/compose": "^0.1.7",
+    "@zodash/emitter": "^0.0.7"
   }
 }

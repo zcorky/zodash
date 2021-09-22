@@ -1,6 +1,6 @@
 {
   "name": "@zodash/brotli",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Brotli compress + decompress",
   "keywords": [
     "zodash",

@@ -1,6 +1,6 @@
 {
   "name": "@zodash/dom",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "DOM Utils",
   "keywords": [
     "zodash",
@@ -70,8 +70,8 @@
   "dependencies": {
     "@zcorky/moment": "^1.2.0",
     "@zcorky/query-string": "^1.0.2",
-    "@zodash/copy": "^0.0.3",
-    "@zodash/debounce": "^0.1.6",
-    "@zodash/event": "^0.1.7"
+    "@zodash/copy": "^0.0.4",
+    "@zodash/debounce": "^0.1.7",
+    "@zodash/event": "^0.1.8"
   }
 }

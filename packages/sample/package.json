@@ -1,6 +1,6 @@
 {
   "name": "@zodash/sample",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Gets a random element from collection.",
   "keywords": [
     "zodash",
@@ -68,6 +68,6 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "devDependencies": {
-    "@zodash/repeat": "^0.0.5"
+    "@zodash/repeat": "^0.0.6"
   }
 }

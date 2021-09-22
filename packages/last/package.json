@@ -1,6 +1,6 @@
 {
   "name": "@zodash/last",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Gets the last element of array",
   "keywords": [
     "zodash",

@@ -1,6 +1,6 @@
 {
   "name": "@zodash/is-up",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Check service(site, api, ip) is health",
   "keywords": [
     "zodash",

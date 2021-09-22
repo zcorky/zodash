@@ -1,6 +1,6 @@
 {
   "name": "@zodash/kebab-case",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Convert string to kebabCase",
   "keywords": [
     "camelCase",
@@ -74,6 +74,6 @@
     "lodash": "^4.17.11"
   },
   "dependencies": {
-    "@zodash/capitalize": "^0.1.6"
+    "@zodash/capitalize": "^0.1.7"
   }
 }

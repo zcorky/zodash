@@ -1,6 +1,6 @@
 {
   "name": "@zodash/promisify",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Convert callback based functions into Promises",
   "keywords": [
     "zodash",

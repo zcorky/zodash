@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.9](https://github.com/zcorky/zodash/compare/@zodash/shorturl@0.2.8...@zodash/shorturl@0.2.9) (2021-09-22)
+
+**Note:** Version bump only for package @zodash/shorturl
+
+
+
+
+
 ## [0.2.8](https://github.com/zcorky/zodash/compare/@zodash/shorturl@0.2.7...@zodash/shorturl@0.2.8) (2021-03-25)
 
 **Note:** Version bump only for package @zodash/shorturl

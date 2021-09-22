@@ -1,6 +1,6 @@
 {
   "name": "@zodash/nobot-feishu",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "description": "Feishu notify bot",
   "keywords": [
     "zodash",
@@ -68,6 +68,6 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "@zodash/doreamon": "^0.4.63"
+    "@zodash/doreamon": "^0.4.64"
   }
 }

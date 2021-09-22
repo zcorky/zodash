@@ -1,6 +1,6 @@
 {
   "name": "@zodash/load-json",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Dynamic load json",
   "keywords": [
     "lodash",
@@ -67,8 +67,8 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "@zodash/cache": "^0.0.5",
-    "@zodash/jsonp": "^0.0.11",
-    "@zodash/unfetch": "^0.1.9"
+    "@zodash/cache": "^0.0.6",
+    "@zodash/jsonp": "^0.0.12",
+    "@zodash/unfetch": "^0.1.10"
   }
 }

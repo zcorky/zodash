@@ -1,6 +1,6 @@
 {
   "name": "@zodash/hotp",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "HOTP library, HMAC-Based One-Time Password Algorithm",
   "keywords": [
     "zodash",
@@ -68,8 +68,8 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "@zodash/isomorphic-base32": "^0.0.1",
-    "@zodash/random": "^1.2.10",
+    "@zodash/isomorphic-base32": "^0.0.2",
+    "@zodash/random": "^1.2.11",
     "jssha": "2"
   },
   "devDependencies": {

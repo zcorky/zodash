@@ -1,6 +1,6 @@
 {
   "name": "@zodash/run-async-in-series",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Runs an array of async function (method return promise) in series",
   "keywords": [
     "zodash",
@@ -68,6 +68,6 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "devDependencies": {
-    "@zodash/delay": "^0.1.6"
+    "@zodash/delay": "^0.1.7"
   }
 }

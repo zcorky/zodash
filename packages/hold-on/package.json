@@ -1,6 +1,6 @@
 {
   "name": "@zodash/hold-on",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Make progress hold on for jobs",
   "keywords": [
     "zodash",
