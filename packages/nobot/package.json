@@ -1,6 +1,6 @@
 {
   "name": "@zodash/nobot",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "description": "Notify bot, support feishu, dingtalk, wecom, slack ...",
   "keywords": [
     "zodash",

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.16](https://github.com/zcorky/zodash/compare/@zodash/nobot@0.0.15...@zodash/nobot@0.0.16) (2021-09-22)
+
+**Note:** Version bump only for package @zodash/nobot
+
+
+
+
+
 ## [0.0.15](https://github.com/zcorky/zodash/compare/@zodash/nobot@0.0.14...@zodash/nobot@0.0.15) (2021-09-22)
 
 **Note:** Version bump only for package @zodash/nobot
