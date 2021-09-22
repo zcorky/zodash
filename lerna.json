@@ -3,12 +3,12 @@
     "packages/*"
   ],
   "version": "independent",
+  "npmClient": "yarn",
+  "useWorkspaces": true,
   "command": {
     "publish": {
-      "npmClient": "npm",
       "registry": "https://registry.npmjs.org/",
       "ignoreChanges": [
-        "package-lock.json",
         "*.lock",
         "CHANGELOG.md",
         ".npmrc"
@@ -19,12 +19,6 @@
       "commitHooks": false,
       "message": "chore(release): publish",
       "conventionalCommits": true
-    },
-    "bootstrap": {
-      "npmClient": "npm",
-      "npmClientArgs": [
-        "--no-package-lock"
-      ]
     }
   },
   "changelog": {

@@ -56,7 +56,9 @@
     }
   },
   "scripts": {
-    "build": "tsc",
+    "build": "echo \"no ts\"",
+    "watch": "yarn clean && tsc -w",
+    "clean": "rm -rf lib",
     "test": "jest -w 1",
     "coverage": "codecov"
   },

@@ -2,18 +2,21 @@
   "name": "root",
   "version": "0.0.0",
   "private": true,
+  "workspaces": [
+    "packages/*",
+    "spiders/*"
+  ],
   "scripts": {
-    "bootstrap": "lerna bootstrap --hoist",
+    "bootstrap": "yarn",
     "build": "lerna run build",
-    "test": "lerna run test",
+    "test": "yarn workspaces run test",
     "coverage": "codecov",
-    "clean": "lerna clean",
+    "clean": "yarn workspaces run clean",
     "fmt": "prettier --write packages/**/{*.ts,*.tsx}",
     "eslint": "eslint packages/**/*.{ts,tsx} --fix",
-    "publish": "lerna run build && lerna publish",
-    "publish:ci": "lerna run build && lerna publish --canary --yes",
+    "publish": "yarn build && lerna publish",
+    "publish:ci": "yarn build && lerna publish --canary --yes",
     "prepare": "husky install",
-    "postinstall": "husky install",
     "commit": "cz"
   },
   "devDependencies": {

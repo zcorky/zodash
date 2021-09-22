@@ -57,7 +57,9 @@
     "url": "git+https://github.com/zcorky/zodash.git"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "yarn clean && tsc",
+    "watch": "yarn clean && tsc -w",
+    "clean": "rm -rf lib",
     "test": "jest -w 1",
     "coverage": "codecov"
   },

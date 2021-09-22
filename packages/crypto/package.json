@@ -16,11 +16,11 @@
   "author": "Zero <uniquecolesmith@gmail.com> (https://moeover.com)",
   "license": "MIT",
   "scripts": {
-    "build": "npm run clean && tsc",
-    "clean": "rimraf -rf lib",
+    "build": "yarn clean && tsc",
+    "watch": "yarn clean && tsc -w",
+    "clean": "rm -rf lib",
     "test": "jest -w 1",
-    "coverage": "jest -w 1 && codecov",
-    "prepublishOnly": "npm run build"
+    "coverage": "codecov"
   },
   "devDependencies": {
     "@types/crypto-js": "^3.1.43",
