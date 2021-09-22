@@ -80,9 +80,7 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
 
       - name: Install Dependencies
-        run: |
-          npm i
-          npm run bootstrap
+        run: yarn bootstrap
 
       # build:
       #   needs: bootstrap
@@ -103,7 +101,7 @@ jobs:
         run: cp tsconfig.prod.json tsconfig.json
 
       - name: Make Build
-        run: npm run build
+        run: yarn build
 
       - name: After Build
         run: git checkout tsconfig.json
@@ -124,7 +122,7 @@ jobs:
       #         key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
 
       - name: Make Testing
-        run: npm run test
+        run: yarn test
 
       # coverage:
       #   needs: build
@@ -142,7 +140,7 @@ jobs:
       #         key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
 
       - name: Make Coverage
-        run: npm run coverage
+        run: yarn coverage
 
       # publish:
       #   needs: [test, coverage]
