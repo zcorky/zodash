@@ -16,7 +16,7 @@ jobs:
   on-success:
     needs: publish
     runs-on: ubuntu-latest
-    if: ${{ needs.publish.result == 'success' }}
+    if: ${{ always() && needs.publish.result == 'success' }}
     steps:
       - name: Notification Feishu
         uses: whatwewant/action-robot-feishu@v0.0.13
@@ -32,7 +32,7 @@ jobs:
   on-failure:
     needs: publish
     runs-on: ubuntu-latest
-    if: ${{ needs.publish.result == 'failure' }}
+    if: ${{ always() && needs.publish.result == 'failure' }}
     steps:
       - name: Notification Feishu
         uses: whatwewant/action-robot-feishu@v0.0.13
@@ -155,7 +155,7 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Make Publish
-        run: npx lerna publish --yes
+        run: yarn lerna publish --yes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
