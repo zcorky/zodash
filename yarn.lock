@@ -1817,6 +1817,17 @@
     "@zodash/url-join" "^0.1.6"
     isomorphic-fetch "^3.0.0"
 
+"@zcorky/fz@^1.2.9":
+  version "1.2.9"
+  resolved "https://registry.npmmirror.com/@zcorky/fz/download/@zcorky/fz-1.2.9.tgz#7f8f1ea5e2bb8fa7f06ee4860889e4be92eb5d75"
+  integrity sha1-f48epeK7j6fwbuSGCInkvpLrXXU=
+  dependencies:
+    "@zcorky/delay" "^1.0.1"
+    "@zcorky/lru" "^1.0.5"
+    "@zcorky/query-string" "^1.0.2"
+    "@zodash/url-join" "^0.1.6"
+    isomorphic-fetch "^3.0.0"
+
 "@zcorky/is@^1.0.6", "@zcorky/is@^1.0.7":
   version "1.0.7"
   resolved "https://registry.npmjs.org/@zcorky/is/-/is-1.0.7.tgz"
