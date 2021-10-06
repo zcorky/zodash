@@ -70,7 +70,7 @@
     "@zcorky/deep-copy": "^0.0.2",
     "@zcorky/deep-equal": "^0.0.1",
     "@zcorky/device": "^0.0.6",
-    "@zcorky/fz": "^1.2.7",
+    "@zcorky/fz": "^1.2.9",
     "@zcorky/is": "^1.0.7",
     "@zcorky/moment": "^1.1.0",
     "@zcorky/query-string": "^1.0.2",
