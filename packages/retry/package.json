@@ -66,6 +66,7 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "@zodash/delay": "^0.1.7"
+    "@zodash/delay": "^0.1.7",
+    "@zodash/timeout": "^0.0.3"
   }
 }
