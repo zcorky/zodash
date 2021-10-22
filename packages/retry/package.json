@@ -1,6 +1,6 @@
 {
   "name": "@zodash/retry",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Retry a promise-returning or async function",
   "keywords": [
     "zodash",
