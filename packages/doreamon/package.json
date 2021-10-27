@@ -1,6 +1,6 @@
 {
   "name": "@zodash/doreamon",
-  "version": "0.4.65",
+  "version": "0.4.66",
   "description": "utils like a doreamon",
   "keywords": [
     "zodash",
@@ -78,10 +78,10 @@
     "@zodash/camel-case": "^0.1.12",
     "@zodash/capitalize": "^0.1.7",
     "@zodash/cookie": "^0.0.1",
-    "@zodash/debounce": "^0.1.7",
+    "@zodash/debounce": "^0.1.8",
     "@zodash/debug": "^0.0.22",
     "@zodash/delay": "^0.1.7",
-    "@zodash/dom": "^0.1.9",
+    "@zodash/dom": "^0.1.10",
     "@zodash/error": "^0.1.8",
     "@zodash/event": "^0.1.8",
     "@zodash/find": "^0.1.8",
@@ -98,7 +98,7 @@
     "@zodash/pick": "^1.1.7",
     "@zodash/random": "^1.2.11",
     "@zodash/snake-case": "^0.1.9",
-    "@zodash/throttle": "^0.1.7",
+    "@zodash/throttle": "^0.1.8",
     "@zodash/unique": "^0.1.7",
     "@zodash/uuid": "^0.1.7"
   }
