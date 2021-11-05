@@ -41,7 +41,7 @@ export async function timeout<R = any>(
   options?: IOptions,
 ): Promise<R> {
   const ms = options?.ms ?? DEFAULT_TIMEOUT;
-  const exceptionPromise = exception(ms, options.message);
+  const exceptionPromise = exception(ms, options?.message);
   const taskPromise = toPromise(fnOrPromise);
 
   return Promise.race([exceptionPromise, taskPromise]);
