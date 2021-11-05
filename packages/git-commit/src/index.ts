@@ -1,4 +1,4 @@
-import * as actions from '../data/actions.json';
+const actions = require('../data/actions.json');
 
 export type Type =
   | 'feat'

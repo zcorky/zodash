@@ -28,5 +28,6 @@ module.exports = {
     '@typescript-eslint/no-non-null-assertion': 0, // warn
     'no-prototype-builtins': 0,
     'no-async-promise-executor': 0,
+    '@typescript-eslint/no-var-requires': 0,
   },
 };
