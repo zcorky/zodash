@@ -1,6 +1,6 @@
 {
   "name": "@zodash/retry",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Retry a promise-returning or async function",
   "keywords": [
     "zodash",
@@ -67,6 +67,6 @@
   },
   "dependencies": {
     "@zodash/delay": "^0.1.7",
-    "@zodash/timeout": "^0.0.3"
+    "@zodash/timeout": "^0.0.4"
   }
 }
