@@ -1,6 +1,6 @@
 {
   "name": "@zodash/timeout",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Timeout a promise-returning or async function",
   "keywords": [
     "zodash",

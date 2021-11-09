@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.9](https://github.com/zcorky/zodash/compare/@zodash/retry@0.0.8...@zodash/retry@0.0.9) (2021-11-09)
+
+**Note:** Version bump only for package @zodash/retry
+
+
+
+
+
 ## [0.0.8](https://github.com/zcorky/zodash/compare/@zodash/retry@0.0.7...@zodash/retry@0.0.8) (2021-11-05)
 
 **Note:** Version bump only for package @zodash/retry
