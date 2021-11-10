@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.4](https://github.com/zcorky/zodash/compare/@zodash/signature@0.3.3...@zodash/signature@0.3.4) (2021-11-10)
+
+
+### Bug Fixes
+
+* **signature:** woo query ([f777d77](https://github.com/zcorky/zodash/commit/f777d77f3b8dd270ece313fbecef1d760ee42a72))
+
+
+
+
+
 ## [0.3.3](https://github.com/zcorky/zodash/compare/@zodash/signature@0.3.2...@zodash/signature@0.3.3) (2021-11-09)
 
 **Note:** Version bump only for package @zodash/signature
