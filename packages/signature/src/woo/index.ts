@@ -25,7 +25,7 @@ export function sign(data: IData, secret: string) {
     : Object.keys(data.query)
         .sort((a, b) => a.localeCompare(b))
         .reduce((all, key) => {
-          all[key] = data.body[key];
+          all[key] = data.query[key];
           return all;
         }, {});
   const _body = !data.body
