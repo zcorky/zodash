@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.5](https://github.com/zcorky/zodash/compare/@zodash/signature@0.3.4...@zodash/signature@0.3.5) (2021-11-12)
+
+
+### Bug Fixes
+
+* **signature:** ftx ([1efd101](https://github.com/zcorky/zodash/commit/1efd1015797f0d07c3dcb4f842cb05c7d29b3bc4))
+
+
+
+
+
 ## [0.3.4](https://github.com/zcorky/zodash/compare/@zodash/signature@0.3.3...@zodash/signature@0.3.4) (2021-11-10)
 
 
