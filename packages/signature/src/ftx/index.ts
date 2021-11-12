@@ -3,35 +3,33 @@ import * as qs from '@zcorky/query-string';
 
 export interface IData {
   method: string;
-  url: string;
-  query?: string | object | null;
-  body?: string | object | null;
+  path: string;
+  query?: string;
+  body?: string;
   timestamp: number;
 }
 
 export function sign(data: IData, secret: string) {
   const _method = data.method.toUpperCase();
-  const _url = data.url;
-  const _query = data.query
-    ? '?' + stringify(data.query, qs.stringify as any)
-    : '';
-  const _payload = stringify(data.body, JSON.stringify);
+  const _url = data.path;
+  const _query = !data.query ? '' : data.query;
+  const _payload = !data.body ? '' : data.body;
   const _timestamp = data.timestamp;
 
   const _data = [_timestamp, _method, _url, _query, _payload];
   const text = _data.join('');
-  console.log('sign text:', text);
+  // console.log('sign text:', text);
   return hmacSHA256(text, secret);
 }
 
-function stringify(
-  v: string | object | null | undefined,
-  stringifyFn: (value: object) => string,
-) {
-  if (!v) return '';
-  if (typeof v === 'string') return v;
-  return stringifyFn(v);
-}
+// function stringify(
+//   v: string | object | null | undefined,
+//   stringifyFn: (value: object) => string,
+// ) {
+//   if (!v) return '';
+//   if (typeof v === 'string') return v;
+//   return stringifyFn(v);
+// }
 
 export interface IWSEventData {
   timestamp: number;

@@ -6,7 +6,7 @@ describe('@zodash/signature:ftx', () => {
   it('GET - without payload', async () => {
     const data: IData = {
       method: 'GET',
-      url: '/api/markets',
+      path: '/api/markets',
       timestamp: 1588591511721,
     };
     const secret = 'T4lPid48QtjNxjLUFOcUZghD7CUJ7sTVsfuvQZF2';
@@ -19,8 +19,9 @@ describe('@zodash/signature:ftx', () => {
   it('POST - body [string]', async () => {
     const data: IData = {
       method: 'POST',
-      url: '/api/orders',
-      body: '{"market": "BTC-PERP", "side": "buy", "price": 8500, "size": 1, "type": "limit", "reduceOnly": false, "ioc": false, "postOnly": false, "clientId": null}',
+      path: '/api/orders',
+      body:
+        '{"market": "BTC-PERP", "side": "buy", "price": 8500, "size": 1, "type": "limit", "reduceOnly": false, "ioc": false, "postOnly": false, "clientId": null}',
       timestamp: 1588591856950,
     };
     const secret = 'T4lPid48QtjNxjLUFOcUZghD7CUJ7sTVsfuvQZF2';
@@ -33,8 +34,8 @@ describe('@zodash/signature:ftx', () => {
   it('POST - body [object]', async () => {
     const data: IData = {
       method: 'POST',
-      url: '/api/orders',
-      body: {
+      path: '/api/orders',
+      body: JSON.stringify({
         market: 'BTC-PERP',
         side: 'buy',
         price: 8500,
@@ -44,7 +45,7 @@ describe('@zodash/signature:ftx', () => {
         ioc: false,
         postOnly: false,
         clientId: null,
-      },
+      }),
       timestamp: 1588591856950,
     };
     const secret = 'T4lPid48QtjNxjLUFOcUZghD7CUJ7sTVsfuvQZF2';
