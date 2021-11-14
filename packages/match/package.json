@@ -10,7 +10,7 @@
   "author": "zero <tobewhatwewant@gmail.com>",
   "homepage": "https://github.com/zcorky/zodash#readme",
   "license": "MIT",
-  "main": "lib/match.js",
+  "main": "lib/index.js",
   "directories": {
     "lib": "lib"
   },

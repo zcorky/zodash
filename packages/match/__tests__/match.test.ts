@@ -1,5 +1,5 @@
 import { deepEqual } from '@zcorky/deep-equal';
-import { match } from '../src/match';
+import { match } from '../src';
 
 describe('@zodash/match', () => {
   it('common', () => {
@@ -42,7 +42,11 @@ describe('@zodash/match', () => {
     ).toBeTruthy();
     expect(
       deepEqual(
-        match({ method: '/', x: 1, y: 2 }, handlers, (d) => (d as any).methodd),
+        match(
+          { method: '/', x: 1, y: 2 },
+          handlers,
+          (d) => (d as any).methodd,
+        ),
         undefined,
       ),
     ).toBeTruthy();
