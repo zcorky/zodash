@@ -1,6 +1,6 @@
 {
   "name": "@zodash/alias",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "description": "alias functions",
   "keywords": [
     "mapTo",
@@ -74,7 +74,7 @@
     "@zcorky/is": "^1.0.6",
     "@zodash/get": "^1.2.1",
     "@zodash/map": "^1.1.8",
-    "@zodash/match": "^0.1.7",
+    "@zodash/match": "^0.1.8",
     "@zodash/reduce": "^1.1.9"
   }
 }

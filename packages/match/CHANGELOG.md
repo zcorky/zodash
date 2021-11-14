@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.8](https://github.com/zcorky/zodash/compare/@zodash/match@0.1.7...@zodash/match@0.1.8) (2021-11-14)
+
+**Note:** Version bump only for package @zodash/match
+
+
+
+
+
 ## [0.1.7](https://github.com/zcorky/zodash/compare/@zodash/match@0.1.6...@zodash/match@0.1.7) (2021-09-22)
 
 **Note:** Version bump only for package @zodash/match
