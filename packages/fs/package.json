@@ -74,6 +74,8 @@
     "@zodash/load-css": "^0.0.7",
     "@zodash/load-image": "^0.0.5",
     "@zodash/load-js": "^0.2.13",
+    "@zodash/open-directory": "^0.0.6",
+    "@zodash/open-file": "^0.1.1",
     "@zodash/save-as": "^0.0.2"
   }
 }
