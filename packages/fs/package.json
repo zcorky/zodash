@@ -1,6 +1,6 @@
 {
   "name": "@zodash/fs",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "description": "File Utils In Browser, loadJS / loadCSS / download",
   "keywords": [
     "zodash",
