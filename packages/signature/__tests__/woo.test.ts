@@ -1,5 +1,5 @@
 import sign from '../src';
-import { IData } from '../src/woo';
+import { IData } from '@znode/sign/lib/woo';
 
 describe('@zodash/signature:woo', () => {
   const AccessKey = 'AbmyVJGUpN064ks5ELjLfA==';

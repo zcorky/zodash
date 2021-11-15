@@ -1,5 +1,5 @@
 import sign from '../src';
-import { IData } from '../src/binance';
+import { IData } from '@znode/sign/lib/binance';
 
 describe('@zodash/signature:binance', () => {
   const apiKey =

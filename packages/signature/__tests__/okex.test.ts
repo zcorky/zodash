@@ -1,5 +1,5 @@
 import sign from '../src';
-import { IData } from '../src/okex';
+import { IData } from '@znode/sign/lib/okex';
 
 describe('@zodash/signature:okex', () => {
   const AccessKey =

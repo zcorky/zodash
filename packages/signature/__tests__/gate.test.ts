@@ -1,5 +1,5 @@
 import sign from '../src';
-import { IData, IWSEventData } from '../src/gate';
+import { IData, IWSEventData } from '@znode/sign/lib/gate';
 
 describe('@zodash/signature:gate', () => {
   it('GET - without payload', async () => {

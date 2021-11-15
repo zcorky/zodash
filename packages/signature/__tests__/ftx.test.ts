@@ -1,5 +1,5 @@
 import sign from '../src';
-import { IData, IWSEventData } from '../src/ftx';
+import { IData, IWSEventData } from '@znode/sign/lib/ftx';
 
 describe('@zodash/signature:ftx', () => {
   // test-case: https://blog.ftx.com/blog/api-authentication/

@@ -1951,6 +1951,17 @@
     "@znode/nobot-slack" "^0.0.2"
     "@znode/nobot-wecom" "^0.0.2"
 
+"@znode/sign@^0.3.6":
+  version "0.3.6"
+  resolved "https://registry.npmjs.org/@znode/sign/-/sign-0.3.6.tgz#7fccc0e1cd8bc4cf49553238ae6363d0c04184a8"
+  integrity sha512-QKHi6kORLYbSYvGVkc1QEh8IotDkTMbBY+kCSfCSQhUAsB9v1KLYOXkfXnVwlLGwUMG15wNBTrKvVhPuqakUVA==
+  dependencies:
+    "@zcorky/query-string" "^1.0.2"
+    "@zodash/hmac" "^0.0.6"
+    "@zodash/sha1" "^0.0.6"
+    "@zodash/sha256" "^0.0.6"
+    "@zodash/sha512" "^0.0.6"
+
 "@znode/websocket@^0.2.8":
   version "0.2.8"
   resolved "https://registry.nlark.com/@znode/websocket/download/@znode/websocket-0.2.8.tgz#d04b456d9c839c43176fc6279a8e9f54c2461773"
