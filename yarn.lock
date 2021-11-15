@@ -1897,6 +1897,14 @@
     mkdirp-promise "^5.0.1"
     mz "^2.5.0"
 
+"@znode/github@^0.0.6":
+  version "0.0.6"
+  resolved "https://registry.npmjs.org/@znode/github/-/github-0.0.6.tgz#b4d0c21b91b143f3892de68656e55b020135d3b1"
+  integrity sha512-mltK/NfTxz0iGmgyzocNHaXID93v+UROaNDC7RGnMmEGAc44HAseQitMEyN7hso6LBr5FECdlgm/VotKzqp49A==
+  dependencies:
+    "@octokit/core" "^3.5.1"
+    "@zodash/base64" "^0.0.6"
+
 "@znode/healthcheck@^0.0.3":
   version "0.0.3"
   resolved "https://registry.nlark.com/@znode/healthcheck/download/@znode/healthcheck-0.0.3.tgz#a72b0026afa836de2a366f80b2a11ffa513dbd83"

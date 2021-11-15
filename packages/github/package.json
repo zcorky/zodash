@@ -67,7 +67,6 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "@octokit/core": "^3.5.1",
-    "@zodash/base64": "^0.0.6"
+    "@znode/github": "^0.0.6"
   }
 }

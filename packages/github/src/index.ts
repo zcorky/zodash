@@ -1,15 +1,3 @@
-import { Core, CoreOptions } from './core';
-import { Repo } from './repo';
+export * from '@znode/github';
 
-export interface GitHubAPIOptions extends CoreOptions {
-  version?: string;
-}
-
-export class GitHubAPI {
-  public api = new Core(this.options);
-  public repo = new Repo(this.api);
-
-  constructor(private readonly options: GitHubAPIOptions) {}
-}
-
-export default GitHubAPI;
+export { GitHubAPI as default } from '@znode/github';
