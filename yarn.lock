@@ -2049,6 +2049,18 @@
   dependencies:
     "@zodash/save-as" "^0.0.1"
 
+"@zodash/fs@^0.0.16":
+  version "0.0.16"
+  resolved "https://registry.npmjs.org/@zodash/fs/-/fs-0.0.16.tgz#45ce8167a761a7350aff3c66ef29473e413d7d8f"
+  integrity sha512-kDhDhCPkKqqDUR6pqeNOYUexQykOIzgIx8p3EYJ3HiEisqh0il2e9eht/GDT/+dnab3hUc2wj1wUY7j2L6WxiQ==
+  dependencies:
+    "@zodash/down_load" "^0.0.1"
+    "@zodash/jsonp" "^0.0.12"
+    "@zodash/load-css" "^0.0.7"
+    "@zodash/load-image" "^0.0.5"
+    "@zodash/load-js" "^0.2.13"
+    "@zodash/save-as" "^0.0.2"
+
 "@zodash/save-as@^0.0.1":
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/@zodash/save-as/-/save-as-0.0.1.tgz#416a6250509aac2cf64bb976e594a3c309b948d7"
