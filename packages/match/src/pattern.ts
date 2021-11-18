@@ -3,14 +3,22 @@ export class MatchPattern<T, R = void> {
     if: (data: T) => boolean;
     ok: (data: T) => R;
   }[] = [];
-  private _fallback: (data: T) => R = () => undefined as any;
+  private _fallback: (data: T) => R = (data) => {
+    throw new Error(`unhandled data: ${JSON.stringify(data)}`);
+  };
 
   public static create<T, R>() {
     return new MatchPattern<T, R>();
   }
 
-  public with(_if: (data: T) => boolean, ok: (data: T) => R) {
-    return this.when(_if, ok);
+  public with(_if: T | ((data: T) => boolean), ok: (data: T) => R) {
+    if (typeof _if === 'function') {
+      const fn = _if as (data: T) => boolean;
+      return this.when(fn, ok);
+    }
+
+    const fn = (data: T) => data === _if;
+    return this.when(fn, ok);
   }
 
   public fallback(fn: (data: T) => R) {
