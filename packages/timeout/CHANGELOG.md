@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.7](https://github.com/zcorky/zodash/compare/@zodash/timeout@0.0.6...@zodash/timeout@0.0.7) (2021-12-03)
+
+
+### Bug Fixes
+
+* **timeout:** should clearTimeout or it will hold in background ([4a41404](https://github.com/zcorky/zodash/commit/4a41404d2c6307e7589c070b780caf7d12c8ecd2))
+
+
+
+
+
 ## [0.0.6](https://github.com/zcorky/zodash/compare/@zodash/timeout@0.0.5...@zodash/timeout@0.0.6) (2021-11-09)
 
 **Note:** Version bump only for package @zodash/timeout
