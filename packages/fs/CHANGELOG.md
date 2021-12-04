@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.18](https://github.com/zcorky/zodash/compare/@zodash/fs@0.0.17...@zodash/fs@0.0.18) (2021-12-04)
+
+**Note:** Version bump only for package @zodash/fs
+
+
+
+
+
 ## [0.0.17](https://github.com/zcorky/zodash/compare/@zodash/fs@0.0.16...@zodash/fs@0.0.17) (2021-11-15)
 
 **Note:** Version bump only for package @zodash/fs

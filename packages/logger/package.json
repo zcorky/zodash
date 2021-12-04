@@ -1,6 +1,6 @@
 {
   "name": "@zodash/logger",
-  "version": "0.2.24",
+  "version": "0.2.25",
   "description": "simple logger model",
   "keywords": [
     "zodash",
@@ -68,6 +68,6 @@
   "dependencies": {
     "@zcorky/moment": "^1.0.12",
     "@zodash/format": "^1.2.9",
-    "@zodash/onion": "^0.1.7"
+    "@zodash/onion": "^0.1.8"
   }
 }

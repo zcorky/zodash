@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.8](https://github.com/zcorky/zodash/compare/@zodash/onion@0.1.7...@zodash/onion@0.1.8) (2021-12-04)
+
+**Note:** Version bump only for package @zodash/onion
+
+
+
+
+
 ## [0.1.7](https://github.com/zcorky/zodash/compare/@zodash/onion@0.1.6...@zodash/onion@0.1.7) (2021-09-22)
 
 **Note:** Version bump only for package @zodash/onion

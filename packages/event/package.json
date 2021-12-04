@@ -1,6 +1,6 @@
 {
   "name": "@zodash/event",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "event emitter",
   "keywords": [
     "zodash",

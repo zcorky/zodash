@@ -1,6 +1,6 @@
 {
   "name": "@zodash/task-manager",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "task manager",
   "keywords": [
     "cache",
@@ -69,7 +69,7 @@
   },
   "dependencies": {
     "@zcorky/moment": "^1.0.11",
-    "@zodash/next-tick": "^0.1.8",
+    "@zodash/next-tick": "^0.1.9",
     "@zodash/queue": "^0.1.9"
   },
   "devDependencies": {

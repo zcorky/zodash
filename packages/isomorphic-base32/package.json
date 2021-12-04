@@ -1,6 +1,6 @@
 {
   "name": "@zodash/isomorphic-base32",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Base32 for Node.js and Browser",
   "keywords": [
     "zodash",

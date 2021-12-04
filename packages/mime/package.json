@@ -1,6 +1,6 @@
 {
   "name": "@zodash/mime",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Get common mime types",
   "keywords": [
     "zodash",
@@ -66,9 +66,9 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "@zodash/each": "^0.0.6"
+    "@zodash/each": "^0.0.7"
   },
   "devDependencies": {
-    "@zodash/map": "^1.1.8"
+    "@zodash/map": "^1.1.9"
   }
 }

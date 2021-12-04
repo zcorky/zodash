@@ -1,6 +1,6 @@
 {
   "name": "@zodash/time-ago",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Format datetime with *** time ago statement",
   "keywords": [
     "zodash",
@@ -68,6 +68,6 @@
   },
   "dependencies": {
     "@zcorky/is": "^1.0.7",
-    "@zodash/i18n": "^0.0.12"
+    "@zodash/i18n": "^0.0.13"
   }
 }

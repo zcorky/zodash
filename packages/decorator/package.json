@@ -1,6 +1,6 @@
 {
   "name": "@zodash/decorator",
-  "version": "0.2.9",
+  "version": "0.2.10",
   "description": "a collection of common decorators",
   "keywords": [
     "zodash",

@@ -1,6 +1,6 @@
 {
   "name": "@zodash/unique",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Creates a duplicate-free version of an array.",
   "keywords": [
     "lodash",
