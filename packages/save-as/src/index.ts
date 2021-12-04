@@ -27,7 +27,7 @@ export async function saveAs(blobOrText: any, filename = `${Date.now()}`) {
         view: window,
         bubbles: true,
         cancelable: true,
-      })
+      }),
     );
   }
 

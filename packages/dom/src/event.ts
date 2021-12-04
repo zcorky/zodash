@@ -16,7 +16,7 @@ export function off($el: El | Window, eventName: string, listener: Listener) {
 export function delegate(
   $el: El | Window,
   eventName: string,
-  listener: Listener
+  listener: Listener,
 ) {
   $($el).addEventListener(eventName, listener, true);
 

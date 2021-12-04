@@ -10,7 +10,7 @@ export interface ITaskManager {
   add<P>(
     name: string,
     parameters: P,
-    handler: (parameters: P) => Promise<void>
+    handler: (parameters: P) => Promise<void>,
   ): void;
   start(): void;
   // pause(): void;
@@ -38,7 +38,7 @@ export class TaskManager implements ITaskManager {
   public add<P>(
     name: string,
     parameters: P,
-    handler: (parameters: P) => Promise<void>
+    handler: (parameters: P) => Promise<void>,
   ): void;
 
   public add(name: any, parameters?: any, handler?: any): void {

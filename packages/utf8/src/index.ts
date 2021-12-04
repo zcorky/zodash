@@ -8,7 +8,7 @@ import {
 
 /**
  * Encode unicode string to utf8 string
- * 
+ *
  * @param unicodeStr unicode string
  * @returns utf8 string or bytes
  */
@@ -24,12 +24,12 @@ export function encode(unicodeStr: string, type?: 'string' | 'bytes') {
 
 /**
  * Decode utf8 string to unicode string
- * 
+ *
  * @param utf8Str utf8 string or bytes
  * @returns unicode string
  */
-export function decode(utf8Str: string): string
-export function decode(utf8Bytes: Byte[]): string
+export function decode(utf8Str: string): string;
+export function decode(utf8Bytes: Byte[]): string;
 export function decode(utf8: string | Byte[]): string {
   if (Array.isArray(utf8)) {
     return transformUtf8Bytes2UnicodeString(utf8);

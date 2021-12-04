@@ -4,7 +4,7 @@ export interface IOnion<Input, Output, State> {
   use(middleware: Middleware<Context<Input, Output, State>>): ThisType<any>;
   callback(): (
     req: Input,
-    res: Output
+    res: Output,
   ) => Promise<Context<Input, Output, State>>;
   execute(input: Input): Promise<Output>;
 }
@@ -18,14 +18,14 @@ export interface Context<Input, Output, State = any> {
 }
 
 export abstract class Onion<Input, Output, State>
-implements IOnion<Input, Output, State> {
+  implements IOnion<Input, Output, State> {
   private middlewares: Middleware<Context<Input, Output, State>>[] = [];
 
   private handler: Middleware<Context<Input, Output, State>>;
 
   private _callback: (
     input: Input,
-    output: Output
+    output: Output,
   ) => Promise<Context<Input, Output, State>>;
 
   public use(middleware: Middleware<Context<Input, Output, State>>) {

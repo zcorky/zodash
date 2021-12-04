@@ -1,6 +1,4 @@
-import {
-  TreeRoute, FlatRoutes, NestRoutes, Route,
-} from './types';
+import { TreeRoute, FlatRoutes, NestRoutes, Route } from './types';
 import { toTree } from './to-tree';
 
 export interface NestOptions {
@@ -54,7 +52,10 @@ function flatChildren(treeNode: TreeRoute): FlatRoutes | undefined {
  *      ],
  *    }]
  */
-export function toNest(routes: FlatRoutes, options?: NestOptions): NestRoutes {
+export function toNest(
+  routes: FlatRoutes,
+  options?: NestOptions,
+): NestRoutes {
   const treeRoute = toTree(routes);
 
   const basePath = (options && options.basePath) || '/';

@@ -5,32 +5,26 @@ Reference: http://www.tumuski.com/2010/04/nibbler/
 */
 const Nibbler = function (options) {
   let construct,
-
     // options
     pad,
     dataBits,
     codeBits,
     keyString,
     arrayData,
-
     // private instance variables
     mask,
     group,
     max,
-
     // private methods
     gcd,
     translate,
-
     // public methods
     encode,
     decode;
 
-    // pseudo-constructor
+  // pseudo-constructor
   construct = function () {
-    let i,
-      mag,
-      prev;
+    let i, mag, prev;
 
     // options
     pad = options.pad || '';
@@ -66,14 +60,7 @@ const Nibbler = function (options) {
 
   // the re-coder
   translate = function (input, bitsIn, bitsOut, decoding) {
-    let i,
-      len,
-      chr,
-      byteIn,
-      buffer,
-      size,
-      output,
-      write;
+    let i, len, chr, byteIn, buffer, size, output, write;
 
     // append a byte to the output
     write = function (n) {
@@ -148,19 +135,19 @@ const Nibbler = function (options) {
     }
 
     // string!
-    return (arrayData && decoding) ? output : output.join('');
+    return arrayData && decoding ? output : output.join('');
   };
 
   /**
-     * Encode.  Input and output are strings.
-     */
+   * Encode.  Input and output are strings.
+   */
   encode = function (input) {
     return translate(input, dataBits, codeBits, false);
   };
 
   /**
-     * Decode.  Input and output are strings.
-     */
+   * Decode.  Input and output are strings.
+   */
   decode = function (input) {
     return translate(input, codeBits, dataBits, true);
   };

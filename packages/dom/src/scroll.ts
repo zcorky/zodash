@@ -2,9 +2,7 @@ import { debounce } from '@zodash/debounce';
 
 import { $ } from './$';
 import { on, off } from './event';
-import {
-  El, Listener, Unsubscibe, Position,
-} from './types';
+import { El, Listener, Unsubscibe, Position } from './types';
 
 export function onScrollToTop(
   $element: El,
@@ -59,8 +57,8 @@ export function scrollToTop($element: El, animated?: boolean): void {
   const $el = $($element);
 
   setTimeout(() => {
-    $el
-      && $el.scrollTo({
+    $el &&
+      $el.scrollTo({
         top: 0,
         behavior: animated ? 'smooth' : undefined,
       });
@@ -72,8 +70,8 @@ export function scrollToBottom($element: El, animated?: boolean): void {
   const scrollHeight = $el?.scrollHeight;
 
   setTimeout(() => {
-    $el
-      && $el.scrollTo({
+    $el &&
+      $el.scrollTo({
         top: scrollHeight,
         behavior: animated ? 'smooth' : undefined,
       });

@@ -58,7 +58,10 @@ export class Event<Events = any> implements IEvent<Events> {
     return this;
   }
 
-  public emit<E extends keyof Events>(event: E, ...args: Arguments<Events[E]>) {
+  public emit<E extends keyof Events>(
+    event: E,
+    ...args: Arguments<Events[E]>
+  ) {
     if (this.listeners[event]) {
       const partListeners = this.listeners[event];
       partListeners.forEach((listener) => {
@@ -73,7 +76,10 @@ export class Event<Events = any> implements IEvent<Events> {
     return this.on(event, listener);
   }
 
-  public removeListener<E extends keyof Events>(event: E, listener: Events[E]) {
+  public removeListener<E extends keyof Events>(
+    event: E,
+    listener: Events[E],
+  ) {
     return this.off(event, listener);
   }
 

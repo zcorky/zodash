@@ -7,15 +7,15 @@
  */
 export function map<T = any, R = any>(
   value: T[],
-  fn: (value: T, index: number, array: T[]) => R
+  fn: (value: T, index: number, array: T[]) => R,
 ): R[];
 export function map<T extends object, R = any>(
   value: T,
   fn: <K extends keyof T>(
     value: [K, T[K]],
     index: number,
-    obj: [K, T[K]][]
-  ) => R
+    obj: [K, T[K]][],
+  ) => R,
 ): R[];
 export function map(
   value: any,

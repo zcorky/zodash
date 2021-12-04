@@ -14,9 +14,10 @@ export function setStyle<K extends keyof CSSStyleDeclaration>(
 ) {
   const $node = $($element) as HTMLElement;
 
-  const rValue: any = name === 'zIndex'
-    ? value
-    : typeof value === 'number'
+  const rValue: any =
+    name === 'zIndex'
+      ? value
+      : typeof value === 'number'
       ? `${value}px`
       : value;
 
@@ -30,7 +31,10 @@ export function setStyle<K extends keyof CSSStyleDeclaration>(
  * @param $node HTMLElement
  * @param styles batch styles
  */
-export function setStyles($element: El, styles: Partial<CSSStyleDeclaration>) {
+export function setStyles(
+  $element: El,
+  styles: Partial<CSSStyleDeclaration>,
+) {
   Object.keys(styles).forEach((key: any) => {
     setStyle($element, key, styles[key]);
   });

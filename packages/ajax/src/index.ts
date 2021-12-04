@@ -70,8 +70,8 @@ export function ajax(options: Options): XMLHttpRequest {
     data = stringify(data);
     url += url.indexOf('?') > -1 ? `&${data}` : `?${data}`;
   } else if (
-    contentType === 'application/x-www-form-urlencoded'
-    && isObject(data)
+    contentType === 'application/x-www-form-urlencoded' &&
+    isObject(data)
   ) {
     data = stringify((data as any) as {});
   } else if (contentType === 'application/json' && isObject(data)) {
@@ -98,13 +98,13 @@ export function ajax(options: Options): XMLHttpRequest {
 export function get<T = any>(
   url: string,
   success: (data: T) => void,
-  dataType?: string
+  dataType?: string,
 ): XMLHttpRequest;
 export function get<T = any>(
   url: string,
   data: string | Record<string, string> | null,
   success: (data: T) => void,
-  dataType?: string
+  dataType?: string,
 ): XMLHttpRequest;
 export function get(
   url: any,
@@ -132,13 +132,13 @@ export function get(
 export function post<T = any>(
   url: string,
   success: (data: T) => void,
-  dataType?: string
+  dataType?: string,
 ): XMLHttpRequest;
 export function post<T = any>(
   url: string,
   data: string | Record<string, string> | null,
   success: (data: T) => void,
-  dataType?: string
+  dataType?: string,
 ): XMLHttpRequest;
 export function post(
   url: any,

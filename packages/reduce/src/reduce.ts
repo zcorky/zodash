@@ -7,8 +7,13 @@
  */
 export function reduce<R = any, T = any>(
   value: T[],
-  fn: (previous: R | Partial<R>, current: T, index: number, origin: T[]) => any,
-  initailValue?: R | Partial<R>
+  fn: (
+    previous: R | Partial<R>,
+    current: T,
+    index: number,
+    origin: T[],
+  ) => any,
+  initailValue?: R | Partial<R>,
 ): R;
 export function reduce<R = any, T extends object = {}>(
   value: T,
@@ -16,9 +21,9 @@ export function reduce<R = any, T extends object = {}>(
     previous: R | Partial<R>,
     current: [K, T[K]],
     index: number,
-    origin: [K, T[K]][]
+    origin: [K, T[K]][],
   ) => any,
-  initailValue?: R | Partial<R>
+  initailValue?: R | Partial<R>,
 ): R;
 export function reduce(
   value: any,

@@ -6,7 +6,7 @@
  */
 export function find<T>(
   list: T[],
-  fn: (one: T, index: number, origin: T[]) => boolean
+  fn: (one: T, index: number, origin: T[]) => boolean,
 ): T | null;
 
 /**
@@ -17,7 +17,7 @@ export function find<T>(
  */
 export function find<K, V>(
   map: Map<K, V>,
-  fn: (one: [K, V], index: number, origin: Map<K, V>) => boolean
+  fn: (one: [K, V], index: number, origin: Map<K, V>) => boolean,
 ): [K, V] | null;
 
 /**
@@ -28,12 +28,12 @@ export function find<K, V>(
  */
 export function find<T extends object>(
   data: T,
-  fn: (one: [string, any], index: number, origin: T) => boolean
+  fn: (one: [string, any], index: number, origin: T) => boolean,
 ): [string, T] | null;
 
 export function find(
   data: any,
-  fn: (one: any, index: number, origin: any) => boolean
+  fn: (one: any, index: number, origin: any) => boolean,
 ) {
   if (isArray(data)) return arrayFind(data, fn);
   if (isMap(data)) return mapFind(data, fn);
@@ -43,7 +43,7 @@ export function find(
 
 export function arrayFind<T>(
   data: T[],
-  fn: (one: T, index: number, origin: T[]) => boolean
+  fn: (one: T, index: number, origin: T[]) => boolean,
 ): T | null {
   const value = data.find(fn);
   return value === undefined ? null : value;
@@ -51,7 +51,7 @@ export function arrayFind<T>(
 
 export function mapFind<K, V>(
   data: Map<K, V>,
-  fn: (one: [K, V], index: number, origin: Map<K, V>) => boolean
+  fn: (one: [K, V], index: number, origin: Map<K, V>) => boolean,
 ): [K, V] | null {
   let index = 0;
 
@@ -68,7 +68,7 @@ export function mapFind<K, V>(
 
 export function objectFind<T extends object>(
   data: T,
-  fn: (one: [string, any], index: number, origin: T) => boolean
+  fn: (one: [string, any], index: number, origin: T) => boolean,
 ): [string, T] | null {
   let index = 0;
 
@@ -94,6 +94,7 @@ function isMap<K, V>(value: any): value is Map<K, V> {
 
 function isObject(value: any): value is object {
   return (
-    value !== null && (typeof value === 'object' || typeof value === 'function')
+    value !== null &&
+    (typeof value === 'object' || typeof value === 'function')
   );
 }

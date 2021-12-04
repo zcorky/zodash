@@ -62,8 +62,8 @@ export function isMatchedKeyCode(
 
     // @1 key not match
     if (
-      key === 'key'
-      && expected.key.toLowerCase() !== current.key.toLowerCase()
+      key === 'key' &&
+      expected.key.toLowerCase() !== current.key.toLowerCase()
     ) {
       return false;
     }

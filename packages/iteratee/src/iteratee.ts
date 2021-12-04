@@ -10,7 +10,7 @@ export function iteratee(data: any): Iterator<any> {
   let keys: any[];
 
   if (!Array.isArray(data)) {
-    keys = Object.keys(data);  
+    keys = Object.keys(data);
   }
 
   return function next() {
