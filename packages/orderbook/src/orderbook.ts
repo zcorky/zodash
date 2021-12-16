@@ -73,11 +73,14 @@ export class OrderBook {
       const collection = orderbook[side];
 
       const index = binarySearchIndex(collection, (el) => {
-        if (side === 'asks') {
-          return value[0] - el[0];
-        }
+        // if (side === 'asks') {
+        //   return value[0] - el[0];
+        // }
 
-        return el[0] - value[0];
+        // console.log('si:', side, el[0], value[0], el[0] - value[0]);
+        // return el[0] - value[0];
+
+        return value[0] - el[0];
       });
 
       const action = ({
@@ -85,6 +88,10 @@ export class OrderBook {
         value,
         collection,
       } as any) as Action;
+
+      // if (value[0] === 4260.05) {
+      //   console.log('found: 4260.05', side, index, new Date(), orderbook.bids);
+      // }
 
       if (index !== -1) {
         action.index = index;

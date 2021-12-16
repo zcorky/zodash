@@ -217,11 +217,10 @@ describe('@zodash/orderbook', () => {
       [4265.75, 9.97],
     ]);
     expect(orderbooks.get(symbol, tradeType).bids).toEqual([
-      [4260.25, 10.45],
-      [4260.05, 9.43],
+      [4260.05, 0.28],
       [4260.15, 0.85],
       [4260.2, 64.68],
-      [4260.25, 1.3],
+      [4260.25, 10.45],
       [4260.3, 6.25],
       [4260.35, 3.22],
       [4260.4, 4.44],
@@ -243,7 +242,15 @@ describe('@zodash/orderbook', () => {
       [4263, 0.47],
       [4263.05, 2.61],
       [4263.1, 260.85],
-      [4260.05, 0.28],
     ]);
+
+    // expect asks0 price < bids0 price
+    //  current:
+    //    ask0 price: 4263.15
+    //    bids0 price: 4260.25
+    // orderbooks.update(symbol, tradeType, {
+    //   asks: [],
+    //   bids: [[]],
+    // });
   });
 });
