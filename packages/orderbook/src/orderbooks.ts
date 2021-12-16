@@ -15,7 +15,7 @@ export class OrderBooks {
       this.orderbooks[id] = orderbook;
     }
 
-    return orderbook.toJSON(level);
+    return orderbook.get(level);
   }
 
   update(symbol: string, tradeType: string, diff: OrderBookDiff) {

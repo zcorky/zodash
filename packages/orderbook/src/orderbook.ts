@@ -37,17 +37,21 @@ export class OrderBook {
     return this.options?.maxCapacity ?? 1000;
   }
 
-  toJSON(level = 1000) {
+  public get(level = 1000) {
     const symbol = this.symbol;
     const tradeType = this.tradeType;
     const timestamp = this.timestamp;
     const asks = this.asks.slice(0, level);
     const bids = this.bids.slice(0, level);
 
+    // if (asks.length !== level || bids.length !== level) {
+    //   throw new Error(`[orderbook][get][${symbol}][${tradeType}] asks/bids length should be equals to level`);
+    // }
+
     return { symbol, tradeType, timestamp, asks, bids };
   }
 
-  update(diff: OrderBookDiff) {
+  public update(diff: OrderBookDiff) {
     // eslint-disable-next-line @typescript-eslint/no-this-alias
     const orderbook = this;
 
@@ -122,10 +126,14 @@ export class OrderBook {
 
     // validate:
     //  ask0 price should always large than bids0 price
-    // if (orderbook.asks[0][0] < orderbook.bids[0][0]) {
-    //   throw new Error(
-    //     `orderbook diff update error found ${this.symbol}_${this.tradeType} asks0 price(${orderbook.asks[0][0]}) < bids0 price(${orderbook.bids[0][0]})`,
-    //   );
-    // }
+    if (
+      orderbook.asks[0]?.[0] &&
+      orderbook.bids[0]?.[0] &&
+      orderbook.asks[0][0] < orderbook.bids[0][0]
+    ) {
+      throw new Error(
+        `orderbook diff update error found ${this.symbol}_${this.tradeType} asks0 price(${orderbook.asks[0][0]}) < bids0 price(${orderbook.bids[0][0]})`,
+      );
+    }
   }
 }
