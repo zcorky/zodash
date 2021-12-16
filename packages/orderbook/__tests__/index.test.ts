@@ -3,6 +3,7 @@ import { createOrderbooks } from '../src';
 describe('@zodash/orderbook', () => {
   const orderbooks = createOrderbooks();
   const symbol = 'ETHUSDT';
+  const tradeType = 'SPOT';
 
   it('works', async () => {
     const diff = {
@@ -62,13 +63,13 @@ describe('@zodash/orderbook', () => {
       ],
     };
 
-    orderbooks.update(symbol, diff);
-    expect(orderbooks.get(symbol).asks).toEqual(diff.asks);
-    expect(orderbooks.get(symbol).bids).toEqual(diff.bids);
+    orderbooks.update(symbol, tradeType, diff);
+    expect(orderbooks.get(symbol, tradeType).asks).toEqual(diff.asks);
+    expect(orderbooks.get(symbol, tradeType).bids).toEqual(diff.bids);
 
     const diff2 = { asks: [[4264.8, 119.85]], bids: [] };
-    orderbooks.update(symbol, diff2);
-    expect(orderbooks.get(symbol).asks).toEqual([
+    orderbooks.update(symbol, tradeType, diff2);
+    expect(orderbooks.get(symbol, tradeType).asks).toEqual([
       [4263.15, 270.57],
       [4263.25, 58.64],
       [4263.35, 1.02],
@@ -95,7 +96,7 @@ describe('@zodash/orderbook', () => {
       [4265.7, 15.38],
       [4265.75, 9.97],
     ]);
-    expect(orderbooks.get(symbol).bids).toEqual([
+    expect(orderbooks.get(symbol, tradeType).bids).toEqual([
       [4260.05, 9.43],
       [4260.15, 0.85],
       [4260.2, 64.68],
@@ -124,8 +125,8 @@ describe('@zodash/orderbook', () => {
     ]);
 
     const diff3 = { asks: [[4264.8, 2.62]], bids: [] };
-    orderbooks.update(symbol, diff3);
-    expect(orderbooks.get(symbol).asks).toEqual([
+    orderbooks.update(symbol, tradeType, diff3);
+    expect(orderbooks.get(symbol, tradeType).asks).toEqual([
       [4263.15, 270.57],
       [4263.25, 58.64],
       [4263.35, 1.02],
@@ -152,7 +153,7 @@ describe('@zodash/orderbook', () => {
       [4265.7, 15.38],
       [4265.75, 9.97],
     ]);
-    expect(orderbooks.get(symbol).bids).toEqual([
+    expect(orderbooks.get(symbol, tradeType).bids).toEqual([
       [4260.05, 9.43],
       [4260.15, 0.85],
       [4260.2, 64.68],
@@ -187,8 +188,8 @@ describe('@zodash/orderbook', () => {
         [4260.05, 0.28],
       ],
     };
-    orderbooks.update(symbol, diff4);
-    expect(orderbooks.get(symbol).asks).toEqual([
+    orderbooks.update(symbol, tradeType, diff4);
+    expect(orderbooks.get(symbol, tradeType).asks).toEqual([
       [4263.15, 270.57],
       [4263.25, 58.64],
       [4263.35, 1.02],
@@ -215,7 +216,7 @@ describe('@zodash/orderbook', () => {
       [4265.7, 15.38],
       [4265.75, 9.97],
     ]);
-    expect(orderbooks.get(symbol).bids).toEqual([
+    expect(orderbooks.get(symbol, tradeType).bids).toEqual([
       [4260.25, 10.45],
       [4260.05, 9.43],
       [4260.15, 0.85],

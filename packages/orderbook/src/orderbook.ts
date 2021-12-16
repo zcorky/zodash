@@ -29,6 +29,7 @@ export class OrderBook {
 
   constructor(
     private readonly symbol: string,
+    private readonly tradeType: string,
     private readonly options?: OrderBookOptions,
   ) {}
 
@@ -38,11 +39,12 @@ export class OrderBook {
 
   toJSON(level = 1000) {
     const symbol = this.symbol;
+    const tradeType = this.tradeType;
     const timestamp = this.timestamp;
     const asks = this.asks.slice(0, level);
     const bids = this.bids.slice(0, level);
 
-    return { symbol, timestamp, asks, bids };
+    return { symbol, tradeType, timestamp, asks, bids };
   }
 
   update(diff: OrderBookDiff) {
