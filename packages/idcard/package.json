@@ -67,7 +67,7 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "@zcorky/moment": "^1.2.0",
+    "@zcorky/moment": "^1.2.3",
     "@zodash/random": "^1.2.12"
   },
   "devDependencies": {
