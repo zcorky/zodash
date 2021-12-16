@@ -253,4 +253,60 @@ describe('@zodash/orderbook', () => {
     //   bids: [[]],
     // });
   });
+
+  it('update asks', () => {
+    const orderbooks = createOrderbooks();
+    const symbol = 'ETHUSDT';
+    const tradeType = 'SPOT';
+
+    orderbooks.update(symbol, tradeType, {
+      asks: [[1, 1]],
+      bids: [],
+    });
+    expect(orderbooks.get(symbol, tradeType).asks).toEqual([[1, 1]]);
+
+    orderbooks.update(symbol, tradeType, {
+      asks: [[1, 2]],
+      bids: [],
+    });
+    expect(orderbooks.get(symbol, tradeType).asks).toEqual([[1, 2]]);
+
+    orderbooks.update(symbol, tradeType, {
+      asks: [
+        [1, 3],
+        [1, 0.1],
+        [1, 0.3],
+      ],
+      bids: [],
+    });
+    expect(orderbooks.get(symbol, tradeType).asks).toEqual([[1, 0.3]]);
+  });
+
+  it('update bids', () => {
+    const orderbooks = createOrderbooks();
+    const symbol = 'ETHUSDT';
+    const tradeType = 'SPOT';
+
+    orderbooks.update(symbol, tradeType, {
+      bids: [[1, 1]],
+      asks: [],
+    });
+    expect(orderbooks.get(symbol, tradeType).bids).toEqual([[1, 1]]);
+
+    orderbooks.update(symbol, tradeType, {
+      bids: [[1, 2]],
+      asks: [],
+    });
+    expect(orderbooks.get(symbol, tradeType).bids).toEqual([[1, 2]]);
+
+    orderbooks.update(symbol, tradeType, {
+      bids: [
+        [1, 3],
+        [1, 0.1],
+        [1, 0.3],
+      ],
+      asks: [],
+    });
+    expect(orderbooks.get(symbol, tradeType).bids).toEqual([[1, 0.3]]);
+  });
 });

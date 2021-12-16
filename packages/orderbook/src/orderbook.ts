@@ -53,14 +53,8 @@ export class OrderBook {
 
     const match = createMatcher<Action>({
       INSERT: ({ collection, side, value }) => {
-        if (side === 'asks') {
-          return binaryInsert(collection, value, (el) => {
-            return value[0] - el[0];
-          });
-        }
-
         return binaryInsert(collection, value, (el) => {
-          return el[0] - value[0];
+          return value[0] - el[0];
         });
       },
       UPDATE: ({ collection, index, value }) => {
@@ -73,13 +67,6 @@ export class OrderBook {
       const collection = orderbook[side];
 
       const index = binarySearchIndex(collection, (el) => {
-        // if (side === 'asks') {
-        //   return value[0] - el[0];
-        // }
-
-        // console.log('si:', side, el[0], value[0], el[0] - value[0]);
-        // return el[0] - value[0];
-
         return value[0] - el[0];
       });
 
@@ -88,10 +75,6 @@ export class OrderBook {
         value,
         collection,
       } as any) as Action;
-
-      // if (value[0] === 4260.05) {
-      //   console.log('found: 4260.05', side, index, new Date(), orderbook.bids);
-      // }
 
       if (index !== -1) {
         action.index = index;
@@ -112,12 +95,13 @@ export class OrderBook {
     };
 
     function applyDiff() {
-      if (orderbook.asks.length === 0) {
-        orderbook.asks = diff.asks.slice();
-        orderbook.bids = diff.bids.slice();
+      // improve will cause bug, we do not known whether diff asks/bids are sorted
+      // if (orderbook.asks.length === 0) {
+      //   orderbook.asks = diff.asks.slice();
+      //   orderbook.bids = diff.bids.slice();
 
-        return;
-      }
+      //   return;
+      // }
 
       diff.asks.forEach((d) => applyDiffOne('asks', d));
       diff.bids.forEach((d) => applyDiffOne('bids', d));
@@ -138,10 +122,10 @@ export class OrderBook {
 
     // validate:
     //  ask0 price should always large than bids0 price
-    if (orderbook.asks[0][0] < orderbook.bids[0][0]) {
-      throw new Error(
-        `orderbook diff update error found ${this.symbol}_${this.tradeType} asks0 price(${orderbook.asks[0][0]}) < bids0 price(${orderbook.bids[0][0]})`,
-      );
-    }
+    // if (orderbook.asks[0][0] < orderbook.bids[0][0]) {
+    //   throw new Error(
+    //     `orderbook diff update error found ${this.symbol}_${this.tradeType} asks0 price(${orderbook.asks[0][0]}) < bids0 price(${orderbook.bids[0][0]})`,
+    //   );
+    // }
   }
 }
