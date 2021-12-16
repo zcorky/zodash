@@ -128,5 +128,13 @@ export class OrderBook {
     }
 
     this.timestamp = Date.now();
+
+    // validate:
+    //  ask0 price should always large than bids0 price
+    if (orderbook.asks[0][0] < orderbook.bids[0][0]) {
+      throw new Error(
+        `orderbook diff update error found ${this.symbol}_${this.tradeType} asks0 price(${orderbook.asks[0][0]}) < bids0 price(${orderbook.bids[0][0]})`,
+      );
+    }
   }
 }
