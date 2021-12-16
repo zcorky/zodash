@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.12](https://github.com/zcorky/zodash/compare/@zodash/dom@0.1.11...@zodash/dom@0.1.12) (2021-12-16)
+
+
+### Bug Fixes
+
+* **idcard:** upgrade moment ([62d376d](https://github.com/zcorky/zodash/commit/62d376d76c4e2d6ebca4ade0b6f4317478466eec))
+
+
+
+
+
 ## [0.1.11](https://github.com/zcorky/zodash/compare/@zodash/dom@0.1.10...@zodash/dom@0.1.11) (2021-12-04)
 
 **Note:** Version bump only for package @zodash/dom
