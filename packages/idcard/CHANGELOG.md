@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.9](https://github.com/zcorky/zodash/compare/@zodash/idcard@0.0.8...@zodash/idcard@0.0.9) (2021-12-16)
+
+
+### Bug Fixes
+
+* **idcard:** upgrade moment ([62d376d](https://github.com/zcorky/zodash/commit/62d376d76c4e2d6ebca4ade0b6f4317478466eec))
+
+
+
+
+
 ## [0.0.8](https://github.com/zcorky/zodash/compare/@zodash/idcard@0.0.7...@zodash/idcard@0.0.8) (2021-12-04)
 
 **Note:** Version bump only for package @zodash/idcard
