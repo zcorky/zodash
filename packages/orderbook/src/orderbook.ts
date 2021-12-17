@@ -57,8 +57,14 @@ export class OrderBook {
 
     const match = createMatcher<Action>({
       INSERT: ({ collection, side, value }) => {
+        if (side === 'asks') {
+          return binaryInsert(collection, value, (el) => {
+            return value[0] - el[0];
+          });
+        }
+
         return binaryInsert(collection, value, (el) => {
-          return value[0] - el[0];
+          return el[0] - value[0];
         });
       },
       UPDATE: ({ collection, index, value }) => {
@@ -71,7 +77,11 @@ export class OrderBook {
       const collection = orderbook[side];
 
       const index = binarySearchIndex(collection, (el) => {
-        return value[0] - el[0];
+        if (side === 'asks') {
+          return value[0] - el[0];
+        }
+
+        return el[0] - value[0];
       });
 
       const action = ({
