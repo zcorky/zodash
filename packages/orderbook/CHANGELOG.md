@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.3](https://github.com/zcorky/zodash/compare/@zodash/orderbook@0.0.2...@zodash/orderbook@0.0.3) (2021-12-17)
+
+
+### Bug Fixes
+
+* **orderbook:** asks ASC, bids DESC ([29bf4aa](https://github.com/zcorky/zodash/commit/29bf4aa81884f479f781f7cde4b946e8e6e1c506))
+
+
+
+
+
 ## [0.0.2](https://github.com/zcorky/zodash/compare/@zodash/orderbook@0.0.1...@zodash/orderbook@0.0.2) (2021-12-16)
 
 

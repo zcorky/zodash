@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.25](https://github.com/zcorky/zodash/compare/@zodash/debug@0.0.24...@zodash/debug@0.0.25) (2021-12-17)
+
+**Note:** Version bump only for package @zodash/debug
+
+
+
+
+
 ## [0.0.24](https://github.com/zcorky/zodash/compare/@zodash/debug@0.0.23...@zodash/debug@0.0.24) (2021-12-16)
 
 **Note:** Version bump only for package @zodash/debug

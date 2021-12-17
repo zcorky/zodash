@@ -1,6 +1,6 @@
 {
   "name": "@zodash/idcard",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "chinese id card parser, generator and validator",
   "keywords": [
     "zodash",
