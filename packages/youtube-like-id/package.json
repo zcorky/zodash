@@ -1,6 +1,6 @@
 {
   "name": "@zodash/youtube-like-id",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "An simple algorithm to shorten id, and more confusing (number => string)",
   "keywords": [
     "zodash",
