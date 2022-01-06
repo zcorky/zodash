@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.22](https://github.com/zcorky/zodash/compare/@zodash/performance@0.1.21...@zodash/performance@0.1.22) (2022-01-03)
+
+**Note:** Version bump only for package @zodash/performance
+
+
+
+
+
 ## [0.1.21](https://github.com/zcorky/zodash/compare/@zodash/performance@0.1.20...@zodash/performance@0.1.21) (2021-12-04)
 
 **Note:** Version bump only for package @zodash/performance
