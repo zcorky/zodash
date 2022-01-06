@@ -21,3 +21,29 @@ describe('@zodash/unique', () => {
     expect(toPath('a[].b.c')).toEqual(['a', '[]', 'b', 'c']);
   });
 });
+
+describe('@zodash/unique', () => {
+  it('custom separator with _', () => {
+    expect(toPath('SERVICE_CONFIG_ID', '_')).toEqual([
+      'SERVICE',
+      'CONFIG',
+      'ID',
+    ]);
+  });
+
+  it('custom separator with #', () => {
+    expect(toPath('SERVICE#CONFIG#ID', '#')).toEqual([
+      'SERVICE',
+      'CONFIG',
+      'ID',
+    ]);
+  });
+
+  it('custom separator with ::', () => {
+    expect(toPath('SERVICE::CONFIG::ID', '::')).toEqual([
+      'SERVICE',
+      'CONFIG',
+      'ID',
+    ]);
+  });
+});
