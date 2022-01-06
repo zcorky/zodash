@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.23](https://github.com/zcorky/zodash/compare/@zodash/crypto@0.1.22...@zodash/crypto@0.1.23) (2022-01-06)
+
+**Note:** Version bump only for package @zodash/crypto
+
+
+
+
+
 ## [0.1.22](https://github.com/zcorky/zodash/compare/@zodash/crypto@0.1.21...@zodash/crypto@0.1.22) (2022-01-03)
 
 **Note:** Version bump only for package @zodash/crypto

@@ -1,6 +1,6 @@
 {
   "name": "@zodash/crypto",
-  "version": "0.1.22",
+  "version": "0.1.23",
   "description": "Better Crypto For Nodejs and Browser",
   "main": "lib/index.js",
   "repository": "https://github.com/zcorky/zodash",
@@ -79,10 +79,10 @@
     "@zodash/aes": "^0.0.6",
     "@zodash/base64": "^0.0.6",
     "@zodash/hmac": "^0.0.7",
-    "@zodash/md5": "^0.0.8",
+    "@zodash/md5": "^0.0.9",
     "@zodash/rsa": "^0.0.6",
-    "@zodash/sha1": "^0.0.8",
-    "@zodash/sha256": "^0.0.8",
-    "@zodash/sha512": "^0.0.8"
+    "@zodash/sha1": "^0.0.9",
+    "@zodash/sha256": "^0.0.9",
+    "@zodash/sha512": "^0.0.9"
   }
 }
