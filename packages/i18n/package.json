@@ -1,6 +1,6 @@
 {
   "name": "@zodash/i18n",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "An small i18n library",
   "keywords": [
     "zodash",
@@ -66,7 +66,7 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "@zodash/format": "^1.2.9",
-    "@zodash/get": "^1.2.1"
+    "@zodash/format": "^1.2.10",
+    "@zodash/get": "^1.2.2"
   }
 }
