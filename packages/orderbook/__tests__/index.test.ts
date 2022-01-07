@@ -61,13 +61,18 @@ describe('@zodash/orderbook', () => {
         [4260.15, 0.85],
         [4260.05, 9.43],
       ],
+      timestamp: Date.now(),
     };
 
     orderbooks.update(symbol, tradeType, diff);
     expect(orderbooks.get(symbol, tradeType).asks).toEqual(diff.asks);
     expect(orderbooks.get(symbol, tradeType).bids).toEqual(diff.bids);
 
-    const diff2 = { asks: [[4264.8, 119.85]], bids: [] };
+    const diff2 = {
+      asks: [[4264.8, 119.85]],
+      bids: [],
+      timestamp: Date.now(),
+    };
     orderbooks.update(symbol, tradeType, diff2);
     expect(orderbooks.get(symbol, tradeType).asks).toEqual([
       [4263.15, 270.57],
@@ -124,7 +129,7 @@ describe('@zodash/orderbook', () => {
       [4260.05, 9.43],
     ]);
 
-    const diff3 = { asks: [[4264.8, 2.62]], bids: [] };
+    const diff3 = { asks: [[4264.8, 2.62]], bids: [], timestamp: Date.now() };
     orderbooks.update(symbol, tradeType, diff3);
     expect(orderbooks.get(symbol, tradeType).asks).toEqual([
       [4263.15, 270.57],
@@ -187,6 +192,7 @@ describe('@zodash/orderbook', () => {
         [4260.25, 10.45],
         [4260.05, 0.28],
       ],
+      timestamp: Date.now(),
     };
     orderbooks.update(symbol, tradeType, diff4);
     expect(orderbooks.get(symbol, tradeType).asks).toEqual([
@@ -262,12 +268,14 @@ describe('@zodash/orderbook', () => {
     orderbooks.update(symbol, tradeType, {
       asks: [[1, 1]],
       bids: [],
+      timestamp: Date.now(),
     });
     expect(orderbooks.get(symbol, tradeType).asks).toEqual([[1, 1]]);
 
     orderbooks.update(symbol, tradeType, {
       asks: [[1, 2]],
       bids: [],
+      timestamp: Date.now(),
     });
     expect(orderbooks.get(symbol, tradeType).asks).toEqual([[1, 2]]);
 
@@ -278,6 +286,7 @@ describe('@zodash/orderbook', () => {
         [1, 0.3],
       ],
       bids: [],
+      timestamp: Date.now(),
     });
     expect(orderbooks.get(symbol, tradeType).asks).toEqual([[1, 0.3]]);
   });
@@ -290,12 +299,14 @@ describe('@zodash/orderbook', () => {
     orderbooks.update(symbol, tradeType, {
       bids: [[1, 1]],
       asks: [],
+      timestamp: Date.now(),
     });
     expect(orderbooks.get(symbol, tradeType).bids).toEqual([[1, 1]]);
 
     orderbooks.update(symbol, tradeType, {
       bids: [[1, 2]],
       asks: [],
+      timestamp: Date.now(),
     });
     expect(orderbooks.get(symbol, tradeType).bids).toEqual([[1, 2]]);
 
@@ -306,6 +317,7 @@ describe('@zodash/orderbook', () => {
         [1, 0.3],
       ],
       asks: [],
+      timestamp: Date.now(),
     });
     expect(orderbooks.get(symbol, tradeType).bids).toEqual([[1, 0.3]]);
   });

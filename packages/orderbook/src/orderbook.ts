@@ -8,6 +8,7 @@ export type Trade = [number, number] | number[];
 export interface OrderBookDiff {
   asks: Trade[];
   bids: Trade[];
+  timestamp: number; // ms;
 }
 
 interface Action {
@@ -132,7 +133,7 @@ export class OrderBook {
       orderbook.bids = orderbook.bids.slice(0, orderbook.maxCapacity);
     }
 
-    this.timestamp = Date.now();
+    this.timestamp = diff.timestamp || Date.now();
 
     // validate:
     //  ask0 price should always large than bids0 price
