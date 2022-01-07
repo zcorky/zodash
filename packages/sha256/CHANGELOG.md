@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.10](https://github.com/zcorky/zodash/compare/@zodash/sha256@0.0.9...@zodash/sha256@0.0.10) (2022-01-07)
+
+**Note:** Version bump only for package @zodash/sha256
+
+
+
+
+
 ## [0.0.9](https://github.com/zcorky/zodash/compare/@zodash/sha256@0.0.8...@zodash/sha256@0.0.9) (2022-01-06)
 
 **Note:** Version bump only for package @zodash/sha256
