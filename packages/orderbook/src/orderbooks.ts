@@ -33,7 +33,7 @@ export class OrderBooks<T extends number | string = number> {
     symbol: string,
     tradeType: string,
     level: number,
-    callback: (orderbook: OrderBookPlain<T>) => boolean,
+    callback: (orderbook: OrderBookPlain<T>) => void,
   ) {
     const orderbook = this.get(symbol, tradeType, level);
     return callback(orderbook);
