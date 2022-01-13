@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.11](https://github.com/zcorky/zodash/compare/@zodash/format@1.2.10...@zodash/format@1.2.11) (2022-01-07)
+
+**Note:** Version bump only for package @zodash/format
+
+
+
+
+
 ## [1.2.10](https://github.com/zcorky/zodash/compare/@zodash/format@1.2.9...@zodash/format@1.2.10) (2022-01-06)
 
 **Note:** Version bump only for package @zodash/format

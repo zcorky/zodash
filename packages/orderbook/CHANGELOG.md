@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.4](https://github.com/zcorky/zodash/compare/@zodash/orderbook@0.0.3...@zodash/orderbook@0.0.4) (2022-01-07)
+
+
+### Bug Fixes
+
+* should provide timestamp ([a2e0570](https://github.com/zcorky/zodash/commit/a2e05703ba35abd07e0c6e4074ea75b5ccc8d8be))
+
+
+
+
+
 ## [0.0.3](https://github.com/zcorky/zodash/compare/@zodash/orderbook@0.0.2...@zodash/orderbook@0.0.3) (2021-12-17)
 
 
