@@ -23,9 +23,10 @@ function signed_crc_table() {
   return typeof Int32Array !== 'undefined' ? new Int32Array(table) : table;
 }
 
-const T = signed_crc_table();
+let TABLE: any[] | Int32Array;
 
 export function crc32(str: string, seed = 0) {
+  const T = TABLE || (TABLE = signed_crc_table());
   let C = seed ^ -1;
   let c: number;
   let d: number;
