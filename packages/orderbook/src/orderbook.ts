@@ -11,6 +11,14 @@ export interface OrderBookDiff<T extends number | string> {
   timestamp: number; // ms;
 }
 
+export interface OrderBookPlain<T extends number | string> {
+  symbol: string;
+  tradeType: string;
+  timestamp: number;
+  asks: Trade<T>[];
+  bids: Trade<T>[];
+}
+
 interface Action {
   type: 'INSERT' | 'UPDATE' | 'REMOVE';
   value: number;
@@ -38,7 +46,7 @@ export class OrderBook<T extends number | string> {
     return this.options?.maxCapacity ?? 1000;
   }
 
-  public get(level = 1000) {
+  public get(level = 1000): OrderBookPlain<T> {
     const symbol = this.symbol;
     const tradeType = this.tradeType;
     const timestamp = this.timestamp;

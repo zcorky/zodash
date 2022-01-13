@@ -1,4 +1,4 @@
-import { OrderBook, OrderBookDiff } from './orderbook';
+import { OrderBook, OrderBookDiff, OrderBookPlain } from './orderbook';
 
 export class OrderBooks<T extends number | string = number> {
   private orderbooks: Record<string, OrderBook<T>> = {};
@@ -27,6 +27,15 @@ export class OrderBooks<T extends number | string = number> {
     }
 
     orderbook.update(diff);
+  }
+
+  validate(
+    symbol: string,
+    tradeType: string,
+    callback: (orderbook: OrderBookPlain<T>) => boolean,
+  ) {
+    const orderbook = this.get(symbol, tradeType);
+    return callback(orderbook);
   }
 
   price(symbol: string, tradeType: string) {
