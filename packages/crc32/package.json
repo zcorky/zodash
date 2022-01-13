@@ -1,0 +1,71 @@
+{
+  "name": "@zodash/crc32",
+  "version": "0.0.0",
+  "description": "CRC32 algorithm (Signed / Unsigned)",
+  "keywords": [
+    "zodash",
+    "crc32"
+  ],
+  "author": "zero <tobewhatwewant@gmail.com>",
+  "homepage": "https://github.com/zcorky/zodash#readme",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zcorky/zodash.git"
+  },
+  "jest": {
+    "roots": [
+      "__tests__"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": ".*\\.(spec|test)\\.(ts|tsx)$",
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx"
+    ],
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/**/*.{ts,tsx}"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 50,
+        "functions": 80,
+        "lines": 70,
+        "statements": -40
+      }
+    }
+  },
+  "scripts": {
+    "build": "yarn clean && tsc",
+    "watch": "yarn clean && tsc -w",
+    "clean": "rm -rf lib",
+    "test": "jest -w 1",
+    "coverage": "codecov"
+  },
+  "bugs": {
+    "url": "https://github.com/zcorky/zodash/issues"
+  },
+  "devDependencies": {
+    "@zodash/delay": "^0.1.7"
+  }
+}
