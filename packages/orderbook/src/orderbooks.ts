@@ -32,9 +32,10 @@ export class OrderBooks<T extends number | string = number> {
   validate(
     symbol: string,
     tradeType: string,
+    level: number,
     callback: (orderbook: OrderBookPlain<T>) => boolean,
   ) {
-    const orderbook = this.get(symbol, tradeType);
+    const orderbook = this.get(symbol, tradeType, level);
     return callback(orderbook);
   }
 
