@@ -1,7 +1,7 @@
 import { OrderBook, OrderBookDiff } from './orderbook';
 
-export class OrderBooks {
-  private orderbooks: Record<string, OrderBook> = {};
+export class OrderBooks<T extends number | string = number> {
+  private orderbooks: Record<string, OrderBook<T>> = {};
 
   private getId(symbol: string, tradeType: string) {
     return `${symbol}-${tradeType}`;
@@ -18,7 +18,7 @@ export class OrderBooks {
     return orderbook.get(level);
   }
 
-  update(symbol: string, tradeType: string, diff: OrderBookDiff) {
+  update(symbol: string, tradeType: string, diff: OrderBookDiff<T>) {
     const id = this.getId(symbol, tradeType);
     let orderbook = this.orderbooks[id];
     if (!orderbook) {
@@ -32,6 +32,6 @@ export class OrderBooks {
   price(symbol: string, tradeType: string) {
     const orderbook = this.get(symbol, tradeType);
     if (!orderbook.asks[0] || !orderbook.bids[0]) return 0;
-    return ((orderbook.asks[0][0] + orderbook.bids[0][0]) / 2).toFixed(2);
+    return ((+orderbook.asks[0][0] + +orderbook.bids[0][0]) / 2).toFixed(2);
   }
 }

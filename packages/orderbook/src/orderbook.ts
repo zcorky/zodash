@@ -3,11 +3,11 @@ import { createMatcher, binaryInsert, binarySearchIndex } from './utils';
 /**
  * [Price, Volume]
  */
-export type Trade = [number, number] | number[];
+export type Trade<T extends number | string> = [T, T] | T[];
 
-export interface OrderBookDiff {
-  asks: Trade[];
-  bids: Trade[];
+export interface OrderBookDiff<T extends number | string> {
+  asks: Trade<T>[];
+  bids: Trade<T>[];
   timestamp: number; // ms;
 }
 
@@ -23,9 +23,9 @@ export interface OrderBookOptions {
   maxCapacity?: number;
 }
 
-export class OrderBook {
-  asks: Trade[] = [];
-  bids: Trade[] = [];
+export class OrderBook<T extends number | string> {
+  asks: Trade<T>[] = [];
+  bids: Trade<T>[] = [];
   timestamp = Date.now();
 
   constructor(
@@ -52,7 +52,7 @@ export class OrderBook {
     return { symbol, tradeType, timestamp, asks, bids };
   }
 
-  public update(diff: OrderBookDiff) {
+  public update(diff: OrderBookDiff<T>) {
     // eslint-disable-next-line @typescript-eslint/no-this-alias
     const orderbook = this;
 
@@ -74,15 +74,15 @@ export class OrderBook {
       REMOVE: ({ collection, index }) => collection.splice(index, 1),
     });
 
-    const applyDiffOne = (side: 'asks' | 'bids', value: Trade) => {
+    const applyDiffOne = (side: 'asks' | 'bids', value: Trade<T>) => {
       const collection = orderbook[side];
 
       const index = binarySearchIndex(collection, (el) => {
         if (side === 'asks') {
-          return value[0] - el[0];
+          return +value[0] - +el[0];
         }
 
-        return el[0] - value[0];
+        return +el[0] - +value[0];
       });
 
       const action = ({
@@ -93,13 +93,13 @@ export class OrderBook {
 
       if (index !== -1) {
         action.index = index;
-        if (value[1] === 0) {
+        if (+value[1] === 0) {
           action.type = 'REMOVE';
         } else {
           action.type = 'UPDATE';
         }
       } else {
-        if (value[1] === 0) {
+        if (+value[1] === 0) {
           return;
         }
 
