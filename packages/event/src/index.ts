@@ -70,7 +70,15 @@ export class Event<Events = any> implements IEvent<Events> {
     if (this.listeners[event]) {
       const partListeners = this.listeners[event];
       partListeners.forEach((listener) => {
-        listener.apply(this, args);
+        if (event === 'error') {
+          return listener.apply(this, args);
+        }
+
+        try {
+          listener.apply(this, args);
+        } catch (error) {
+          this.emit('error', error);
+        }
       });
 
       return this;
