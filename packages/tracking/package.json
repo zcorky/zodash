@@ -1,6 +1,6 @@
 {
   "name": "@zodash/tracking",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Simple tracking design, inpsired by react-tracking",
   "keywords": [
     "zodash",
@@ -67,6 +67,6 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "@zodash/event": "^0.1.10"
+    "@zodash/event": "^0.1.11"
   }
 }
