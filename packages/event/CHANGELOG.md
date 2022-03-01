@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.11](https://github.com/zcorky/zodash/compare/@zodash/event@0.1.10...@zodash/event@0.1.11) (2022-02-04)
+
+**Note:** Version bump only for package @zodash/event
+
+
+
+
+
+## [0.1.10](https://github.com/zcorky/zodash/compare/@zodash/event@0.1.9...@zodash/event@0.1.10) (2022-02-03)
+
+**Note:** Version bump only for package @zodash/event
+
+
+
+
+
 ## [0.1.9](https://github.com/zcorky/zodash/compare/@zodash/event@0.1.8...@zodash/event@0.1.9) (2021-12-04)
 
 **Note:** Version bump only for package @zodash/event
