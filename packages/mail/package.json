@@ -68,8 +68,5 @@
   },
   "dependencies": {
     "@znode/mail": "^0.0.4"
-  },
-  "devDependencies": {
-    "@types/nodemailer": "^6.4.0"
   }
 }
