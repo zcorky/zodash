@@ -1,6 +1,6 @@
 {
   "name": "@zodash/orderbook",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Orderbook algorithm",
   "keywords": [
     "zodash",

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.15](https://github.com/zcorky/zodash/compare/@zodash/timer@0.0.14...@zodash/timer@0.0.15) (2022-04-04)
+
+**Note:** Version bump only for package @zodash/timer
+
+
+
+
+
 ## [0.0.14](https://github.com/zcorky/zodash/compare/@zodash/timer@0.0.13...@zodash/timer@0.0.14) (2022-02-04)
 
 **Note:** Version bump only for package @zodash/timer
