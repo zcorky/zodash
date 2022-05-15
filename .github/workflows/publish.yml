@@ -55,6 +55,9 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+       - name: Fix QEMU depends on Docker CLI
+        run: zmicro package install docker
+        
       - name: Get Current Date
         id: date
         run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
