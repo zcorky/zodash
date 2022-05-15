@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.5](https://github.com/zcorky/zodash/compare/@zodash/load-json@0.0.4...@zodash/load-json@0.0.5) (2022-05-15)
+
+**Note:** Version bump only for package @zodash/load-json
+
+
+
+
+
 ## [0.0.4](https://github.com/zcorky/zodash/compare/@zodash/load-json@0.0.3...@zodash/load-json@0.0.4) (2021-09-22)
 
 **Note:** Version bump only for package @zodash/load-json
