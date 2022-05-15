@@ -54,7 +54,16 @@ jobs:
     container: whatwewant/zmicro:v1.16.5
 
     # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
+    steps:     
+      - name: Get Current Date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: '0'
+          
       - name: Get ENV
         run: |
           env
@@ -67,15 +76,6 @@ jobs:
           echo "GIT_USER=${INPUT_ACTOR}:${INPUT_TOKEN}" >> $GITHUB_ENV
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        
-      - name: Get Current Date
-        id: date
-        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
-
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: '0'
 
       #- uses: oleksiyrudenko/gha-git-credentials@v2-latest
       #  with:
