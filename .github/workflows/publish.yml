@@ -58,7 +58,15 @@ jobs:
       - name: Get ENV
         run: |
           env
-          cat $GITHUB_ENV
+          INPUT_EMAIL="${INPUT_EMAIL:-'github-action@users.noreply.github.com'}"
+          INPUT_NAME="${INPUT_NAME:-'GitHub Action'}"
+          INPUT_ACTOR=${INPUT_ACTOR:-${GITHUB_ACTOR}} 
+          git config $_GIT_GLOBAL_OPTION user.email "${INPUT_EMAIL}"
+          git config $_GIT_GLOBAL_OPTION user.name "${INPUT_NAME}"
+          git config $_GIT_GLOBAL_OPTION user.password ${INPUT_TOKEN}
+          echo "GIT_USER=${INPUT_ACTOR}:${INPUT_TOKEN}" >> $GITHUB_ENV
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
       - name: Get Current Date
         id: date
@@ -69,9 +77,9 @@ jobs:
         with:
           fetch-depth: '0'
 
-      - uses: oleksiyrudenko/gha-git-credentials@v2-latest
-        with:
-          token: '${{ secrets.GITHUB_TOKEN }}'
+      #- uses: oleksiyrudenko/gha-git-credentials@v2-latest
+      #  with:
+      #    token: '${{ secrets.GITHUB_TOKEN }}'
 
       # Runs a single command using the runners shell
       - name: Use Node.js
