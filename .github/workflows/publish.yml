@@ -64,24 +64,17 @@ jobs:
         with:
           fetch-depth: '0'
           
+      - name: Fix Git Permissions
+        run: git config --global --add safe.directory $PWD
+          
       - name: Get ENV
         run: |
           env
-          echo ""
-          echo "PWD: $PWD"
           ls -al
-          git config --global --add safe.directory $PWD
-          echo ""
-          git log | head -n 10
-          echo ""
-          echo "git local:"
-          git config -l
-          echo "git global:"
-          git config --global -l
-          INPUT_EMAIL="${INPUT_EMAIL:-'github-action@users.noreply.github.com'}"
-          INPUT_NAME="${INPUT_NAME:-'GitHub Action'}"
-          INPUT_ACTOR=${INPUT_ACTOR:-${GITHUB_ACTOR}} 
-          git config user.email "${INPUT_EMAIL}"
+          #INPUT_EMAIL="${INPUT_EMAIL:-'github-action@users.noreply.github.com'}"
+          #INPUT_NAME="${INPUT_NAME:-'GitHub Action'}"
+          #INPUT_ACTOR=${INPUT_ACTOR:-${GITHUB_ACTOR}} 
+          #git config user.email "${INPUT_EMAIL}"
           #git config user.name "${INPUT_NAME}"
           #git config user.password ${INPUT_TOKEN}
           #echo "GIT_USER=${INPUT_ACTOR}:${INPUT_TOKEN}" >> $GITHUB_ENV
