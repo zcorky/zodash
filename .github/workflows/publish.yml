@@ -70,6 +70,7 @@ jobs:
           echo ""
           echo "PWD: $PWD"
           ls -al
+          git config --global --add safe.directory $PWD
           echo ""
           git log | head -n 10
           echo ""
