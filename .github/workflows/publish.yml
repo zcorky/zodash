@@ -56,7 +56,9 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Get ENV
-        run: env
+        run: |
+          env
+          cat $GITHUB_ENV
         
       - name: Get Current Date
         id: date
