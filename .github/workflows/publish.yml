@@ -67,6 +67,10 @@ jobs:
       - name: Get ENV
         run: |
           env
+          echo ""
+          echo "PWD: $PWD"
+          ls -al
+          echo ""
           INPUT_EMAIL="${INPUT_EMAIL:-'github-action@users.noreply.github.com'}"
           INPUT_NAME="${INPUT_NAME:-'GitHub Action'}"
           INPUT_ACTOR=${INPUT_ACTOR:-${GITHUB_ACTOR}} 
