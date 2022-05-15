@@ -16,6 +16,7 @@ jobs:
   on-success:
     needs: publish
     runs-on: ubuntu-latest
+    container: whatwewant/zmicro:v1.16.5
     if: ${{ always() && needs.publish.result == 'success' }}
     steps:
       - name: Notification Feishu
@@ -32,6 +33,7 @@ jobs:
   on-failure:
     needs: publish
     runs-on: ubuntu-latest
+    container: whatwewant/zmicro:v1.16.5
     if: ${{ always() && needs.publish.result == 'failure' }}
     steps:
       - name: Notification Feishu
@@ -49,6 +51,7 @@ jobs:
     # bootstrap:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
+    container: whatwewant/zmicro:v1.16.5
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
