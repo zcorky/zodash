@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/zcorky/zodash/compare/@zodash/format@1.2.12...@zodash/format@1.3.0) (2022-05-28)
+
+
+### Features
+
+* **format:** support default value and builtin url template (/users/:id/xxx) ([3982d99](https://github.com/zcorky/zodash/commit/3982d99ba86ec9bf20ac341301186954708db34a))
+
+
+
+
+
 ## [1.2.12](https://github.com/zcorky/zodash/compare/@zodash/format@1.2.11...@zodash/format@1.2.12) (2022-01-13)
 
 **Note:** Version bump only for package @zodash/format
