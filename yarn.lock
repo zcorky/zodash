@@ -2092,6 +2092,15 @@
   resolved "https://registry.yarnpkg.com/@zodash/hmac/-/hmac-0.0.6.tgz#981979dcf044393ff5fa8180796e52011d485b31"
   integrity sha512-YXQjIexBD/r1WLE64isy7ozX2k2EeezEzC3kungYfrIapd5p60dY+tgmzWWj5p949GGxRglZi/yOY9qljUBjVA==
 
+"@zodash/jsonp@^0.0.12":
+  version "0.0.12"
+  resolved "https://registry.yarnpkg.com/@zodash/jsonp/-/jsonp-0.0.12.tgz#cff136bc58fa82503a336d81e32b8a5f64ef2a44"
+  integrity sha512-npN88MzeyooZFlB55sqxkbNtOROvKVVqllkE7jygelaBXT8H7y6BhvXCEyrEAuybgrhCEM5xPgFaK8VPDlcvHw==
+  dependencies:
+    "@zcorky/query-string" "^1.0.2"
+    "@zodash/load-js" "^0.2.13"
+    "@zodash/uuid" "^0.1.7"
+
 "@zodash/load-css@^0.0.7":
   version "0.0.7"
   resolved "https://registry.yarnpkg.com/@zodash/load-css/-/load-css-0.0.7.tgz#c17f5f8a0365edbdd291f53bb1e4f21a76c4eab4"
