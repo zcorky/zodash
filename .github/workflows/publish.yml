@@ -54,7 +54,7 @@ jobs:
     container: whatwewant/node-builder:v16-1.4.5
 
     # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:     
+    steps:
       - name: Get Current Date
         id: date
         run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
@@ -63,10 +63,13 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: '0'
-          
+
       - name: Fix Git Permissions
         run: git config --global --add safe.directory $PWD
-          
+
+      - name: Config gitß
+        run: zmicro config git Zero tobewhatwewant@outlook.com
+
       - name: Get ENV
         run: |
           env
