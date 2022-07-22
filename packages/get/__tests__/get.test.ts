@@ -125,4 +125,15 @@ describe('@zodash/get', () => {
 
     expect(get(res, 'data.data.0.z.n')).toEqual(false);
   });
+
+  it('nullable', () => {
+    const person = {
+      girl: {
+        parent: null,
+      },
+    };
+
+    expect(get(person, 'girl.parent.name')).toBe(undefined);
+    expect(get(person, 'girl.parent.parent.name')).toBe(undefined);
+  });
 });
