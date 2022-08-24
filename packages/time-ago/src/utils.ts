@@ -39,8 +39,8 @@ export function getLanguage(options: Options) {
   if (options?.language) {
     language = options.language.replace('-', '_');
   } else {
-    if (!isUndefined(window)) {
-      language = window.navigator?.language?.replace('-', '_');
+    if (!isUndefined(globalThis?.window)) {
+      language = globalThis?.window.navigator?.language?.replace('-', '_');
     }
   }
 

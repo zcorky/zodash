@@ -1,6 +1,6 @@
 {
   "name": "@zodash/match",
-  "version": "0.1.7",
+  "version": "0.1.10",
   "description": "match data, handlers with match key function",
   "keywords": [
     "match",
@@ -10,7 +10,7 @@
   "author": "zero <tobewhatwewant@gmail.com>",
   "homepage": "https://github.com/zcorky/zodash#readme",
   "license": "MIT",
-  "main": "lib/match.js",
+  "main": "lib/index.js",
   "directories": {
     "lib": "lib"
   },
@@ -43,8 +43,8 @@
     "coverageThreshold": {
       "global": {
         "branches": 80,
-        "functions": 90,
-        "lines": 90,
+        "functions": 70,
+        "lines": 80,
         "statements": -10
       }
     }

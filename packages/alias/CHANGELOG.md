@@ -3,6 +3,70 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.19](https://github.com/zcorky/zodash/compare/@zodash/alias@0.1.18...@zodash/alias@0.1.19) (2022-07-22)
+
+**Note:** Version bump only for package @zodash/alias
+
+
+
+
+
+## [0.1.18](https://github.com/zcorky/zodash/compare/@zodash/alias@0.1.17...@zodash/alias@0.1.18) (2022-01-13)
+
+**Note:** Version bump only for package @zodash/alias
+
+
+
+
+
+## [0.1.17](https://github.com/zcorky/zodash/compare/@zodash/alias@0.1.16...@zodash/alias@0.1.17) (2022-01-07)
+
+**Note:** Version bump only for package @zodash/alias
+
+
+
+
+
+## [0.1.16](https://github.com/zcorky/zodash/compare/@zodash/alias@0.1.15...@zodash/alias@0.1.16) (2022-01-06)
+
+**Note:** Version bump only for package @zodash/alias
+
+
+
+
+
+## [0.1.15](https://github.com/zcorky/zodash/compare/@zodash/alias@0.1.14...@zodash/alias@0.1.15) (2021-12-04)
+
+**Note:** Version bump only for package @zodash/alias
+
+
+
+
+
+## [0.1.14](https://github.com/zcorky/zodash/compare/@zodash/alias@0.1.13...@zodash/alias@0.1.14) (2021-11-24)
+
+**Note:** Version bump only for package @zodash/alias
+
+
+
+
+
+## [0.1.13](https://github.com/zcorky/zodash/compare/@zodash/alias@0.1.12...@zodash/alias@0.1.13) (2021-11-18)
+
+**Note:** Version bump only for package @zodash/alias
+
+
+
+
+
+## [0.1.12](https://github.com/zcorky/zodash/compare/@zodash/alias@0.1.11...@zodash/alias@0.1.12) (2021-11-14)
+
+**Note:** Version bump only for package @zodash/alias
+
+
+
+
+
 ## [0.1.11](https://github.com/zcorky/zodash/compare/@zodash/alias@0.1.10...@zodash/alias@0.1.11) (2021-09-22)
 
 **Note:** Version bump only for package @zodash/alias

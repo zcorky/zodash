@@ -109,11 +109,14 @@ export class Task<P> implements ITask {
     const value = this.runningTime.valueOf() / 1000;
     if (value >= 1 && value < SECONDS_A_MINUTE) {
       return `${~~value}s`;
-    } if (SECONDS_A_MINUTE <= value && value < SECONDS_A_HOUR) {
+    }
+    if (SECONDS_A_MINUTE <= value && value < SECONDS_A_HOUR) {
       return `${~~(value / SECONDS_A_MINUTE)}m`;
-    } if (SECONDS_A_HOUR <= value && value < SECONDS_A_DAY) {
+    }
+    if (SECONDS_A_HOUR <= value && value < SECONDS_A_DAY) {
       return `${~~(value / SECONDS_A_HOUR)}h`;
-    } if (SECONDS_A_DAY <= value) {
+    }
+    if (SECONDS_A_DAY <= value) {
       return `${~~(value / SECONDS_A_DAY)}d`;
     }
     return value;

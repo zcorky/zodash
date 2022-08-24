@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.17](https://github.com/zcorky/zodash/compare/@zodash/parallel-limit@0.2.16...@zodash/parallel-limit@0.2.17) (2022-04-04)
+
+**Note:** Version bump only for package @zodash/parallel-limit
+
+
+
+
+
+## [0.2.16](https://github.com/zcorky/zodash/compare/@zodash/parallel-limit@0.2.15...@zodash/parallel-limit@0.2.16) (2022-02-04)
+
+**Note:** Version bump only for package @zodash/parallel-limit
+
+
+
+
+
+## [0.2.15](https://github.com/zcorky/zodash/compare/@zodash/parallel-limit@0.2.14...@zodash/parallel-limit@0.2.15) (2022-02-03)
+
+**Note:** Version bump only for package @zodash/parallel-limit
+
+
+
+
+
+## [0.2.14](https://github.com/zcorky/zodash/compare/@zodash/parallel-limit@0.2.13...@zodash/parallel-limit@0.2.14) (2021-12-04)
+
+**Note:** Version bump only for package @zodash/parallel-limit
+
+
+
+
+
 ## [0.2.13](https://github.com/zcorky/zodash/compare/@zodash/parallel-limit@0.2.12...@zodash/parallel-limit@0.2.13) (2021-09-22)
 
 **Note:** Version bump only for package @zodash/parallel-limit

@@ -4,7 +4,7 @@ const base64 = new Base64();
 
 /**
  * Encode raw string to base64
- * 
+ *
  * @param input raw string
  * @returns encoded string
  */
@@ -14,7 +14,7 @@ export function encode(input: string) {
 
 /**
  * Decode base64 to raw string
- * 
+ *
  * @param input encoded string
  * @returns raw string
  */

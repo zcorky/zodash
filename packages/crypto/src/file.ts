@@ -10,13 +10,16 @@ export function signature(
 ) {
   return new Promise((resolve, reject) => {
     const hash = crypto.createHash(algorithm);
-    const stream = typeof pathOrStream !== 'string'
-      ? pathOrStream
-      : fs.createReadStream(pathOrStream);
+    const stream =
+      typeof pathOrStream !== 'string'
+        ? pathOrStream
+        : fs.createReadStream(pathOrStream);
 
     stream.on('error', reject);
 
-    stream.on('end', () => resolve(hash.digest(encoding || DEFAULT_ENCODING)));
+    stream.on('end', () =>
+      resolve(hash.digest(encoding || DEFAULT_ENCODING)),
+    );
 
     stream.on('data', (chunk) => {
       hash.update(chunk);
@@ -26,11 +29,11 @@ export function signature(
 
 export function md5(
   path: string,
-  encoding?: crypto.HexBase64Latin1Encoding
+  encoding?: crypto.HexBase64Latin1Encoding,
 ): Promise<string>;
 export function md5(
   stream: fs.ReadStream,
-  encoding?: crypto.HexBase64Latin1Encoding
+  encoding?: crypto.HexBase64Latin1Encoding,
 ): Promise<string>;
 export function md5(
   pathOrStream: string | fs.ReadStream,
@@ -41,11 +44,11 @@ export function md5(
 
 export function sha1(
   path: string,
-  encoding?: crypto.HexBase64Latin1Encoding
+  encoding?: crypto.HexBase64Latin1Encoding,
 ): Promise<string>;
 export function sha1(
   stream: fs.ReadStream,
-  encoding?: crypto.HexBase64Latin1Encoding
+  encoding?: crypto.HexBase64Latin1Encoding,
 ): Promise<string>;
 export function sha1(
   pathOrStream: string | fs.ReadStream,
@@ -56,11 +59,11 @@ export function sha1(
 
 export function sha256(
   path: string,
-  encoding?: crypto.HexBase64Latin1Encoding
+  encoding?: crypto.HexBase64Latin1Encoding,
 ): Promise<string>;
 export function sha256(
   stream: fs.ReadStream,
-  encoding?: crypto.HexBase64Latin1Encoding
+  encoding?: crypto.HexBase64Latin1Encoding,
 ): Promise<string>;
 export function sha256(
   pathOrStream: string | fs.ReadStream,
@@ -71,11 +74,11 @@ export function sha256(
 
 export function sha384(
   path: string,
-  encoding?: crypto.HexBase64Latin1Encoding
+  encoding?: crypto.HexBase64Latin1Encoding,
 ): Promise<string>;
 export function sha384(
   stream: fs.ReadStream,
-  encoding?: crypto.HexBase64Latin1Encoding
+  encoding?: crypto.HexBase64Latin1Encoding,
 ): Promise<string>;
 export function sha384(
   pathOrStream: string | fs.ReadStream,
@@ -86,11 +89,11 @@ export function sha384(
 
 export function sha512(
   path: string,
-  encoding?: crypto.HexBase64Latin1Encoding
+  encoding?: crypto.HexBase64Latin1Encoding,
 ): Promise<string>;
 export function sha512(
   stream: fs.ReadStream,
-  encoding?: crypto.HexBase64Latin1Encoding
+  encoding?: crypto.HexBase64Latin1Encoding,
 ): Promise<string>;
 export function sha512(
   pathOrStream: string | fs.ReadStream,

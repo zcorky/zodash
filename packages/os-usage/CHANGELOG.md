@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.5](https://github.com/zcorky/zodash/compare/@zodash/os-usage@0.0.4...@zodash/os-usage@0.0.5) (2022-04-04)
+
+
+### Bug Fixes
+
+* **os-usage:** test ok ([80131fe](https://github.com/zcorky/zodash/commit/80131fee44843af2309479a7ec82d88b821f2434))
+
+
+
+
+
 ## [0.0.4](https://github.com/zcorky/zodash/compare/@zodash/os-usage@0.0.3...@zodash/os-usage@0.0.4) (2021-09-22)
 
 **Note:** Version bump only for package @zodash/os-usage

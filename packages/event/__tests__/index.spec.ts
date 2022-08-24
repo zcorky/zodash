@@ -27,7 +27,6 @@ describe('event', () => {
 
   it('once/emit', () => {
     const datahub = [];
-
     expect(eventPoll.listeners[eventName]).toBeUndefined();
     eventPoll.emit(eventName, 1);
     expect(datahub).toEqual([]);

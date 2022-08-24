@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.9](https://github.com/zcorky/zodash/compare/@zodash/mail@0.0.8...@zodash/mail@0.0.9) (2022-04-04)
+
+**Note:** Version bump only for package @zodash/mail
+
+
+
+
+
 ## [0.0.8](https://github.com/zcorky/zodash/compare/@zodash/mail@0.0.7...@zodash/mail@0.0.8) (2021-09-22)
 
 **Note:** Version bump only for package @zodash/mail

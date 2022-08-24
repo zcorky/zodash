@@ -1,6 +1,6 @@
 {
   "name": "@zodash/sha256",
-  "version": "0.0.6",
+  "version": "0.0.11",
   "description": "Simple sha256 algorithm",
   "keywords": [
     "zodash",

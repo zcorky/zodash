@@ -1,5 +1,9 @@
 import { toPath } from '@zodash/to-path';
-import { undefined as isUndef, array as isArray } from '@zcorky/is';
+import {
+  undefined as isUndef,
+  array as isArray,
+  nul as isNull,
+} from '@zcorky/is';
 
 /**
  * Template Literal Types
@@ -57,7 +61,7 @@ export type GetFieldType<T, P> = P extends `${infer Left}.${infer Right}`
 export function get<
   Obj extends object,
   Path extends string,
-  Default = GetFieldType<Obj, Path>,
+  Default = GetFieldType<Obj, Path>
 >(
   value: Obj,
   path: Path,
@@ -73,7 +77,7 @@ function getValue(
   paths: string[],
   currentIndex = 0,
 ) {
-  if (isUndef(parent)) return undefined;
+  if (isUndef(parent) || isNull(parent)) return undefined;
 
   const token = paths[currentIndex];
   const nextToken = paths[currentIndex + 1];

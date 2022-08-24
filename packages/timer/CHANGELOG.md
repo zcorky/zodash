@@ -3,6 +3,57 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.15](https://github.com/zcorky/zodash/compare/@zodash/timer@0.0.14...@zodash/timer@0.0.15) (2022-04-04)
+
+**Note:** Version bump only for package @zodash/timer
+
+
+
+
+
+## [0.0.14](https://github.com/zcorky/zodash/compare/@zodash/timer@0.0.13...@zodash/timer@0.0.14) (2022-02-04)
+
+**Note:** Version bump only for package @zodash/timer
+
+
+
+
+
+## [0.0.13](https://github.com/zcorky/zodash/compare/@zodash/timer@0.0.12...@zodash/timer@0.0.13) (2022-02-03)
+
+**Note:** Version bump only for package @zodash/timer
+
+
+
+
+
+## [0.0.12](https://github.com/zcorky/zodash/compare/@zodash/timer@0.0.11...@zodash/timer@0.0.12) (2021-12-17)
+
+**Note:** Version bump only for package @zodash/timer
+
+
+
+
+
+## [0.0.11](https://github.com/zcorky/zodash/compare/@zodash/timer@0.0.10...@zodash/timer@0.0.11) (2021-12-16)
+
+
+### Bug Fixes
+
+* **idcard:** upgrade moment ([62d376d](https://github.com/zcorky/zodash/commit/62d376d76c4e2d6ebca4ade0b6f4317478466eec))
+
+
+
+
+
+## [0.0.10](https://github.com/zcorky/zodash/compare/@zodash/timer@0.0.9...@zodash/timer@0.0.10) (2021-12-04)
+
+**Note:** Version bump only for package @zodash/timer
+
+
+
+
+
 ## [0.0.9](https://github.com/zcorky/zodash/compare/@zodash/timer@0.0.8...@zodash/timer@0.0.9) (2021-09-22)
 
 **Note:** Version bump only for package @zodash/timer

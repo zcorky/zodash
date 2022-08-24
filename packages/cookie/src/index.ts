@@ -29,14 +29,17 @@ export function set(
   value: string | number | boolean | null,
   options?: ISetOptions,
 ) {
-  const maxAge = isNull(value) || typeof value === 'undefined'
-    ? 0
-    : options?.maxAge ?? DEFAULT_MAX_AGE;
+  const maxAge =
+    isNull(value) || typeof value === 'undefined'
+      ? 0
+      : options?.maxAge ?? DEFAULT_MAX_AGE;
 
   const domainStr = options?.domain ? `;domain=${options.domain}` : '';
   const pathStr = options?.path ? `;path=${options.path}` : '';
   const secureStr = options?.secure ? ';secure' : '';
-  const sameSiteStr = options?.sameSite ? `;samesite=${options.sameSite}` : '';
+  const sameSiteStr = options?.sameSite
+    ? `;samesite=${options.sameSite}`
+    : '';
   let expiresStr = '';
 
   // remove or ignore cookie

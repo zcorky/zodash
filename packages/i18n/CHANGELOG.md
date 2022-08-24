@@ -3,6 +3,54 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.18](https://github.com/zcorky/zodash/compare/@zodash/i18n@0.0.17...@zodash/i18n@0.0.18) (2022-07-22)
+
+**Note:** Version bump only for package @zodash/i18n
+
+
+
+
+
+## [0.0.17](https://github.com/zcorky/zodash/compare/@zodash/i18n@0.0.16...@zodash/i18n@0.0.17) (2022-05-28)
+
+**Note:** Version bump only for package @zodash/i18n
+
+
+
+
+
+## [0.0.16](https://github.com/zcorky/zodash/compare/@zodash/i18n@0.0.15...@zodash/i18n@0.0.16) (2022-01-13)
+
+**Note:** Version bump only for package @zodash/i18n
+
+
+
+
+
+## [0.0.15](https://github.com/zcorky/zodash/compare/@zodash/i18n@0.0.14...@zodash/i18n@0.0.15) (2022-01-07)
+
+**Note:** Version bump only for package @zodash/i18n
+
+
+
+
+
+## [0.0.14](https://github.com/zcorky/zodash/compare/@zodash/i18n@0.0.13...@zodash/i18n@0.0.14) (2022-01-06)
+
+**Note:** Version bump only for package @zodash/i18n
+
+
+
+
+
+## [0.0.13](https://github.com/zcorky/zodash/compare/@zodash/i18n@0.0.12...@zodash/i18n@0.0.13) (2021-12-04)
+
+**Note:** Version bump only for package @zodash/i18n
+
+
+
+
+
 ## [0.0.12](https://github.com/zcorky/zodash/compare/@zodash/i18n@0.0.11...@zodash/i18n@0.0.12) (2021-09-22)
 
 **Note:** Version bump only for package @zodash/i18n

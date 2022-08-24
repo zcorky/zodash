@@ -4,14 +4,14 @@
  *   第二步，将这24个二进制位分为四组，每个组有6个二进制位
  *   第三步，在每组前面加两个00，扩展成32个二进制位，即四个字节
  *   第四步，根据 Base64 索引表，得到扩展后的每个字节的对应符号，这就是Base64的编码值
- *   
+ *
  * Reference:
  *  通过小实例讲解 base64 原理: https://mp.weixin.qq.com/s/lVJhW5KYtfXdjCEhXVn51g
  *  字符编码笔记：ASCII，Unicode 和 UTF-8: http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html
  *  Base64 Wikipedia: https://zh.wikipedia.org/wiki/Base64
  *  Base64笔记: http://www.ruanyifeng.com/blog/2008/06/base64.html
  *  Base64 RFC (rfc4648): https://tools.ietf.org/html/rfc4648
- * 
+ *
  * @TODO emoji is broken, use Buffer or @zodash/base64 or js-base64 instead of
  */
 import utf8 from '@zodash/utf8';
@@ -28,7 +28,8 @@ export interface IBase64Options {
 
 type Byte = number;
 
-const DEFAULT_ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
+const DEFAULT_ALPHABET =
+  'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
 const DEFAULT_PADDING = '=';
 
 export class Base64 implements IBase64 {
@@ -67,24 +68,23 @@ export class Base64 implements IBase64 {
     const bytes = utf8.encode(input, 'bytes');
 
     // utf8 string 按每 3 个字符为一组分组
-    const group3s = bytes
-      .reduce((all, charCode, index) => {
-        const group = ~~(index / this.codeCharsLength);
-        const groupIndex = index % this.codeCharsLength;
-        if (!all[group]) {
-          all[group] = [];
-        }
+    const group3s = bytes.reduce((all, charCode, index) => {
+      const group = ~~(index / this.codeCharsLength);
+      const groupIndex = index % this.codeCharsLength;
+      if (!all[group]) {
+        all[group] = [];
+      }
 
-        all[group][groupIndex] = charCode; // char.charCodeAt(0);
-        return all;
-      }, [] as number[][]);
+      all[group][groupIndex] = charCode; // char.charCodeAt(0);
+      return all;
+    }, [] as number[][]);
 
     // 每组 3 个字符
     //  每 3 个字符共 24 位，按 6 位一组，可为 4 组，也就是 4 个字符
     return group3s
-      .map(group => {
+      .map((group) => {
         const [char1, char2, char3] = group;
-        
+
         const alphabetCharCodes = [
           char1 >> 2,
           ((char1 & 0b11) << 4) | (char2 >> 4),
@@ -99,7 +99,7 @@ export class Base64 implements IBase64 {
         }
 
         return alphabetCharCodes
-          .map(charCode => this.getAlphabetCharByCharCode(charCode))
+          .map((charCode) => this.getAlphabetCharByCharCode(charCode))
           .join('');
       })
       .join('');
@@ -114,15 +114,14 @@ export class Base64 implements IBase64 {
     let bytes: Byte[] = [];
     while (i < _input.length) {
       const alphaChars = _input.substr(i, this.dataCharsLength);
-      const alphaCodes = alphaChars
-        .split('')
-        .map(alphaChar => {
-          return this.getCharCodeByAlphabet(alphaChar);
-        });
+      const alphaCodes = alphaChars.split('').map((alphaChar) => {
+        return this.getCharCodeByAlphabet(alphaChar);
+      });
 
       const charCode1 = (alphaCodes[0] << 2) | (alphaCodes[1] >> 4);
-      const charCode2 = ((alphaCodes[1] & 0b1111) << 4) | (alphaCodes[2] >> 2);
-      const charCode3 = (alphaCodes[2] & 0b11) << 6 | alphaCodes[3];
+      const charCode2 =
+        ((alphaCodes[1] & 0b1111) << 4) | (alphaCodes[2] >> 2);
+      const charCode3 = ((alphaCodes[2] & 0b11) << 6) | alphaCodes[3];
 
       const group = [charCode1];
       if (alphaCodes[2] !== -1) {

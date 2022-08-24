@@ -1,4 +1,5 @@
 import { delay } from '@zodash/delay';
+import { timeout } from '@zodash/timeout';
 
 export interface IOptions {
   /**
@@ -7,29 +8,35 @@ export interface IOptions {
   times: number;
 
   /**
-   * Delay Ms (MiliSeconds)
+   * Retry Interval (MiliSeconds)
    */
-  delay?: number;
+  interval?: number;
+
+  /**
+   * Retry Timeout
+   */
+  timeout?: number;
 }
 
 export async function retry<R extends any>(
   fn: () => Promise<R>,
   options?: IOptions,
 ) {
-  const times = options?.times ?? 0;
-  const delayMs = options?.delay ?? 0;
+  const _retries = options?.times ?? 0;
+  const _interval = options?.interval ?? 0;
+  const _timeout = options?.timeout ?? 5 * 60 * 1000;
 
-  for (let i = times; i >= 0; i--) {
+  for (let i = _retries; i >= 0; i--) {
     try {
-      return await fn();
+      return await timeout(fn, { ms: _timeout });
     } catch (error) {
       if (i === 0) {
         throw error;
       }
 
       // retry after
-      if (delayMs) {
-        await delay(delayMs);
+      if (_interval) {
+        await delay(_interval);
       }
     }
   }

@@ -3,6 +3,57 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.26](https://github.com/zcorky/zodash/compare/@zodash/crypto@0.1.25...@zodash/crypto@0.1.26) (2022-05-15)
+
+
+### Bug Fixes
+
+* codecov Cannot read property startsWith of undefined (issue: https://github.com/codecov/codecov-node/issues/324) ([2a4fad6](https://github.com/zcorky/zodash/commit/2a4fad6b806c2d4497ac4d978b299a4bcd2f61bd))
+
+
+
+
+
+## [0.1.25](https://github.com/zcorky/zodash/compare/@zodash/crypto@0.1.24...@zodash/crypto@0.1.25) (2022-01-13)
+
+**Note:** Version bump only for package @zodash/crypto
+
+
+
+
+
+## [0.1.24](https://github.com/zcorky/zodash/compare/@zodash/crypto@0.1.23...@zodash/crypto@0.1.24) (2022-01-07)
+
+**Note:** Version bump only for package @zodash/crypto
+
+
+
+
+
+## [0.1.23](https://github.com/zcorky/zodash/compare/@zodash/crypto@0.1.22...@zodash/crypto@0.1.23) (2022-01-06)
+
+**Note:** Version bump only for package @zodash/crypto
+
+
+
+
+
+## [0.1.22](https://github.com/zcorky/zodash/compare/@zodash/crypto@0.1.21...@zodash/crypto@0.1.22) (2022-01-03)
+
+**Note:** Version bump only for package @zodash/crypto
+
+
+
+
+
+## [0.1.21](https://github.com/zcorky/zodash/compare/@zodash/crypto@0.1.20...@zodash/crypto@0.1.21) (2021-12-04)
+
+**Note:** Version bump only for package @zodash/crypto
+
+
+
+
+
 ## [0.1.20](https://github.com/zcorky/zodash/compare/@zodash/crypto@0.1.19...@zodash/crypto@0.1.20) (2021-09-22)
 
 **Note:** Version bump only for package @zodash/crypto

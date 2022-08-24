@@ -10,6 +10,11 @@ const DEFAULT_SEPERATOR: Seperator = {
   end: '}',
 };
 
+export interface FormatOptions {
+  seperator?: Seperator;
+  default?: string;
+}
+
 /**
  * Format string
  *
@@ -24,8 +29,16 @@ const DEFAULT_SEPERATOR: Seperator = {
 export function format(
   text: string,
   mapOrFn: Record<string, any> | ((key: string, text: string) => any),
-  seperator: Seperator = DEFAULT_SEPERATOR,
+  options?: FormatOptions,
 ) {
+  const seperator = options?.seperator ?? DEFAULT_SEPERATOR;
+  const defaultValue = options?.default || '';
+
+  // /users/:id/profile
+  if (text.indexOf('/:') != -1) {
+    return formatUrl(text, mapOrFn);
+  }
+
   const seperatorStart = seperator.start;
   const SeperatorEnd = seperator.end;
   const pattern = new RegExp(
@@ -37,5 +50,18 @@ export function format(
     return text.replace(pattern, (_, key) => mapOrFn(key, text));
   }
 
-  return text.replace(pattern, (_, key) => get(mapOrFn, key, ''));
+  return text.replace(pattern, (_, key) => get(mapOrFn, key, defaultValue));
+}
+
+export function formatUrl(
+  urlTemplate: string,
+  mapOrFn: Record<string, any> | ((key: string, text: string) => any),
+) {
+  if (typeof mapOrFn === 'function') {
+    return urlTemplate.replace(/:([^/]+)/g, (_, key) =>
+      mapOrFn(key, urlTemplate),
+    );
+  }
+
+  return urlTemplate.replace(/:([^/]+)/g, (_, key) => get(mapOrFn, key));
 }

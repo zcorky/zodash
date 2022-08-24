@@ -1,6 +1,6 @@
 {
   "name": "@zodash/signature",
-  "version": "0.3.2",
+  "version": "1.0.2",
   "description": "Simple signature algorithm, support md5/sha1/sha256/sha512",
   "keywords": [
     "zodash",
@@ -66,10 +66,6 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "@zcorky/query-string": "^1.0.2",
-    "@zodash/hmac": "^0.0.6",
-    "@zodash/sha1": "^0.0.6",
-    "@zodash/sha256": "^0.0.6",
-    "@zodash/sha512": "^0.0.6"
+    "@znode/sign": "^0.3.6"
   }
 }

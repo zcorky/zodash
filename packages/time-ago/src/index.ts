@@ -18,6 +18,14 @@ export function timeAgo(ago: Date | number, options?: Options) {
   const _ago = getAgo(ago);
   const _now = getNow(options);
 
+  if (_ago <= new Date(1970, 1, 1, 0, 0, 0)) {
+    throw new Error(`invalid ago date(${ago})`);
+  }
+
+  if (_now <= new Date(1970, 1, 1, 0, 0, 0)) {
+    throw new Error(`invalid now date(${_now})`);
+  }
+
   const { pattern, diff } = getPatternAndTimediff(_now, _ago);
   const language = getLanguage(options);
   i18n.setLocale(language);

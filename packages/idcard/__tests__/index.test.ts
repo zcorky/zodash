@@ -7,7 +7,7 @@ describe('@zodash/idcard', () => {
     expect(id.toJSON()).toEqual({
       address: '广东省深圳市盐田区',
       birthday: '1999-01-10',
-      age: 22,
+      age: new Date().getFullYear() - 1999,
       sex: 1,
     });
 
@@ -16,7 +16,7 @@ describe('@zodash/idcard', () => {
       list: ['广东省', '深圳市', '盐田区'],
     });
     expect(id.getBirthday()).toEqual('1999-01-10');
-    expect(id.getAge()).toEqual(22);
+    expect(id.getAge()).toEqual(new Date().getFullYear() - 1999);
     expect(id.getSex()).toEqual(1);
     expect(id.getCheckCode()).toEqual('2');
     expect(id.length()).toEqual(18);

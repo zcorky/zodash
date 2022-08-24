@@ -3,6 +3,49 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.14](https://github.com/zcorky/zodash/compare/@zodash/template@0.2.13...@zodash/template@0.2.14) (2022-07-22)
+
+**Note:** Version bump only for package @zodash/template
+
+
+
+
+
+## [0.2.13](https://github.com/zcorky/zodash/compare/@zodash/template@0.2.12...@zodash/template@0.2.13) (2022-05-28)
+
+
+### Bug Fixes
+
+* **template:** test ok ([1eb31d6](https://github.com/zcorky/zodash/commit/1eb31d6ef90a4aa7a60b5d7c6d41707ee961aeb1))
+
+
+
+
+
+## [0.2.12](https://github.com/zcorky/zodash/compare/@zodash/template@0.2.11...@zodash/template@0.2.12) (2022-01-13)
+
+**Note:** Version bump only for package @zodash/template
+
+
+
+
+
+## [0.2.11](https://github.com/zcorky/zodash/compare/@zodash/template@0.2.10...@zodash/template@0.2.11) (2022-01-07)
+
+**Note:** Version bump only for package @zodash/template
+
+
+
+
+
+## [0.2.10](https://github.com/zcorky/zodash/compare/@zodash/template@0.2.9...@zodash/template@0.2.10) (2022-01-06)
+
+**Note:** Version bump only for package @zodash/template
+
+
+
+
+
 ## [0.2.9](https://github.com/zcorky/zodash/compare/@zodash/template@0.2.8...@zodash/template@0.2.9) (2021-09-22)
 
 **Note:** Version bump only for package @zodash/template

@@ -9,7 +9,7 @@ const base32 = new Nibbler({
 
 /**
  * Encode raw string to base32
- * 
+ *
  * @param input raw string
  * @returns encoded string
  */
@@ -19,7 +19,7 @@ export function encode(input: string) {
 
 /**
  * Decode base32 to raw string
- * 
+ *
  * @param input encoded string
  * @returns raw string
  */

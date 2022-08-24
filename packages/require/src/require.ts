@@ -18,7 +18,7 @@ export interface ModFn {
     requirejs: Require,
     module: Mod,
     __filename?: string,
-    __dirname?: string
+    __dirname?: string,
   ): void;
   // exports?: any;
 }
@@ -81,9 +81,9 @@ requirejs.resolve = (name: string) => {
   const index_js = `${name}/index.js`;
 
   return (
-    (requirejs.modules[base_js] && base_js)
-    || (requirejs.modules[index_js] && index_js)
-    || base
+    (requirejs.modules[base_js] && base_js) ||
+    (requirejs.modules[index_js] && index_js) ||
+    base
   );
 };
 
@@ -116,11 +116,12 @@ requirejs.relative = (path: string, parent: string) => {
   return paths.join('/');
 };
 
-requirejs._makeRequire = (parent: string) => function require(path: string) {
-  const relativePath = requirejs.relative(path, parent);
+requirejs._makeRequire = (parent: string) =>
+  function require(path: string) {
+    const relativePath = requirejs.relative(path, parent);
 
-  return requirejs(relativePath);
-};
+    return requirejs(relativePath);
+  };
 
 requirejs.filename = (path: string) => requirejs.resolve(path);
 

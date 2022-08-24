@@ -27,6 +27,9 @@ function createTree(
   }
 
   if (!parentNode.children[currentPath]) {
+    // parentNode.children[currentPath] = {
+    //   path: [parentNode?.path.slice(1) ?? '', currentPath].join('/'),
+    // } as any;
     parentNode.children[currentPath] = {} as any;
   }
 

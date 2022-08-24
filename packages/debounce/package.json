@@ -1,6 +1,6 @@
 {
   "name": "@zodash/debounce",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Debounce functions",
   "keywords": [
     "throttle",
@@ -68,7 +68,8 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "devDependencies": {
-    "@zcorky/deep-equal": "^0.0.1"
+    "@zcorky/deep-equal": "^0.0.1",
+    "lolex": "^6.0.0"
   },
   "dependencies": {
     "@zcorky/debounce": "^1.0.2"

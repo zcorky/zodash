@@ -19,7 +19,7 @@ export function number(max = 10, min = 0) {
 
 /**
  * Produce a random string
- * 
+ *
  * @param length  string length, default 10
  * @param feeds   feeds string, default abcdef0123456789
  */

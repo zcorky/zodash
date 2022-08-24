@@ -61,7 +61,11 @@ export function hmacSHA1(text: string, secret: string, encoding?: Encoding) {
  * @param secret secret
  * @param encoding output encoding, default: hex
  */
-export function hmacSHA224(text: string, secret: string, encoding?: Encoding) {
+export function hmacSHA224(
+  text: string,
+  secret: string,
+  encoding?: Encoding,
+) {
   return encrypt('sha224', text, secret, encoding);
 }
 
@@ -72,7 +76,11 @@ export function hmacSHA224(text: string, secret: string, encoding?: Encoding) {
  * @param secret secret
  * @param encoding output encoding, default: hex
  */
-export function hmacSHA256(text: string, secret: string, encoding?: Encoding) {
+export function hmacSHA256(
+  text: string,
+  secret: string,
+  encoding?: Encoding,
+) {
   return encrypt('sha256', text, secret, encoding);
 }
 
@@ -83,7 +91,11 @@ export function hmacSHA256(text: string, secret: string, encoding?: Encoding) {
  * @param secret secret
  * @param encoding output encoding, default: hex
  */
-export function hmacSHA384(text: string, secret: string, encoding?: Encoding) {
+export function hmacSHA384(
+  text: string,
+  secret: string,
+  encoding?: Encoding,
+) {
   return encrypt('sha384', text, secret, encoding);
 }
 
@@ -94,7 +106,11 @@ export function hmacSHA384(text: string, secret: string, encoding?: Encoding) {
  * @param secret secret
  * @param encoding output encoding, default: hex
  */
-export function hmacSHA512(text: string, secret: string, encoding?: Encoding) {
+export function hmacSHA512(
+  text: string,
+  secret: string,
+  encoding?: Encoding,
+) {
   return encrypt('sha512', text, secret, encoding);
 }
 

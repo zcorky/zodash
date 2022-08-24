@@ -9,7 +9,7 @@ export interface IOptions {
 export async function download(
   url: string,
   filename = `${Date.now()}`,
-  options?: IOptions
+  options?: IOptions,
 ) {
   const response = await fetch(url, {
     method: options?.method,

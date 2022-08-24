@@ -3,6 +3,62 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.19](https://github.com/zcorky/zodash/compare/@zodash/hotkeys@0.0.18...@zodash/hotkeys@0.0.19) (2022-04-04)
+
+**Note:** Version bump only for package @zodash/hotkeys
+
+
+
+
+
+## [0.0.18](https://github.com/zcorky/zodash/compare/@zodash/hotkeys@0.0.17...@zodash/hotkeys@0.0.18) (2022-02-04)
+
+**Note:** Version bump only for package @zodash/hotkeys
+
+
+
+
+
+## [0.0.17](https://github.com/zcorky/zodash/compare/@zodash/hotkeys@0.0.16...@zodash/hotkeys@0.0.17) (2022-02-03)
+
+**Note:** Version bump only for package @zodash/hotkeys
+
+
+
+
+
+## [0.0.16](https://github.com/zcorky/zodash/compare/@zodash/hotkeys@0.0.15...@zodash/hotkeys@0.0.16) (2021-12-17)
+
+**Note:** Version bump only for package @zodash/hotkeys
+
+
+
+
+
+## [0.0.15](https://github.com/zcorky/zodash/compare/@zodash/hotkeys@0.0.14...@zodash/hotkeys@0.0.15) (2021-12-16)
+
+**Note:** Version bump only for package @zodash/hotkeys
+
+
+
+
+
+## [0.0.14](https://github.com/zcorky/zodash/compare/@zodash/hotkeys@0.0.13...@zodash/hotkeys@0.0.14) (2021-12-04)
+
+**Note:** Version bump only for package @zodash/hotkeys
+
+
+
+
+
+## [0.0.13](https://github.com/zcorky/zodash/compare/@zodash/hotkeys@0.0.12...@zodash/hotkeys@0.0.13) (2021-10-27)
+
+**Note:** Version bump only for package @zodash/hotkeys
+
+
+
+
+
 ## [0.0.12](https://github.com/zcorky/zodash/compare/@zodash/hotkeys@0.0.11...@zodash/hotkeys@0.0.12) (2021-09-22)
 
 **Note:** Version bump only for package @zodash/hotkeys

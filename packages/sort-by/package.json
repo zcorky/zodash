@@ -1,6 +1,6 @@
 {
   "name": "@zodash/sort-by",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Multiple Field Sorter, support ASC + DESC",
   "keywords": [
     "zodash",

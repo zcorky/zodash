@@ -1,6 +1,6 @@
 {
   "name": "@zodash/bankcard",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "chinese bank card parser, generator and validator, inspired by bankcardinfo",
   "keywords": [
     "zodash",
@@ -70,8 +70,8 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "@zodash/find": "^0.1.8",
-    "@zodash/random": "^1.2.11"
+    "@zodash/find": "^0.1.9",
+    "@zodash/random": "^1.2.12"
   },
   "devDependencies": {
     "@zodash/repeat": "^0.0.6"

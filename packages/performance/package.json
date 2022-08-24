@@ -1,6 +1,6 @@
 {
   "name": "@zodash/performance",
-  "version": "0.1.20",
+  "version": "0.1.26",
   "description": "calc performance",
   "keywords": [
     "zodash",
@@ -66,6 +66,6 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "@zodash/crypto": "^0.1.20"
+    "@zodash/crypto": "^0.1.26"
   }
 }

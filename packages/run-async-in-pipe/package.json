@@ -1,6 +1,6 @@
 {
   "name": "@zodash/run-async-in-pipe",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Runs an array of async function (method return promise) in pipe",
   "keywords": [
     "zodash",

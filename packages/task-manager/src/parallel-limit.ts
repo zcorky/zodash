@@ -14,7 +14,8 @@ export function parallelLimit(
       // if rest === 0, parallel task run, not allow run new parallel task
       nextTick(poll);
       return;
-    } if (tasks.isEmpty()) {
+    }
+    if (tasks.isEmpty()) {
       //  task queue empty and all task done
       if (rest === limit) {
         done();

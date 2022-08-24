@@ -1,6 +1,6 @@
 {
   "name": "@zodash/os-usage",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "os cpu/memory/disk usage",
   "keywords": [
     "zodash",
@@ -69,11 +69,6 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "@zodash/cache": "^0.0.6",
-    "qrcode": "^1.4.4",
-    "qrcode-terminal": "^0.12.0"
-  },
-  "devDependencies": {
-    "@types/qrcode": "^1.3.5"
+    "@znode/os-usage": "^1.0.3"
   }
 }

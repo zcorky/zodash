@@ -1,3 +1,4 @@
+import { delay } from '@zodash/delay';
 import retry from '../src';
 
 describe('@zodash/Container', () => {
@@ -70,7 +71,7 @@ describe('@zodash/Container', () => {
       .resolves.not.toThrowError();
   });
 
-  it('delay', async () => {
+  it('interval', async () => {
     let i = 0;
 
     const fn = async () => {
@@ -89,7 +90,23 @@ describe('@zodash/Container', () => {
 
     i = 0;
     startedAt = Date.now();
-    await retry(fn, { times: 2, delay: 100 });
+    await retry(fn, { times: 2, interval: 100 });
     expect(Date.now() - startedAt).toBeGreaterThan(100);
+  });
+
+  it('timeout', async () => {
+    const fn = async () => {
+      await delay(1000);
+    };
+
+    let catchedError: Error = null;
+
+    try {
+      await retry(fn, { times: 0, timeout: 10 });
+    } catch (error) {
+      catchedError = error;
+    }
+
+    expect(catchedError.message).toEqual('timeout');
   });
 });

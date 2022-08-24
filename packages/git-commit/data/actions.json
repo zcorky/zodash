@@ -1,0 +1,56 @@
+[
+  {
+    "type": "feat",
+    "description": "添加新功能",
+    "emoji": "✨",
+    "code": ":sparkles:"
+  },
+  {
+    "type": "fix",
+    "description": "修复 BUG",
+    "emoji": "🐛",
+    "code": ":bug:"
+  },
+  {
+    "type": "chore",
+    "description": "维护，如果你不知道选什么，那么很可能选它",
+    "emoji": "🔨",
+    "code": ":hammer:"
+  },
+  {
+    "type": "test",
+    "description": "添加、更新或修复测试",
+    "emoji": "✅",
+    "code": ":white_check_mark:"
+  },
+  {
+    "type": "docs",
+    "description": "更新文档",
+    "emoji": "📝",
+    "code": ":pencil:"
+  },
+  {
+    "type": "refactor",
+    "description": "代码重构",
+    "emoji": "♻️",
+    "code": ":recycle:"
+  },
+  {
+    "type": "perf",
+    "description": "提高性能",
+    "emoji": "⚡️",
+    "code": ":zap:"
+  },
+  {
+    "type": "ci",
+    "description": "添加或更新 CI 构建配置",
+    "emoji": "💚",
+    "code": ":green_heart:"
+  },
+  {
+    "type": "revert",
+    "description": "回滚代码",
+    "emoji": "⏪️",
+    "code": ":rewind:"
+  }
+]

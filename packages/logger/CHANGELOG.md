@@ -3,6 +3,73 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.32](https://github.com/zcorky/zodash/compare/@zodash/logger@0.2.31...@zodash/logger@0.2.32) (2022-07-22)
+
+**Note:** Version bump only for package @zodash/logger
+
+
+
+
+
+## [0.2.31](https://github.com/zcorky/zodash/compare/@zodash/logger@0.2.30...@zodash/logger@0.2.31) (2022-05-28)
+
+**Note:** Version bump only for package @zodash/logger
+
+
+
+
+
+## [0.2.30](https://github.com/zcorky/zodash/compare/@zodash/logger@0.2.29...@zodash/logger@0.2.30) (2022-01-13)
+
+**Note:** Version bump only for package @zodash/logger
+
+
+
+
+
+## [0.2.29](https://github.com/zcorky/zodash/compare/@zodash/logger@0.2.28...@zodash/logger@0.2.29) (2022-01-07)
+
+**Note:** Version bump only for package @zodash/logger
+
+
+
+
+
+## [0.2.28](https://github.com/zcorky/zodash/compare/@zodash/logger@0.2.27...@zodash/logger@0.2.28) (2022-01-06)
+
+**Note:** Version bump only for package @zodash/logger
+
+
+
+
+
+## [0.2.27](https://github.com/zcorky/zodash/compare/@zodash/logger@0.2.26...@zodash/logger@0.2.27) (2021-12-17)
+
+**Note:** Version bump only for package @zodash/logger
+
+
+
+
+
+## [0.2.26](https://github.com/zcorky/zodash/compare/@zodash/logger@0.2.25...@zodash/logger@0.2.26) (2021-12-16)
+
+
+### Bug Fixes
+
+* **idcard:** upgrade moment ([62d376d](https://github.com/zcorky/zodash/commit/62d376d76c4e2d6ebca4ade0b6f4317478466eec))
+
+
+
+
+
+## [0.2.25](https://github.com/zcorky/zodash/compare/@zodash/logger@0.2.24...@zodash/logger@0.2.25) (2021-12-04)
+
+**Note:** Version bump only for package @zodash/logger
+
+
+
+
+
 ## [0.2.24](https://github.com/zcorky/zodash/compare/@zodash/logger@0.2.23...@zodash/logger@0.2.24) (2021-09-22)
 
 **Note:** Version bump only for package @zodash/logger

@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.5](https://github.com/zcorky/zodash/compare/@zodash/get@1.2.4...@zodash/get@1.2.5) (2022-07-22)
+
+
+### Bug Fixes
+
+* **get:** nullable ([290b006](https://github.com/zcorky/zodash/commit/290b00601d731f25422468a09eaf81f1f17ca87a))
+
+
+
+
+
+## [1.2.4](https://github.com/zcorky/zodash/compare/@zodash/get@1.2.3...@zodash/get@1.2.4) (2022-01-13)
+
+**Note:** Version bump only for package @zodash/get
+
+
+
+
+
+## [1.2.3](https://github.com/zcorky/zodash/compare/@zodash/get@1.2.2...@zodash/get@1.2.3) (2022-01-07)
+
+**Note:** Version bump only for package @zodash/get
+
+
+
+
+
+## [1.2.2](https://github.com/zcorky/zodash/compare/@zodash/get@1.2.1...@zodash/get@1.2.2) (2022-01-06)
+
+**Note:** Version bump only for package @zodash/get
+
+
+
+
+
 ## [1.2.1](https://github.com/zcorky/zodash/compare/@zodash/get@1.2.0...@zodash/get@1.2.1) (2021-09-22)
 
 **Note:** Version bump only for package @zodash/get

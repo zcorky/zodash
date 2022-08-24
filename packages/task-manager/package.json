@@ -1,6 +1,6 @@
 {
   "name": "@zodash/task-manager",
-  "version": "0.1.9",
+  "version": "0.1.12",
   "description": "task manager",
   "keywords": [
     "cache",
@@ -68,8 +68,8 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "@zcorky/moment": "^1.0.11",
-    "@zodash/next-tick": "^0.1.8",
+    "@zcorky/moment": "^1.2.3",
+    "@zodash/next-tick": "^0.1.9",
     "@zodash/queue": "^0.1.9"
   },
   "devDependencies": {

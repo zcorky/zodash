@@ -1,6 +1,6 @@
 {
   "name": "@zodash/dom",
-  "version": "0.1.9",
+  "version": "0.1.16",
   "description": "DOM Utils",
   "keywords": [
     "zodash",
@@ -68,10 +68,10 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "@zcorky/moment": "^1.2.0",
+    "@zcorky/moment": "^1.2.3",
     "@zcorky/query-string": "^1.0.2",
     "@zodash/copy": "^0.0.4",
-    "@zodash/debounce": "^0.1.7",
-    "@zodash/event": "^0.1.8"
+    "@zodash/debounce": "^0.1.8",
+    "@zodash/event": "^0.1.12"
   }
 }

@@ -17,12 +17,15 @@
  *
  * toPath('a[].b.c')
  * // => ['a', '[]', 'b', 'c']
+ *
+ * toPath('SERVICE_CONFIG_ID', '_')
+ * // => ['SERVICE', 'CONFIG', 'ID']
  */
-export function toPath(pathString: string) {
+export function toPath(pathString: string, separator = '.') {
   if (!pathString) return [];
 
   return pathString
-    .replace(/\[(\w+)\]/g, '.$1')
-    .replace(/(\[\])/g, '.$1')
-    .split('.');
+    .replace(/\[(\w+)\]/g, `${separator}$1`)
+    .replace(/(\[\])/g, `${separator}$1`)
+    .split(separator);
 }

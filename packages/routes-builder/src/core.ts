@@ -1,7 +1,5 @@
 import { deepCopy } from '@zcorky/deep-copy';
-import {
-  NestRoutes, FlatRoutes, IndexRoutes, Route,
-} from './types';
+import { NestRoutes, FlatRoutes, IndexRoutes, Route } from './types';
 import { toNest, traverseNest, NestOptions as Options } from './to-nest';
 import { toIndex } from './to-index';
 import { toFlat } from './to-flat';
