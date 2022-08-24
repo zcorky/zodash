@@ -6,6 +6,13 @@ import { format } from '@zodash/format';
 // default length 1000
 let queue: Input[] = [];
 
+// @TODO
+// is browser
+// should do this in doreamon
+// if (typeof window !== 'undefined') {
+//     window.logger_queue = queue;
+// }
+
 interface Input {
   // enable?: boolean;
   engine?: IEngine;
