@@ -1,6 +1,6 @@
 {
   "name": "@zodash/git-commit",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Timeout a promise-returning or async function",
   "keywords": [
     "zodash",

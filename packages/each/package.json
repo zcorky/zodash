@@ -1,6 +1,6 @@
 {
   "name": "@zodash/each",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Iterate over elements of collection and invokes iterator for each element",
   "keywords": [
     "zodash",
@@ -68,6 +68,6 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "@zodash/reduce": "^1.1.10"
+    "@zodash/reduce": "^1.1.11"
   }
 }

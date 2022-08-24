@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/zcorky/zodash/compare/@zodash/load-script@0.1.13...@zodash/load-script@0.2.0) (2022-08-24)
+
+
+### Features
+
+* **load-script:** support custom attributes like integrity, crossorigin ([f9fd396](https://github.com/zcorky/zodash/commit/f9fd396dfabbba35cbd46c0930cadf5604b46f56))
+
+
+
+
+
 ## [0.1.13](https://github.com/zcorky/zodash/compare/@zodash/load-script@0.1.12...@zodash/load-script@0.1.13) (2021-09-22)
 
 **Note:** Version bump only for package @zodash/load-script

@@ -1,6 +1,6 @@
 {
   "name": "@zodash/captcha",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "A simple captcha",
   "keywords": [
     "zodash",
@@ -67,7 +67,7 @@
   },
   "dependencies": {
     "@zodash/cache": "^0.0.6",
-    "@zodash/random": "^1.2.12",
+    "@zodash/random": "^1.2.13",
     "svg-captcha": "^1.4.0"
   }
 }

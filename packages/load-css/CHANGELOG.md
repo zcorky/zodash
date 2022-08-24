@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.1.0](https://github.com/zcorky/zodash/compare/@zodash/load-css@0.0.8...@zodash/load-css@0.1.0) (2022-08-24)
+
+
+### Features
+
+* **load-css:** support custom attributes like integrity, crossorigin ([9d36121](https://github.com/zcorky/zodash/commit/9d36121587f9965abe7972bcb517025e48345d3b))
+
+
+
+
+
 ## [0.0.8](https://github.com/zcorky/zodash/compare/@zodash/load-css@0.0.7...@zodash/load-css@0.0.8) (2021-12-04)
 
 **Note:** Version bump only for package @zodash/load-css

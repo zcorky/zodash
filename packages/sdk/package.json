@@ -1,6 +1,6 @@
 {
   "name": "@zodash/sdk",
-  "version": "0.0.24",
+  "version": "0.0.25",
   "description": "A simple sdk base",
   "keywords": [
     "zodash",
@@ -67,8 +67,8 @@
   },
   "dependencies": {
     "@zodash/cache": "^0.0.6",
-    "@zodash/emitter": "^0.0.11",
-    "@zodash/logger": "^0.2.32",
+    "@zodash/emitter": "^0.0.12",
+    "@zodash/logger": "^0.2.33",
     "@zodash/memoize": "^1.1.7",
     "@zodash/storage": "^0.0.4",
     "axios": "^0.21.0"

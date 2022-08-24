@@ -1,6 +1,6 @@
 {
   "name": "@zodash/2fa",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "Two Factor Authentication",
   "keywords": [
     "zodash",
@@ -68,6 +68,6 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "@zodash/totp": "^0.0.12"
+    "@zodash/totp": "^0.0.13"
   }
 }
