@@ -5,6 +5,10 @@ const cache = Cache.create();
 export interface IOptions {
   // Default: true, but for jsonp, should set false
   enableCache?: boolean;
+  //
+  integrity?: string;
+  crossorigin?: string;
+  [key: string]: any;
 }
 
 /**
@@ -13,7 +17,7 @@ export interface IOptions {
  * @param path script path
  */
 export function loadScript(path: string, options?: IOptions) {
-  const enableCache = options?.enableCache ?? true;
+  const { enableCache = true, ...attributes } = options ?? {};
 
   return new Promise<void>((resolve, reject) => {
     if (enableCache && cache.get(path)) {
@@ -21,6 +25,11 @@ export function loadScript(path: string, options?: IOptions) {
     }
 
     const script = document.createElement('script');
+    for (const key in attributes) {
+      // script.setAttribute(key, attributes[key]);
+      script[key] = attributes[key];
+    }
+
     script.src = path;
     script.async = true;
     script.onerror = reject;
