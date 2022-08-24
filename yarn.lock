@@ -1918,8 +1918,8 @@
 
 "@znode/healthcheck@^0.0.3":
   version "0.0.3"
-  resolved "https://registry.nlark.com/@znode/healthcheck/download/@znode/healthcheck-0.0.3.tgz#a72b0026afa836de2a366f80b2a11ffa513dbd83"
-  integrity sha1-pysAJq+oNt4qNm+AsqEf+lE9vYM=
+  resolved "https://registry.yarnpkg.com/@znode/healthcheck/-/healthcheck-0.0.3.tgz#a72b0026afa836de2a366f80b2a11ffa513dbd83"
+  integrity sha512-wA80QP5nCcXTLVBA2m7YIyepA51eiQNqMCoYBlJNkq4SXu0Tc6A1WAiOXovXd3E4xrEWLQ8v+nW2qJH6cqd5Xg==
   dependencies:
     "@zcorky/fz" "^1.2.7"
     icmp "^2.0.1"
@@ -1927,43 +1927,43 @@
 
 "@znode/mail@^0.0.4":
   version "0.0.4"
-  resolved "https://registry.nlark.com/@znode/mail/download/@znode/mail-0.0.4.tgz#3e5806b94c5b2bd6adc85ea920ed4b46129e8bee"
-  integrity sha1-PlgGuUxbK9atyF6pIO1LRhKei+4=
+  resolved "https://registry.yarnpkg.com/@znode/mail/-/mail-0.0.4.tgz#3e5806b94c5b2bd6adc85ea920ed4b46129e8bee"
+  integrity sha512-SJoOcAJzIbMR0fjouwYA71Aia+jvh+9emErFNGHH/HMhuwrJfawzOsea5/oqdpQkkkZ4HHpz5eXhkWxTfOAEEQ==
   dependencies:
     nodemailer "^6.4.17"
 
 "@znode/nobot-dingtalk@^0.0.2":
   version "0.0.2"
-  resolved "https://registry.nlark.com/@znode/nobot-dingtalk/download/@znode/nobot-dingtalk-0.0.2.tgz#3f53db030a46ddf1d3344709254f7b5a79bc3435"
-  integrity sha1-P1PbAwpG3fHTNEcJJU97Wnm8NDU=
+  resolved "https://registry.yarnpkg.com/@znode/nobot-dingtalk/-/nobot-dingtalk-0.0.2.tgz#3f53db030a46ddf1d3344709254f7b5a79bc3435"
+  integrity sha512-zxwqoty2VF7RqFQcKC5Wmk8EO4aI1tvrc4WM/cyR1rNNLv8fb9dRppfMRzSvd6Tgd/NKJv83ognjPtU/NBY9vA==
   dependencies:
     "@zodash/doreamon" "^0.4.62"
 
 "@znode/nobot-feishu@^0.0.2":
   version "0.0.2"
-  resolved "https://registry.nlark.com/@znode/nobot-feishu/download/@znode/nobot-feishu-0.0.2.tgz#0e1e3fbab8aeaccd2e3df380f6f1e70721440fc5"
-  integrity sha1-Dh4/uriurM0uPfOA9vHnByFED8U=
+  resolved "https://registry.yarnpkg.com/@znode/nobot-feishu/-/nobot-feishu-0.0.2.tgz#0e1e3fbab8aeaccd2e3df380f6f1e70721440fc5"
+  integrity sha512-RtVO7INizhgSMhrH+bMlzu1N2/CwcmVYstVIzWwf0FLxyCLnTtP3HmS5vIg4BbF4GEzwX1r6aLrA+YD3RgE1Ng==
   dependencies:
     "@zodash/doreamon" "^0.4.62"
 
 "@znode/nobot-slack@^0.0.2":
   version "0.0.2"
-  resolved "https://registry.nlark.com/@znode/nobot-slack/download/@znode/nobot-slack-0.0.2.tgz#95ef51d0ae13e118ee78ff56e5bcbba7f0068c32"
-  integrity sha1-le9R0K4T4RjueP9W5by7p/AGjDI=
+  resolved "https://registry.yarnpkg.com/@znode/nobot-slack/-/nobot-slack-0.0.2.tgz#95ef51d0ae13e118ee78ff56e5bcbba7f0068c32"
+  integrity sha512-LeqiXCoRBLMCNUFEI/omHqNJTJIGcNxbabFjHSEzzjB0dWpe8q9JchRzKNgAH9H43V2gUw2m1CbPzEFjomQcKw==
   dependencies:
     "@zodash/doreamon" "^0.4.62"
 
 "@znode/nobot-wecom@^0.0.2":
   version "0.0.2"
-  resolved "https://registry.nlark.com/@znode/nobot-wecom/download/@znode/nobot-wecom-0.0.2.tgz#fd6946fc0a0d9586f6298a45a7b6991c6b8ffd5a"
-  integrity sha1-/WlG/AoNlYb2KYpFp7aZHGuP/Vo=
+  resolved "https://registry.yarnpkg.com/@znode/nobot-wecom/-/nobot-wecom-0.0.2.tgz#fd6946fc0a0d9586f6298a45a7b6991c6b8ffd5a"
+  integrity sha512-49ujH9QBunKuaQV0bW2keNMppKHttXDw2gKp/bBQosQDxx0R5CFcrVmnjfLnmu8Ca13qghOE34nGKRY44eAAvA==
   dependencies:
     "@zodash/doreamon" "^0.4.62"
 
 "@znode/nobot@^0.0.2":
   version "0.0.2"
-  resolved "https://registry.nlark.com/@znode/nobot/download/@znode/nobot-0.0.2.tgz#aafdaed1631a10ea3d763396d5f27dd647f1ecc3"
-  integrity sha1-qv2u0WMaEOo9djOW1fJ91kfx7MM=
+  resolved "https://registry.yarnpkg.com/@znode/nobot/-/nobot-0.0.2.tgz#aafdaed1631a10ea3d763396d5f27dd647f1ecc3"
+  integrity sha512-IkYkXQXufCfzCgOy95CvmWKC33icg8oDapBKkob/tDWFi3u8iENCWcCoXxDF7/Z0eiBiYbvmgYsrte7auZCDnQ==
   dependencies:
     "@znode/nobot-dingtalk" "^0.0.2"
     "@znode/nobot-feishu" "^0.0.2"
@@ -1990,9 +1990,9 @@
     "@zodash/sha512" "^0.0.6"
 
 "@znode/websocket@^0.2.8":
-  version "0.2.8"
-  resolved "https://registry.nlark.com/@znode/websocket/download/@znode/websocket-0.2.8.tgz#d04b456d9c839c43176fc6279a8e9f54c2461773"
-  integrity sha1-0EtFbZyDnEMXb8Ynmo6fVMJGF3M=
+  version "0.2.11"
+  resolved "https://registry.yarnpkg.com/@znode/websocket/-/websocket-0.2.11.tgz#61c72e4e0b8b1d904e148630926e04ddf9bdc61b"
+  integrity sha512-uc/RVdC0GdivX/5nIZ60dKP5iNb8wyvXV2BC5F27eCqwA0oXKsCXP6wRJHqQ3kUUKgJWsUh6BbQmSVnmeK/75w==
   dependencies:
     "@types/ws" "^7.4.4"
     "@zodash/uuid" "^0.1.6"
