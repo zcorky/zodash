@@ -1,11 +1,24 @@
+export interface IOptions {
+  integrity?: string;
+  crossorigin?: string;
+  [key: string]: any;
+}
+
 /**
  * dynamic load style
  *
  * @param path style path
  */
-export function loadCss(path: string) {
+export function loadCss(path: string, options?: IOptions) {
+  const attributes = options ?? {};
+
   return new Promise<void>((resolve, reject) => {
     const style = document.createElement('link');
+    for (const key in attributes) {
+      // script.setAttribute(key, attributes[key]);
+      style[key] = attributes[key];
+    }
+
     style.rel = 'stylesheet';
     style.href = path;
     style.onerror = reject;
@@ -50,19 +63,21 @@ export function usingAjax(path: string) {
  * @param path script path
  */
 export function usingFetch(path: string) {
-  return new Promise((resolve, reject) => fetch(path)
-    .then((res) => res.text())
-    .then((styleText) => {
-      const style = document.createElement('style');
-      style.innerText = styleText;
-      style.onerror = reject;
-      // style.onload = () => {
-      //   // style.parentNode.removeChild(style);
-      //   resolve();
-      // };
-      document.head.appendChild(style);
-      setTimeout(resolve, 0);
-    }));
+  return new Promise((resolve, reject) =>
+    fetch(path)
+      .then((res) => res.text())
+      .then((styleText) => {
+        const style = document.createElement('style');
+        style.innerText = styleText;
+        style.onerror = reject;
+        // style.onload = () => {
+        //   // style.parentNode.removeChild(style);
+        //   resolve();
+        // };
+        document.head.appendChild(style);
+        setTimeout(resolve, 0);
+      }),
+  );
 }
 
 export default loadCss;
