@@ -2,6 +2,10 @@ import { Onion, Context, Middleware } from '@zodash/onion';
 import { moment, Moment } from '@zcorky/moment';
 import { format } from '@zodash/format';
 
+// message queue to cache logs
+// default length 1000
+let queue: Input[] = [];
+
 interface Input {
   // enable?: boolean;
   engine?: IEngine;
@@ -29,6 +33,7 @@ export interface IEngine {
 export interface Options {
   console?: boolean;
   nameMinLength?: number;
+  queueMaxLength?: number;
 }
 
 export enum LogLevel {
@@ -156,12 +161,18 @@ export class Logger extends Onion<Input, any, any> implements ILogger {
       const name = !this.options?.nameMinLength
         ? this.name
         : this.name.padEnd(this.options?.nameMinLength);
+      const queueMaxLength = this.options?.queueMaxLength || 1000;
 
       const message = this.getLogMessage(
         input.datetime,
         input.message,
         input.level,
       );
+
+      queue.unshift(input);
+      if (queue.length > queueMaxLength) {
+        queue = queue.slice(0, 1000);
+      }
 
       const isUseDevConsole = Array.isArray(message);
 
@@ -336,6 +347,10 @@ export class Logger extends Onion<Input, any, any> implements ILogger {
       logfile.write(message + '\n');
       logfileAll.write(message + '\n');
     });
+  }
+
+  public async getQueue(): Promise<Input[]> {
+    return queue;
   }
 }
 
