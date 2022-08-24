@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.11](https://github.com/zcorky/zodash/compare/@zodash/map@1.1.10...@zodash/map@1.1.11) (2022-08-24)
+
+**Note:** Version bump only for package @zodash/map
+
+
+
+
+
 ## [1.1.10](https://github.com/zcorky/zodash/compare/@zodash/map@1.1.9...@zodash/map@1.1.10) (2022-08-24)
 
 **Note:** Version bump only for package @zodash/map

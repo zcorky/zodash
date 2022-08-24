@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.1](https://github.com/zcorky/zodash/compare/@zodash/download-file@0.0.5...@zodash/download-file@1.0.1) (2022-08-24)
+
+
+### Bug Fixes
+
+* download use new version ([6ab162e](https://github.com/zcorky/zodash/commit/6ab162ed2e9f7b61a2f71c9cacf9fbfe4a40dd15))
+
+
+
+
+
 ## [0.0.5](https://github.com/zcorky/zodash/compare/@zodash/download-file@0.0.4...@zodash/download-file@0.0.5) (2022-08-24)
 
 **Note:** Version bump only for package @zodash/download-file

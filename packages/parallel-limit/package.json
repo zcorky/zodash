@@ -1,6 +1,6 @@
 {
   "name": "@zodash/parallel-limit",
-  "version": "0.2.18",
+  "version": "0.2.19",
   "description": "Parallel Limit Running Task Function",
   "keywords": [
     "zodash",
@@ -69,12 +69,12 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "@zodash/event": "^0.1.13",
-    "@zodash/next-tick": "^0.1.10",
+    "@zodash/event": "^0.1.14",
+    "@zodash/next-tick": "^0.1.11",
     "@zodash/queue": "^0.1.9"
   },
   "devDependencies": {
-    "@zodash/random": "^1.2.13",
+    "@zodash/random": "^1.2.14",
     "@zodash/repeat": "^0.0.6"
   }
 }

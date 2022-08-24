@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.1](https://github.com/zcorky/zodash/compare/@zodash/load-css@0.1.0...@zodash/load-css@0.1.1) (2022-08-24)
+
+**Note:** Version bump only for package @zodash/load-css
+
+
+
+
+
 # [0.1.0](https://github.com/zcorky/zodash/compare/@zodash/load-css@0.0.8...@zodash/load-css@0.1.0) (2022-08-24)
 
 

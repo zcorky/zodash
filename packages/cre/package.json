@@ -1,6 +1,6 @@
 {
   "name": "@zodash/cre",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Common Regular Expressions",
   "keywords": [
     "zodash",
@@ -67,6 +67,6 @@
   },
   "dependencies": {
     "@zodash/delay": "^0.1.7",
-    "@zodash/timeout": "^0.0.8"
+    "@zodash/timeout": "^0.0.9"
   }
 }

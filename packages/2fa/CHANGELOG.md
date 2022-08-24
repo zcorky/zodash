@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.14](https://github.com/zcorky/zodash/compare/@zodash/2fa@0.0.13...@zodash/2fa@0.0.14) (2022-08-24)
+
+**Note:** Version bump only for package @zodash/2fa
+
+
+
+
+
 ## [0.0.13](https://github.com/zcorky/zodash/compare/@zodash/2fa@0.0.12...@zodash/2fa@0.0.13) (2022-08-24)
 
 **Note:** Version bump only for package @zodash/2fa

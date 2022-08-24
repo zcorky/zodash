@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.10](https://github.com/zcorky/zodash/compare/@zodash/isomorphic-base64@0.0.9...@zodash/isomorphic-base64@0.0.10) (2022-08-24)
+
+**Note:** Version bump only for package @zodash/isomorphic-base64
+
+
+
+
+
 ## [0.0.9](https://github.com/zcorky/zodash/compare/@zodash/isomorphic-base64@0.0.8...@zodash/isomorphic-base64@0.0.9) (2022-08-24)
 
 **Note:** Version bump only for package @zodash/isomorphic-base64

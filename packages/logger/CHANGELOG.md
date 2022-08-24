@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/zcorky/zodash/compare/@zodash/logger@0.2.33...@zodash/logger@0.3.0) (2022-08-24)
+
+
+### Features
+
+* **logger:** add queue ([be73bd8](https://github.com/zcorky/zodash/commit/be73bd82431ef2164bf064603c4cd48c3fb4cef9))
+* **logger:** add queue ([c7d36bb](https://github.com/zcorky/zodash/commit/c7d36bb9dca3ad145bf07dc093b008604c5dff3b))
+
+
+
+
+
 ## [0.2.33](https://github.com/zcorky/zodash/compare/@zodash/logger@0.2.32...@zodash/logger@0.2.33) (2022-08-24)
 
 **Note:** Version bump only for package @zodash/logger

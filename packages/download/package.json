@@ -1,6 +1,6 @@
 {
   "name": "@zodash/download-file",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Download File in Browser",
   "keywords": [
     "zodash",
@@ -67,6 +67,6 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "@zodash/save-as": "^0.0.4"
+    "@zodash/save-as": "^0.0.5"
   }
 }

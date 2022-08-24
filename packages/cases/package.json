@@ -1,6 +1,6 @@
 {
   "name": "@zodash/cases",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Case styles - Camel, Pascal, Snake, and Kebab",
   "keywords": [
     "zodash",

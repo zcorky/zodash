@@ -1,6 +1,6 @@
 {
   "name": "@zodash/sha512",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "Simple sha512 algorithm",
   "keywords": [
     "zodash",
