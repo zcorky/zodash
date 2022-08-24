@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.10](https://github.com/zcorky/zodash/compare/@zodash/routes-builder@0.2.9...@zodash/routes-builder@0.2.10) (2022-08-24)
+
+**Note:** Version bump only for package @zodash/routes-builder
+
+
+
+
+
 ## [0.2.9](https://github.com/zcorky/zodash/compare/@zodash/routes-builder@0.2.8...@zodash/routes-builder@0.2.9) (2022-06-29)
 
 

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.7](https://github.com/zcorky/zodash/compare/@zodash/pipeline@0.0.6...@zodash/pipeline@0.0.7) (2022-08-24)
+
+**Note:** Version bump only for package @zodash/pipeline
+
+
+
+
+
 ## [0.0.6](https://github.com/zcorky/zodash/compare/@zodash/pipeline@0.0.5...@zodash/pipeline@0.0.6) (2022-04-04)
 
 **Note:** Version bump only for package @zodash/pipeline

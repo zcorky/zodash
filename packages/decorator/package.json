@@ -1,6 +1,6 @@
 {
   "name": "@zodash/decorator",
-  "version": "0.2.14",
+  "version": "0.2.15",
   "description": "a collection of common decorators",
   "keywords": [
     "zodash",
@@ -67,7 +67,7 @@
   },
   "dependencies": {
     "@zcorky/lru": "^1.0.3",
-    "@zodash/get": "^1.2.5"
+    "@zodash/get": "^1.2.6"
   },
   "devDependencies": {
     "@zodash/delay": "^0.1.7"

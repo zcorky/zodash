@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.15](https://github.com/zcorky/zodash/compare/@zodash/time-ago@0.0.14...@zodash/time-ago@0.0.15) (2022-08-24)
+
+**Note:** Version bump only for package @zodash/time-ago
+
+
+
+
+
 ## [0.0.14](https://github.com/zcorky/zodash/compare/@zodash/time-ago@0.0.13...@zodash/time-ago@0.0.14) (2022-07-22)
 
 **Note:** Version bump only for package @zodash/time-ago
