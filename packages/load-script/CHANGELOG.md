@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.1](https://github.com/zcorky/zodash/compare/@zodash/load-script@0.2.1...@zodash/load-script@1.0.1) (2022-08-25)
+
+
+### Bug Fixes
+
+* update load-script version cause who used it to upgrade ([9ebca18](https://github.com/zcorky/zodash/commit/9ebca184531a5df6f217da9e2bd15b92eb0f6fa8))
+
+
+
+
+
 ## [0.2.1](https://github.com/zcorky/zodash/compare/@zodash/load-script@0.2.0...@zodash/load-script@0.2.1) (2022-08-24)
 
 **Note:** Version bump only for package @zodash/load-script

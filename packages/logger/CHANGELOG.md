@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.1](https://github.com/zcorky/zodash/compare/@zodash/logger@0.3.0...@zodash/logger@1.0.1) (2022-08-25)
+
+
+### Bug Fixes
+
+* update logger version cause who used it to upgrade ([b0ec599](https://github.com/zcorky/zodash/commit/b0ec5996e134d6f3d36be76dbcc37ab28c469fdd))
+
+
+
+
+
 # [0.3.0](https://github.com/zcorky/zodash/compare/@zodash/logger@0.2.33...@zodash/logger@0.3.0) (2022-08-24)
 
 

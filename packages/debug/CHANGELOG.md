@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.33](https://github.com/zcorky/zodash/compare/@zodash/debug@0.0.32...@zodash/debug@0.0.33) (2022-08-25)
+
+
+### Bug Fixes
+
+* update invalid version ([d90a9ce](https://github.com/zcorky/zodash/commit/d90a9ce507f14e4de10a506ba36231d7f4956b69))
+
+
+
+
+
 ## [0.0.32](https://github.com/zcorky/zodash/compare/@zodash/debug@0.0.31...@zodash/debug@0.0.32) (2022-08-24)
 
 **Note:** Version bump only for package @zodash/debug
