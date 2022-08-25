@@ -73,6 +73,6 @@
     "@zodash/get": "^1.2.7"
   },
   "dependencies": {
-    "@zodash/format": "^1.3.3"
+    "@zodash/format": "^1.3.4"
   }
 }

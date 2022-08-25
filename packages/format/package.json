@@ -1,6 +1,6 @@
 {
   "name": "@zodash/format",
-  "version": "1.3.3",
+  "version": "1.3.4",
   "description": "format string with object values",
   "keywords": [
     "format",
@@ -67,9 +67,6 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "gitHead": "ef2443b120c1e4ebb64bbfec77d7437310bae623",
-  "devDependencies": {
-    "@zodash/get": "^1.1.3"
-  },
   "dependencies": {
     "@zodash/get": "^1.2.7"
   }
