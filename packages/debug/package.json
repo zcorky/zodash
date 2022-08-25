@@ -67,6 +67,6 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "@zodash/logger": "^0.3.0"
+    "@zodash/logger": "^0.2.32"
   }
 }

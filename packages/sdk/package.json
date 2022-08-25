@@ -68,7 +68,7 @@
   "dependencies": {
     "@zodash/cache": "^0.0.6",
     "@zodash/emitter": "^0.0.13",
-    "@zodash/logger": "^0.3.0",
+    "@zodash/logger": "^0.2.32",
     "@zodash/memoize": "^1.1.7",
     "@zodash/storage": "^0.0.4",
     "axios": "^0.21.0"
