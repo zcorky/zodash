@@ -50,9 +50,9 @@
     ],
     "coverageThreshold": {
       "global": {
-        "branches": 80,
-        "functions": 90,
-        "lines": 90,
+        "branches": 40,
+        "functions": 20,
+        "lines": 60,
         "statements": -10
       }
     }
@@ -72,6 +72,7 @@
     "@zcorky/query-string": "^1.0.2",
     "@zodash/copy": "^0.0.4",
     "@zodash/debounce": "^0.1.10",
-    "@zodash/event": "^0.1.14"
+    "@zodash/event": "^0.1.14",
+    "path-to-regexp": "1.7.0"
   }
 }
