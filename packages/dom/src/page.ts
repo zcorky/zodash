@@ -1,35 +1,35 @@
 import { Unsubscibe } from './types';
 
 export function onPageShow(cb: Function): Unsubscibe {
-  const handler = () => {
-    if (document.visibilityState === 'visible') {
-      return cb && cb();
+  return onVisibleChange((visible) => {
+    if (!!visible) {
+      return cb?.();
     }
-  };
-
-  document.addEventListener('visibilitychange', handler);
-
-  return () => {
-    document.removeEventListener('visibilitychange', handler);
-  };
+  });
 }
 
 export function onPageHide(cb: Function): Unsubscibe {
-  const handler = () => {
-    if (document.visibilityState === 'hidden') {
-      return cb && cb();
+  return onVisibleChange((visible) => {
+    if (!visible) {
+      return cb?.();
     }
-  };
-
-  document.addEventListener('visibilitychange', handler);
-
-  return () => {
-    document.removeEventListener('visibilitychange', handler);
-  };
+  });
 }
 
 export function isPageVisible(): boolean {
   return document.visibilityState === 'visible' || !document.hidden;
+}
+
+export function onVisibleChange(callback: (visible: boolean) => void) {
+  const handler = () => {
+    callback?.(isPageVisible());
+  };
+
+  document.addEventListener('visibilitychange', handler);
+
+  return () => {
+    document.removeEventListener('visibilitychange', handler);
+  };
 }
 
 // alias
