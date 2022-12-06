@@ -1,6 +1,6 @@
 {
   "name": "@zodash/logger",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "simple logger model",
   "keywords": [
     "zodash",
