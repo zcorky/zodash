@@ -51,6 +51,16 @@ export enum LogLevel {
   debug = 'debug',
 }
 
+const LogLevelWeight = {
+  debug: 0,
+  info: 1,
+  warn: 2,
+  error: 3,
+  fatal: 4,
+  //
+  log: 1,
+};
+
 // we support pattern
 //  %s
 //  {VAR}
@@ -110,6 +120,7 @@ export class Logger extends Onion<Input, any, any> implements ILogger {
   private logDir = null; // '/tmp/zodash.log';
   private logDate = moment().format('YYYY-MM-DD');
   private logFiles: Record<string, string> = {};
+  private level = 'info';
 
   constructor(
     private readonly name: string,
@@ -179,6 +190,13 @@ export class Logger extends Onion<Input, any, any> implements ILogger {
       queue.unshift(input);
       if (queue.length > queueMaxLength) {
         queue = queue.slice(0, 1000);
+      }
+
+      // info(1) > debug(0) => hide
+      // error(3) > info(1) => hide
+      // info(1) < error(3) => show
+      if (LogLevelWeight[this.level] > LogLevelWeight[input.level]) {
+        return;
       }
 
       const isUseDevConsole = Array.isArray(message);
@@ -354,6 +372,12 @@ export class Logger extends Onion<Input, any, any> implements ILogger {
       logfile.write(message + '\n');
       logfileAll.write(message + '\n');
     });
+  }
+
+  public setLogLevel(level: 'info' | 'debug' | 'warn' | 'error') {
+    if (level) {
+      this.level = level.toLowerCase();
+    }
   }
 
   public async getQueue(): Promise<Input[]> {
