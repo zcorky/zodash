@@ -1,6 +1,6 @@
 {
   "name": "@zodash/is-mobile",
-  "version": "0.0.7",
+  "version": "0.1.0",
   "description": "Check browser is Dark Mode",
   "keywords": [
     "zodash",

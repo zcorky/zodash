@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0 (2023-01-29)
+
+
+### Features
+
+* add is-dark-mode ([ce13a28](https://github.com/zcorky/zodash/commit/ce13a2878bf66200aeaa9667102c88f87d6af530))
+
+
+
+
+
 ## [0.0.7](https://github.com/zcorky/zodash/compare/@zodash/is-up@0.0.6...@zodash/is-up@0.0.7) (2021-09-22)
 
 **Note:** Version bump only for package @zodash/is-up
