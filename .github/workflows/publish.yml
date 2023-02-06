@@ -64,11 +64,11 @@ jobs:
         with:
           fetch-depth: '0'
 
-      - name: Fix Git Permissions
-        run: git config --global --add safe.directory $PWD
+      # - name: Fix Git Permissions
+      #   run: git config --global --add safe.directory $PWD
 
-      - name: Config gitß
-        run: zmicro config git Zero tobewhatwewant@outlook.com
+      # - name: Config git
+      #   run: zmicro config git Zero tobewhatwewant@outlook.com
 
       - name: Get ENV
         run: |
