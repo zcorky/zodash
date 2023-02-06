@@ -89,11 +89,12 @@ jobs:
       #    token: '${{ secrets.GITHUB_TOKEN }}'
 
       # Runs a single command using the runners shell
-      #- name: Use Node.js
-      #  uses: actions/setup-node@v1
-      #  with:
-      #    node-version: 14.x
-      #    registry-url: https://registry.npmjs.org
+      - name: Use Node.js
+        # uses: actions/setup-node@v1
+        uses: zmicro-design/action-setup-node@v1
+        with:
+          node-version: 14.x
+          registry-url: https://registry.npmjs.org
 
       - name: Cache node_modules
         uses: actions/cache@v2
