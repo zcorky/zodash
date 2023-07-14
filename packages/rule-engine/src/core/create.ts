@@ -69,8 +69,9 @@ export function create<DataSource>(
             scaledValue === rule.value
           ) {
             await go(rule.children);
-            // checkbox, may be oneof
-          } else if (
+          }
+          // checkbox, may be oneof
+          else if (
             Array.isArray(rule.value) &&
             rule.value.includes(scaledValue)
           ) {
