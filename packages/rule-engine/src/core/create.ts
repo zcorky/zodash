@@ -9,7 +9,8 @@ import {
 
 import { create as createSync } from './sync';
 
-const DEFAULT_ON_SCALE_TO: IOnScaleTo<any> = (dataSource, name) => dataSource[name];
+const DEFAULT_ON_SCALE_TO: IOnScaleTo<any> = (dataSource, name) =>
+  dataSource[name];
 
 const DEFAULT_ON_HIT_ATTR: IOnHitAttr<any> = () => null;
 
@@ -56,15 +57,22 @@ export function create<DataSource>(
           // @2 value compare
           const sacleTo: IOnScaleTo<DataSource> = getOnScaleTo();
 
-          const scaledValue = await sacleTo(dataSource, attrNodeOfValue.value);
+          const scaledValue = await sacleTo(
+            dataSource,
+            attrNodeOfValue.value,
+          );
 
-          // radio, must be equal
-          if (typeof rule.value === 'string' && scaledValue === rule.value) {
+          // radio/switch/select, must be equal
+          const valueType = typeof rule.value;
+          if (
+            ['string', 'number', 'boolean'].includes(valueType) &&
+            scaledValue === rule.value
+          ) {
             await go(rule.children);
             // checkbox, may be oneof
           } else if (
-            Array.isArray(rule.value)
-            && rule.value.includes(scaledValue)
+            Array.isArray(rule.value) &&
+            rule.value.includes(scaledValue)
           ) {
             await go(rule.children);
           }

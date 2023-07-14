@@ -45,13 +45,18 @@ export interface IRuleValueNode<DataSource> {
    *
    * 值，单选时是一个值（必须相等），多选是是多个值（满足其中一个即可）
    */
-  value: string | string[];
+  value: IRuleValueNodeValue | IRuleValueNodeValue[];
 
   /**
    * Value Children must be Attribute Node, means the next attributes
    */
   children: IRuleAttrNode<DataSource>[];
 }
+
+/**
+ * Value Node Value
+ */
+export type IRuleValueNodeValue = string | number | boolean;
 
 /**
  * Rule Node
@@ -85,7 +90,7 @@ export type IShowData<DataSource extends Record<string, any>> = {
  */
 export type IOnScaleTo<DataSource> = (
   dataSource: Partial<DataSource>,
-  attributeName: string
+  attributeName: string,
 ) => string;
 
 /**
@@ -96,7 +101,7 @@ export type IOnScaleTo<DataSource> = (
  */
 export type IOnHitAttr<DataSource> = (
   attributeName: string,
-  dataSource: DataSource
+  dataSource: DataSource,
 ) => void;
 
 /**

@@ -7,7 +7,8 @@ import {
   Options,
 } from './types';
 
-const DEFAULT_ON_SCALE_TO: IOnScaleTo<any> = (dataSource, name) => dataSource[name];
+const DEFAULT_ON_SCALE_TO: IOnScaleTo<any> = (dataSource, name) =>
+  dataSource[name];
 
 const DEFAULT_ON_HIT_ATTR: IOnHitAttr<any> = () => null;
 
@@ -56,13 +57,17 @@ export function create<DataSource>(
 
           const scaledValue = sacleTo(dataSource, attrNodeOfValue.value);
 
-          // radio, must be equal
-          if (typeof rule.value === 'string' && scaledValue === rule.value) {
+          // radio/switch/select, must be equal
+          const valueType = typeof rule.value;
+          if (
+            ['string', 'number', 'boolean'].includes(valueType) &&
+            scaledValue === rule.value
+          ) {
             go(rule.children);
             // checkbox, may be oneof
           } else if (
-            Array.isArray(rule.value)
-            && rule.value.includes(scaledValue)
+            Array.isArray(rule.value) &&
+            rule.value.includes(scaledValue)
           ) {
             go(rule.children);
           }
