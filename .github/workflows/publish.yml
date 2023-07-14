@@ -6,10 +6,10 @@ on:
   push:
     branches:
       - master
-  schedule:
-    # every monday
-    # more: https://crontab.guru/examples.html
-    - cron: '0 1 * * 1'
+  # schedule:
+  #   # every monday
+  #   # more: https://crontab.guru/examples.html
+  #   - cron: '0 1 * * 1'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
