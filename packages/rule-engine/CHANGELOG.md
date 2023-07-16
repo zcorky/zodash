@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.9](https://github.com/zcorky/zodash/compare/@zodash/rule-engine@0.4.8...@zodash/rule-engine@0.4.9) (2023-07-16)
+
+
+### Bug Fixes
+
+* **rule-engine:** value node value support string | number | boolean ([3f61d73](https://github.com/zcorky/zodash/commit/3f61d73703af5006096c4383c43b88e10c567f73))
+
+
+
+
+
 ## [0.4.8](https://github.com/zcorky/zodash/compare/@zodash/rule-engine@0.4.7...@zodash/rule-engine@0.4.8) (2021-09-22)
 
 **Note:** Version bump only for package @zodash/rule-engine
