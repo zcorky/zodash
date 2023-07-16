@@ -5,7 +5,7 @@ describe('@zodash/websocket', () => {
     expect(
       await Promise.all([
         healthcheck.http('https://example.com'),
-        healthcheck.http('https://examplex.com'),
+        healthcheck.http('https://examplexxx.com'),
       ]),
     ).toEqual([true, false]);
   });
