@@ -67,6 +67,6 @@
     "url": "https://github.com/zcorky/zodash/issues"
   },
   "dependencies": {
-    "@zodash/load-script": "^0.2.1"
+    "@zodash/load-script": "^1.0.2"
   }
 }
