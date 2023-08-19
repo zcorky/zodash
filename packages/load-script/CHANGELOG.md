@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.2](https://github.com/zcorky/zodash/compare/@zodash/load-script@1.0.1...@zodash/load-script@1.0.2) (2023-08-19)
+
+
+### Bug Fixes
+
+* **load-script:** script need setAttribute attribue => umima setAttribute('data-website-id', 'xxxxxx') ([660bb24](https://github.com/zcorky/zodash/commit/660bb248f24c3ec0b68a67263a4fda60642ddc25))
+
+
+
+
+
 ## [1.0.1](https://github.com/zcorky/zodash/compare/@zodash/load-script@0.2.1...@zodash/load-script@1.0.1) (2022-08-25)
 
 
