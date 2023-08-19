@@ -26,8 +26,9 @@ export function loadScript(path: string, options?: IOptions) {
 
     const script = document.createElement('script');
     for (const key in attributes) {
-      // script.setAttribute(key, attributes[key]);
+      // stackoverflow: https://stackoverflow.com/questions/22151560/what-is-happening-behind-setattribute-vs-attribute
       script[key] = attributes[key];
+      script.setAttribute(key, attributes[key]);
     }
 
     script.src = path;
