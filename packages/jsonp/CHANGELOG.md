@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.17](https://github.com/zcorky/zodash/compare/@zodash/jsonp@0.0.16...@zodash/jsonp@0.0.17) (2023-08-20)
+
+
+### Bug Fixes
+
+* **jsonp:** callbackName ([50340b5](https://github.com/zcorky/zodash/commit/50340b567d5f9a9af3d5581108b488d610394523))
+
+
+
+
+
 ## [0.0.16](https://github.com/zcorky/zodash/compare/@zodash/jsonp@0.0.15...@zodash/jsonp@0.0.16) (2023-08-20)
 
 **Note:** Version bump only for package @zodash/jsonp
