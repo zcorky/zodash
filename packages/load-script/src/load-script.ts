@@ -7,8 +7,13 @@ export interface IOptions {
   enableCache?: boolean;
   //
   integrity?: string;
-  crossorigin?: string;
-  [key: string]: any;
+  //
+  crossorigin?: 'anonymous' | 'use-credentials';
+  //
+  charset?: string;
+  // MIME type of the script, Default: 'text/javascript'
+  type?: string;
+  // [key: string]: any;
 }
 
 /**
@@ -27,8 +32,8 @@ export function loadScript(path: string, options?: IOptions) {
     const script = document.createElement('script');
     for (const key in attributes) {
       // stackoverflow: https://stackoverflow.com/questions/22151560/what-is-happening-behind-setattribute-vs-attribute
-      script[key] = attributes[key];
       script.setAttribute(key, attributes[key]);
+      script[key] = attributes[key];
     }
 
     script.src = path;
