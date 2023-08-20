@@ -43,7 +43,7 @@ export async function jsonp<D = any>(
       // @S1 prepare callback
       const callbackName =
         options?.callbackName ||
-        `_zodash_jsonp_callvack_${uuid().replace(/_/g, '_')}`;
+        `_zodash_jsonp_callvack_${uuid().replace(/-/g, '_')}`;
       const callbackFn = (data: D) => {
         // clear callback
         delete window[callbackName];
