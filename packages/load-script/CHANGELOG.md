@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.3](https://github.com/zcorky/zodash/compare/@zodash/load-script@1.0.2...@zodash/load-script@1.0.3) (2023-08-20)
+
+
+### Bug Fixes
+
+* **load-script:** script object value and attribute ([4ddb1ab](https://github.com/zcorky/zodash/commit/4ddb1abb2ab531f3952445606c59b1aad0fb725d))
+
+
+
+
+
 ## [1.0.2](https://github.com/zcorky/zodash/compare/@zodash/load-script@1.0.1...@zodash/load-script@1.0.2) (2023-08-19)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@zodash/load-script",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Dynamic load script",
   "keywords": [
     "lodash",
