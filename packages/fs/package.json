@@ -1,6 +1,6 @@
 {
   "name": "@zodash/fs",
-  "version": "0.0.22",
+  "version": "0.0.23",
   "description": "File Utils In Browser, loadJS / loadCSS / download",
   "keywords": [
     "zodash",
@@ -70,7 +70,7 @@
   },
   "dependencies": {
     "@zodash/down_load": "^0.0.1",
-    "@zodash/jsonp": "^0.0.16",
+    "@zodash/jsonp": "^0.0.17",
     "@zodash/load-css": "^0.1.1",
     "@zodash/load-image": "^0.0.8",
     "@zodash/load-js": "^0.2.16",
