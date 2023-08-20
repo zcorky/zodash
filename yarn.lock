@@ -2111,13 +2111,6 @@
   resolved "https://registry.yarnpkg.com/@zodash/load-image/-/load-image-0.0.5.tgz#d2148cdf59bd2964598cde8f3d8c955ba2e133b4"
   integrity sha512-R53LNZ5jz6ppK093fdAIp4FGoRMamGZnHKIcF45Qwyq8mOb848YjlwQGTpP8rmZZ3hQVkUu29DVEH+sysQRzBw==
 
-"@zodash/load-script@^0.2.1":
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/@zodash/load-script/-/load-script-0.2.1.tgz#eef260835bc51db40a33373485f1f12b6ca117fb"
-  integrity sha512-J2LS0T/GYaRRSc2cndbBPpOYuCtRab2F6YQ29eJQPoedQgb9E2AbcUhAr82mktZm5NeSu+bBTSc0vC/cTvTdYQ==
-  dependencies:
-    "@zodash/cache" "^0.0.6"
-
 "@zodash/logger@^0.2.24", "@zodash/logger@^0.2.32":
   version "0.2.32"
   resolved "https://registry.yarnpkg.com/@zodash/logger/-/logger-0.2.32.tgz#af44570646c0133dd80f01a7a3bfa79814d83fcc"
