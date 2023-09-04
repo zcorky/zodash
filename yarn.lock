@@ -2028,6 +2028,18 @@
   dependencies:
     "@zodash/logger" "^0.2.24"
 
+"@zodash/dom@^0.1.10", "@zodash/dom@^0.1.20":
+  version "0.1.20"
+  resolved "https://registry.npmmirror.com/@zodash/dom/-/dom-0.1.20.tgz#8b9e0731aee864ce523f76a04b09a19397ea90b6"
+  integrity sha512-N5ZkbaDOT7MlJsfBIsYw+csI9j2A0TLI5s22fZtsllqYQNuuBEvLVF2QFDc5VR0k/4AhWG+Bta2ZJJEjGrpssw==
+  dependencies:
+    "@zcorky/moment" "^1.2.3"
+    "@zcorky/query-string" "^1.0.2"
+    "@zodash/copy" "^0.0.4"
+    "@zodash/debounce" "^0.1.10"
+    "@zodash/event" "^0.1.14"
+    path-to-regexp "1.7.0"
+
 "@zodash/doreamon@^0.4.62":
   version "0.4.66"
   resolved "https://registry.npmjs.org/@zodash/doreamon/-/doreamon-0.4.66.tgz#603c90126146d07dc448d91dab92551b2bb6cb51"
