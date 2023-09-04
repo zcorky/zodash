@@ -5,8 +5,15 @@ export function getUrl(): string {
   return window.location.href;
 }
 
-export function getQuery(): Record<string, string> {
-  return qs.parse(window.location.search);
+export function getQuery(key: string): string;
+export function getQuery(): Record<string, string>;
+export function getQuery(key?: any): any {
+  const object = qs.parse(window.location.search);
+  if (key) {
+    return object[key];
+  }
+
+  return object;
 }
 
 export function getLocation() {
