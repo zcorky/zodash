@@ -166,4 +166,59 @@ describe('@zodash/rule-engine', () => {
       description: true,
     });
   });
+
+  it('if key not in rules, should be always true', () => {
+    const rules: IRuleNode[] = [
+      {
+        type: 'Attr',
+        value: 'method',
+        children: [
+          {
+            type: 'Value',
+            value: 1,
+            children: [
+              {
+                type: 'Attr',
+                value: 'chat_id',
+              },
+            ],
+          },
+        ],
+      },
+    ];
+
+    const runner = engine.create.sync(rules);
+
+    expect(
+      runner.run({
+        client: 1,
+        method: 1,
+        email: 'tobewhatwewant@gmail.com',
+        chat_id: '666',
+        is_group: false,
+      }),
+    ).toEqual({
+      client: true,
+      method: true,
+      email: true,
+      chat_id: true,
+      is_group: true,
+    });
+
+    expect(
+      runner.run({
+        client: 1,
+        method: 2,
+        email: 'tobewhatwewant@gmail.com',
+        chat_id: '666',
+        is_group: false,
+      }),
+    ).toEqual({
+      client: true,
+      method: true,
+      email: true,
+      chat_id: false,
+      is_group: true,
+    });
+  });
 });

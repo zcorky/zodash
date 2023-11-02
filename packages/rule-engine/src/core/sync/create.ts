@@ -21,12 +21,42 @@ export function create<DataSource>(
 
   // real runner
   function run(dataSource: Partial<DataSource>) {
-    const shows: IShowData<DataSource> = Object.keys(dataSource).reduce(
-      (all, key) => ((all[key] = false), all),
-      {} as any,
-    );
+    let shows: IShowData<DataSource> = {} as any;
+
+    const allRuleKeys: Record<string, boolean> = {};
 
     let attrNodeOfValue: IRuleAttrNode<DataSource> = null;
+
+    function traverse(rules: IRuleNode<DataSource>[]) {
+      for (const rule of rules) {
+        if (rule.type === 'Attr') {
+          allRuleKeys[rule.value] = true;
+
+          if (rule.children && !!rule.children.length) {
+            traverse(rule.children);
+          }
+        } else if (rule.type === 'Value') {
+          if (rule.children && !!rule.children.length) {
+            traverse(rule.children);
+          }
+        }
+      }
+    }
+
+    function initializeShows() {
+      traverse(rules);
+
+      shows = Object.keys(dataSource).reduce((all, key) => {
+        // 所有未参与的 key 都应该是 true
+        if (!allRuleKeys[key]) {
+          all[key] = true;
+        } else {
+          all[key] = false;
+        }
+
+        return all;
+      }, {} as any);
+    }
 
     function go(_rules: IRuleNode<DataSource>[]) {
       for (const rule of _rules) {
@@ -86,6 +116,8 @@ export function create<DataSource>(
       return node.onHitAttr || defaultOnHitAttr;
     }
 
+    //
+    initializeShows();
     go(rules);
 
     return shows;
