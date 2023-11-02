@@ -21,6 +21,8 @@ export function create<DataSource>(
 
   // real runner
   function run(dataSource: Partial<DataSource>) {
+    const dataSourceKeys = options?.dataSourceKeys || Object.keys(dataSource);
+
     let shows: IShowData<DataSource> = {} as any;
 
     const allRuleKeys: Record<string, boolean> = {};
@@ -46,7 +48,7 @@ export function create<DataSource>(
     function initializeShows() {
       traverse(rules);
 
-      shows = Object.keys(dataSource).reduce((all, key) => {
+      shows = dataSourceKeys.reduce((all, key) => {
         // 所有未参与的 key 都应该是 true
         if (!allRuleKeys[key]) {
           all[key] = true;

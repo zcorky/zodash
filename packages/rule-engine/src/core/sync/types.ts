@@ -110,4 +110,6 @@ export type IOnHitAttr<DataSource> = (
 export interface Options<DataSource> {
   defaultOnScaleTo?: IOnScaleTo<DataSource>;
   defaultOnHitAttr?: IOnHitAttr<DataSource>;
+  //
+  dataSourceKeys?: string[];
 }
