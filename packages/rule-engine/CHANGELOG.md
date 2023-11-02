@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.10](https://github.com/zcorky/zodash/compare/@zodash/rule-engine@0.4.9...@zodash/rule-engine@0.4.10) (2023-11-02)
+
+
+### Bug Fixes
+
+* **rule-engine:** support allow not involve attributes should be true ([41b647d](https://github.com/zcorky/zodash/commit/41b647d5ae8fb23eb86aff72a0af53ae38ac4646))
+
+
+
+
+
 ## [0.4.9](https://github.com/zcorky/zodash/compare/@zodash/rule-engine@0.4.8...@zodash/rule-engine@0.4.9) (2023-07-16)
 
 
